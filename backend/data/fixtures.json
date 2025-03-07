@@ -1,0 +1,212 @@
+[
+  {
+    "id": "pl-nottm-forest-man-city-20250308",
+    "competition": "Premier League",
+    "home_team": "Nottm Forest",
+    "away_team": "Man City",
+    "date": "2025-03-08",
+    "time": "12:30",
+    "venue": "City Ground",
+    "home_form": "WDLWD",
+    "away_form": "WWWDW",
+    "odds": {
+      "home_win": 5.5,
+      "draw": 4.0,
+      "away_win": 1.5,
+      "asian_handicap": {
+        "line": "+1.5",
+        "home": 1.85,
+        "away": 1.95
+      }
+    }
+  },
+  {
+    "id": "pl-brighton-fulham-20250308",
+    "competition": "Premier League",
+    "home_team": "Brighton",
+    "away_team": "Fulham",
+    "date": "2025-03-08",
+    "time": "15:00",
+    "venue": "Amex Stadium",
+    "home_form": "WDLWL",
+    "away_form": "LDWDW",
+    "odds": {
+      "home_win": 2.1,
+      "draw": 3.4,
+      "away_win": 3.5,
+      "asian_handicap": {
+        "line": "-0.5",
+        "home": 1.9,
+        "away": 1.9
+      }
+    }
+  },
+  {
+    "id": "pl-crystal-palace-ipswich-20250308",
+    "competition": "Premier League",
+    "home_team": "Crystal Palace",
+    "away_team": "Ipswich",
+    "date": "2025-03-08",
+    "time": "15:00",
+    "venue": "Selhurst Park",
+    "home_form": "WDLWW",
+    "away_form": "LLDWD",
+    "odds": {
+      "home_win": 1.8,
+      "draw": 3.5,
+      "away_win": 4.5,
+      "asian_handicap": {
+        "line": "-1.0",
+        "home": 1.95,
+        "away": 1.85
+      }
+    }
+  },
+  {
+    "id": "pl-liverpool-southampton-20250308",
+    "competition": "Premier League",
+    "home_team": "Liverpool",
+    "away_team": "Southampton",
+    "date": "2025-03-08",
+    "time": "15:00",
+    "venue": "Anfield",
+    "home_form": "WWWDW",
+    "away_form": "LLDWD",
+    "odds": {
+      "home_win": 1.3,
+      "draw": 5.0,
+      "away_win": 9.0,
+      "asian_handicap": {
+        "line": "-2.0",
+        "home": 1.9,
+        "away": 1.9
+      }
+    }
+  },
+  {
+    "id": "pl-brentford-aston-villa-20250308",
+    "competition": "Premier League",
+    "home_team": "Brentford",
+    "away_team": "Aston Villa",
+    "date": "2025-03-08",
+    "time": "17:30",
+    "venue": "Brentford Community Stadium",
+    "home_form": "WDLDW",
+    "away_form": "WWWDL",
+    "odds": {
+      "home_win": 2.7,
+      "draw": 3.3,
+      "away_win": 2.5,
+      "asian_handicap": {
+        "line": "+0.25",
+        "home": 1.85,
+        "away": 1.95
+      }
+    }
+  },
+  {
+    "id": "pl-wolves-everton-20250308",
+    "competition": "Premier League",
+    "home_team": "Wolves",
+    "away_team": "Everton",
+    "date": "2025-03-08",
+    "time": "20:00",
+    "venue": "Molineux Stadium",
+    "home_form": "LDWLW",
+    "away_form": "WDLWD",
+    "odds": {
+      "home_win": 2.2,
+      "draw": 3.3,
+      "away_win": 3.3,
+      "asian_handicap": {
+        "line": "-0.25",
+        "home": 1.9,
+        "away": 1.9
+      }
+    }
+  },
+  {
+    "id": "pl-chelsea-leicester-20250309",
+    "competition": "Premier League",
+    "home_team": "Chelsea",
+    "away_team": "Leicester",
+    "date": "2025-03-09",
+    "time": "14:00",
+    "venue": "Stamford Bridge",
+    "home_form": "WWDLW",
+    "away_form": "LDWDL",
+    "odds": {
+      "home_win": 1.6,
+      "draw": 3.8,
+      "away_win": 5.5,
+      "asian_handicap": {
+        "line": "-1.25",
+        "home": 1.9,
+        "away": 1.9
+      }
+    }
+  },
+  {
+    "id": "pl-tottenham-bournemouth-20250309",
+    "competition": "Premier League",
+    "home_team": "Tottenham",
+    "away_team": "Bournemouth",
+    "date": "2025-03-09",
+    "time": "14:00",
+    "venue": "Tottenham Hotspur Stadium",
+    "home_form": "WDWLW",
+    "away_form": "LDWDW",
+    "odds": {
+      "home_win": 1.7,
+      "draw": 3.8,
+      "away_win": 4.5,
+      "asian_handicap": {
+        "line": "-1.0",
+        "home": 1.85,
+        "away": 1.95
+      }
+    }
+  },
+  {
+    "id": "pl-man-utd-arsenal-20250309",
+    "competition": "Premier League",
+    "home_team": "Man Utd",
+    "away_team": "Arsenal",
+    "date": "2025-03-09",
+    "time": "16:30",
+    "venue": "Old Trafford",
+    "home_form": "WDLWD",
+    "away_form": "WWWDL",
+    "odds": {
+      "home_win": 3.0,
+      "draw": 3.4,
+      "away_win": 2.3,
+      "asian_handicap": {
+        "line": "+0.5",
+        "home": 1.9,
+        "away": 1.9
+      }
+    }
+  },
+  {
+    "id": "pl-west-ham-newcastle-20250310",
+    "competition": "Premier League",
+    "home_team": "West Ham",
+    "away_team": "Newcastle",
+    "date": "2025-03-10",
+    "time": "20:00",
+    "venue": "London Stadium",
+    "home_form": "LDWLW",
+    "away_form": "WDWLD",
+    "odds": {
+      "home_win": 2.5,
+      "draw": 3.3,
+      "away_win": 2.8,
+      "asian_handicap": {
+        "line": "0",
+        "home": 1.9,
+        "away": 1.9
+      }
+    }
+  }
+]
