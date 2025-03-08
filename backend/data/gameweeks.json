@@ -1,0 +1,86 @@
+[
+  {
+    "id": "28",
+    "number": 28,
+    "start_date": "2025-03-08",
+    "end_date": "2025-03-10",
+    "is_current": true,
+    "fixtures": [
+      {
+        "home_team": "Liverpool",
+        "away_team": "Manchester City",
+        "date": "2025-03-08",
+        "time": "15:00"
+      },
+      {
+        "home_team": "Arsenal",
+        "away_team": "Brentford",
+        "date": "2025-03-09",
+        "time": "14:00"
+      },
+      {
+        "home_team": "Chelsea",
+        "away_team": "Newcastle",
+        "date": "2025-03-09",
+        "time": "16:30"
+      }
+    ],
+    "deadline": "2025-03-08T11:00:00Z"
+  },
+  {
+    "id": "29",
+    "number": 29,
+    "start_date": "2025-03-15",
+    "end_date": "2025-03-17",
+    "is_current": false,
+    "fixtures": [
+      {
+        "home_team": "Manchester United",
+        "away_team": "Tottenham",
+        "date": "2025-03-15",
+        "time": "12:30"
+      },
+      {
+        "home_team": "Aston Villa",
+        "away_team": "Crystal Palace",
+        "date": "2025-03-16",
+        "time": "14:00"
+      },
+      {
+        "home_team": "Wolves",
+        "away_team": "West Ham",
+        "date": "2025-03-16",
+        "time": "16:30"
+      }
+    ],
+    "deadline": "2025-03-15T11:00:00Z"
+  },
+  {
+    "id": "30",
+    "number": 30,
+    "start_date": "2025-03-30",
+    "end_date": "2025-04-01",
+    "is_current": false,
+    "fixtures": [
+      {
+        "home_team": "Newcastle",
+        "away_team": "Manchester United",
+        "date": "2025-03-30",
+        "time": "14:00"
+      },
+      {
+        "home_team": "Tottenham",
+        "away_team": "Liverpool",
+        "date": "2025-03-31",
+        "time": "20:00"
+      },
+      {
+        "home_team": "Manchester City",
+        "away_team": "Arsenal",
+        "date": "2025-04-01",
+        "time": "20:00"
+      }
+    ],
+    "deadline": "2025-03-30T11:00:00Z"
+  }
+]

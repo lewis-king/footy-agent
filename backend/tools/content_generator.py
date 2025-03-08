@@ -192,7 +192,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         model="sonar-deep-research",  # Perplexity model
                         messages=messages,
                         temperature=0.7,
-                        max_tokens=4000
+                        max_tokens=6000
                     )
                 except TypeError as e:
                     print(f"Error with OpenAI client initialization: {e}")
@@ -207,7 +207,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         model="sonar-deep-research",  # Perplexity model
                         messages=messages,
                         temperature=0.7,
-                        max_tokens=4000
+                        max_tokens=6000
                     )
                 
                 # Extract the response content

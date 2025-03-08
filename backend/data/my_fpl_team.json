@@ -1,0 +1,82 @@
+{
+  "gameweek": 28,
+  "team": {
+    "goalkeepers": [
+      {
+        "name": "Robert Sanchez",
+        "team": "Chelsea"
+      },
+      {
+        "name": "Aaron Ramsdale",
+        "team": "Arsenal"
+      }
+    ],
+    "defenders": [
+      {
+        "name": "Trent Alexander-Arnold",
+        "team": "Liverpool"
+      },
+      {
+        "name": "Aaron Wan-Bissaka",
+        "team": "Man Utd"
+      },
+      {
+        "name": "Ola Aina",
+        "team": "Nottingham Forest"
+      },
+      {
+        "name": "Antonee Robinson",
+        "team": "Fulham"
+      },
+      {
+        "name": "Dean Huijsen",
+        "team": "Roma"
+      }
+    ],
+    "midfielders": [
+      {
+        "name": "Bryan Mbeumo",
+        "team": "Brentford"
+      },
+      {
+        "name": "Cole Palmer",
+        "team": "Chelsea"
+      },
+      {
+        "name": "Jadon Sancho",
+        "team": "Man Utd"
+      },
+      {
+        "name": "Alex Iwobi",
+        "team": "Fulham"
+      },
+      {
+        "name": "Antonine Semenyo",
+        "team": "Bournemouth"
+      }
+    ],
+    "forwards": [
+      {
+        "name": "Alexander Isak",
+        "team": "Newcastle"
+      },
+      {
+        "name": "Yoane Wissa",
+        "team": "Brentford"
+      },
+      {
+        "name": "Matheus Cunha",
+        "team": "Wolves"
+      }
+    ]
+  },
+  "freeTransfers": 5,
+  "budget": 3.7,
+  "chips": {
+    "assistantManager": true,
+    "freeHit": true,
+    "wildcard": true,
+    "benchBoost": false,
+    "tripleCaptain": false
+  }
+}

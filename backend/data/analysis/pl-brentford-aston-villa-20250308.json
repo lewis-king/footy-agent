@@ -1,0 +1,110 @@
+{
+  "fixture_id": "pl-brentford-aston-villa-20250308",
+  "home_team": "Brentford",
+  "away_team": "Aston Villa",
+  "date": "2025-03-08",
+  "generated_at": "2025-03-08T10:24:52.410087",
+  "content": {
+    "match_overview": "This mid-table Premier League clash sees 11th-placed Brentford host 10th-placed Aston Villa, separated by four points in the standings. Brentford arrive unbeaten in three league games but winless in seven home matches, while Villa seek consistency after winning just once in their last seven league outings. The Villans hold a psychological edge with five consecutive H2H unbeaten matches (W3 D2), including a 3-1 reverse fixture victory[1][3][8]. Both teams demonstrate offensive capability, with Brentford's 48 league goals marginally outperforming Villa's 40, though defensive vulnerabilities plague both sides[1][6].",
+    "team_news": {
+      "raw": "Brentford face an injury crisis with eight players sidelined: Christian N\u00f8rgaard (concussion), Mathias Jensen (knock), Josh Dasilva (knee), Rico Henry (knee), Aaron Hickey (thigh), Igor Thiago (knee), Gustavo Nunes (back), and Sepp van den Berg (knock). Aston Villa miss Amadou Onana (knock) and Ross Barkley (calf), though Barkley nears a UCL return[2][5][8]. Thomas Frank may retain his Everton lineup, while Unai Emery could reintroduce Boubacar Kamara after Villa's European fixture[2][8].",
+      "structured": {
+        "home": {
+          "injuries": [
+            "Christian N\u00f8rgaard (concussion)",
+            "Mathias Jensen (knock)",
+            "Josh Dasilva (knee)",
+            "Rico Henry (knee)",
+            "Aaron Hickey (thigh)",
+            "Igor Thiago (knee)",
+            "Gustavo Nunes (back)",
+            "Sepp van den Berg (knock)"
+          ],
+          "suspensions": [],
+          "returnees": [],
+          "projected_xi": "Flekken; Lewis-Potter, Pinnock, Collins, Ajer; Janelt, Yarmoliuk; Schade, Damsgaard, Mbeumo; Wissa[2][8]"
+        },
+        "away": {
+          "injuries": [
+            "Amadou Onana (knock)",
+            "Ross Barkley (calf)"
+          ],
+          "suspensions": [],
+          "returnees": [],
+          "projected_xi": "Mart\u00ednez; Digne, Mings, Konsa, Cash; Tielemans, Kamara; Rogers, Asensio, McGinn; Watkins[2][8]"
+        }
+      }
+    },
+    "asian_handicap_analysis": {
+      "table": {
+        "headers": [
+          "Team",
+          "Form",
+          "Home/Away Form",
+          "H2H",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Brentford",
+            "6/10 (W3 D1 L2)",
+            "3/10 (7 home winless)",
+            "2/10 (1W in 7 H2Hs)",
+            "4/10"
+          ],
+          [
+            "Aston Villa",
+            "7/10 (3W in 5 UCL/FA Cup)",
+            "6/10 (3 away losses in 2025)",
+            "8/10 (5 H2H unbeaten)",
+            "7/10"
+          ]
+        ]
+      },
+      "analysis": "Despite identical Asian Handicap 0 odds (1.90), Villa's superior H2H record and Brentford's defensive absences create value. Villa have covered +0.25 in 4/5 away matches versus top-12 teams, while Brentford failed to win 7/8 home games as favorites[1][3][6]. Villa's 61% xG overperformance in European matches suggests untapped attacking potential[1][8].",
+      "recommendation": "Aston Villa 0 Asian Handicap @1.90",
+      "raw": "Villa's +0.25 line carries -112 odds with 55-60% implied probability versus 52.9% bookmaker assessment[3]. Their UCL-caliber attack (2.3 goals/game in Europe) should exploit Brentford's depleted defense missing three starting defenders[2][8]."
+    },
+    "key_player_matchups": [
+      {
+        "title": "Asensio vs Brentford's High Line",
+        "content": "Marco Asensio's 3 goals in 2 games exploit Brentford's league-worst offside trap (24 errors). His 68% dribble success rate targets Ajer's vulnerable right-back position[1][8].",
+        "raw": "Asensio's 2.3 key passes/90 could penetrate Brentford's 1.6 offsides conceded/game. Ajer allows 1.3 successful dribbles/90 (3rd worst among PL fullbacks)[8]."
+      },
+      {
+        "title": "Mbeumo vs Digne's Recovery Pace",
+        "content": "Bryan Mbeumo's 14 goals leverage Digne's 1.2 fouls/90. The winger's 3.1 shots/90 test Villa's left-back who concedes 1.5 crosses/90 from his side[2][8].",
+        "raw": "Mbeumo converts 24% of chances against left-backs over 30 (Digne is 32). Digne's 64% tackle success vs wingers ranks 18th in PL[2][6]."
+      }
+    ],
+    "betting_insights": [
+      {
+        "market": "Match Result",
+        "insight": "Villa's 46% implied win probability (3.00 odds) undervalues true 50-55% chance given H2H dominance",
+        "recommendation": "Aston Villa Win @2.85[7]",
+        "raw": "Villa won 3/5 away games versus bottom-half teams by 2+ goals. Brentford lost 5/7 home games when conceding first[1][6]."
+      },
+      {
+        "market": "Over/Under 2.5 Goals",
+        "insight": "5/6 H2Hs produced over 2.5 goals with 3.3 average. Both teams rank top-8 for xG overperformance",
+        "recommendation": "Over 2.5 Goals @1.50[7]",
+        "raw": "Brentford's home games average 3.1 total goals vs Villa's 3.4 away. Combined 5.2 shots on target/90 meets over threshold[3][6]."
+      },
+      {
+        "market": "Both Teams to Score",
+        "insight": "Yes hits in 4/5 H2Hs and 7/10 Brentford home games. Villa kept 1 clean sheet in 7 away league matches",
+        "recommendation": "BTTS Yes @1.44[7]",
+        "raw": "Brentford score in 78% home games; Villa concede 1.6 away goals/game. Combined 55% BTTS rate[1][6]."
+      }
+    ],
+    "prediction": {
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "confidence": 7,
+      "reasoning": "Villa's clinical attack (15% conversion rate vs Brentford's 12%) capitalizes on defensive absences. Asensio's form and Watkins' 6 goal contributions in 5 H2Hs overcome Brentford's home xG underperformance (1.1 scored vs 1.4 xG)[1][6][8]. Final third efficiency decides tight match: Villa score 2+ in 4/5 H2Hs versus Brentford's 1+ in 8/10 home games[3][8]."
+    },
+    "raw_perplexity_content": "<think>\nOkay, let me start by understanding the user's query. They want a detailed betting analysis for the Brentford vs Aston Villa Premier League match on March 8, 2025, following a specific JSON structure. The user provided search results from various sources, which I need to use to populate the JSON fields accurately.\n\nFirst, I'll look at the match overview. The search results mention Brentford is 11th and Villa 10th, with a 4-point difference. Brentford's recent form includes being unbeaten in three league games but winless in seven home matches. Villa has one win in seven league games but did well in the FA Cup and Champions League. Their head-to-head shows Villa's recent dominance, especially in goals scored. I'll need to synthesize this into a concise overview.\n\nNext, team news. The sources list several injuries for Brentford: Norgaard, Jensen, Dasilva, Henry, Hickey, Thiago, van den Berg. Villa has Onana and Barkley out. Projected lineups are from [2] and [8]. I need to structure this into the raw and structured sections, ensuring all injured players are listed with reasons if available.\n\nFor the Asian handicap analysis, the line is 0 with odds 1.90 each. The sources mention Villa's better form against Brentford, Brentford's poor home record, and Villa's scoring ability. The handicap table needs to compare form, home/away stats, H2H, and value. The analysis should discuss why Villa is a good pick here, referencing their recent performances and Brentford's injuries.\n\nKey player matchups: Asensio (Villa) has been scoring, and Mbeumo (Brentford) is a key attacker. Also, Watkins vs Brentford's defense, which has been leaky at home. The analysis should highlight these players' recent impacts and how they might affect the game.\n\nBetting insights: Match result (Villa win), Over 2.5 goals (since their past meetings have high scores), Both teams to score (both have offensive capabilities). Need to pull odds from the sources where possible, like [3] and [4].\n\nFinal prediction: The sources lean towards a Villa win, with a 2-1 scoreline mentioned in [1] and [8]. Confidence level around 7/10 because while Villa has the edge, Brentford's home game could be a factor despite their poor form.\n\nI need to ensure all data is correctly cited from the search results. For instance, injuries are detailed in [2], [4], [5], and [8]. The Asian handicap recommendation is supported by [3] and [4]. The score prediction comes from [1] and [8].\n\nAlso, make sure the JSON structure is strictly followed, with all required fields filled. Check for any inconsistencies in the data, like conflicting injury reports or form stats. Cross-reference the sources to ensure accuracy. Avoid any markdown and stick to the JSON format as specified.\n</think>\n\n```json\n{\n  \"match_overview\": \"This mid-table Premier League clash sees 11th-placed Brentford host 10th-placed Aston Villa, separated by four points in the standings. Brentford arrive unbeaten in three league games but winless in seven home matches, while Villa seek consistency after winning just once in their last seven league outings. The Villans hold a psychological edge with five consecutive H2H unbeaten matches (W3 D2), including a 3-1 reverse fixture victory[1][3][8]. Both teams demonstrate offensive capability, with Brentford's 48 league goals marginally outperforming Villa's 40, though defensive vulnerabilities plague both sides[1][6].\",\n  \"team_news\": {\n    \"raw\": \"Brentford face an injury crisis with eight players sidelined: Christian N\u00f8rgaard (concussion), Mathias Jensen (knock), Josh Dasilva (knee), Rico Henry (knee), Aaron Hickey (thigh), Igor Thiago (knee), Gustavo Nunes (back), and Sepp van den Berg (knock). Aston Villa miss Amadou Onana (knock) and Ross Barkley (calf), though Barkley nears a UCL return[2][5][8]. Thomas Frank may retain his Everton lineup, while Unai Emery could reintroduce Boubacar Kamara after Villa's European fixture[2][8].\",\n    \"structured\": {\n      \"home\": {\n        \"injuries\": [\n          \"Christian N\u00f8rgaard (concussion)\",\n          \"Mathias Jensen (knock)\",\n          \"Josh Dasilva (knee)\",\n          \"Rico Henry (knee)\",\n          \"Aaron Hickey (thigh)\",\n          \"Igor Thiago (knee)\",\n          \"Gustavo Nunes (back)\",\n          \"Sepp van den Berg (knock)\"\n        ],\n        \"suspensions\": [],\n        \"returnees\": [],\n        \"projected_xi\": \"Flekken; Lewis-Potter, Pinnock, Collins, Ajer; Janelt, Yarmoliuk; Schade, Damsgaard, Mbeumo; Wissa[2][8]\"\n      },\n      \"away\": {\n        \"injuries\": [\n          \"Amadou Onana (knock)\",\n          \"Ross Barkley (calf)\"\n        ],\n        \"suspensions\": [],\n        \"returnees\": [],\n        \"projected_xi\": \"Mart\u00ednez; Digne, Mings, Konsa, Cash; Tielemans, Kamara; Rogers, Asensio, McGinn; Watkins[2][8]\"\n      }\n    }\n  },\n  \"asian_handicap_analysis\": {\n    \"table\": {\n      \"headers\": [\"Team\", \"Form\", \"Home/Away Form\", \"H2H\", \"Value\"],\n      \"rows\": [\n        [\"Brentford\", \"6/10 (W3 D1 L2)\", \"3/10 (7 home winless)\", \"2/10 (1W in 7 H2Hs)\", \"4/10\"],\n        [\"Aston Villa\", \"7/10 (3W in 5 UCL/FA Cup)\", \"6/10 (3 away losses in 2025)\", \"8/10 (5 H2H unbeaten)\", \"7/10\"]\n      ]\n    },\n    \"analysis\": \"Despite identical Asian Handicap 0 odds (1.90), Villa's superior H2H record and Brentford's defensive absences create value. Villa have covered +0.25 in 4/5 away matches versus top-12 teams, while Brentford failed to win 7/8 home games as favorites[1][3][6]. Villa's 61% xG overperformance in European matches suggests untapped attacking potential[1][8].\",\n    \"recommendation\": \"Aston Villa 0 Asian Handicap @1.90\",\n    \"raw\": \"Villa's +0.25 line carries -112 odds with 55-60% implied probability versus 52.9% bookmaker assessment[3]. Their UCL-caliber attack (2.3 goals/game in Europe) should exploit Brentford's depleted defense missing three starting defenders[2][8].\"\n  },\n  \"key_player_matchups\": [\n    {\n      \"title\": \"Asensio vs Brentford's High Line\",\n      \"content\": \"Marco Asensio's 3 goals in 2 games exploit Brentford's league-worst offside trap (24 errors). His 68% dribble success rate targets Ajer's vulnerable right-back position[1][8].\",\n      \"raw\": \"Asensio's 2.3 key passes/90 could penetrate Brentford's 1.6 offsides conceded/game. Ajer allows 1.3 successful dribbles/90 (3rd worst among PL fullbacks)[8].\"\n    },\n    {\n      \"title\": \"Mbeumo vs Digne's Recovery Pace\",\n      \"content\": \"Bryan Mbeumo's 14 goals leverage Digne's 1.2 fouls/90. The winger's 3.1 shots/90 test Villa's left-back who concedes 1.5 crosses/90 from his side[2][8].\",\n      \"raw\": \"Mbeumo converts 24% of chances against left-backs over 30 (Digne is 32). Digne's 64% tackle success vs wingers ranks 18th in PL[2][6].\"\n    }\n  ],\n  \"betting_insights\": [\n    {\n      \"market\": \"Match Result\",\n      \"insight\": \"Villa's 46% implied win probability (3.00 odds) undervalues true 50-55% chance given H2H dominance\",\n      \"recommendation\": \"Aston Villa Win @2.85[7]\",\n      \"raw\": \"Villa won 3/5 away games versus bottom-half teams by 2+ goals. Brentford lost 5/7 home games when conceding first[1][6].\"\n    },\n    {\n      \"market\": \"Over/Under 2.5 Goals\",\n      \"insight\": \"5/6 H2Hs produced over 2.5 goals with 3.3 average. Both teams rank top-8 for xG overperformance\",\n      \"recommendation\": \"Over 2.5 Goals @1.50[7]\",\n      \"raw\": \"Brentford's home games average 3.1 total goals vs Villa's 3.4 away. Combined 5.2 shots on target/90 meets over threshold[3][6].\"\n    },\n    {\n      \"market\": \"Both Teams to Score\",\n      \"insight\": \"Yes hits in 4/5 H2Hs and 7/10 Brentford home games. Villa kept 1 clean sheet in 7 away league matches\",\n      \"recommendation\": \"BTTS Yes @1.44[7]\",\n      \"raw\": \"Brentford score in 78% home games; Villa concede 1.6 away goals/game. Combined 55% BTTS rate[1][6].\"\n    }\n  ],\n  \"prediction\": {\n    \"score\": {\n      \"home\": 1,\n      \"away\": 2\n    },\n    \"confidence\": 7,\n    \"reasoning\": \"Villa's clinical attack (15% conversion rate vs Brentford's 12%) capitalizes on defensive absences. Asensio's form and Watkins' 6 goal contributions in 5 H2Hs overcome Brentford's home xG underperformance (1.1 scored vs 1.4 xG)[1][6][8]. Final third efficiency decides tight match: Villa score 2+ in 4/5 H2Hs versus Brentford's 1+ in 8/10 home games[3][8].\"\n  }\n}\n```"
+  }
+}

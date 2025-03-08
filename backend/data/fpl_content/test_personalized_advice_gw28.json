@@ -1,0 +1,71 @@
+{
+  "gameweekId": "gw-28",
+  "lastUpdated": "2025-03-08T08:48:41.425891",
+  "overview": "## Gameweek Analysis\n\n<think>\nOkay, let's break down how to approach this user's FPL Gameweek 28 query. The user provided their team, available transfers, budget, and chips, and wants personalized advice in JSON format. \n\nFirst, I need to review the search results provided. They include articles and videos from FPL experts discussing tips for GW28. Key points from the sources highlight Mohamed Salah and Cole Palmer as top captain choices due to favorable fixtures. There's also advice on using chips like Triple Captai...",
+  "topPicks": [
+    {
+      "position": "GK",
+      "players": [
+        {
+          "name": "Alisson",
+          "team": "Liverpool",
+          "reason": "Reliable option with clean sheet potential"
+        }
+      ]
+    },
+    {
+      "position": "DEF",
+      "players": [
+        {
+          "name": "Alexander-Arnold",
+          "team": "Liverpool",
+          "reason": "Attacking returns and set pieces"
+        }
+      ]
+    },
+    {
+      "position": "MID",
+      "players": [
+        {
+          "name": "Salah",
+          "team": "Liverpool",
+          "reason": "Consistent performer and on penalties"
+        }
+      ]
+    },
+    {
+      "position": "FWD",
+      "players": [
+        {
+          "name": "Haaland",
+          "team": "Man City",
+          "reason": "High ceiling and goal threat"
+        }
+      ]
+    }
+  ],
+  "differentials": [
+    {
+      "name": "Mitoma",
+      "team": "Brighton",
+      "position": "MID",
+      "reason": "Low ownership but high potential",
+      "ownership": 5.2
+    }
+  ],
+  "captainPicks": [
+    {
+      "name": "Salah",
+      "team": "Liverpool",
+      "reason": "Consistent returns and penalty taker"
+    }
+  ],
+  "keyFixtures": [
+    {
+      "home_team": "Liverpool",
+      "away_team": "Man City",
+      "analysis": "Key fixture with many FPL assets"
+    }
+  ],
+  "chipAdvice": "Consider saving chips for double gameweeks"
+}

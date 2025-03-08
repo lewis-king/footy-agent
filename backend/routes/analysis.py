@@ -10,6 +10,7 @@ sys.path.append(str(pathlib.Path(__file__).parent.parent.parent))
 
 from utils.data_utils import load_fixtures, load_analysis, save_analysis
 from tools.content_generator import generate_fixture_analysis
+from backend.tools.fpl_content_generator import FPLContentGenerator
 
 analysis_bp = Blueprint('analysis', __name__)
 
@@ -146,3 +147,14 @@ def batch_generate_analysis():
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@analysis_bp.route('/fpl/generic-advice/<int:gameweek>', methods=['GET'])
+def get_generic_fpl_advice(gameweek):
+    generator = FPLContentGenerator()
+    return jsonify(generator.generate_generic_advice(gameweek))
+
+@analysis_bp.route('/fpl/personalized-advice/<int:gameweek>', methods=['POST'])
+def get_personalized_fpl_advice(gameweek):
+    team_data = request.json
+    generator = FPLContentGenerator()
+    return jsonify(generator.generate_personalized_advice(gameweek, team_data))

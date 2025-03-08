@@ -136,3 +136,91 @@ export interface Analysis {
   generated_at: string;
   content: AnalysisContent;
 }
+
+// FPL Types
+export interface Gameweek {
+  id: string;
+  number: number;
+  name: string;
+  status: 'upcoming' | 'ongoing' | 'completed';
+  deadline: string;
+  content_generated?: boolean;
+}
+
+export interface FplPlayer {
+  name: string;
+  position: 'GK' | 'DEF' | 'MID' | 'FWD';
+  team: string;
+  price: number;
+}
+
+export interface FplTeam {
+  players: {
+    goalkeepers: FplPlayer[];
+    defenders: FplPlayer[];
+    midfielders: FplPlayer[];
+    forwards: FplPlayer[];
+  };
+  freeTransfers: number;
+  budget: number;
+  chips: {
+    assistantManager: boolean;
+    freeHit: boolean;
+    wildcard: boolean;
+    benchBoost: boolean;
+    tripleCaptain: boolean;
+  };
+}
+
+export interface FplContent {
+  gameweekId: string;
+  lastUpdated: string;
+  overview: string;
+  topPicks: {
+    position: 'GK' | 'DEF' | 'MID' | 'FWD';
+    players: Array<{
+      name: string;
+      team: string;
+      reason: string;
+      price?: number;
+      ownership?: number;
+    }>;
+  }[];
+  differentials: Array<{
+    name: string;
+    team: string;
+    position: string;
+    reason: string;
+    ownership?: number;
+  }>;
+  captainPicks: Array<{
+    name: string;
+    team: string;
+    reason: string;
+    fixtures?: string;
+  }>;
+  keyFixtures?: Array<{
+    home_team: string;
+    away_team: string;
+    analysis: string;
+  }>;
+  chipAdvice?: string;
+  teamInsights?: {
+    currentTeamAnalysis: string;
+    suggestedTransfers: Array<{
+      playerOut: string;
+      playerIn: string;
+      reason: string;
+    }>;
+    suggestedStartingXI: string;
+    captainSuggestion: string;
+    chipAdvice?: string;
+  };
+}
+
+export interface FplAnalysis {
+  gameweek_id: string;
+  gameweek_number: number;
+  generated_at: string;
+  content: FplContent;
+}

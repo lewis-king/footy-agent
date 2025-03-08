@@ -1,0 +1,108 @@
+Squad Size
+To join the game select a fantasy football squad of 15 players, consisting of:
+
+2 Goalkeepers
+5 Defenders
+5 Midfielders
+3 Forwards
+0 Managers
+Budget
+The total value of your initial squad must not exceed £100 million.
+
+Players Per Team
+You can select up to 3 players from a single Premier League team.
+
+Choosing Your Starting 11
+From your 15 player squad, select 11 players by the Gameweek deadline to form your team.
+
+All your points for the Gameweek will be scored by these 11 players, however if one or more doesn't play they may be automatically substituted.
+
+Your team can play in any formation providing that 1 goalkeeper, at least 3 defenders and at least 1 forward are selected at all times.
+
+Selecting a Captain and a Vice-Captain
+From your starting 11 you nominate a captain and a vice-captain. Your captain's score will be doubled.
+
+If your captain plays 0 minutes in the Gameweek, the captain will be changed to the vice-captain.
+
+If both captain and vice-captain play 0 minutes in a Gameweek, then no player's score will be doubled.
+
+Prioritising Your Bench For Automatic Substitutions
+Your substitutes provide cover for unforeseen events like injuries and postponements by automatically replacing starting players who don't play in a Gameweek.
+
+Playing in a Gameweek means playing at least 1 minute or receiving a yellow / red card.
+
+Based on the priorities you assign, automatic substitutions are processed at the end of the Gameweek as follows:
+
+If your Goalkeeper doesn't play in the Gameweek, he will be substituted by your replacement Goalkeeper, if he played in the Gameweek.
+If any of your outfield players don't play in the Gameweek, they will be substituted by the highest priority outfield substitute who played in the Gameweek and doesn't break the formation rules (eg. If your starting team has 3 defenders, a defender can only be replaced by another defender).
+
+After selecting your squad you can buy and sell players in the transfer market. Unlimited transfers can be made at no cost until your first deadline.
+
+After your first deadline you will receive 1 free transfer each Gameweek. Each additional transfer you make in the same Gameweek will deduct 4 points from your total score (Classic scoring) and match score (Head-to-Head scoring) at the start of the next Gameweek.
+
+If you do not use your free transfer, you are able to make an additional free transfer the following Gameweek. If you do not use this saved free transfer in the following Gameweek, it will be carried over until you do. The maximum number of free transfers you can store in any gameweek is 5.
+
+At other times you are limited to 20 transfers in any single Gameweek. This rule does not apply when playing a Wildcard or a Free Hit Chip.
+
+Wildcards
+For information on wildcards please refer to the chips section of the rules.
+
+Player Prices
+Player prices change during the season dependent on the popularity of the player in the transfer market. Player prices do not change until the season starts.
+
+The price shown on your transfers page is a player's selling price. This selling price may be less than the player's current purchase price as a sell-on fee of 50% (rounded up to the nearest £0.1m) will be applied on any profits made on that player.
+
+Chips can be used to potentially enhance your team's performance during the season.
+
+Only one chip can be played in a single Gameweek. The chips available are as follows:
+
+Name	Effect
+Bench Boost	The points scored by your bench players in the next Gameweek are included in your total.
+Free Hit	Make unlimited free transfers for a single Gameweek. At the next deadline your squad is returned to how it was at the start of the Gameweek.
+Triple Captain	Your captain points are tripled instead of doubled in the next Gameweek.
+Wildcard	All transfers (including those already made) in the Gameweek are free of charge.
+Assistant Manager	Add a manager to your team to score additional points over the course of three consecutive gameweeks. Learn how managers score points in the FAQs.
+The Bench Boost and Triple Captain chips can each be used once a season and are played when saving your team on the my team page. They can be cancelled at anytime before the Gameweek deadline.
+
+The Free Hit chip can be used once a season, is played when confirming your transfers and can't be cancelled after confirmed.
+
+The Wildcard chip can be used twice a season. The first wildcard will be available from the start of the season until Sun 29 Dec 13:00. The second wildcard will be available after Sun 29 Dec 13:00 in readiness for the January transfer window opening and remain available until the end of the season. The Wildcard chip is played when confirming transfers and can't be cancelled once played.
+
+Please note that when playing either a Wildcard or your Free Hit chip, any saved free transfers are maintained for the following Gameweek. If you had 2 saved free transfers, you will still have 2 saved free transfers the Gameweek after playing the chip.
+
+The Assistant Manager can be used once a season and is played when confirming the transfer of your chosen manager. Excluding the initial transfer in, any subsequent changes to your manager will cost a saved transfer. Once the third gameweek has concluded, your manager will leave the team and the price you paid will return to your budget. See the 'NEW' section for more information.
+
+During the season, your fantasy football players will be allocated points based on their performance in the Premier League.
+
+Action	Points
+For playing up to 60 minutes	1
+For playing 60 minutes or more (excluding stoppage time)	2
+For each goal scored by a goalkeeper	10
+For each goal scored by a defender	6
+For each goal scored by a midfielder	5
+For each goal scored by a forward	4
+For each goal assist	3
+For a clean sheet by a goalkeeper or defender	4
+For a clean sheet by a midfielder	1
+For every 3 shot saves by a goalkeeper	1
+For each penalty save	5
+For each penalty miss	-2
+Bonus points for the best players in a match	1-3
+For every 2 goals conceded by a goalkeeper or defender	-1
+For each yellow card	-1
+For each red card	-3
+For each own goal	-2
+Clean sheets
+A clean sheet is awarded for not conceding a goal whilst on the pitch and playing at least 60 minutes (excluding stoppage time).
+
+If a player receives a red card, they will continue to be penalised for goals conceded by their team.
+
+Red card deductions include any points deducted for yellow cards.
+
+Fantasy assists are awarded to the player from the goal scoring team who last touches the ball before their teammate who scores the goal. The final touch can be an intentional pass, an inadvertent touch, or the result of an effort on goal.
+
+Rebounds
+If a shot at goal is blocked by an opposition player, saved by a goalkeeper, or hits the woodwork, and from the rebound a goal is scored, then a Fantasy assist is awarded. The shot does not have to be on target to result in a Fantasy assist. The action leading to the rebound can be a shot or a cross-shot, but not an intended cross or pass attempt, as determined by Stats Perform.
+
+Bonus Points
+The Bonus Points System (BPS) utilises a range of statistics to create a BPS score for every player. The three best performing players in each match will be awarded bonus points. 3 points will be awarded to the highest scoring player, 2 to the second best and 1 to the third.

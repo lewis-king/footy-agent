@@ -9,16 +9,34 @@ interface AnalysisContentProps {
   analysis: Analysis;
 }
 
-const ContentContainer = styled.div`
-  background-color: var(--card-background);
+interface ContentContainerProps {
+  $team1Color?: string;
+  $team2Color?: string;
+}
+
+const ContentContainer = styled.div<ContentContainerProps>`
+  background: linear-gradient(
+    to bottom right,
+    ${props => (props.$team1Color || '#8a2be2')}0A,
+    ${props => (props.$team2Color || '#8a2be2')}0A
+  );
+  border: 1px solid var(--border-secondary);
   border-radius: 12px;
-  box-shadow: 0 4px 8px var(--shadow-color);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   margin-bottom: 2rem;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 `;
 
 const ContentBody = styled.div`
   padding: 2rem;
+  background-color: var(--alt-card-background);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
   
   @media (max-width: 768px) {
     padding: 1.5rem;
@@ -26,13 +44,11 @@ const ContentBody = styled.div`
 `;
 
 const Headline = styled.h1`
-  font-size: 2.4rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: var(--primary-color);
-  
-  @media (max-width: 768px) {
-    font-size: 1.8rem;
-  }
+  color: var(--light-text);
+  font-weight: 600;
+  letter-spacing: -0.5px;
 `;
 
 const Section = styled.section`
@@ -41,7 +57,7 @@ const Section = styled.section`
 
 const SectionTitle = styled.h2`
   font-size: 1.6rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--primary-color);
   display: flex;
   align-items: center;
@@ -57,6 +73,14 @@ const SectionTitle = styled.h2`
   }
 `;
 
+const SectionContainer = styled.div`
+  background-color: var(--alt-card-background);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+`;
+
 const TeamHeader = styled.div`
   display: flex;
   align-items: center;
@@ -64,20 +88,21 @@ const TeamHeader = styled.div`
 `;
 
 const TeamLogo = styled.img`
-  width: 36px;
-  height: 36px;
-  margin-right: 0.8rem;
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 `;
 
 const TeamName = styled.h3`
   font-size: 1.3rem;
-  color: var(--text-color);
+  color: var(--light-text);
 `;
 
 const MarkdownContent = styled.div`
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--light-text);
   
   table {
     width: 100%;
@@ -85,7 +110,7 @@ const MarkdownContent = styled.div`
     margin: 1rem 0;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   th {
@@ -98,15 +123,20 @@ const MarkdownContent = styled.div`
   
   td {
     padding: 0.75rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--light-text);
   }
   
   tr:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: var(--alt-card-background);
+  }
+  
+  tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.1);
   }
   
   tr:hover {
-    background-color: #f0f0f0;
+    background-color: rgba(138, 43, 226, 0.1);
   }
   
   ul, ol {
@@ -137,8 +167,11 @@ const MarkdownContent = styled.div`
     border-left: 4px solid var(--secondary-color);
     padding-left: 1rem;
     margin-left: 0;
-    color: #666;
+    color: var(--light-text);
     font-style: italic;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 0 4px 4px 0;
   }
 `;
 
@@ -147,9 +180,10 @@ const PredictionContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem;
-  background-color: #f8f8f8;
+  background-color: var(--alt-card-background);
   border-radius: 8px;
   margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
 `;
 
 const TeamScoreContainer = styled.div`
@@ -162,30 +196,33 @@ const PredictionTeamLogo = styled.img`
   width: 36px;
   height: 36px;
   margin-bottom: 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 `;
 
 const PredictionTeamName = styled.h3`
   font-size: 1.3rem;
-  color: var(--text-color);
+  color: var(--light-text);
 `;
 
 const ScoreBox = styled.div`
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--light-text);
 `;
 
 const MatchupVersusText = styled.div`
   font-size: 1.2rem;
   font-weight: 600;
   margin: 0 1rem;
+  color: var(--light-text);
 `;
 
-const ConfidenceContainer = styled.div`
+const ConfidenceContainer = styled.div<{ $confidence: string }>`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  color: ${({ confidence }) => confidence === 'high' ? 'var(--primary-color)' : 'var(--secondary-color)'};
+  color: ${({ $confidence }) => $confidence === 'high' ? 'var(--primary-color)' : 'var(--secondary-color)'};
 `;
 
 const ConfidenceLabel = styled.span`
@@ -199,10 +236,11 @@ const ConfidenceValue = styled.span`
 `;
 
 const BettingInsightCard = styled.div`
-  background-color: #f8f8f8;
+  background-color: var(--alt-card-background);
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
   border-left: 4px solid var(--accent-color);
 `;
 
@@ -213,15 +251,22 @@ const InsightsList = styled.div`
 `;
 
 const InsightItem = styled.div`
-  background-color: white;
+  background-color: var(--alt-card-background);
   border-radius: 6px;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   border-left: 3px solid var(--secondary-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--primary-color);
+  }
 `;
 
 const InsightCard = styled.div`
-  background-color: white;
+  background-color: var(--alt-card-background);
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -255,10 +300,12 @@ const ValueTag = styled.span`
 `;
 
 const LastUpdated = styled.div`
-  font-size: 0.8rem;
-  color: #666;
+  font-size: 0.9rem;
+  color: var(--light-text);
+  opacity: 0.7;
+  margin-top: 0.5rem;
   text-align: right;
-  margin-top: 2rem;
+  font-style: italic;
 `;
 
 const MatchupContainer = styled.div`
@@ -267,8 +314,9 @@ const MatchupContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 1.5rem;
   padding: 1rem;
-  background-color: #f8f8f8;
+  background-color: var(--alt-card-background);
   border-radius: 8px;
+  border: 1px solid var(--border-color);
 `;
 
 const TeamSide = styled.div`
@@ -281,6 +329,7 @@ const TeamLogoLarge = styled.img`
   width: 64px;
   height: 64px;
   margin-bottom: 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 `;
 
 const TeamNewsGrid = styled.div`
@@ -295,7 +344,7 @@ const TeamNewsGrid = styled.div`
 `;
 
 const TeamNewsCard = styled.div`
-  background-color: white;
+  background-color: var(--alt-card-background);
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -317,7 +366,7 @@ const TeamNewsSection = styled.div`
 const TeamNewsSectionTitle = styled.h4`
   font-size: 1rem;
   margin-bottom: 0.5rem;
-  color: #666;
+  color: var(--light-text);
   font-weight: 600;
 `;
 
@@ -332,7 +381,8 @@ const TeamNewsItem = styled.li`
 `;
 
 const EmptyMessage = styled.div`
-  color: #666;
+  color: var(--light-text);
+  opacity: 0.7;
   font-style: italic;
   font-size: 0.95rem;
 `;
@@ -360,21 +410,21 @@ const TableHeader = styled.th`
 
 const TableRow = styled.tr`
   &:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: var(--alt-card-background);
   }
   
   &:hover {
-    background-color: #f0f0f0;
+    background-color: rgba(138, 43, 226, 0.1);
   }
 `;
 
 const TableCell = styled.td`
   padding: 0.75rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
 `;
 
 const RecommendationCard = styled.div`
-  background-color: #f8f8f8;
+  background-color: var(--alt-card-background);
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -390,7 +440,7 @@ const RecommendationTitle = styled.h3`
 const RecommendationContent = styled.div`
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--light-text);
 `;
 
 const RawContentToggle = styled.button`
@@ -413,7 +463,7 @@ const RawContentToggle = styled.button`
 const RawContentContainer = styled.div`
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #f8f8f8;
+  background-color: var(--alt-card-background);
   border-radius: 8px;
   border-left: 3px solid var(--secondary-color);
 `;
@@ -874,7 +924,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
         )}
         
         {prediction.confidence && (
-          <ConfidenceContainer confidence={prediction.confidence.toLowerCase()}>
+          <ConfidenceContainer $confidence={getConfidenceLevel(prediction.confidence)}>
             <ConfidenceLabel>Confidence:</ConfidenceLabel>
             <ConfidenceValue>{prediction.confidence}</ConfidenceValue>
           </ConfidenceContainer>
@@ -903,6 +953,19 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
         )}
       </Section>
     );
+  };
+
+  // Helper function to convert numeric confidence to string level
+  const getConfidenceLevel = (confidence: number | string): string => {
+    if (typeof confidence === 'string') {
+      return confidence.toLowerCase();
+    }
+    
+    // Convert numeric confidence to level
+    const numConfidence = Number(confidence);
+    if (numConfidence >= 8) return 'high';
+    if (numConfidence >= 5) return 'medium';
+    return 'low';
   };
 
   return (

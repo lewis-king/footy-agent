@@ -1,0 +1,111 @@
+{
+  "players": {
+    "goalkeepers": [
+      {
+        "name": "Robert Sanchez",
+        "team": "Chelsea",
+        "position": "GK",
+        "price": 4.5
+      },
+      {
+        "name": "Aaron Ramsdale",
+        "team": "Arsenal",
+        "position": "GK",
+        "price": 4.4
+      }
+    ],
+    "defenders": [
+      {
+        "name": "Trent Alexander-Arnold",
+        "team": "Liverpool",
+        "position": "DEF",
+        "price": 7.2
+      },
+      {
+        "name": "Aaron Wan-Bissaka",
+        "team": "Manchester United",
+        "position": "DEF",
+        "price": 4.4
+      },
+      {
+        "name": "Ola Aina",
+        "team": "Nottingham Forest",
+        "position": "DEF",
+        "price": 5.3
+      },
+      {
+        "name": "Antonee Robinson",
+        "team": "Fulham",
+        "position": "DEF",
+        "price": 5.0
+      },
+      {
+        "name": "Dean Huijsen",
+        "team": "Roma",
+        "position": "DEF",
+        "price": 4.0
+      }
+    ],
+    "midfielders": [
+      {
+        "name": "Bryan Mbeumo",
+        "team": "Brentford",
+        "position": "MID",
+        "price": 7.5
+      },
+      {
+        "name": "Cole Palmer",
+        "team": "Chelsea",
+        "position": "MID",
+        "price": 11.0
+      },
+      {
+        "name": "Jadon Sancho",
+        "team": "Manchester United",
+        "position": "MID",
+        "price": 6.2
+      },
+      {
+        "name": "Alex Iwobi",
+        "team": "Fulham",
+        "position": "MID",
+        "price": 5.6
+      },
+      {
+        "name": "Antoine Semenyo",
+        "team": "Bournemouth",
+        "position": "MID",
+        "price": 5.6
+      }
+    ],
+    "forwards": [
+      {
+        "name": "Alexander Isak",
+        "team": "Newcastle",
+        "position": "FWD",
+        "price": 9.2
+      },
+      {
+        "name": "Yoane Wissa",
+        "team": "Brentford",
+        "position": "FWD",
+        "price": 6.4
+      },
+      {
+        "name": "Matheus Cunha",
+        "team": "Wolves",
+        "position": "FWD",
+        "price": 7.0
+      }
+    ]
+  },
+  "freeTransfers": 5,
+  "budget": 3.7,
+  "chips": {
+    "assistantManager": true,
+    "freeHit": true,
+    "wildcard": true,
+    "benchBoost": false,
+    "tripleCaptain": false
+  }
+}

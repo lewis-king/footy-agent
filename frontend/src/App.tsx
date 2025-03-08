@@ -3,9 +3,12 @@ import styled from 'styled-components';
 import FixtureCarousel from './components/FixtureCarousel';
 import FixtureContent from './components/FixtureContent';
 import AnalysisContent from './components/AnalysisContent';
+import GameweekCarousel from './components/GameweekCarousel';
+import FplContent from './components/FplContent';
 import Header from './components/Header';
-import { Fixture, Analysis } from './types/fixtures';
+import { Fixture, Analysis, Gameweek, FplAnalysis } from './types/fixtures';
 import { fetchFixtures, fetchFixtureContent, fetchFixtureAnalysis } from './services/fixtureService';
+import { fetchGameweeks, fetchGameweekContent, generateGameweekContent } from './services/fplService';
 
 const AppContainer = styled.div`
   display: flex;
@@ -17,70 +20,6 @@ const AppContainer = styled.div`
 const MainContent = styled.main`
   flex: 1;
   padding: 2rem 0;
-`;
-
-const TabContainer = styled.div`
-  display: flex;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-  position: relative;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-    opacity: 0.5;
-  }
-`;
-
-const Tab = styled.button<{ active: boolean }>`
-  padding: 0.75rem 1.5rem;
-  background: none;
-  border: none;
-  border-bottom: 3px solid ${props => props.active ? 'var(--accent-color)' : 'transparent'};
-  color: ${props => props.active ? 'var(--primary-color)' : '#666'};
-  font-weight: ${props => props.active ? '600' : '400'};
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all var(--transition-speed) ease;
-  position: relative;
-  z-index: 1;
-  
-  &:hover {
-    color: var(--primary-color);
-  }
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: ${props => props.active ? '100%' : '0'};
-    height: 3px;
-    background-color: var(--accent-color);
-    transition: width var(--transition-speed) ease;
-  }
-  
-  &:hover:after {
-    width: 100%;
-  }
-`;
-
-const ContentContainer = styled.div`
-  background-color: var(--card-background);
-  border-radius: var(--card-radius);
-  box-shadow: 0 8px 16px var(--shadow-color);
-  padding: 2rem;
-  margin-bottom: 2rem;
-  transition: all var(--transition-speed) ease;
-  
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-  }
 `;
 
 const LoadingContainer = styled.div`
@@ -130,34 +69,79 @@ const EmptyStateText = styled.p`
   margin-bottom: 1rem;
 `;
 
+const ErrorMessage = styled.div`
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+`;
+
 const App: React.FC = () => {
+  // Tab state
+  const [activeTab, setActiveTab] = useState<'preview' | 'fpl'>('preview');
+
+  // Preview tab state
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [selectedFixture, setSelectedFixture] = useState<Fixture | null>(null);
   const [fixtureContent, setFixtureContent] = useState<any>(null);
   const [fixtureAnalysis, setFixtureAnalysis] = useState<Analysis | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [activeTab, setActiveTab] = useState<'preview' | 'analysis'>('preview');
+  
+  // FPL tab state
+  const [gameweeks, setGameweeks] = useState<Gameweek[]>([]);
+  const [selectedGameweek, setSelectedGameweek] = useState<Gameweek | null>(null);
+  const [fplAnalysis, setFplAnalysis] = useState<FplAnalysis | null>(null);
+  
+  // Shared state
+  const [loading, setLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Load upcoming fixtures on component mount
-    const loadFixtures = async () => {
-      try {
-        const upcomingFixtures = await fetchFixtures();
-        setFixtures(upcomingFixtures);
-        
-        // Set first fixture as selected by default if available
-        if (upcomingFixtures.length > 0) {
-          setSelectedFixture(upcomingFixtures[0]);
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error('Error loading fixtures:', error);
-        setLoading(false);
+    // Load data based on active tab
+    if (activeTab === 'preview') {
+      loadFixtures();
+    } else {
+      loadGameweeks();
+    }
+  }, [activeTab]);
+
+  const loadFixtures = async () => {
+    setLoading(true);
+    try {
+      const upcomingFixtures = await fetchFixtures();
+      setFixtures(upcomingFixtures);
+      
+      // Set first fixture as selected by default if available
+      if (upcomingFixtures.length > 0) {
+        setSelectedFixture(upcomingFixtures[0]);
       }
-    };
-    
-    loadFixtures();
-  }, []);
+    } catch (error) {
+      console.error('Error loading fixtures:', error);
+      setErrorMessage('Failed to load fixtures. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadGameweeks = async () => {
+    setLoading(true);
+    try {
+      // Fetch gameweeks from the API
+      const upcomingGameweeks = await fetchGameweeks();
+      setGameweeks(upcomingGameweeks);
+      
+      // Set the first gameweek as selected by default if available
+      if (upcomingGameweeks.length > 0) {
+        setSelectedGameweek(upcomingGameweeks[0]);
+      }
+    } catch (error) {
+      console.error('Error loading gameweeks:', error);
+      setErrorMessage('Failed to load gameweeks. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     // Load content for selected fixture
@@ -185,67 +169,147 @@ const App: React.FC = () => {
       }
     };
     
-    loadFixtureContent();
-  }, [selectedFixture]);
+    if (activeTab === 'preview' && selectedFixture) {
+      loadFixtureContent();
+    }
+  }, [selectedFixture, activeTab]);
+
+  useEffect(() => {
+    // Load content for selected gameweek
+    const loadGameweekContent = async () => {
+      if (!selectedGameweek) return;
+      
+      setLoading(true);
+      try {
+        // Try to fetch existing content first
+        try {
+          const content = await fetchGameweekContent(selectedGameweek.id);
+          setFplAnalysis(content);
+        } catch (error) {
+          // If content doesn't exist and this is an upcoming gameweek, generate it automatically
+          if (selectedGameweek.status === 'upcoming') {
+            try {
+              const content = await generateGameweekContent(selectedGameweek.id);
+              setFplAnalysis(content);
+              
+              // Update the gameweek in the list to show it has content
+              setGameweeks(gameweeks.map(gw => 
+                gw.id === selectedGameweek.id ? { ...gw, content_generated: true } : gw
+              ));
+            } catch (genError) {
+              console.error('Error generating gameweek content:', genError);
+              setErrorMessage('Failed to generate FPL content. Please try again later.');
+              setFplAnalysis(null);
+            }
+          } else {
+            // For completed gameweeks without content, just set to null
+            setFplAnalysis(null);
+          }
+        }
+      } catch (error) {
+        console.error('Error loading gameweek content:', error);
+        setFplAnalysis(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    if (activeTab === 'fpl' && selectedGameweek) {
+      loadGameweekContent();
+    }
+  }, [selectedGameweek, activeTab, gameweeks]);
 
   const handleFixtureSelect = (fixture: Fixture) => {
     setSelectedFixture(fixture);
   };
 
+  const handleGameweekSelect = (gameweek: Gameweek) => {
+    setSelectedGameweek(gameweek);
+  };
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab as 'preview' | 'fpl');
+  };
+
   return (
     <AppContainer>
-      <Header />
+      <Header activeTab={activeTab} onTabChange={handleTabChange} />
       <MainContent className="container">
-        <FixtureCarousel 
-          fixtures={fixtures} 
-          selectedFixture={selectedFixture}
-          onSelectFixture={handleFixtureSelect}
-        />
-        
-        {loading ? (
-          <LoadingContainer>
-            <LoadingSpinner />
-            <LoadingText>Loading fixture content...</LoadingText>
-          </LoadingContainer>
+        {activeTab === 'preview' ? (
+          // Preview Tab Content
+          <>
+            <FixtureCarousel 
+              fixtures={fixtures} 
+              selectedFixture={selectedFixture}
+              onSelectFixture={handleFixtureSelect}
+            />
+            
+            {loading ? (
+              <LoadingContainer>
+                <LoadingSpinner />
+                <LoadingText>Loading fixture content...</LoadingText>
+              </LoadingContainer>
+            ) : (
+              selectedFixture && (fixtureContent || fixtureAnalysis) ? (
+                <>
+                  {fixtureContent && (
+                    <FixtureContent 
+                      fixture={selectedFixture}
+                      content={fixtureContent}
+                    />
+                  )}
+                  {fixtureAnalysis && (
+                    <AnalysisContent 
+                      fixture={selectedFixture}
+                      analysis={fixtureAnalysis}
+                    />
+                  )}
+                </>
+              ) : (
+                <EmptyStateContainer>
+                  <EmptyStateText>Select a fixture to view match details</EmptyStateText>
+                </EmptyStateContainer>
+              )
+            )}
+          </>
         ) : (
-          selectedFixture && (fixtureContent || fixtureAnalysis) ? (
-            <>
-              <TabContainer>
-                <Tab 
-                  active={activeTab === 'preview'} 
-                  onClick={() => setActiveTab('preview')}
-                >
-                  Preview
-                </Tab>
-                <Tab 
-                  active={activeTab === 'analysis'} 
-                  onClick={() => setActiveTab('analysis')}
-                >
-                  Analysis
-                </Tab>
-              </TabContainer>
-              
-              <ContentContainer>
-                {activeTab === 'preview' && fixtureContent ? (
-                  <FixtureContent 
-                    fixture={selectedFixture}
-                    content={fixtureContent}
-                  />
-                ) : activeTab === 'analysis' && fixtureAnalysis ? (
-                  <AnalysisContent 
-                    fixture={selectedFixture}
-                    analysis={fixtureAnalysis}
-                  />
-                ) : (
-                  <EmptyStateText>Content not available for the selected tab</EmptyStateText>
-                )}
-              </ContentContainer>
-            </>
-          ) : (
-            <EmptyStateContainer>
-              <EmptyStateText>Select a fixture to view detailed betting insights</EmptyStateText>
-            </EmptyStateContainer>
-          )
+          // FPL Tab Content
+          <>
+            <GameweekCarousel 
+              gameweeks={gameweeks} 
+              selectedGameweek={selectedGameweek}
+              onSelectGameweek={handleGameweekSelect}
+            />
+            
+            {loading ? (
+              <LoadingContainer>
+                <LoadingSpinner />
+                <LoadingText>Loading FPL content...</LoadingText>
+              </LoadingContainer>
+            ) : (
+              selectedGameweek && fplAnalysis ? (
+                <FplContent 
+                  gameweek={selectedGameweek}
+                  analysis={fplAnalysis}
+                />
+              ) : (
+                <EmptyStateContainer>
+                  {selectedGameweek ? (
+                    <>
+                      <EmptyStateText>No FPL content available for this gameweek.</EmptyStateText>
+                    </>
+                  ) : (
+                    <EmptyStateText>Select a gameweek to view FPL insights</EmptyStateText>
+                  )}
+                </EmptyStateContainer>
+              )
+            )}
+          </>
+        )}
+        {errorMessage && (
+          <ErrorMessage>
+            {errorMessage}
+          </ErrorMessage>
         )}
       </MainContent>
     </AppContainer>

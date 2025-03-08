@@ -1,0 +1,162 @@
+{
+  "gameweekId": "gw-28",
+  "lastUpdated": "2025-03-08T08:53:15.267468",
+  "overview": "Gameweek 28 features several favorable matchups for FPL managers, with Liverpool vs Southampton (H) and Crystal Palace vs Ipswich (H) standing out as prime targets for big hauls. Managers should prioritize assets from these matches while considering rotation risks due to European commitments. With 5 free transfers and multiple chips available, this is an ideal week to optimize squad structure for both GW28 and future blank/double gameweeks.",
+  "topPicks": [
+    {
+      "position": "GK",
+      "players": [
+        {
+          "name": "Dean Henderson",
+          "team": "Crystal Palace",
+          "reason": "High clean sheet probability vs Championship-level Ipswich attack",
+          "price": 4.6,
+          "ownership": 8.2
+        },
+        {
+          "name": "Alisson Becker",
+          "team": "Liverpool",
+          "reason": "60% clean sheet probability vs league's worst attack (Southampton)",
+          "price": 5.7,
+          "ownership": 18.4
+        }
+      ]
+    },
+    {
+      "position": "DEF",
+      "players": [
+        {
+          "name": "Trent Alexander-Arnold",
+          "team": "Liverpool",
+          "reason": "Massive attacking potential against porous Southampton defense",
+          "price": 7.4,
+          "ownership": 22.7
+        },
+        {
+          "name": "Daniel Mu\u00f1oz",
+          "team": "Crystal Palace",
+          "reason": "Attacking wing-back vs Championship-level opposition",
+          "price": 5.0,
+          "ownership": 12.3
+        }
+      ]
+    },
+    {
+      "position": "MID",
+      "players": [
+        {
+          "name": "Mohamed Salah",
+          "team": "Liverpool",
+          "reason": "14 goal involvements in last 10 home games vs bottom-half teams",
+          "price": 13.1,
+          "ownership": 48.9
+        },
+        {
+          "name": "Cole Palmer",
+          "team": "Chelsea",
+          "reason": "Facing Leicester who conceded 61 goals (2nd worst in PL)",
+          "price": 11.0,
+          "ownership": 39.2
+        }
+      ]
+    },
+    {
+      "position": "FWD",
+      "players": [
+        {
+          "name": "Alexander Isak",
+          "team": "Newcastle",
+          "reason": "6 goals in last 4 home games ahead of favorable double GW32",
+          "price": 9.2,
+          "ownership": 28.5
+        },
+        {
+          "name": "Eddie Nketiah",
+          "team": "Crystal Palace",
+          "reason": "Starting striker vs Ipswich with Mateta injured",
+          "price": 5.9,
+          "ownership": 0.7
+        }
+      ]
+    }
+  ],
+  "differentials": [
+    {
+      "name": "Justin Kluivert",
+      "team": "Bournemouth",
+      "position": "MID",
+      "reason": "12G/5A season tally with favorable Spurs matchup",
+      "ownership": 4.1
+    },
+    {
+      "name": "Bryan Mbeumo",
+      "team": "Brentford",
+      "reason": "19 pts in last 2 games, differential captain option",
+      "position": "MID",
+      "ownership": 7.8
+    },
+    {
+      "name": "Daniel Mu\u00f1oz",
+      "team": "Crystal Palace",
+      "position": "DEF",
+      "reason": "Attacking returns in 3 of last 5 home games",
+      "ownership": 12.3
+    }
+  ],
+  "captainPicks": [
+    {
+      "name": "Mohamed Salah",
+      "team": "Liverpool",
+      "reason": "Southampton conceded 65 goals (PL record pace)",
+      "fixtures": "SOU (H)"
+    },
+    {
+      "name": "Cole Palmer",
+      "team": "Chelsea",
+      "reason": "Leicester conceded 4+ goals in 2 of last 4",
+      "fixtures": "LEI (H)"
+    },
+    {
+      "name": "Trent Alexander-Arnold",
+      "team": "Liverpool",
+      "reason": "Highest defender xGI in league (7.4)",
+      "fixtures": "SOU (H)"
+    }
+  ],
+  "keyFixtures": [
+    {
+      "home_team": "Liverpool",
+      "away_team": "Southampton",
+      "analysis": "Ruthless Liverpool attack vs league's worst defense - target triple Liverpool assets"
+    },
+    {
+      "home_team": "Crystal Palace",
+      "away_team": "Ipswich",
+      "analysis": "Promotion candidates Ipswich struggling defensively - ideal Palace clean sheet/attacking returns"
+    },
+    {
+      "home_team": "Chelsea",
+      "away_team": "Leicester",
+      "analysis": "Leicester's 61 goals conceded makes this prime Palmer/Nkunku territory"
+    }
+  ],
+  "chipAdvice": "No chip advice available",
+  "teamInsights": {
+    "currentTeamAnalysis": "Goalkeeping situation needs immediate attention with Sanchez benched. Defense lacks Palace coverage. Midfield strong but carries rotation risks (Sancho). Forwards lack double gameweek players.",
+    "suggestedTransfers": [
+      {
+        "playerOut": "Robert Sanchez",
+        "playerIn": "Dean Henderson",
+        "reason": "Secure starting GK with clean sheet potential"
+      },
+      {
+        "playerOut": "Ola Aina",
+        "playerIn": "Daniel Mu\u00f1oz",
+        "reason": "Add Palace defensive coverage for favorable fixtures"
+      }
+    ],
+    "suggestedStartingXI": "**Henderson** (GK)\n**TAA - Munoz - Wan-Bissaka** (DEF)\n**Palmer - Mbeumo - Sancho - Semenyo** (MID)\n**Isak - Wissa - Cunha** (FWD)",
+    "captainSuggestion": "Mohamed Salah - Highest ceiling vs league's worst defense",
+    "chipAdvice": "Save Free Hit for GW29 blanks. Use Assistant Manager to navigate GW28 rotation risks. Wildcard best saved for GW32 double preparation."
+  }
+}

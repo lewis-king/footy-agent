@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Fixture, FixtureContent, Analysis } from '../types/fixtures';
 
 // Base API URL
-const API_BASE_URL = 'http://localhost:5002/api';
+const API_BASE_URL = 'http://localhost:5050/api';
 
 /**
  * Fetches upcoming fixtures from the API
@@ -181,23 +181,48 @@ export const fetchFixtureContent = async (fixtureId: string): Promise<FixtureCon
         // If we have structured key player matchups, try to extract players
         if (Array.isArray(content.key_player_matchups)) {
           try {
-            // Extract player names from matchup titles
-            const players = content.key_player_matchups.map(matchup => {
-              const parts = matchup.title.split(' vs. ');
-              const playerName = isHome ? parts[0] : parts[1];
-              const position = playerName.includes('Midfielder') ? 'Midfielder' : 
-                               playerName.includes('Defender') ? 'Defender' : 'Forward';
-              
-              return {
-                name: playerName.split(' (')[0], // Remove any text in parentheses
-                position: position,
-                impact: matchup.content
-              };
-            });
+            // Create a list of players for this team
+            const teamPlayers = [];
             
-            // Filter to only include players from the requested team
-            return players.filter(p => p.name.includes(teamName)).slice(0, 2);
+            // Process each matchup to extract players
+            for (const matchup of content.key_player_matchups) {
+              const parts = matchup.title.split(' vs ');
+              if (parts.length < 2) continue;
+              
+              // Extract player names, removing any text after space or parentheses
+              const homePlayerFull = parts[0].trim();
+              const awayPlayerFull = parts[1].trim();
+              
+              // Get the player name for this team (home or away)
+              const playerFull = isHome ? homePlayerFull : awayPlayerFull;
+              
+              // Extract just the name part (before any descriptors)
+              const playerName = playerFull.split(/\s+\(/)[0].split(' Midfielder')[0].split(' Forward')[0].split(' Defender')[0];
+              
+              // Determine position based on text
+              let position = 'Forward';
+              if (playerFull.toLowerCase().includes('midfielder')) {
+                position = 'Midfielder';
+              } else if (playerFull.toLowerCase().includes('defender')) {
+                position = 'Defender';
+              } else if (playerFull.toLowerCase().includes('goalkeeper')) {
+                position = 'Goalkeeper';
+              }
+              
+              // Add to team players if we have a valid name
+              if (playerName && playerName.length > 0) {
+                teamPlayers.push({
+                  name: playerName,
+                  position: position,
+                  impact: matchup.content || 'Key player for the team'
+                });
+              }
+            }
+            
+            // Return up to 2 players for this team, or default if none found
+            return teamPlayers.length > 0 ? teamPlayers.slice(0, 2) : defaultPlayers;
           } catch (e) {
+            console.error('Error extracting key players:', e);
             return defaultPlayers;
           }
         }
@@ -278,7 +303,7 @@ export const fetchFixtureContent = async (fixtureId: string): Promise<FixtureCon
           url: '/match-preview.jpg',
           alt: `${analysis.home_team} vs ${analysis.away_team}`
         },
-        previewHeadline: `${analysis.home_team} vs ${analysis.away_team} Betting Preview`,
+        previewHeadline: `${analysis.home_team} vs ${analysis.away_team} Preview`,
         previewContent: content.match_overview,
         teamComparison: {
           homeTeam: {
