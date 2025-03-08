@@ -104,16 +104,20 @@ const getPremierLeagueTeamLogo = (teamName: string): string => {
     'Crystal Palace': 't31',
     'Everton': 't11',
     'Fulham': 't54',
+    'Ipswich': 't40',
     'Liverpool': 't14',
     'Luton': 't102',
-    'Manchester City': 't43',
-    'Manchester United': 't1',
+    'Man City': 't43',
+    'Man Utd': 't1',
     'Newcastle': 't4',
     'Nottingham Forest': 't17',
     'Sheffield United': 't49',
     'Tottenham': 't6',
     'West Ham': 't21',
-    'Wolves': 't39'
+    'Wolves': 't39',
+    'Southampton': 't20',
+    'Nottm Forest': 't17',
+    'Leicester': 't13'
   };
 
   // Get the team ID from the map, or use a default
