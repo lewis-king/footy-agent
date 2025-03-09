@@ -70,6 +70,7 @@ interface TeamNewsData {
   injuries: string[];
   suspensions: string[];
   returnees: string[];
+  projectedXI?: string;
 }
 
 interface TeamNewsSectionProps {
@@ -125,6 +126,7 @@ const TeamNewsSection: React.FC<TeamNewsSectionProps> = ({ title, homeTeam, away
           injuries={homeTeam.injuries}
           suspensions={homeTeam.suspensions}
           returnees={homeTeam.returnees}
+          projectedXI={homeTeam.projectedXI}
         />
         <TeamNewsCard 
           teamName={awayTeam.teamName}
@@ -132,6 +134,7 @@ const TeamNewsSection: React.FC<TeamNewsSectionProps> = ({ title, homeTeam, away
           injuries={awayTeam.injuries}
           suspensions={awayTeam.suspensions}
           returnees={awayTeam.returnees}
+          projectedXI={awayTeam.projectedXI}
         />
       </TeamsGrid>
     </SectionContainer>

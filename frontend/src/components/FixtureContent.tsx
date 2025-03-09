@@ -59,6 +59,23 @@ interface FixtureContentProps {
         score: number;
       }[];
     };
+    team_news?: {
+      raw: string;
+      structured: {
+        home: {
+          injuries: string[];
+          suspensions: string[];
+          returnees: string[];
+          projected_xi?: string;
+        };
+        away: {
+          injuries: string[];
+          suspensions: string[];
+          returnees: string[];
+          projected_xi?: string;
+        };
+      };
+    };
     bettingInsights: BettingInsight[];
     asianHandicap: {
       recommendation: string;
@@ -118,17 +135,18 @@ const TeamLogo = styled.img`
   width: 40px;
   height: 40px;
   margin-right: 12px;
-  object-fit: contain;
-  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 `;
 
 const TeamName = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.25rem;
+  color: var(--light-text);
+  margin: 0;
+`;
+
+const AttributeHeading = styled.h4`
+  font-size: 1.1rem;
+  margin: 1.25rem 0 0.75rem;
   color: var(--light-text);
 `;
 
@@ -360,16 +378,15 @@ const AdditionalContentSection = styled.div`
   }
 `;
 
-const AdditionalContentTitle = styled.h3`
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
+const AdditionalContentTitle = styled.h4`
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent-color);
 `;
 
 const AdditionalContentText = styled.p`
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
   color: var(--light-text);
 `;
 
@@ -497,30 +514,32 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
       teamName: fixture.home_team?.name || 'Home Team',
       teamLogo: `https://resources.premierleague.com/premierleague/badges/t${getTeamBadgeId(fixture.home_team?.name || '')}.svg`,
       teamColor: fixture.home_team?.color || '#8a2be2',
-      injuries: [
+      injuries: content.team_news?.structured.home.injuries || [
         'Saka (Ankle knock)',
         'Rice (Hamstring strain)',
         'Odegaard (Knee injury)'
       ],
-      suspensions: [],
-      returnees: ['Wood']
+      suspensions: content.team_news?.structured.home.suspensions || [],
+      returnees: content.team_news?.structured.home.returnees || ['Wood'],
+      projectedXI: content.team_news?.structured.home.projected_xi
     },
     awayTeam: {
       teamName: fixture.away_team?.name || 'Away Team',
       teamLogo: `https://resources.premierleague.com/premierleague/badges/t${getTeamBadgeId(fixture.away_team?.name || '')}.svg`,
       teamColor: fixture.away_team?.color || '#8a2be2',
-      injuries: [
+      injuries: content.team_news?.structured.away.injuries || [
         'Kevin De Bruyne (Hamstring)',
         'John Stones (Calf strain)',
         'Nathan Aké (Foot)',
         'Rodri (Knee)',
         'Oscar Bobb (Leg)'
       ],
-      suspensions: [],
-      returnees: [
+      suspensions: content.team_news?.structured.away.suspensions || [],
+      returnees: content.team_news?.structured.away.returnees || [
         'Doku (Fit)',
         'Grealish'
-      ]
+      ],
+      projectedXI: content.team_news?.structured.away.projected_xi
     }
   };
 
@@ -563,7 +582,69 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
     >
       <ContentBody>
         <Headline>{content.previewHeadline}</Headline>
-        <p>{content.previewContent}</p>
+        
+        {/* Match Overview Section with The Final Word integrated */}
+        <Section>
+          <SectionTitle>Match Overview</SectionTitle>
+          <SectionContainer>
+            <div style={{ 
+              backgroundColor: 'var(--alt-card-background)', 
+              padding: '1.5rem', 
+              borderRadius: '8px',
+              color: 'var(--light-text)',
+              marginBottom: '1.5rem'
+            }}>
+              <p style={{ 
+                marginBottom: '1.5rem',
+                fontSize: '1rem',
+                lineHeight: '1.6'
+              }}>{content.previewContent}</p>
+              
+              {/* The Final Word subsection if it exists */}
+              {content.additionalContent && content.additionalContent.find(section => section.title === "The Final Word") && (
+                <div>
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    marginBottom: '1rem', 
+                    borderTop: '1px solid rgba(138, 43, 226, 0.3)', 
+                    paddingTop: '1.5rem'
+                  }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8a2be2" strokeWidth="2" style={{ marginRight: '0.75rem' }}>
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    </svg>
+                    <h3 style={{ 
+                      color: '#8a2be2', 
+                      margin: 0, 
+                      fontSize: '1.25rem', 
+                      fontWeight: 600 
+                    }}>The Final Word</h3>
+                  </div>
+                  <div style={{ 
+                    borderLeft: '4px solid #8a2be2',
+                    paddingLeft: '1rem',
+                    fontSize: '1rem',
+                    lineHeight: '1.6',
+                    color: 'var(--light-text)'
+                  }}>
+                    {content.additionalContent.find(section => section.title === "The Final Word")?.content}
+                  </div>
+                </div>
+              )}
+            </div>
+          </SectionContainer>
+        </Section>
+
+        <Section>
+          <SectionTitle>Team News</SectionTitle>
+          <SectionContainer>
+            <TeamNewsSection
+              title="Team News"
+              homeTeam={teamNewsData.homeTeam}
+              awayTeam={teamNewsData.awayTeam}
+            />
+          </SectionContainer>
+        </Section>
 
         <Section>
           <SectionTitle>Team Comparison</SectionTitle>
@@ -578,21 +659,21 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
                   <TeamName>{fixture.home_team?.name}</TeamName>
                 </TeamHeader>
 
-                <h4>Form (Last 5)</h4>
+                <AttributeHeading>Form (Last 5)</AttributeHeading>
                 <FormContainer>
                   {content.teamComparison.homeTeam.form?.map((result, index) => (
                     <FormResult key={index} result={result}>{result}</FormResult>
                   ))}
                 </FormContainer>
 
-                <h4>Strengths</h4>
+                <AttributeHeading>Strengths</AttributeHeading>
                 <AttributeList>
                   {content.teamComparison.homeTeam.strengths?.map((strength, index) => (
                     <li key={index}>{strength}</li>
                   ))}
                 </AttributeList>
 
-                <h4>Weaknesses</h4>
+                <AttributeHeading>Weaknesses</AttributeHeading>
                 <AttributeList>
                   {content.teamComparison.homeTeam.weaknesses?.map((weakness, index) => (
                     <li key={index}>{weakness}</li>
@@ -603,27 +684,27 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
               <TeamColumn $teamColor={fixture.away_team?.color || '#8a2be2'}>
                 <TeamHeader>
                   <TeamLogo
-                    src={`https://resources.premierleague.com/premierleague/badges/t${getTeamBadgeId(fixture.away_team?.name || '')}.svg`}
+                    src={`https://resources.premierleague.com/premierleague/badges/${getTeamBadgeId(fixture.away_team?.name || '')}.svg`}
                     alt={fixture.away_team?.name}
                   />
                   <TeamName>{fixture.away_team?.name}</TeamName>
                 </TeamHeader>
 
-                <h4>Form (Last 5)</h4>
+                <AttributeHeading>Form (Last 5)</AttributeHeading>
                 <FormContainer>
                   {content.teamComparison.awayTeam.form?.map((result, index) => (
                     <FormResult key={index} result={result}>{result}</FormResult>
                   ))}
                 </FormContainer>
 
-                <h4>Strengths</h4>
+                <AttributeHeading>Strengths</AttributeHeading>
                 <AttributeList>
                   {content.teamComparison.awayTeam.strengths?.map((strength, index) => (
                     <li key={index}>{strength}</li>
                   ))}
                 </AttributeList>
 
-                <h4>Weaknesses</h4>
+                <AttributeHeading>Weaknesses</AttributeHeading>
                 <AttributeList>
                   {content.teamComparison.awayTeam.weaknesses?.map((weakness, index) => (
                     <li key={index}>{weakness}</li>
@@ -748,7 +829,9 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
           <SectionTitle>Additional Analysis</SectionTitle>
           <SectionContainer>
             <AdditionalContentContainer>
-              {content.additionalContent.map((section, index) => (
+              {content.additionalContent
+                .filter(section => section.title !== "The Final Word") // Filter out "The Final Word" since we're displaying it earlier
+                .map((section, index) => (
                 <AdditionalContentSection key={index}>
                   <AdditionalContentTitle>{section.title}</AdditionalContentTitle>
                   <AdditionalContentText>{section.content}</AdditionalContentText>

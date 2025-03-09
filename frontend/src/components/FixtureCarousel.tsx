@@ -457,7 +457,6 @@ const FixtureCarousel: React.FC<FixtureCarouselProps> = ({
 
   return (
     <CarouselContainer>
-      <CarouselTitle>Fixtures</CarouselTitle>
       
       <div style={{ position: 'relative' }}>
         <CarouselScroller ref={scrollerRef}>

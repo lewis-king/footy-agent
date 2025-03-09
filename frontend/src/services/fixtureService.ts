@@ -401,7 +401,13 @@ export const fetchFixtureAnalysis = async (fixtureId: string): Promise<Analysis 
         betting_insights: data.content.betting_insights,
         
         // Handle prediction which should be structured
-        prediction: data.content.prediction
+        prediction: data.content.prediction,
+
+        // Handle citations which should be structured
+        citations: data.content.citations,
+
+        // Handle my_say which should be structured
+        my_say: data.content.my_say
       }
     };
   } catch (error) {

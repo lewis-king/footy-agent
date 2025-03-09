@@ -57,6 +57,8 @@ export const SectionTitle = styled.h3`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 `;
 
 export const InsightCard = styled.div`
@@ -81,12 +83,13 @@ export const TeamLogo = styled.img`
 `;
 
 export const TeamName = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   color: var(--light-text);
+  margin: 0;
 `;
 
 export const MarkdownContent = styled.div`
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--light-text);
   
@@ -186,7 +189,7 @@ const PredictionTeamLogo = styled.img`
 `;
 
 const PredictionTeamName = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   color: var(--light-text);
 `;
 
@@ -198,9 +201,9 @@ const ScoreBox = styled.div`
 `;
 
 const MatchupVersusText = styled.div`
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 1.5rem;
   color: var(--light-text);
 `;
 
@@ -276,10 +279,9 @@ const TeamLogosContainer = styled('div')({
 });
 
 const TeamLogoLarge = styled.img`
-  width: 64px;
-  height: 64px;
-  margin-bottom: 0.5rem;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 `;
 
 const TeamNewsGrid = styled.div`
@@ -301,7 +303,7 @@ const TeamNewsCard = styled.div`
 `;
 
 const TeamNewsTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
   display: flex;
@@ -335,10 +337,6 @@ const EmptyMessage = styled.div`
   opacity: 0.7;
   font-style: italic;
   font-size: 0.95rem;
-`;
-
-const TableContainer = styled.div`
-  overflow-x: auto;
 `;
 
 const StyledTable = styled.table`
@@ -382,13 +380,13 @@ const RecommendationCard = styled.div`
 `;
 
 const RecommendationTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
 `;
 
 const RecommendationContent = styled.div`
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--light-text);
 `;
@@ -399,12 +397,6 @@ const RawContentContainer = styled.div`
   background-color: var(--alt-card-background);
   border-radius: 8px;
   border-left: 3px solid var(--secondary-color);
-`;
-
-const SectionHeader = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
 `;
 
 const PredictionSection = styled.div`
@@ -459,17 +451,74 @@ const ScoreBadge = styled.div`
 const ReasoningText = styled.div`
   color: var(--light-text);
   line-height: 1.7;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 2rem 0;
   padding: 1.5rem;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   border-left: 4px solid #8a2be2;
+`;
 
-  strong {
-    color: #8a2be2;
-    font-weight: 600;
+const CitationsContainer = styled.div`
+  background: var(--alt-card-background);
+  border-radius: var(--card-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px var(--shadow-color);
+`;
+
+const CitationsList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const CitationItem = styled.li`
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: rgba(138, 43, 226, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid var(--primary-color);
+`;
+
+const CitationLink = styled.a`
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  
+  &:hover {
+    text-decoration: underline;
   }
+`;
+
+const CitationDescription = styled.div`
+  color: var(--light-text);
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+`;
+
+const CitationBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+`;
+
+const ProjectedXIContainer = styled.div`
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--light-text);
+  padding: 1rem;
+  background-color: var(--alt-card-background);
+  border-radius: 8px;
+  border-left: 3px solid var(--secondary-color);
 `;
 
 const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) => {
@@ -836,7 +885,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
           <h2 style={{ 
             color: '#8a2be2', 
             marginBottom: '1.5rem',
-            fontSize: '1.8rem',
+            fontSize: '1.75rem',
             display: 'flex',
             alignItems: 'center',
             gap: '1rem'
@@ -860,12 +909,79 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
           </ScoreBadge>
 
           <ReasoningText>
-            {prediction.reasoning
-              .replace(/(\d+%?\+?)/g, '**$1**')
-              .replace(/(\[\d+\])/g, '<strong>$1</strong>')}
+            <ReactMarkdown>{prediction.reasoning}</ReactMarkdown>
           </ReasoningText>
         </PredictionContent>
       </PredictionSection>
+    );
+  };
+
+  const renderMySay = () => {
+    if (!analysis?.content?.my_say?.content) return null;
+    
+    return (
+      <div>
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          marginBottom: '1rem', 
+          borderTop: '1px solid rgba(138, 43, 226, 0.3)', 
+          paddingTop: '1.5rem'
+        }}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8a2be2" strokeWidth="2" style={{ marginRight: '0.75rem' }}>
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          <h3 style={{ 
+            color: '#8a2be2', 
+            margin: 0, 
+            fontSize: '1.25rem', 
+            fontWeight: 600 
+          }}>The Final Word</h3>
+        </div>
+        <div style={{ 
+          borderLeft: '4px solid #8a2be2',
+          paddingLeft: '1rem',
+          fontSize: '1rem',
+          lineHeight: '1.6',
+          color: 'var(--light-text)'
+        }}>
+          <MarkdownContent>
+            <ReactMarkdown>{analysis.content.my_say.content}</ReactMarkdown>
+          </MarkdownContent>
+        </div>
+      </div>
+    );
+  };
+
+  const renderCitations = () => {    
+    if (!analysis?.content?.citations || analysis.content.citations.length === 0) {
+      return null;
+    }
+    
+    return (
+      <CitationsContainer>
+        <SectionTitle>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <path d="M16 17l5-5-5-5"></path>
+            <path d="M21 12H9"></path>
+          </svg>
+          Sources & Citations
+        </SectionTitle>
+        <CitationsList>
+          {analysis.content.citations.map((citation: { id: string; url: string; description?: string }, index: number) => (
+            <CitationItem key={index}>
+              <CitationLink href={citation.url} target="_blank" rel="noopener noreferrer">
+                <CitationBadge>{citation.id}</CitationBadge>
+                {citation.url}
+              </CitationLink>
+              {citation.description && (
+                <CitationDescription>{citation.description}</CitationDescription>
+              )}
+            </CitationItem>
+          ))}
+        </CitationsList>
+      </CitationsContainer>
     );
   };
 
@@ -893,15 +1009,26 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
         
         <SectionContainer>
           <SectionTitle>Match Overview</SectionTitle>
-          <p>{analysis.content.match_overview}</p>
-          <RawContentContainer>
-            <MarkdownContent>
-              <strong>Detailed Analysis:</strong>
-              <ReactMarkdown>{analysis.content.raw_perplexity_content}</ReactMarkdown>
-            </MarkdownContent>
-          </RawContentContainer>
+          <div style={{ 
+            backgroundColor: 'var(--alt-card-background)', 
+            padding: '1.5rem', 
+            borderRadius: '8px',
+            color: 'var(--light-text)',
+            marginBottom: '1.5rem'
+          }}>
+            <p style={{ 
+              marginBottom: analysis?.content?.my_say?.content ? '1.5rem' : '0',
+              fontSize: '1rem',
+              lineHeight: '1.6'
+            }}>{analysis.content.match_overview}</p>
+            
+            {/* Integrate The Final Word section */}
+            {analysis?.content?.my_say?.content && renderMySay()}
+          </div>
         </SectionContainer>
         
+        {renderPremiumPrediction()}
+                
         <SectionContainer>
           <SectionTitle>Team News</SectionTitle>
           {hasStructuredTeamNews ? (
@@ -911,6 +1038,20 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
                   <TeamLogo src={fixture.homeTeam.logo} alt={fixture.homeTeam.name} />
                   {fixture.homeTeam.name}
                 </TeamNewsTitle>
+                
+                {analysis.content.team_news.structured.home.projected_xi && (
+                  <TeamNewsSection>
+                    <TeamNewsSectionTitle>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a2be2" strokeWidth="2" style={{ marginRight: '8px' }}>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                      Predicted Lineup
+                    </TeamNewsSectionTitle>
+                    <ProjectedXIContainer>
+                      {analysis.content.team_news.structured.home.projected_xi}
+                    </ProjectedXIContainer>
+                  </TeamNewsSection>
+                )}
                 
                 <TeamNewsSection>
                   <TeamNewsSectionTitle>Injuries</TeamNewsSectionTitle>
@@ -957,6 +1098,20 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
                   <TeamLogo src={fixture.awayTeam.logo} alt={fixture.awayTeam.name} />
                   {fixture.awayTeam.name}
                 </TeamNewsTitle>
+                
+                {analysis.content.team_news.structured.away.projected_xi && (
+                  <TeamNewsSection>
+                    <TeamNewsSectionTitle>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a2be2" strokeWidth="2" style={{ marginRight: '8px' }}>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                      Predicted Lineup
+                    </TeamNewsSectionTitle>
+                    <ProjectedXIContainer>
+                      {analysis.content.team_news.structured.away.projected_xi}
+                    </ProjectedXIContainer>
+                  </TeamNewsSection>
+                )}
                 
                 <TeamNewsSection>
                   <TeamNewsSectionTitle>Injuries</TeamNewsSectionTitle>
@@ -1014,16 +1169,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
         {renderKeyPlayerMatchups()}
         {renderAsianHandicapAnalysis()}
         {renderBettingInsights()}
-        {renderPremiumPrediction()}
-        
-        <SectionContainer>
-          <SectionTitle>Full Analysis</SectionTitle>
-          <RawContentContainer>
-            <MarkdownContent>
-              <ReactMarkdown>{analysis.content.raw_perplexity_content}</ReactMarkdown>
-            </MarkdownContent>
-          </RawContentContainer>
-        </SectionContainer>
+        {renderCitations()}
       </ContentBody>
     </ContentContainer>
   );

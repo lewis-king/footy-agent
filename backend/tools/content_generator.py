@@ -29,7 +29,9 @@ response_schemas = [
 
 # Define prompt template for fixture analysis
 fixture_analysis_template = """
-You are a professional football betting analyst specializing in Premier League matches. Your task is to provide comprehensive, data-driven betting analysis for an upcoming fixture.
+You are an english professional football betting analyst specializing in Premier League matches. Your task is to provide comprehensive, data-driven betting analysis for an upcoming fixture.
+You are a data led enthusiast using xG and more advanced data insights in your research. But you understand these data points need to be articulated in a accessible way to the masses. Your ability to explain and provide punchy insights is second to none.
+You understand how Asian Handicap works when it comes to evens lines and supremacy. I.e you know when odds are near evens you must consider the line to understand the supremacy a team has over the other.
 YOU MUST USE UP TO DATE FACTS THAT YOU SOURCE - YOU CANNOT RELY ON YOUR BASE KNOWLEDGE WHEN STATING FACTS - I.E IF YOU DIDN'T SOURCE THE INFORMATION DON'T USE IT
 
 FIXTURE INFORMATION:
@@ -51,8 +53,9 @@ match_overview: A comprehensive overview of the match, including team form, rece
 asian_handicap_analysis: Detailed analysis of the Asian handicap market for this fixture, including value bets and recommendations.
 key_player_matchups: Analysis of key player matchups that could influence the outcome of the game.
 team_news: Latest team news including injuries, suspensions, and expected lineups.
-betting_insights: 3-5 key betting insights for this match, focusing on value opportunities.
+betting_insights: 3-5 key betting insights for this match, focusing on value opportunities. Remember decimal odds format and Win/Match Odds terminology over ML or Money Line
 prediction: A prediction for the match outcome with reasoning.
+my_say: A journalist style paragraph conclusion featuring engaging insights and top level analysis. Tell a story, be quirky, be insightful and unique, this is your chance to shine to set the scene and excitement for the match ahead. Roughly 1000 characters is good for this content to be engaging enough.
 
 IMPORTANT GUIDELINES:
 1. Focus on data-driven insights rather than general observations
@@ -60,6 +63,8 @@ IMPORTANT GUIDELINES:
 3. Consider team form, head-to-head records, injuries, and tactical matchups
 4. Pay special attention to the Asian Handicap market and identify value bets
 5. Make your content engaging and unique compared to mainstream betting sites
+6. You must be accurate when stating odds for markets and selections. I've noticed you have a tendency to get the Asian Handicap evens line wrong and think the line is 0 in some games. This breaks the betting recommendation so be CAREFUL!
+7. Prefer European terminology over american i.e decimal odds over money line. Odds should always be in decimal format)
 """
 
 def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
@@ -116,19 +121,31 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                     
                     {
                       "match_overview": "Detailed overview of the match and storylines",
+                      "citations": [
+                        {
+                          "id": "1",
+                          "url": "https://example.com/source1",
+                          "description": "Source description"
+                        },
+                        {
+                          "id": "2",
+                          "url": "https://example.com/source2",
+                          "description": "Source description"
+                        }
+                      ],
                       "team_news": {
                         "raw": "Detailed team news including injuries, suspensions, and returnees",
                         "structured": {
                           "home": {
-                            "injuries": ["Player 1 (reason)", "Player 2 (reason)"],
-                            "suspensions": ["Player 1", "Player 2"],
-                            "returnees": ["Player 1", "Player 2"],
+                            "injuries": ["Player 1 (reason) [2]", "Player 2 (reason) [3]"],
+                            "suspensions": ["Player 1 [1]", "Player 2 [3]"],
+                            "returnees": ["Player 1 [2]", "Player 2 [4]"],
                             "projected_xi": "Likely starting lineup"
                           },
                           "away": {
-                            "injuries": ["Player 1 (reason)", "Player 2 (reason)"],
-                            "suspensions": ["Player 1", "Player 2"],
-                            "returnees": ["Player 1", "Player 2"],
+                            "injuries": ["Player 1 (reason) [2]", "Player 2 (reason) [3]"],
+                            "suspensions": ["Player 1 [1]", "Player 2 [3]"],
+                            "returnees": ["Player 1 [2]", "Player 2 [4]"],
                             "projected_xi": "Likely starting lineup"
                           }
                         }
@@ -137,8 +154,8 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         "table": {
                           "headers": ["Team", "Form", "Home/Away Form", "H2H", "Value"],
                           "rows": [
-                            ["Home Team", "Form rating", "Home form rating", "H2H advantage", "Value rating"],
-                            ["Away Team", "Form rating", "Away form rating", "H2H advantage", "Value rating"]
+                            ["Home Team", "Form rating [1]", "Home form rating [2]", "H2H advantage [3]", "Value rating [4]"],
+                            ["Away Team", "Form rating [1]", "Away form rating [2]", "H2H advantage [3]", "Value rating [4]"]
                           ]
                         },
                         "analysis": "Detailed analysis of the Asian handicap market",
@@ -147,19 +164,19 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                       },
                       "key_player_matchups": [
                         {
-                          "title": "Matchup 1 title",
+                          "title": "Player x vs Player x",
                           "content": "Analysis of the matchup",
                           "raw": "Additional detailed insights about this matchup"
                         },
                         {
-                          "title": "Matchup 2 title",
+                          "title": "Player x vs Player x",
                           "content": "Analysis of the matchup",
                           "raw": "Additional detailed insights about this matchup"
                         }
                       ],
                       "betting_insights": [
                         {
-                          "market": "Market name (e.g., 'Match Result', 'Over/Under')",
+                          "market": "Market name (e.g. 'Match Result', 'Over/Under' etc)",
                           "insight": "Brief insight about this market",
                           "recommendation": "Clear recommendation for this market",
                           "raw": "Additional detailed insights about this market"
@@ -172,10 +189,23 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         },
                         "confidence": 7,
                         "reasoning": "Explanation for the prediction"
+                      },
+                      "my_say": {
+                        "content": "A journalist style paragraph conclusion featuring engaging insights and unique analysis telling a unique story to generate excitement surrounding the match ahead"
                       }
                     }
                     
                     Your response must be valid JSON that exactly follows this schema. Include as much detailed analysis as possible in the 'raw' fields.
+                    
+                    IMPORTANT INSTRUCTIONS FOR CITATIONS:
+                    1. Use citation references like [1], [2], etc. throughout your analysis to cite your sources
+                    2. You can use multiple citations together like [1][3][5] when multiple sources support a claim
+                    3. In the <think> section (which won't be shown to users), list all your sources with their URLs
+                    4. Format source references in your <think> section like: "Source [1]: https://example.com/source1"
+                    5. Make sure to include the citation number and URL for each source
+                    6. Try to include at least 5-10 different citation sources for comprehensive analysis
+                    
+                    Remember to use your <think> section to organize your thoughts and list your sources before providing the final JSON response.
                     """
                 },
                 {
@@ -192,7 +222,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         model="sonar-deep-research",  # Perplexity model
                         messages=messages,
                         temperature=0.7,
-                        max_tokens=6000
+                        max_tokens=10000
                     )
                 except TypeError as e:
                     print(f"Error with OpenAI client initialization: {e}")
@@ -207,7 +237,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         model="sonar-deep-research",  # Perplexity model
                         messages=messages,
                         temperature=0.7,
-                        max_tokens=6000
+                        max_tokens=10000
                     )
                 
                 # Extract the response content
@@ -230,6 +260,72 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                     
                     # Add the raw Perplexity response for reference
                     analysis_content["raw_perplexity_content"] = raw_content
+                    
+                    # Extract citation references if not already present in the response
+                    if "citations" not in analysis_content or not analysis_content["citations"]:
+                        citations = []
+                        citation_map = {}
+                        
+                        # First, extract all citation numbers from the entire content
+                        # This handles both single [1] and nested [3][6][8] citation references
+                        all_citation_matches = re.findall(r'\[(\d+)\]', raw_content)
+                        unique_citation_ids = set(all_citation_matches)
+                        
+                        # Extract citations from the <think> section if it exists
+                        think_match = re.search(r'<think>(.*?)</think>', raw_content, re.DOTALL)
+                        if think_match:
+                            think_content = think_match.group(1)
+                            
+                            # Look for explicit source mentions with URLs
+                            source_patterns = [
+                                # Pattern: [1] https://example.com
+                                r'\[(\d+)\]\s*(https?://[^\s\]]+)',
+                                # Pattern: Source [1]: https://example.com
+                                r'[Ss]ource\s*\[(\d+)\][:\s]*(https?://[^\s\]]+)',
+                                # Pattern: Source 1: https://example.com
+                                r'[Ss]ource\s*(\d+)[:\s]*(https?://[^\s\]]+)',
+                                # Pattern: [1] Source: example.com
+                                r'\[(\d+)\].*?[Ss]ource:?\s*(https?://[^\s\]]+)',
+                            ]
+                            
+                            for pattern in source_patterns:
+                                source_matches = re.findall(pattern, think_content)
+                                for source_match in source_matches:
+                                    citation_id, url = source_match
+                                    citation_map[citation_id] = {
+                                        "id": citation_id,
+                                        "url": url,
+                                        "description": f"Source {citation_id}"
+                                    }
+                            
+                            # If we couldn't find explicit mappings, try to match any URLs in order
+                            if not citation_map:
+                                url_matches = re.findall(r'https?://[^\s\]]+', think_content)
+                                for i, citation_id in enumerate(sorted(unique_citation_ids)):
+                                    if i < len(url_matches):
+                                        citation_map[citation_id] = {
+                                            "id": citation_id,
+                                            "url": url_matches[i],
+                                            "description": f"Source {citation_id}"
+                                        }
+                        
+                        # Create citations list from the map
+                        for citation_id in unique_citation_ids:
+                            if citation_id in citation_map:
+                                citations.append(citation_map[citation_id])
+                            else:
+                                # Create placeholder for citations without URLs
+                                citations.append({
+                                    "id": citation_id,
+                                    "url": "",
+                                    "description": f"Source {citation_id}"
+                                })
+                        
+                        # Sort citations by ID
+                        citations.sort(key=lambda x: int(x["id"]))
+                        
+                        # Add citations to the analysis content
+                        analysis_content["citations"] = citations
                     
                     # Create the full analysis object
                     analysis = {
@@ -256,6 +352,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         "content": {
                             "match_overview": f"Analysis for {home_team} vs {away_team}",
                             "raw_perplexity_content": raw_content,
+                            "citations": [],
                             "team_news": {
                                 "raw": "",
                                 "structured": {
@@ -356,6 +453,7 @@ def betting_journalist_agent(content: Dict[str, str], home_team: str, away_team:
             return {
                 "match_overview": "",
                 "raw_perplexity_content": "",
+                "citations": [],
                 "team_news": {
                     "raw": "",
                     "structured": {
@@ -391,6 +489,9 @@ def betting_journalist_agent(content: Dict[str, str], home_team: str, away_team:
                     },
                     "confidence": "",
                     "rationale": ""
+                },
+                "my_say": {
+                    "content": ""
                 }
             }
         
@@ -408,47 +509,61 @@ def betting_journalist_agent(content: Dict[str, str], home_team: str, away_team:
         4. asian_handicap_analysis - Analysis of Asian Handicap betting markets
         5. betting_insights - Various betting insights and recommendations
         6. prediction - Score prediction and rationale
+        7. my_say - A journalist style paragraph conclusion with engaging insights
         
         Your job is to:
         1. Remove any AI thinking artifacts (like <think> blocks)
-        2. Remove citation references (like [1][5][7])
+        2. PRESERVE citation references (like [1][5][7]) - DO NOT remove these
         3. Structure the data into a consistent format
         4. PRESERVE ALL valuable betting information and insights - this is CRITICAL
         5. Format tables properly
         6. Extract structured data where possible
         7. Include the full cleaned raw content for each section in a 'raw' field
+        8. Extract citation sources if mentioned in the content
         
         Return the cleaned and structured data in the following JSON format:
         
         {{
             "raw_perplexity_content": "The entire cleaned raw content from Perplexity, with artifacts removed",
-            "match_overview": "Cleaned and formatted match overview text",
+            "match_overview": "Cleaned and formatted match overview text WITH citation references preserved",
+            "citations": [
+                {{
+                    "id": "1",
+                    "url": "https://example.com/source1",
+                    "description": "Source description if available"
+                }},
+                {{
+                    "id": "2",
+                    "url": "https://example.com/source2",
+                    "description": "Source description if available"
+                }}
+            ],
             "team_news": {{
-                "raw": "Original team news text, cleaned of artifacts, preserving ALL details",
+                "raw": "Original team news text, cleaned of artifacts, preserving ALL details and citation references",
                 "structured": {{
                     "home": {{
                         "injuries": ["Player1 (reason)", "Player2 (reason)"],
                         "suspensions": ["Player3 (reason)"],
                         "returnees": ["Player4", "Player5"],
-                        "projected_xi": "Full projected XI string"
+                        "projected_xi": "Likely starting lineup"
                     }},
                     "away": {{
                         "injuries": ["Player1 (reason)", "Player2 (reason)"],
                         "suspensions": ["Player3 (reason)"],
                         "returnees": ["Player4", "Player5"],
-                        "projected_xi": "Full projected XI string"
+                        "projected_xi": "Likely starting lineup"
                     }}
                 }}
             }},
             "key_player_matchups": [
                 {{
                     "title": "Player1 vs Player2",
-                    "content": "Analysis of this matchup",
+                    "content": "Analysis of this matchup WITH citation references preserved",
                     "raw": "Full original analysis of this matchup with all details"
                 }},
                 {{
                     "title": "Player3 vs Player4",
-                    "content": "Analysis of this matchup",
+                    "content": "Analysis of this matchup WITH citation references preserved",
                     "raw": "Full original analysis of this matchup with all details"
                 }}
             ],
@@ -461,19 +576,19 @@ def betting_journalist_agent(content: Dict[str, str], home_team: str, away_team:
                         ["2.0", "1.65", "2.25"]
                     ]
                 }},
-                "analysis": "Detailed analysis text",
+                "analysis": "Detailed analysis text WITH citation references preserved",
                 "recommendation": "Betting recommendation"
             }},
             "betting_insights": [
                 {{
                     "market": "Over/Under",
-                    "insight": "Analysis of this market",
+                    "insight": "Brief insight about this market WITH citation references preserved",
                     "recommendation": "Betting recommendation",
                     "raw": "Full original insight for this market with all details"
                 }},
                 {{
                     "market": "Both Teams to Score",
-                    "insight": "Analysis of this market",
+                    "insight": "Brief insight about this market WITH citation references preserved",
                     "recommendation": "Betting recommendation",
                     "raw": "Full original insight for this market with all details"
                 }}
@@ -486,7 +601,10 @@ def betting_journalist_agent(content: Dict[str, str], home_team: str, away_team:
                     "found": true
                 }},
                 "confidence": "Medium",
-                "rationale": "Reasoning behind prediction"
+                "rationale": "Explanation for the prediction with citation references like [1][9] included"
+            }},
+            "my_say": {{
+                "content": "A journalist style paragraph conclusion featuring engaging insights and unique analysis telling a story about the match"
             }}
         }}
         
@@ -553,7 +671,31 @@ def enhance_analysis_content(content: Dict[str, str], home_team: str, away_team:
     """
     enhanced_content = {}
     
-    # Clean up AI thinking artifacts and citation references from all content sections
+    # Extract citations from the raw Perplexity content
+    raw_perplexity_content = content.get('raw_perplexity_content', '')
+    citations = []
+    
+    # Extract citations from the <think> section if it exists
+    think_match = re.search(r'<think>(.*?)</think>', raw_perplexity_content, re.DOTALL)
+    if think_match:
+        think_content = think_match.group(1)
+        # Look for patterns like "sources [1], [2], and [3]" or "mentioned in [4] and [5]"
+        citation_matches = re.findall(r'\[(\d+)\]', think_content)
+        source_matches = re.findall(r'source(?:s)? (?:\[(\d+)\]|(?:like|such as) (.*?))', think_content, re.IGNORECASE)
+        
+        # Extract source URLs if mentioned
+        url_matches = re.findall(r'https?://[^\s\]]+', think_content)
+        
+        # Map citation numbers to sources if possible
+        for i, url in enumerate(url_matches):
+            if i < len(citation_matches):
+                citations.append({
+                    "id": citation_matches[i],
+                    "url": url,
+                    "description": f"Source {citation_matches[i]}"
+                })
+    
+    # Clean up AI thinking artifacts from all content sections but preserve citation references
     for key, value in content.items():
         # Skip if value is not a string
         if not isinstance(value, str):
@@ -563,10 +705,13 @@ def enhance_analysis_content(content: Dict[str, str], home_team: str, away_team:
         # Remove AI thinking sections
         value = re.sub(r'<think>.*?</think>', '', value, flags=re.DOTALL)
         
-        # Remove citation references like [1][5][7]
-        value = re.sub(r'\[\d+\]', '', value)
+        # Don't remove citation references like [1][5][7] anymore
+        # value = re.sub(r'\[\d+\]', '', value)
         
         enhanced_content[key] = value
+    
+    # Add citations to enhanced content
+    enhanced_content['citations'] = citations
     
     # Extract score prediction from prediction text
     prediction_text = enhanced_content.get('prediction', '')
@@ -696,108 +841,175 @@ def enhance_analysis_content(content: Dict[str, str], home_team: str, away_team:
     }
     enhanced_content['betting_insights'] = betting_insights_structured
     
+    # Extract my_say content if available
+    my_say_text = enhanced_content.get('my_say', '')
+    if isinstance(my_say_text, str) and my_say_text:
+        my_say_structured = {
+            'content': my_say_text
+        }
+        enhanced_content['my_say'] = my_say_structured
+    elif not enhanced_content.get('my_say'):
+        # Create a default my_say if not present
+        enhanced_content['my_say'] = {
+            'content': f"This match between {home_team} and {away_team} promises to be an intriguing contest based on recent form and head-to-head history. The betting markets suggest {home_team if 'home' in prediction_text.lower() else away_team} have the edge, but football often surprises us with unexpected twists and turns."
+        }
+    
     return enhanced_content
 
 def generate_mock_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
     """
-    Generate mock analysis when API is not available
+    Generate mock analysis data for testing when the API is not available
     
     Args:
-        fixture: Dictionary containing fixture information
+        fixture: Dictionary containing fixture details
         
     Returns:
-        Dictionary containing mock analysis
+        Dictionary containing mock analysis data
     """
-    from datetime import datetime
+    home_team = fixture.get("home_team", "Home Team")
+    away_team = fixture.get("away_team", "Away Team")
     
-    home_team = fixture["home_team"]
-    away_team = fixture["away_team"]
-    date = fixture.get("date", "")
+    # Create mock citations
+    mock_citations = [
+        {
+            "id": "1",
+            "url": "https://www.bbc.com/sport/football",
+            "description": "BBC Sport Football"
+        },
+        {
+            "id": "2",
+            "url": "https://www.skysports.com/football",
+            "description": "Sky Sports Football"
+        },
+        {
+            "id": "3",
+            "url": "https://www.premierleague.com/",
+            "description": "Premier League Official Website"
+        },
+        {
+            "id": "4",
+            "url": "https://www.whoscored.com/",
+            "description": "WhoScored Football Statistics"
+        },
+        {
+            "id": "5",
+            "url": "https://www.transfermarkt.com/",
+            "description": "Transfermarkt Player Values and Statistics"
+        }
+    ]
     
-    # Create mock content with the same structure as expected by the frontend
+    # Create mock analysis content with citation references
     mock_content = {
-        "match_overview": f"This is a Premier League match between {home_team} and {away_team} scheduled for {date}. Both teams have been in good form recently and this promises to be an exciting encounter.",
-        
+        "match_overview": f"This Premier League fixture between {home_team} and {away_team} promises to be an exciting encounter. {home_team} have been in good form recently [1][3], while {away_team} have struggled away from home [2].",
+        "citations": mock_citations,
+        "raw_perplexity_content": f"""
+<think>
+Let me analyze this match between {home_team} and {away_team}.
+
+Sources:
+Source [1]: https://www.bbc.com/sport/football - Recent form and team news
+Source [2]: https://www.skysports.com/football - Match previews and betting odds
+Source [3]: https://www.premierleague.com/ - Official Premier League statistics
+Source [4]: https://www.whoscored.com/ - Detailed player statistics and ratings
+Source [5]: https://www.transfermarkt.com/ - Player values and injury information
+</think>
+
+# {home_team} vs {away_team} Analysis
+
+## Match Overview
+This Premier League fixture between {home_team} and {away_team} promises to be an exciting encounter. {home_team} have been in good form recently [1][3], while {away_team} have struggled away from home [2].
+
+## Team News
+{home_team} will be without their star striker due to injury [1], but their midfield looks strong with all key players available [3]. {away_team} have several injury concerns in defense [2][5], which could impact their ability to keep a clean sheet.
+
+## Betting Analysis
+The Asian handicap line of -0.5 for {home_team} seems fair given their home advantage [2][4]. Both teams to score looks like a good bet given the defensive issues for {away_team} [3][5].
+""",
         "team_news": {
-            "raw": f"**{home_team}**:\n- No major injury concerns reported.\n- Full squad available for selection.\n\n**{away_team}**:\n- No major injury concerns reported.\n- Full squad available for selection.",
+            "raw": f"{home_team} will be without their star striker due to injury [1], but their midfield looks strong with all key players available [3]. {away_team} have several injury concerns in defense [2][5], which could impact their ability to keep a clean sheet.",
             "structured": {
                 "home": {
-                    "injuries": [],
+                    "injuries": [f"Star Striker (hamstring) [1][5]", f"Reserve Defender (knee) [5]"],
                     "suspensions": [],
-                    "returnees": ["Full squad available for selection."],
-                    "projected_xi": "Full strength lineup expected"
+                    "returnees": [f"Key Midfielder [3]"],
+                    "projected_xi": f"Likely starting XI for {home_team} with available players [1][3]"
                 },
                 "away": {
-                    "injuries": [],
-                    "suspensions": [],
-                    "returnees": ["Full squad available for selection."],
-                    "projected_xi": "Full strength lineup expected"
+                    "injuries": [f"Center Back (ankle) [2][5]", f"Right Back (illness) [5]"],
+                    "suspensions": [f"Defensive Midfielder (accumulated yellows) [3]"],
+                    "returnees": [],
+                    "projected_xi": f"Likely starting XI for {away_team} with available players [2][3]"
                 }
             }
         },
-        
         "asian_handicap_analysis": {
             "table": {
                 "headers": ["Team", "Form", "Home/Away Form", "H2H", "Value"],
                 "rows": [
-                    [home_team, "Good", "Strong at home", "Slight advantage", "Fair value"],
-                    [away_team, "Good", "Decent away", "Slight disadvantage", "Fair value"]
+                    [f"{home_team}", "Good [1]", "Strong [3]", "Advantage [4]", "Fair [2]"],
+                    [f"{away_team}", "Mixed [1]", "Poor [3]", "Disadvantage [4]", "Undervalued [2]"]
                 ]
             },
-            "analysis": f"The Asian handicap line for this match favors {home_team if fixture.get('asian_handicap_home', 0) < fixture.get('asian_handicap_away', 0) else away_team}. Based on recent form and head-to-head records, there might be value in backing the underdog with the handicap advantage.",
-            "recommendation": "Back the underdog with the handicap advantage",
-            "raw": "Additional detailed insights about the Asian handicap market would appear here"
+            "analysis": f"The Asian handicap line of -0.5 for {home_team} seems fair given their home advantage [2][4]. {home_team}'s strong home form [3] suggests they should be able to cover this handicap.",
+            "recommendation": f"Back {home_team} -0.5 Asian Handicap @ 1.95 [2][4]",
+            "raw": f"Detailed analysis of the Asian handicap market for {home_team} vs {away_team}. Historical data shows {home_team} perform well at home [3][4], while {away_team} struggle on the road [2][3]."
         },
-        
         "key_player_matchups": [
             {
-                "title": "Midfield Battle",
-                "content": "Watch out for the midfield battle which could determine the outcome of this match.",
-                "raw": "Additional detailed insights about this matchup would appear here"
+                "title": f"{home_team} Midfield vs {away_team} Midfield",
+                "content": f"The midfield battle will be crucial in this match. {home_team}'s midfielders have been dominating possession in recent games [1][4], while {away_team}'s midfield has struggled to control games away from home [3].",
+                "raw": f"Detailed analysis of the midfield matchup between {home_team} and {away_team}. Statistics show {home_team}'s midfielders have better passing accuracy and create more chances [4]."
             },
             {
-                "title": "Striker vs. Defense",
-                "content": "The main striker will test the opposition's defense throughout the match.",
-                "raw": "Additional detailed insights about this matchup would appear here"
+                "title": f"{away_team} Attack vs {home_team} Defense",
+                "content": f"{away_team}'s forwards have been in good scoring form recently [2][4], but they'll face a tough test against {home_team}'s solid defense [1][3].",
+                "raw": f"Detailed analysis of {away_team}'s attack against {home_team}'s defense. The away team has scored in their last 5 matches [2], but {home_team} have kept clean sheets in 3 of their last 5 home games [3]."
             }
         ],
-        
         "betting_insights": [
             {
-                "market": "Over/Under Goals",
-                "insight": "The over/under market could offer value given both teams' recent scoring trends.",
-                "recommendation": "Consider Over 2.5 goals",
-                "raw": "Additional detailed insights about this market would appear here"
+                "market": "Match Result",
+                "insight": f"{home_team} are favorites at home [1][2], but {away_team} have shown they can surprise stronger teams [3][4].",
+                "recommendation": f"Back {home_team} to win @ 1.85 [2]",
+                "raw": f"Detailed analysis of the match result market. {home_team}'s home form and {away_team}'s away form suggest a home win is the most likely outcome [1][3]."
             },
             {
-                "market": "First Half Result",
-                "insight": "Consider backing the home team in the first half market.",
-                "recommendation": "Home team to lead at half-time",
-                "raw": "Additional detailed insights about this market would appear here"
+                "market": "Both Teams to Score",
+                "insight": f"Both teams have been scoring and conceding regularly [2][3][4].",
+                "recommendation": "Back Both Teams to Score @ 1.75 [2]",
+                "raw": f"Detailed analysis of the BTTS market. {home_team} have scored in 90% of their home games [3], while {away_team} have scored in 80% of their away games [3]."
+            },
+            {
+                "market": "Over/Under 2.5 Goals",
+                "insight": f"Recent matches involving both teams have been high-scoring [3][4][5].",
+                "recommendation": "Back Over 2.5 Goals @ 1.90 [2]",
+                "raw": f"Detailed analysis of the goals market. The last 5 matches involving {home_team} have averaged 3.2 goals [3], while {away_team}'s away games average 2.8 goals [3]."
             }
         ],
-        
         "prediction": {
             "score": {
-                "home": 1,
+                "home": 2,
                 "away": 1
             },
-            "confidence": 6,
-            "reasoning": "Both teams are evenly matched and a draw seems the most likely outcome."
+            "confidence": 7,
+            "reasoning": f"Based on current form and team news, {home_team} should have enough quality to secure a 2-1 win at home [1][2][3]. Their strong home record [3] and {away_team}'s defensive issues [2][5] suggest they'll score at least twice."
         },
-        
-        "raw_perplexity_content": "This is mock data as the Perplexity API was not available."
+        "my_say": {
+            "content": f"This match has all the ingredients for an exciting encounter. {home_team} are in good form and have a strong home record, while {away_team} have shown they can cause upsets on the road. The Asian handicap line of -0.5 for {home_team} seems fair, but {away_team} could still cause problems if they can exploit {home_team}'s defensive weaknesses."
+        }
     }
     
-    # Return the full analysis structure
-    return {
+    # Create the full analysis object
+    analysis = {
         "fixture_id": fixture.get("id", ""),
         "home_team": home_team,
         "away_team": away_team,
-        "date": date,
+        "date": fixture.get("date", ""),
         "generated_at": datetime.now().isoformat(),
         "content": mock_content
     }
+    
+    return analysis
 
 def generate_batch_analysis(fixtures: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """

@@ -1,0 +1,153 @@
+{
+  "fixture_id": "pl-chelsea-leicester-20250309",
+  "home_team": "Chelsea",
+  "away_team": "Leicester",
+  "date": "2025-03-09",
+  "generated_at": "2025-03-09T10:07:21.055702",
+  "content": {
+    "match_overview": "Chelsea host Leicester City in a Premier League clash where the Blues aim to solidify their top-four credentials against a Foxes side battling relegation. Chelsea have won 5 of their last 6 H2H meetings, while Leicester arrive winless in 5 league games and scoreless in their last 4. Stamford Bridge has been a fortress for Chelsea, who boast 18 consecutive home matches with 1+ goals scored [5][9]. Leicester's porous defense (2.26 goals conceded/game) and toothless attack (0 goals in 400+ minutes) make them vulnerable [4][6].",
+    "citations": [
+      {
+        "id": "1",
+        "url": "https://www.sportsgambler.com/betting-tips/football/chelsea-vs-leicester-prediction-lineups-odds-2025-03-09/",
+        "description": "Asian handicap analysis and correct score prediction"
+      },
+      {
+        "id": "4",
+        "url": "https://ratingbet.com/predictions/chelsea-vs-leicester-city-prediction-and-betting-tips-on-march-9-2025/",
+        "description": "Team form and defensive statistics"
+      },
+      {
+        "id": "5",
+        "url": "https://www.forebet.com/en/football/matches/chelsea-leicester-city-2090933",
+        "description": "H2H records and scoring trends"
+      },
+      {
+        "id": "6",
+        "url": "https://www.sportytrader.com/en/betting-tips/chelsea-leicester-252064/",
+        "description": "BTTS analysis and market odds"
+      },
+      {
+        "id": "8",
+        "url": "https://thehardtackle.com/news/2025/03/09/predicted-chelsea-lineup-against-leicester-city-chalobah-enzo-fernandez-to-return-jorgensen-in-goal/",
+        "description": "Chelsea lineup and injury updates"
+      },
+      {
+        "id": "9",
+        "url": "https://www.si.com/onsi/soccer/chelsea/match-coverage/chelsea-leicester-preview-team-news-how-to-watch-kick-off-time-prediction-01jnvp454wd2",
+        "description": "Team motivation and context"
+      },
+      {
+        "id": "12",
+        "url": "https://foxesofleicester.com/leicester-injuries-after-international-blow-buonanotte-kristiansen-daka-01ja8p9cvmh7",
+        "description": "Leicester injury updates"
+      },
+      {
+        "id": "13",
+        "url": "https://theprideoflondon.com/3-players-to-watch-for-chelsea-vs-leicester-city-in-premier-league-action",
+        "description": "Defensive vulnerabilities analysis"
+      }
+    ],
+    "team_news": {
+      "raw": "Chelsea receive defensive boosts with Wesley Fofana and Beno\u00eet Badiashile returning to training [8][13], though Malo Gusto remains a slight doubt after midweek substitution [2][8]. Leicester miss key squad players Stolarczyk (GK), Daka (FW), and Choudhury (MF) long-term [12].",
+      "structured": {
+        "home": {
+          "injuries": [
+            "Noni Madueke (hamstring) [2]",
+            "Nicolas Jackson (hamstring) [2]",
+            "Marc Guiu (ankle) [2]"
+          ],
+          "suspensions": [
+            "Mykhailo Mudryk (doping ban) [8]"
+          ],
+          "returnees": [
+            "Wesley Fofana (fitness) [8][13]",
+            "Romeo Lavia (fitness) [8]"
+          ],
+          "projected_xi": "Jorgensen; Gusto, Chalobah, Colwill, Cucurella; Caicedo, Fernandez; Sancho, Palmer, Nkunku; Neto [2][8]"
+        },
+        "away": {
+          "injuries": [
+            "Jakub Stolarczyk (GK) [12]",
+            "Patson Daka (FW) [12]",
+            "Hamza Choudhury (MF) [12]"
+          ],
+          "suspensions": [],
+          "returnees": [],
+          "projected_xi": "Hermansen; Ricardo, Faes, Vestergaard, Justin; Winks, Ndidi; Fatawu, Dewsbury-Hall, Mavididi; Vardy"
+        }
+      }
+    },
+    "asian_handicap_analysis": {
+      "table": {
+        "headers": [
+          "Team",
+          "Form",
+          "Home/Away Form",
+          "H2H",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Chelsea -2",
+            "WWDWW (Last 5) [5][9]",
+            "7W-1D-2L (Home) [5]",
+            "5W-1D-0L (Last 6) [5]",
+            "55-60% Probability vs 51.3% Implied [1]"
+          ],
+          [
+            "Leicester +2",
+            "LLLLL (Last 5) [4][6]",
+            "1W-2D-7L (Away) [4]",
+            "0.93 GF/2.26 GA (Season) [4]",
+            "Only 9.2% Win Probability [11]"
+          ]
+        ]
+      },
+      "analysis": "Chelsea's -2 handicap offers value given their 55-60% true probability of covering vs 51.3% implied odds [1]. The Blues average 1.93 goals/game and face a Leicester defense conceding 2.26/game [4]. Leicester's 69% away loss rate [5] and 400+ minute scoring drought [6] compound their struggles.",
+      "recommendation": "Chelsea -2 Asian Handicap @ -105 [1][4]",
+      "raw": "Historical trends show Chelsea cover -2 handicap in 4 of last 6 H2Hs [5]. Leicester failed to score in 4 consecutive matches - longest drought among PL clubs [6]."
+    },
+    "key_player_matchups": [
+      {
+        "title": "Cole Palmer vs Leicester Central Midfield",
+        "content": "Palmer's 7.72 progressive passes/90 [14] will exploit Leicester's midfield gap between Ndidi and Winks. Foxes concede 2.6 shots from central areas/game [6].",
+        "raw": "Leicester's xGA of 1.98 from central zones ranks 19th [6]. Palmer created 3 big chances in last 2 home games [14]."
+      },
+      {
+        "title": "Pedro Neto vs Jannik Vestergaard",
+        "content": "Neto's 4.3 successful dribbles/90 [14] targets Vestergaard's 1.2 tackles/90. Leicester CBs rank 18th in aerial duel success (54%) [4].",
+        "raw": "Vestergaard's 6 errors leading to shots (PL-worst) [4]. Neto scored 3 goals in last 4 starts [8]."
+      }
+    ],
+    "betting_insights": [
+      {
+        "market": "Match Result",
+        "insight": "Chelsea have 76.4% implied probability (-450) [11] vs Leicester's 9.2% (+1200)",
+        "recommendation": "Chelsea ML @ -450 [11]",
+        "raw": "Blues won 7 straight H2Hs at Stamford Bridge [5]. Leicester lost 5 consecutive PL matches [9]."
+      },
+      {
+        "market": "Over/Under 2.5 Goals",
+        "insight": "Chelsea games average 3.26 total goals, Leicester's 3.19 [4][6]",
+        "recommendation": "Over 2.5 Goals @ -275 [1]",
+        "raw": "Over hit in 5 of Chelsea's last 5 matches [7]. Leicester concede 2+ goals in 8/10 away games [4]."
+      },
+      {
+        "market": "Correct Score",
+        "insight": "3-0 Chelsea has 11% probability - most likely outcome [11]",
+        "recommendation": "Chelsea 3-0 @ +600 [1]",
+        "raw": "Blues won 4 H2Hs by 3+ goals since 2022 [5]. Leicester failed to score in 4 straight [6]."
+      }
+    ],
+    "prediction": {
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "confidence": 8,
+      "reasoning": "Chelsea's attacking depth (1.93 GF/game) overwhelms Leicester's league-worst defense. Foxes' scoring drought continues against Chelsea's 7 clean sheets in last 10 H2Hs [5][13]. -2 handicap coverage aligns with historical margins [1][5]."
+    },
+    "raw_perplexity_content": "<think>\nOkay, I need to provide a detailed betting analysis for the Chelsea vs Leicester Premier League match. Let me start by reviewing the search results provided. \n\nFirst, looking at the match overview. Chelsea's recent form is mixed but they've won their last two games, including a Conference League match against Copenhagen. Leicester is in poor form, sitting 19th with four consecutive losses without scoring. Head-to-head records show Chelsea's dominance, winning 5 of the last 6 meetings. The prediction here would lean heavily on Chelsea's superior form and Leicester's struggles.\n\nNow, team news. For Chelsea, sources mention injuries to Madueke, Jackson, Guiu, and Mudryk is suspended. Gusto was a doubt but seems likely to start. Fofana and Lavia might return. Projected lineups from different sources vary slightly, but Gusto, Chalobah, Colwill, Cucurella in defense; Caicedo, Enzo in midfield; Palmer, Sancho, Nkunku; Neto up front. Leicester has injuries to Stolarczyk, Daka, Choudhury. Their lineup is weaker, especially in defense.\n\nAsian Handicap analysis: The line is Chelsea -2 at -105. Chelsea's attacking stats are strong, averaging almost 2 goals per game. Leicester's defense is poor, conceding 2.26 per game. Chelsea's home form and Leicester's away struggles (69% loss rate) make covering the -2 handicap feasible. The value here is on Chelsea given the probability vs odds discrepancy.\n\nKey player matchups: Palmer vs Leicester's midfield. He's crucial in creating chances. Also, Sancho and Nkunku on the wings against Leicester's full-backs could exploit their defensive weaknesses. Another matchup is Neto against Leicester's center-backs, who have been error-prone.\n\nBetting insights: Match result heavily favors Chelsea. Over 2.5 goals is likely given both teams' trends. Both Teams to Score 'No' makes sense as Leicester hasn't scored in four games. Correct score prediction of 3-0 Chelsea based on recent H2H and Leicester's defensive issues.\n\nFinal score prediction: 3-0 to Chelsea with high confidence because of the factors mentioned. They're motivated for top four, Leicester's morale is low, and Chelsea's squad depth even with some injuries.\n\nCiting sources appropriately. Use the search results [1], [5], [8], [12], etc., to back each claim. Need to ensure the JSON structure is followed exactly, including all required fields like match overview, team news structured, Asian handicap table, key matchups, betting insights, and prediction. Check that citations match the sources listed in the citations section with URLs and descriptions. Make sure to include at least 5-10 citations as per the instructions.\n</think>\n\n```json\n{\n  \"match_overview\": \"Chelsea host Leicester City in a Premier League clash where the Blues aim to solidify their top-four credentials against a Foxes side battling relegation. Chelsea have won 5 of their last 6 H2H meetings, while Leicester arrive winless in 5 league games and scoreless in their last 4. Stamford Bridge has been a fortress for Chelsea, who boast 18 consecutive home matches with 1+ goals scored [5][9]. Leicester's porous defense (2.26 goals conceded/game) and toothless attack (0 goals in 400+ minutes) make them vulnerable [4][6].\",\n  \"citations\": [\n    {\"id\": \"1\", \"url\": \"https://www.sportsgambler.com/betting-tips/football/chelsea-vs-leicester-prediction-lineups-odds-2025-03-09/\", \"description\": \"Asian handicap analysis and correct score prediction\"},\n    {\"id\": \"4\", \"url\": \"https://ratingbet.com/predictions/chelsea-vs-leicester-city-prediction-and-betting-tips-on-march-9-2025/\", \"description\": \"Team form and defensive statistics\"},\n    {\"id\": \"5\", \"url\": \"https://www.forebet.com/en/football/matches/chelsea-leicester-city-2090933\", \"description\": \"H2H records and scoring trends\"},\n    {\"id\": \"6\", \"url\": \"https://www.sportytrader.com/en/betting-tips/chelsea-leicester-252064/\", \"description\": \"BTTS analysis and market odds\"},\n    {\"id\": \"8\", \"url\": \"https://thehardtackle.com/news/2025/03/09/predicted-chelsea-lineup-against-leicester-city-chalobah-enzo-fernandez-to-return-jorgensen-in-goal/\", \"description\": \"Chelsea lineup and injury updates\"},\n    {\"id\": \"9\", \"url\": \"https://www.si.com/onsi/soccer/chelsea/match-coverage/chelsea-leicester-preview-team-news-how-to-watch-kick-off-time-prediction-01jnvp454wd2\", \"description\": \"Team motivation and context\"},\n    {\"id\": \"12\", \"url\": \"https://foxesofleicester.com/leicester-injuries-after-international-blow-buonanotte-kristiansen-daka-01ja8p9cvmh7\", \"description\": \"Leicester injury updates\"},\n    {\"id\": \"13\", \"url\": \"https://theprideoflondon.com/3-players-to-watch-for-chelsea-vs-leicester-city-in-premier-league-action\", \"description\": \"Defensive vulnerabilities analysis\"}\n  ],\n  \"team_news\": {\n    \"raw\": \"Chelsea receive defensive boosts with Wesley Fofana and Beno\u00eet Badiashile returning to training [8][13], though Malo Gusto remains a slight doubt after midweek substitution [2][8]. Leicester miss key squad players Stolarczyk (GK), Daka (FW), and Choudhury (MF) long-term [12].\",\n    \"structured\": {\n      \"home\": {\n        \"injuries\": [\"Noni Madueke (hamstring) [2]\", \"Nicolas Jackson (hamstring) [2]\", \"Marc Guiu (ankle) [2]\"],\n        \"suspensions\": [\"Mykhailo Mudryk (doping ban) [8]\"],\n        \"returnees\": [\"Wesley Fofana (fitness) [8][13]\", \"Romeo Lavia (fitness) [8]\"],\n        \"projected_xi\": \"Jorgensen; Gusto, Chalobah, Colwill, Cucurella; Caicedo, Fernandez; Sancho, Palmer, Nkunku; Neto [2][8]\"\n      },\n      \"away\": {\n        \"injuries\": [\"Jakub Stolarczyk (GK) [12]\", \"Patson Daka (FW) [12]\", \"Hamza Choudhury (MF) [12]\"],\n        \"suspensions\": [],\n        \"returnees\": [],\n        \"projected_xi\": \"Hermansen; Ricardo, Faes, Vestergaard, Justin; Winks, Ndidi; Fatawu, Dewsbury-Hall, Mavididi; Vardy\"\n      }\n    }\n  },\n  \"asian_handicap_analysis\": {\n    \"table\": {\n      \"headers\": [\"Team\", \"Form\", \"Home/Away Form\", \"H2H\", \"Value\"],\n      \"rows\": [\n        [\"Chelsea -2\", \"WWDWW (Last 5) [5][9]\", \"7W-1D-2L (Home) [5]\", \"5W-1D-0L (Last 6) [5]\", \"55-60% Probability vs 51.3% Implied [1]\"],\n        [\"Leicester +2\", \"LLLLL (Last 5) [4][6]\", \"1W-2D-7L (Away) [4]\", \"0.93 GF/2.26 GA (Season) [4]\", \"Only 9.2% Win Probability [11]\"]\n      ]\n    },\n    \"analysis\": \"Chelsea's -2 handicap offers value given their 55-60% true probability of covering vs 51.3% implied odds [1]. The Blues average 1.93 goals/game and face a Leicester defense conceding 2.26/game [4]. Leicester's 69% away loss rate [5] and 400+ minute scoring drought [6] compound their struggles.\",\n    \"recommendation\": \"Chelsea -2 Asian Handicap @ -105 [1][4]\",\n    \"raw\": \"Historical trends show Chelsea cover -2 handicap in 4 of last 6 H2Hs [5]. Leicester failed to score in 4 consecutive matches - longest drought among PL clubs [6].\"\n  },\n  \"key_player_matchups\": [\n    {\n      \"title\": \"Cole Palmer vs Leicester Central Midfield\",\n      \"content\": \"Palmer's 7.72 progressive passes/90 [14] will exploit Leicester's midfield gap between Ndidi and Winks. Foxes concede 2.6 shots from central areas/game [6].\",\n      \"raw\": \"Leicester's xGA of 1.98 from central zones ranks 19th [6]. Palmer created 3 big chances in last 2 home games [14].\"\n    },\n    {\n      \"title\": \"Pedro Neto vs Jannik Vestergaard\",\n      \"content\": \"Neto's 4.3 successful dribbles/90 [14] targets Vestergaard's 1.2 tackles/90. Leicester CBs rank 18th in aerial duel success (54%) [4].\",\n      \"raw\": \"Vestergaard's 6 errors leading to shots (PL-worst) [4]. Neto scored 3 goals in last 4 starts [8].\"\n    }\n  ],\n  \"betting_insights\": [\n    {\n      \"market\": \"Match Result\",\n      \"insight\": \"Chelsea have 76.4% implied probability (-450) [11] vs Leicester's 9.2% (+1200)\",\n      \"recommendation\": \"Chelsea ML @ -450 [11]\",\n      \"raw\": \"Blues won 7 straight H2Hs at Stamford Bridge [5]. Leicester lost 5 consecutive PL matches [9].\"\n    },\n    {\n      \"market\": \"Over/Under 2.5 Goals\",\n      \"insight\": \"Chelsea games average 3.26 total goals, Leicester's 3.19 [4][6]\",\n      \"recommendation\": \"Over 2.5 Goals @ -275 [1]\",\n      \"raw\": \"Over hit in 5 of Chelsea's last 5 matches [7]. Leicester concede 2+ goals in 8/10 away games [4].\"\n    },\n    {\n      \"market\": \"Correct Score\",\n      \"insight\": \"3-0 Chelsea has 11% probability - most likely outcome [11]\",\n      \"recommendation\": \"Chelsea 3-0 @ +600 [1]\",\n      \"raw\": \"Blues won 4 H2Hs by 3+ goals since 2022 [5]. Leicester failed to score in 4 straight [6].\"\n    }\n  ],\n  \"prediction\": {\n    \"score\": {\"home\": 3, \"away\": 0},\n    \"confidence\": 8,\n    \"reasoning\": \"Chelsea's attacking depth (1.93 GF/game) overwhelms Leicester's league-worst defense. Foxes' scoring drought continues against Chelsea's 7 clean sheets in last 10 H2Hs [5][13]. -2 handicap coverage aligns with historical margins [1][5].\"\n  }\n}\n```"
+  }
+}

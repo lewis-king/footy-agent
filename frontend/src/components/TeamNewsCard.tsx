@@ -7,6 +7,7 @@ interface TeamNewsProps {
   injuries: string[];
   suspensions: string[];
   returnees: string[];
+  projectedXI?: string;
 }
 
 const CardContainer = styled.div`
@@ -97,12 +98,42 @@ const EmptyMessage = styled.p`
   margin: 0.5rem 0 1.5rem 0;
 `;
 
+const ProjectedXIContainer = styled.div`
+  background-color: rgba(138, 43, 226, 0.1);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(138, 43, 226, 0.2);
+`;
+
+const ProjectedXITitle = styled.h4`
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  
+  svg {
+    margin-right: 0.5rem;
+  }
+`;
+
+const ProjectedXIText = styled.p`
+  color: var(--light-text);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+`;
+
 const TeamNewsCard: React.FC<TeamNewsProps> = ({ 
   teamName, 
   teamLogo, 
   injuries, 
   suspensions, 
-  returnees 
+  returnees,
+  projectedXI
 }) => {
   return (
     <CardContainer>
@@ -111,6 +142,18 @@ const TeamNewsCard: React.FC<TeamNewsProps> = ({
         <TeamName>{teamName}</TeamName>
       </CardHeader>
       <CardBody>
+        {projectedXI && (
+          <ProjectedXIContainer>
+            <ProjectedXITitle>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a2be2" strokeWidth="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              Projected XI
+            </ProjectedXITitle>
+            <ProjectedXIText>{projectedXI}</ProjectedXIText>
+          </ProjectedXIContainer>
+        )}
+        
         <SectionTitle>Injuries</SectionTitle>
         {injuries.length > 0 ? (
           <List>

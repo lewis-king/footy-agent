@@ -76,6 +76,11 @@ export interface FixtureContent {
 export interface AnalysisContent {
   match_overview: string;
   raw_perplexity_content?: string;
+  citations?: Array<{
+    id: string;
+    url: string;
+    description: string;
+  }>;
   asian_handicap_analysis: {
     table?: {
       headers: string[];
@@ -125,6 +130,9 @@ export interface AnalysisContent {
     confidence?: string;
     rationale?: string;
     raw?: string;
+  };
+  my_say?: {
+    content: string;
   };
 }
 
