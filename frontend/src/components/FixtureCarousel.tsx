@@ -15,9 +15,9 @@ const pulse = keyframes`
 `;
 
 const glow = keyframes`
-  0% { box-shadow: 0 10px 20px rgba(0, 255, 133, 0.2); }
-  50% { box-shadow: 0 15px 30px rgba(0, 255, 133, 0.4); }
-  100% { box-shadow: 0 10px 20px rgba(0, 255, 133, 0.2); }
+  0% { box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2); }
+  50% { box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4); }
+  100% { box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2); }
 `;
 
 const highlightShine = keyframes`
@@ -92,7 +92,7 @@ const FixtureCard = styled.div<{ isSelected: boolean; primaryColor: string; seco
     if (props.isSelected) {
       return `linear-gradient(135deg, ${props.primaryColor}40, ${props.secondaryColor}40)`;
     } else if (props.isPast) {
-      return `linear-gradient(135deg, rgba(0, 128, 0, 0.25), rgba(0, 100, 0, 0.15))`;
+      return `linear-gradient(135deg, rgba(138, 43, 226, 0.25), rgba(138, 43, 226, 0.15))`;
     } else {
       return 'var(--alt-card-background)';
     }
@@ -101,7 +101,7 @@ const FixtureCard = styled.div<{ isSelected: boolean; primaryColor: string; seco
     if (props.isSelected) {
       return `2px solid ${props.primaryColor}`;
     } else if (props.isPast) {
-      return '1px solid rgba(0, 128, 0, 0.3)';
+      return '1px solid rgba(138, 43, 226, 0.3)';
     } else {
       return '1px solid var(--border-color)';
     }
@@ -145,7 +145,7 @@ const CompletedIcon = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: rgba(0, 128, 0, 0.7);
+  background-color: rgba(138, 43, 226, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,8 +236,8 @@ const Versus = styled.div`
   &:before {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
     opacity: 0.2;
@@ -248,8 +248,8 @@ const Versus = styled.div`
   &:after {
     content: '';
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border: 2px dashed var(--accent-color);
     border-radius: 50%;
     opacity: 0.3;
@@ -300,7 +300,7 @@ const ScrollButton = styled.button<{ direction: 'left' | 'right' }>`
   
   &:hover {
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 8px 20px rgba(0, 255, 133, 0.4);
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
   }
   
   &:before {
