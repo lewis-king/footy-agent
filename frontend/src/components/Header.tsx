@@ -175,7 +175,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab = 'preview', onTabChange }) =
             $active={activeTab === 'fpl'} 
             onClick={handleTabClick('fpl')}
           >
-            FPL Tips
+            FPL Zone
           </NavLink>
         </NavLinks>
         
