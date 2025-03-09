@@ -2,6 +2,12 @@
 
 A responsive web application providing intelligent, data-driven insights for Premier League betting enthusiasts.
 
+![Spurs vs Bournemouth](images/spurs_vs_bournemouth.png)
+
+[Chelsea vs Leicester](images/chelsea_vs_leicester.png)
+
+[Man United vs Arsenal](images/manu_vs_arsenal.png)
+
 ## Project Structure
 
 ```
