@@ -131,7 +131,7 @@ export interface AnalysisContent {
     rationale?: string;
     raw?: string;
   };
-  my_say?: {
+  my_say: {
     content: string;
   };
 }
