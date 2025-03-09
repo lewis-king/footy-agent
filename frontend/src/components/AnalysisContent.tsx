@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Fixture, Analysis } from '../types/fixtures';
 import ReactMarkdown from 'react-markdown';
@@ -14,7 +14,7 @@ interface ContentContainerProps {
   $team2Color?: string;
 }
 
-const ContentContainer = styled.div<ContentContainerProps>`
+export const ContentContainer = styled.div<ContentContainerProps>`
   background: linear-gradient(
     to bottom right,
     ${props => (props.$team1Color || '#8a2be2')}0A,
@@ -32,7 +32,7 @@ const ContentContainer = styled.div<ContentContainerProps>`
   }
 `;
 
-const ContentBody = styled.div`
+export const ContentBody = styled.div`
   padding: 2rem;
   background-color: var(--alt-card-background);
   border-radius: 8px;
@@ -43,63 +43,49 @@ const ContentBody = styled.div`
   }
 `;
 
-const Headline = styled.h1`
-  font-size: 2rem;
+export const SectionContainer = styled.div`
+  background: var(--alt-card-background);
+  border-radius: var(--card-radius);
+  padding: 1.5rem;
   margin-bottom: 1.5rem;
-  color: var(--light-text);
-  font-weight: 600;
-  letter-spacing: -0.5px;
+  box-shadow: 0 4px 8px var(--shadow-color);
 `;
 
-const Section = styled.section`
-  margin-bottom: 2.5rem;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
-  color: var(--primary-color);
+export const SectionTitle = styled.h3`
+  color: var(--accent-color);
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
-  
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 24px;
-    background-color: var(--secondary-color);
-    margin-right: 10px;
-    border-radius: 2px;
-  }
+  gap: 0.5rem;
 `;
 
-const SectionContainer = styled.div`
-  background-color: var(--alt-card-background);
+export const InsightCard = styled.div`
+  background: var(--card-background);
+  padding: 1rem;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 0.5rem 0;
+  border-left: 4px solid var(--accent-color);
 `;
 
-const TeamHeader = styled.div`
+export const TeamHeader = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 `;
 
-const TeamLogo = styled.img`
+export const TeamLogo = styled.img`
   width: 40px;
   height: 40px;
   margin-right: 12px;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 `;
 
-const TeamName = styled.h3`
+export const TeamName = styled.h3`
   font-size: 1.3rem;
   color: var(--light-text);
 `;
 
-const MarkdownContent = styled.div`
+export const MarkdownContent = styled.div`
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--light-text);
@@ -218,23 +204,6 @@ const MatchupVersusText = styled.div`
   color: var(--light-text);
 `;
 
-const ConfidenceContainer = styled.div<{ $confidence: string }>`
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  color: ${({ $confidence }) => $confidence === 'high' ? 'var(--primary-color)' : 'var(--secondary-color)'};
-`;
-
-const ConfidenceLabel = styled.span`
-  font-size: 1.1rem;
-  margin-right: 0.5rem;
-`;
-
-const ConfidenceValue = styled.span`
-  font-size: 1.1rem;
-  font-weight: 600;
-`;
-
 const BettingInsightCard = styled.div`
   background-color: var(--alt-card-background);
   border-radius: 8px;
@@ -262,21 +231,6 @@ const InsightItem = styled.div`
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-left: 3px solid var(--primary-color);
-  }
-`;
-
-const InsightCard = styled.div`
-  background-color: var(--alt-card-background);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid var(--primary-color);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -308,22 +262,18 @@ const LastUpdated = styled.div`
   font-style: italic;
 `;
 
-const MatchupContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background-color: var(--alt-card-background);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-`;
-
-const TeamSide = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+const TeamLogosContainer = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '1rem',
+  margin: '1rem 0',
+  '& img': {
+    height: '60px',
+    width: '60px',
+    objectFit: 'contain'
+  }
+});
 
 const TeamLogoLarge = styled.img`
   width: 64px;
@@ -443,23 +393,6 @@ const RecommendationContent = styled.div`
   color: var(--light-text);
 `;
 
-const RawContentToggle = styled.button`
-  background-color: transparent;
-  border: 1px solid var(--secondary-color);
-  color: var(--secondary-color);
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  margin-left: auto;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background-color: var(--secondary-color);
-    color: white;
-  }
-`;
-
 const RawContentContainer = styled.div`
   margin-top: 1rem;
   padding: 1rem;
@@ -474,27 +407,72 @@ const SectionHeader = styled.div`
   width: 100%;
 `;
 
+const PredictionSection = styled.div`
+  background: var(--alt-card-background);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 3rem 0;
+  border: 2px solid rgba(138, 43, 226, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      rgba(138, 43, 226, 0.1) 0%,
+      rgba(138, 43, 226, 0.05) 50%,
+      rgba(138, 43, 226, 0.1) 100%
+    );
+    animation: rotate 20s linear infinite;
+    z-index: 0;
+  }
+`;
+
+const PredictionContent = styled.div`
+  position: relative;
+  z-index: 1;
+`;
+
+const ScoreBadge = styled.div`
+  background: #8a2be2;
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 24px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 1rem auto 2rem;
+  box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
+  justify-content: center;
+  width: fit-content;
+`;
+
+const ReasoningText = styled.div`
+  color: var(--light-text);
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border-left: 4px solid #8a2be2;
+
+  strong {
+    color: #8a2be2;
+    font-weight: 600;
+  }
+`;
+
 const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) => {
-  // State for toggling raw content visibility
-  const [showRawContent, setShowRawContent] = useState({
-    overview: false,
-    teamNews: false,
-    keyPlayerMatchups: false,
-    asianHandicap: false,
-    bettingInsights: false,
-    prediction: false,
-    fullPerplexity: false
-  });
-
-  // Toggle function for raw content
-  const toggleRawContent = (section: keyof typeof showRawContent) => {
-    setShowRawContent(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
-
-  // Format the last updated date
   const formatLastUpdated = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleString('en-GB', {
@@ -506,7 +484,6 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
     });
   };
 
-  // Check if team news has structured data
   const hasStructuredTeamNews = (
     analysis.content.team_news.structured.home.injuries.length > 0 ||
     analysis.content.team_news.structured.home.suspensions.length > 0 ||
@@ -531,57 +508,34 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
       };
       
       return (
-        <Section>
-          <SectionHeader>
-            <SectionTitle>Asian Handicap Analysis</SectionTitle>
-            {handicapData.raw && (
-              <RawContentToggle 
-                onClick={() => toggleRawContent('asianHandicap')}
-              >
-                {showRawContent.asianHandicap ? 'Hide Details' : 'Show Details'}
-              </RawContentToggle>
-            )}
-          </SectionHeader>
-          
-          {/* Render table if available */}
-          {handicapData.table && (
-            <TableContainer>
-              <StyledTable>
-                <thead>
-                  <tr>
-                    {handicapData.table.headers.map((header, index) => (
-                      <TableHeader key={index}>{header}</TableHeader>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {handicapData.table.rows.map((row, rowIndex) => (
-                    <TableRow key={rowIndex}>
-                      {row.map((cell, cellIndex) => (
-                        <TableCell key={cellIndex}>{cell}</TableCell>
-                      ))}
-                    </TableRow>
+        <SectionContainer>
+          <SectionTitle>Asian Handicap Analysis</SectionTitle>
+          <StyledTable>
+            <thead>
+              <tr>
+                {handicapData.table?.headers.map((header, index) => (
+                  <TableHeader key={index}>{header}</TableHeader>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {handicapData.table?.rows.map((row, rowIndex) => (
+                <TableRow key={rowIndex}>
+                  {row.map((cell, cellIndex) => (
+                    <TableCell key={cellIndex}>{cell}</TableCell>
                   ))}
-                </tbody>
-              </StyledTable>
-            </TableContainer>
-          )}
-          
-          {/* Render analysis */}
-          <MarkdownContent>
-            <ReactMarkdown>{handicapData.analysis}</ReactMarkdown>
-          </MarkdownContent>
-          
-          {/* Render recommendation if available */}
+                </TableRow>
+              ))}
+            </tbody>
+          </StyledTable>
+          <p>{handicapData.analysis}</p>
           {handicapData.recommendation && (
             <RecommendationCard>
               <RecommendationTitle>Recommendation</RecommendationTitle>
               <RecommendationContent>{handicapData.recommendation}</RecommendationContent>
             </RecommendationCard>
           )}
-
-          {/* Render raw content if available and toggled */}
-          {handicapData.raw && showRawContent.asianHandicap && (
+          {handicapData.raw && (
             <RawContentContainer>
               <MarkdownContent>
                 <strong>Detailed Analysis:</strong>
@@ -589,12 +543,11 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
               </MarkdownContent>
             </RawContentContainer>
           )}
-        </Section>
+        </SectionContainer>
       );
     }
     
     // Fallback to the old format handling
-    // Check if the content contains a markdown table
     const containsTable = typeof analysis.content.asian_handicap_analysis === 'string' && 
                           analysis.content.asian_handicap_analysis.includes('|') && 
                           analysis.content.asian_handicap_analysis.includes('-|-');
@@ -636,30 +589,17 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
     }
     
     return (
-      <Section>
-        <SectionHeader>
-          <SectionTitle>Asian Handicap Analysis</SectionTitle>
-          {otherContent && (
-            <RawContentToggle 
-              onClick={() => toggleRawContent('asianHandicap')}
-            >
-              {showRawContent.asianHandicap ? 'Hide Details' : 'Show Details'}
-            </RawContentToggle>
-          )}
-        </SectionHeader>
+      <SectionContainer>
+        <SectionTitle>Asian Handicap Analysis</SectionTitle>
         {containsTable && <MarkdownTable markdown={tableContent} />}
-        <MarkdownContent>
-          <ReactMarkdown>{otherContent}</ReactMarkdown>
-        </MarkdownContent>
-        {otherContent && showRawContent.asianHandicap && (
-          <RawContentContainer>
-            <MarkdownContent>
-              <strong>Detailed Analysis:</strong>
-              <ReactMarkdown>{otherContent}</ReactMarkdown>
-            </MarkdownContent>
-          </RawContentContainer>
-        )}
-      </Section>
+        <p>{otherContent}</p>
+        <RawContentContainer>
+          <MarkdownContent>
+            <strong>Detailed Analysis:</strong>
+            <ReactMarkdown>{otherContent}</ReactMarkdown>
+          </MarkdownContent>
+        </RawContentContainer>
+      </SectionContainer>
     );
   };
 
@@ -678,17 +618,8 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
       }>;
       
       return (
-        <Section>
-          <SectionHeader>
-            <SectionTitle>Key Player Matchups</SectionTitle>
-            {matchups.some(m => m.raw) && (
-              <RawContentToggle 
-                onClick={() => toggleRawContent('keyPlayerMatchups')}
-              >
-                {showRawContent.keyPlayerMatchups ? 'Hide Details' : 'Show Details'}
-              </RawContentToggle>
-            )}
-          </SectionHeader>
+        <SectionContainer>
+          <SectionTitle>Key Player Matchups</SectionTitle>
           <InsightGrid>
             {matchups.map((matchup, index) => (
               <InsightCard key={index}>
@@ -696,7 +627,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
                 <MarkdownContent>
                   <ReactMarkdown>{matchup.content}</ReactMarkdown>
                 </MarkdownContent>
-                {matchup.raw && showRawContent.keyPlayerMatchups && (
+                {matchup.raw && (
                   <RawContentContainer>
                     <MarkdownContent>
                       <strong>Detailed Analysis:</strong>
@@ -707,12 +638,11 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
               </InsightCard>
             ))}
           </InsightGrid>
-        </Section>
+        </SectionContainer>
       );
     }
     
     // Fallback to the old format handling
-    // Split the content into individual matchups
     const matchupsText = typeof analysis.content.key_player_matchups === 'string' 
       ? analysis.content.key_player_matchups 
       : '';
@@ -723,44 +653,22 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
     
     if (matchups.length === 0) {
       return (
-        <Section>
-          <SectionHeader>
-            <SectionTitle>Key Player Matchups</SectionTitle>
-            {matchupsText && (
-              <RawContentToggle 
-                onClick={() => toggleRawContent('keyPlayerMatchups')}
-              >
-                {showRawContent.keyPlayerMatchups ? 'Hide Details' : 'Show Details'}
-              </RawContentToggle>
-            )}
-          </SectionHeader>
-          <MarkdownContent>
-            <ReactMarkdown>{matchupsText}</ReactMarkdown>
-          </MarkdownContent>
-          {matchupsText && showRawContent.keyPlayerMatchups && (
-            <RawContentContainer>
-              <MarkdownContent>
-                <strong>Detailed Analysis:</strong>
-                <ReactMarkdown>{matchupsText}</ReactMarkdown>
-              </MarkdownContent>
-            </RawContentContainer>
-          )}
-        </Section>
+        <SectionContainer>
+          <SectionTitle>Key Player Matchups</SectionTitle>
+          <p>{matchupsText}</p>
+          <RawContentContainer>
+            <MarkdownContent>
+              <strong>Detailed Analysis:</strong>
+              <ReactMarkdown>{matchupsText}</ReactMarkdown>
+            </MarkdownContent>
+          </RawContentContainer>
+        </SectionContainer>
       );
     }
     
     return (
-      <Section>
-        <SectionHeader>
-          <SectionTitle>Key Player Matchups</SectionTitle>
-          {matchupsText && (
-            <RawContentToggle 
-              onClick={() => toggleRawContent('keyPlayerMatchups')}
-            >
-              {showRawContent.keyPlayerMatchups ? 'Hide Details' : 'Show Details'}
-            </RawContentToggle>
-          )}
-        </SectionHeader>
+      <SectionContainer>
+        <SectionTitle>Key Player Matchups</SectionTitle>
         <InsightGrid>
           {matchups.map((matchup, index) => {
             // Try to extract player names from the matchup
@@ -773,19 +681,17 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
                 <MarkdownContent>
                   <ReactMarkdown>{matchup}</ReactMarkdown>
                 </MarkdownContent>
-                {matchupsText && showRawContent.keyPlayerMatchups && (
-                  <RawContentContainer>
-                    <MarkdownContent>
-                      <strong>Detailed Analysis:</strong>
-                      <ReactMarkdown>{matchup}</ReactMarkdown>
-                    </MarkdownContent>
-                  </RawContentContainer>
-                )}
+                <RawContentContainer>
+                  <MarkdownContent>
+                    <strong>Detailed Analysis:</strong>
+                    <ReactMarkdown>{matchup}</ReactMarkdown>
+                  </MarkdownContent>
+                </RawContentContainer>
               </InsightCard>
             );
           })}
         </InsightGrid>
-      </Section>
+      </SectionContainer>
     );
   };
 
@@ -804,17 +710,8 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
       }>;
       
       return (
-        <Section>
-          <SectionHeader>
-            <SectionTitle>Betting Insights</SectionTitle>
-            {insights.some(i => i.raw) && (
-              <RawContentToggle 
-                onClick={() => toggleRawContent('bettingInsights')}
-              >
-                {showRawContent.bettingInsights ? 'Hide Details' : 'Show Details'}
-              </RawContentToggle>
-            )}
-          </SectionHeader>
+        <SectionContainer>
+          <SectionTitle>Betting Insights</SectionTitle>
           <InsightGrid>
             {insights.map((insight, index) => (
               <InsightCard key={index}>
@@ -825,7 +722,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
                 {insight.recommendation && (
                   <ValueTag>{insight.recommendation}</ValueTag>
                 )}
-                {insight.raw && showRawContent.bettingInsights && (
+                {insight.raw && (
                   <RawContentContainer>
                     <MarkdownContent>
                       <strong>Detailed Analysis:</strong>
@@ -836,7 +733,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
               </InsightCard>
             ))}
           </InsightGrid>
-        </Section>
+        </SectionContainer>
       );
     }
     
@@ -847,17 +744,8 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
     };
     
     return (
-      <Section>
-        <SectionHeader>
-          <SectionTitle>Betting Insights</SectionTitle>
-          {bettingInsights.raw && (
-            <RawContentToggle 
-              onClick={() => toggleRawContent('bettingInsights')}
-            >
-              {showRawContent.bettingInsights ? 'Hide Details' : 'Show Details'}
-            </RawContentToggle>
-          )}
-        </SectionHeader>
+      <SectionContainer>
+        <SectionTitle>Betting Insights</SectionTitle>
         {bettingInsights.insights && bettingInsights.insights.length > 0 ? (
           <InsightGrid>
             {bettingInsights.insights.map((insight, index) => (
@@ -873,15 +761,13 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
             </MarkdownContent>
           </BettingInsightCard>
         )}
-        {bettingInsights.raw && showRawContent.bettingInsights && (
-          <RawContentContainer>
-            <MarkdownContent>
-              <strong>Detailed Analysis:</strong>
-              <ReactMarkdown>{bettingInsights.raw}</ReactMarkdown>
-            </MarkdownContent>
-          </RawContentContainer>
-        )}
-      </Section>
+        <RawContentContainer>
+          <MarkdownContent>
+            <strong>Detailed Analysis:</strong>
+            <ReactMarkdown>{bettingInsights.raw}</ReactMarkdown>
+          </MarkdownContent>
+        </RawContentContainer>
+      </SectionContainer>
     );
   };
 
@@ -893,18 +779,8 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
     const awayTeam = fixture.awayTeam;
     
     return (
-      <Section>
-        <SectionHeader>
-          <SectionTitle>Prediction</SectionTitle>
-          {prediction.raw && (
-            <RawContentToggle 
-              onClick={() => toggleRawContent('prediction')}
-            >
-              {showRawContent.prediction ? 'Hide Details' : 'Show Details'}
-            </RawContentToggle>
-          )}
-        </SectionHeader>
-        
+      <SectionContainer>
+        <SectionTitle>Prediction</SectionTitle>
         {prediction.score.found && (
           <PredictionContainer>
             <TeamScoreContainer>
@@ -923,13 +799,6 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
           </PredictionContainer>
         )}
         
-        {prediction.confidence && (
-          <ConfidenceContainer $confidence={getConfidenceLevel(prediction.confidence)}>
-            <ConfidenceLabel>Confidence:</ConfidenceLabel>
-            <ConfidenceValue>{prediction.confidence}</ConfidenceValue>
-          </ConfidenceContainer>
-        )}
-        
         {prediction.rationale && (
           <MarkdownContent>
             <strong>Rationale:</strong>
@@ -937,7 +806,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
           </MarkdownContent>
         )}
         
-        {prediction.raw && showRawContent.prediction && (
+        {prediction.raw && (
           <RawContentContainer>
             <MarkdownContent>
               <strong>Detailed Analysis:</strong>
@@ -946,12 +815,57 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
           </RawContentContainer>
         )}
         
-        {prediction.raw && !prediction.rationale && !showRawContent.prediction && (
+        {prediction.raw && !prediction.rationale && (
           <MarkdownContent>
             <ReactMarkdown>{prediction.raw}</ReactMarkdown>
           </MarkdownContent>
         )}
-      </Section>
+      </SectionContainer>
+    );
+  };
+
+  const renderPremiumPrediction = () => {
+    if (!analysis?.content?.prediction) return null;
+    
+    const { prediction } = analysis.content;
+    if (!prediction?.score) return null;
+
+    return (
+      <PredictionSection>
+        <PredictionContent>
+          <h2 style={{ 
+            color: '#8a2be2', 
+            marginBottom: '1.5rem',
+            fontSize: '1.8rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem'
+          }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            AI Match Prediction
+          </h2>
+          
+          <ScoreBadge>
+            <span style={{ fontWeight: 500, fontSize: '1.4rem' }}>
+              {fixture.homeTeam?.name || 'Home Team'}
+            </span>
+            <span>{prediction.score.home}</span>
+            <span>-</span>
+            <span>{prediction.score.away}</span>
+            <span style={{ fontWeight: 500, fontSize: '1.4rem' }}>
+              {fixture.awayTeam?.name || 'Away Team'}
+            </span>
+          </ScoreBadge>
+
+          <ReasoningText>
+            {prediction.reasoning
+              .replace(/(\d+%?\+?)/g, '**$1**')
+              .replace(/(\[\d+\])/g, '<strong>$1</strong>')}
+          </ReasoningText>
+        </PredictionContent>
+      </PredictionSection>
     );
   };
 
@@ -971,51 +885,25 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
   return (
     <ContentContainer>
       <ContentBody>
-        <Headline>{fixture.homeTeam.name} vs {fixture.awayTeam.name} Analysis</Headline>
-        
-        <MatchupContainer>
-          <TeamSide>
-            <TeamLogoLarge src={fixture.homeTeam.logo} alt={fixture.homeTeam.name} />
-            <TeamName>{fixture.homeTeam.name}</TeamName>
-          </TeamSide>
+        <TeamLogosContainer>
+          <TeamLogoLarge src={fixture.homeTeam.logo} alt={fixture.homeTeam.name} />
           <MatchupVersusText>VS</MatchupVersusText>
-          <TeamSide>
-            <TeamLogoLarge src={fixture.awayTeam.logo} alt={fixture.awayTeam.name} />
-            <TeamName>{fixture.awayTeam.name}</TeamName>
-          </TeamSide>
-        </MatchupContainer>
+          <TeamLogoLarge src={fixture.awayTeam.logo} alt={fixture.awayTeam.name} />
+        </TeamLogosContainer>
         
-        <Section>
-          <SectionHeader>
-            <SectionTitle>Match Overview</SectionTitle>
-            <RawContentToggle 
-              onClick={() => toggleRawContent('overview')}
-            >
-              {showRawContent.overview ? 'Hide Details' : 'Show Details'}
-            </RawContentToggle>
-          </SectionHeader>
-          <MarkdownContent>
-            <ReactMarkdown>{analysis.content.match_overview}</ReactMarkdown>
-          </MarkdownContent>
-          {showRawContent.overview && analysis.content.raw_perplexity_content && (
-            <RawContentContainer>
-              <MarkdownContent>
-                <strong>Detailed Analysis:</strong>
-                <ReactMarkdown>{analysis.content.raw_perplexity_content}</ReactMarkdown>
-              </MarkdownContent>
-            </RawContentContainer>
-          )}
-        </Section>
+        <SectionContainer>
+          <SectionTitle>Match Overview</SectionTitle>
+          <p>{analysis.content.match_overview}</p>
+          <RawContentContainer>
+            <MarkdownContent>
+              <strong>Detailed Analysis:</strong>
+              <ReactMarkdown>{analysis.content.raw_perplexity_content}</ReactMarkdown>
+            </MarkdownContent>
+          </RawContentContainer>
+        </SectionContainer>
         
-        <Section>
-          <SectionHeader>
-            <SectionTitle>Team News</SectionTitle>
-            <RawContentToggle 
-              onClick={() => toggleRawContent('teamNews')}
-            >
-              {showRawContent.teamNews ? 'Hide Details' : 'Show Details'}
-            </RawContentToggle>
-          </SectionHeader>
+        <SectionContainer>
+          <SectionTitle>Team News</SectionTitle>
           {hasStructuredTeamNews ? (
             <TeamNewsGrid>
               <TeamNewsCard>
@@ -1115,42 +1003,27 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ fixture, analysis }) 
               <ReactMarkdown>{analysis.content.team_news.raw}</ReactMarkdown>
             </MarkdownContent>
           )}
-          
-          {showRawContent.teamNews && analysis.content.team_news.raw && (
-            <RawContentContainer>
-              <MarkdownContent>
-                <strong>Detailed Team News:</strong>
-                <ReactMarkdown>{analysis.content.team_news.raw}</ReactMarkdown>
-              </MarkdownContent>
-            </RawContentContainer>
-          )}
-        </Section>
+          <RawContentContainer>
+            <MarkdownContent>
+              <strong>Detailed Team News:</strong>
+              <ReactMarkdown>{analysis.content.team_news.raw}</ReactMarkdown>
+            </MarkdownContent>
+          </RawContentContainer>
+        </SectionContainer>
         
         {renderKeyPlayerMatchups()}
         {renderAsianHandicapAnalysis()}
         {renderBettingInsights()}
-        {renderPrediction()}
+        {renderPremiumPrediction()}
         
-        {analysis.content.raw_perplexity_content && (
-          <Section>
-            <SectionHeader>
-              <SectionTitle>Full Analysis</SectionTitle>
-              <RawContentToggle 
-                onClick={() => toggleRawContent('fullPerplexity')}
-              >
-                {showRawContent.fullPerplexity ? 'Hide Full Analysis' : 'Show Full Analysis'}
-              </RawContentToggle>
-            </SectionHeader>
-            
-            {showRawContent.fullPerplexity && (
-              <RawContentContainer>
-                <MarkdownContent>
-                  <ReactMarkdown>{analysis.content.raw_perplexity_content}</ReactMarkdown>
-                </MarkdownContent>
-              </RawContentContainer>
-            )}
-          </Section>
-        )}
+        <SectionContainer>
+          <SectionTitle>Full Analysis</SectionTitle>
+          <RawContentContainer>
+            <MarkdownContent>
+              <ReactMarkdown>{analysis.content.raw_perplexity_content}</ReactMarkdown>
+            </MarkdownContent>
+          </RawContentContainer>
+        </SectionContainer>
       </ContentBody>
     </ContentContainer>
   );

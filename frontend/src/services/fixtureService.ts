@@ -5,13 +5,18 @@ import { Fixture, FixtureContent, Analysis } from '../types/fixtures';
 const API_BASE_URL = 'http://localhost:5050/api';
 
 /**
- * Fetches upcoming fixtures from the API
+ * Fetches fixtures from the API
+ * @param includePast Whether to include past fixtures (default: true)
  * @returns Promise resolving to an array of Fixture objects
  */
-export const fetchFixtures = async (): Promise<Fixture[]> => {
+export const fetchFixtures = async (includePast: boolean = true): Promise<Fixture[]> => {
   try {
-    console.log('Fetching fixtures from API...', `${API_BASE_URL}/fixtures/`);
-    const response = await axios.get(`${API_BASE_URL}/fixtures/`);
+    console.log('Fetching fixtures from API...', `${API_BASE_URL}/fixtures/?include_past=${includePast}`);
+    const response = await axios.get(`${API_BASE_URL}/fixtures/`, {
+      params: {
+        include_past: includePast
+      }
+    });
     console.log('Fixtures API response:', response.data);
     
     // Map the backend fixture format to the frontend format

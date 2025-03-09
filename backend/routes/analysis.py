@@ -37,10 +37,10 @@ def generate_analysis(fixture_id):
             return jsonify({"error": "Fixture not found"}), 404
         
         # Generate analysis
-        analysis = generate_fixture_analysis(fixture)
+        #analysis = generate_fixture_analysis(fixture)
         
         # Save analysis
-        save_analysis(fixture_id, analysis)
+        #save_analysis(fixture_id, analysis)
         
         return jsonify({
             "message": "Analysis generated successfully",
@@ -70,10 +70,10 @@ def get_analysis(fixture_id):
                 return jsonify({"error": "Fixture not found"}), 404
             
             # Generate analysis
-            analysis = generate_fixture_analysis(fixture)
+            #analysis = generate_fixture_analysis(fixture)
             
             # Save analysis
-            save_analysis(fixture_id, analysis)
+            #save_analysis(fixture_id, analysis)
         
         return jsonify(analysis)
     except Exception as e:
@@ -124,10 +124,10 @@ def batch_generate_analysis():
             
             try:
                 # Generate analysis
-                analysis = generate_fixture_analysis(fixture)
+                #analysis = generate_fixture_analysis(fixture)
                 
                 # Save analysis
-                save_analysis(fixture_id, analysis)
+                #save_analysis(fixture_id, analysis)
                 
                 results.append({
                     "fixture_id": fixture_id,

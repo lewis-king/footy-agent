@@ -46,10 +46,10 @@ def generate_analysis(fixture_id):
             })
         
         # Generate analysis
-        analysis = generate_fixture_analysis(fixture)
+        #analysis = generate_fixture_analysis(fixture)
         
         # Save analysis
-        save_analysis(fixture_id, analysis)
+        #save_analysis(fixture_id, analysis)
         
         return jsonify({
             "message": "Analysis generated successfully", 
@@ -97,8 +97,8 @@ def batch_generate_analysis():
             
             # Generate analysis
             try:
-                analysis = generate_fixture_analysis(fixture)
-                save_analysis(fixture_id, analysis)
+                #analysis = generate_fixture_analysis(fixture)
+                #save_analysis(fixture_id, analysis)
                 results.append({
                     "fixture_id": fixture_id,
                     "status": "success",

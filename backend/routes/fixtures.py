@@ -20,26 +20,40 @@ fixtures_bp = Blueprint('fixtures', __name__)
 @fixtures_bp.route('/', methods=['GET'])
 def get_fixtures():
     """
-    Get all upcoming Premier League fixtures
-    Optional query param: limit (int) - Limit the number of fixtures returned
+    Get all Premier League fixtures
+    Optional query params:
+    - limit (int) - Limit the number of fixtures returned
+    - include_past (bool) - Include past fixtures (default: false)
     """
     try:
         fixtures = load_fixtures()
         
         # If fixtures are empty or outdated, refresh them
         if not fixtures or is_fixtures_outdated(fixtures):
-            fixtures = refresh_fixtures_data()
-            save_fixtures(fixtures)
+            print("Refreshing fixtures...")
+            #fixtures = refresh_fixtures_data()
+            #save_fixtures(fixtures)
         
-        # Filter to only include upcoming fixtures
+        # Check if we should include past fixtures
+        include_past = request.args.get('include_past', 'false').lower() == 'true'
+        
         today = datetime.now().date()
-        upcoming_fixtures = [f for f in fixtures if datetime.strptime(f['date'], '%Y-%m-%d').date() >= today]
+        
+        if include_past:
+            # Include all fixtures but mark them as past/upcoming
+            for fixture in fixtures:
+                fixture_date = datetime.strptime(fixture['date'], '%Y-%m-%d').date()
+                fixture['status'] = 'past' if fixture_date < today else 'upcoming'
+            filtered_fixtures = fixtures
+        else:
+            # Filter to only include upcoming fixtures
+            filtered_fixtures = [f for f in fixtures if datetime.strptime(f['date'], '%Y-%m-%d').date() >= today]
         
         # Sort by date (ascending)
-        upcoming_fixtures.sort(key=lambda x: x['date'])
+        filtered_fixtures.sort(key=lambda x: x['date'])
         
         # Check if analysis exists for each fixture
-        for fixture in upcoming_fixtures:
+        for fixture in filtered_fixtures:
             fixture_id = fixture['id']
             analysis = load_analysis(fixture_id)
             fixture['has_analysis'] = bool(analysis)
@@ -47,9 +61,9 @@ def get_fixtures():
         # Apply limit if provided
         limit = request.args.get('limit', type=int)
         if limit and limit > 0:
-            upcoming_fixtures = upcoming_fixtures[:limit]
+            filtered_fixtures = filtered_fixtures[:limit]
         
-        return jsonify(upcoming_fixtures)
+        return jsonify(filtered_fixtures)
     except Exception as e:
         print(f"Error in get_fixtures: {str(e)}")
         return jsonify({"error": str(e)}), 500

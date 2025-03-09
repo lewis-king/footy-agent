@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import FixtureCarousel from './components/FixtureCarousel';
-import FixtureContent from './components/FixtureContent';
 import AnalysisContent from './components/AnalysisContent';
 import GameweekCarousel from './components/GameweekCarousel';
 import FplContent from './components/FplContent';
@@ -112,8 +111,16 @@ const App: React.FC = () => {
       const upcomingFixtures = await fetchFixtures();
       setFixtures(upcomingFixtures);
       
-      // Set first fixture as selected by default if available
-      if (upcomingFixtures.length > 0) {
+      // Find the next upcoming fixture based on current time
+      const now = new Date();
+      const nextFixture = upcomingFixtures
+        .sort((a, b) => new Date(a.kickoff).getTime() - new Date(b.kickoff).getTime())
+        .find(fixture => new Date(fixture.kickoff) > now);
+      
+      // Set next fixture as selected by default if available, otherwise use the first fixture
+      if (nextFixture) {
+        setSelectedFixture(nextFixture);
+      } else if (upcomingFixtures.length > 0) {
         setSelectedFixture(upcomingFixtures[0]);
       }
     } catch (error) {
@@ -247,28 +254,15 @@ const App: React.FC = () => {
             {loading ? (
               <LoadingContainer>
                 <LoadingSpinner />
-                <LoadingText>Loading fixture content...</LoadingText>
+                <LoadingText>Loading football insights...</LoadingText>
               </LoadingContainer>
             ) : (
-              selectedFixture && (fixtureContent || fixtureAnalysis) ? (
-                <>
-                  {fixtureContent && (
-                    <FixtureContent 
-                      fixture={selectedFixture}
-                      content={fixtureContent}
-                    />
-                  )}
-                  {fixtureAnalysis && (
-                    <AnalysisContent 
-                      fixture={selectedFixture}
-                      analysis={fixtureAnalysis}
-                    />
-                  )}
-                </>
-              ) : (
-                <EmptyStateContainer>
-                  <EmptyStateText>Select a fixture to view match details</EmptyStateText>
-                </EmptyStateContainer>
+              fixtureContent && fixtureAnalysis && selectedFixture && (
+                <AnalysisContent
+                  fixture={selectedFixture}
+                  content={fixtureContent}
+                  analysis={fixtureAnalysis}
+                />
               )
             )}
           </>

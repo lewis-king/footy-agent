@@ -1,5 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import {
+  ContentContainer,
+  ContentBody,
+  Headline,
+  Section,
+  SectionTitle,
+  SectionContainer
+} from './AnalysisContent';
 import TeamNewsSection from './TeamNewsSection';
 import PlayerMatchupsSection from './PlayerMatchupsSection';
 
@@ -61,6 +69,14 @@ interface FixtureContentProps {
       content: string;
     }[];
     lastUpdated: string;
+    prediction: {
+      score: {
+        home: number;
+        away: number;
+      };
+      confidence: number;
+      reasoning: string;
+    };
   };
 }
 
@@ -79,95 +95,6 @@ interface ContentContainerProps {
   $team2Color: string;
 }
 
-const ContentContainer = styled.div<ContentContainerProps>`
-  background: linear-gradient(
-    to bottom right,
-    ${props => props.$team1Color}0A,
-    ${props => props.$team2Color}0A
-  );
-  border: 1px solid var(--border-secondary);
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  margin-bottom: 2rem;
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-`;
-
-const ContentBody = styled.div`
-  padding: 2rem;
-  background-color: var(--alt-card-background);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-  }
-`;
-
-const Headline = styled.h1`
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--light-text);
-  font-weight: 600;
-  letter-spacing: -0.5px;
-`;
-
-const PreviewText = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: var(--light-text);
-`;
-
-const Section = styled.section`
-  margin-bottom: 2.5rem;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 24px;
-    background-color: var(--secondary-color);
-    margin-right: 10px;
-    border-radius: 2px;
-  }
-`;
-
-const SectionContainer = styled.div`
-  background-color: var(--alt-card-background);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-`;
-
-const TeamComparisonContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  background-color: var(--alt-card-background);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-`;
-
 const TeamColumn = styled.div<{ $teamColor: string }>`
   background-color: ${props => `${props.$teamColor}08`};
   padding: 1.5rem;
@@ -178,6 +105,7 @@ const TeamColumn = styled.div<{ $teamColor: string }>`
   &:hover {
     background-color: ${props => `${props.$teamColor}12`};
   }
+  margin-bottom: 1.5rem;
 `;
 
 const TeamHeader = styled.div`
@@ -193,7 +121,7 @@ const TeamLogo = styled.img`
   object-fit: contain;
   filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
   transition: transform 0.3s ease;
-  
+
   &:hover {
     transform: scale(1.1);
   }
@@ -233,7 +161,7 @@ const FormResult = styled.span<{ result: string }>`
 const AttributeList = styled.ul`
   margin: 0;
   padding-left: 1.2rem;
-  
+
   li {
     margin-bottom: 0.5rem;
   }
@@ -247,7 +175,7 @@ const KeyPlayersContainer = styled.div`
   padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -267,7 +195,7 @@ const PlayerName = styled.h4`
   align-items: center;
   margin-bottom: 0.5rem;
   color: var(--light-text);
-  
+
   span {
     display: inline-block;
     padding: 0.2rem 0.5rem;
@@ -301,7 +229,7 @@ const BettingInsightsContainer = styled.div`
   padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  
+
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
   }
@@ -341,14 +269,14 @@ const InsightDescription = styled.p`
 const ConfidenceBar = styled.div<{ confidence: number }>`
   display: flex;
   align-items: center;
-  
+
   &::before {
     content: 'Confidence:';
     font-size: 0.8rem;
     margin-right: 0.8rem;
     color: #666;
   }
-  
+
   &::after {
     content: '';
     flex-grow: 1;
@@ -356,7 +284,7 @@ const ConfidenceBar = styled.div<{ confidence: number }>`
     background-color: #e0e0e0;
     border-radius: 3px;
     position: relative;
-    
+
     &::before {
       content: '';
       position: absolute;
@@ -426,7 +354,7 @@ const AdditionalContentSection = styled.div`
   border-radius: 8px;
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -439,16 +367,67 @@ const AdditionalContentTitle = styled.h3`
 `;
 
 const AdditionalContentText = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
+  margin-bottom: 1rem;
   color: var(--light-text);
 `;
 
 const LastUpdated = styled.div`
   font-size: 0.8rem;
-  color: #aaa;
+  color: var(--light-text);
   text-align: right;
   margin-top: 2rem;
+`;
+
+const PredictionSection = styled.div`
+  background: var(--alt-card-background);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+`;
+
+const ScoreBadge = styled.div`
+  background: #8a2be2;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem 0;
+`;
+
+const ConfidenceMeter = styled.div`
+  height: 8px;
+  background: rgba(138, 43, 226, 0.2);
+  border-radius: 4px;
+  margin: 1rem 0;
+  overflow: hidden;
+
+  div {
+    height: 100%;
+    background: #8a2be2;
+    width: ${({ confidence }) => (confidence / 10) * 100}%;
+    transition: width 0.3s ease;
+  }
+`;
+
+const ReasoningText = styled.p`
+  color: var(--light-text);
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 1rem 0;
+  white-space: pre-wrap;
+
+  strong {
+    color: #8a2be2;
+    font-weight: 600;
+  }
 `;
 
 const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, content }) => {
@@ -584,47 +563,35 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
     >
       <ContentBody>
         <Headline>{content.previewHeadline}</Headline>
-        <PreviewText>{content.previewContent}</PreviewText>
-        
-        {/* Team News Section */}
-        <Section>
-          <SectionTitle>Team News</SectionTitle>
-          <SectionContainer>
-            <TeamNewsSection 
-              title="Team News"
-              homeTeam={teamNewsData.homeTeam}
-              awayTeam={teamNewsData.awayTeam}
-            />
-          </SectionContainer>
-        </Section>
-        
+        <p>{content.previewContent}</p>
+
         <Section>
           <SectionTitle>Team Comparison</SectionTitle>
           <SectionContainer>
-            <TeamComparisonContainer>
+            <div>
               <TeamColumn $teamColor={fixture.home_team?.color || '#8a2be2'}>
                 <TeamHeader>
-                  <TeamLogo 
-                    src={`https://resources.premierleague.com/premierleague/badges/t${getTeamBadgeId(fixture.home_team?.name || '')}.svg`} 
-                    alt={fixture.home_team?.name} 
+                  <TeamLogo
+                    src={`https://resources.premierleague.com/premierleague/badges/${getTeamBadgeId(fixture.home_team?.name || '')}.svg`}
+                    alt={fixture.home_team?.name}
                   />
                   <TeamName>{fixture.home_team?.name}</TeamName>
                 </TeamHeader>
-                
+
                 <h4>Form (Last 5)</h4>
                 <FormContainer>
                   {content.teamComparison.homeTeam.form?.map((result, index) => (
                     <FormResult key={index} result={result}>{result}</FormResult>
                   ))}
                 </FormContainer>
-                
+
                 <h4>Strengths</h4>
                 <AttributeList>
                   {content.teamComparison.homeTeam.strengths?.map((strength, index) => (
                     <li key={index}>{strength}</li>
                   ))}
                 </AttributeList>
-                
+
                 <h4>Weaknesses</h4>
                 <AttributeList>
                   {content.teamComparison.homeTeam.weaknesses?.map((weakness, index) => (
@@ -632,30 +599,30 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
                   ))}
                 </AttributeList>
               </TeamColumn>
-              
+
               <TeamColumn $teamColor={fixture.away_team?.color || '#8a2be2'}>
                 <TeamHeader>
-                  <TeamLogo 
-                    src={`https://resources.premierleague.com/premierleague/badges/t${getTeamBadgeId(fixture.away_team?.name || '')}.svg`} 
-                    alt={fixture.away_team?.name} 
+                  <TeamLogo
+                    src={`https://resources.premierleague.com/premierleague/badges/t${getTeamBadgeId(fixture.away_team?.name || '')}.svg`}
+                    alt={fixture.away_team?.name}
                   />
                   <TeamName>{fixture.away_team?.name}</TeamName>
                 </TeamHeader>
-                
+
                 <h4>Form (Last 5)</h4>
                 <FormContainer>
                   {content.teamComparison.awayTeam.form?.map((result, index) => (
                     <FormResult key={index} result={result}>{result}</FormResult>
                   ))}
                 </FormContainer>
-                
+
                 <h4>Strengths</h4>
                 <AttributeList>
                   {content.teamComparison.awayTeam.strengths?.map((strength, index) => (
                     <li key={index}>{strength}</li>
                   ))}
                 </AttributeList>
-                
+
                 <h4>Weaknesses</h4>
                 <AttributeList>
                   {content.teamComparison.awayTeam.weaknesses?.map((weakness, index) => (
@@ -663,21 +630,21 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
                   ))}
                 </AttributeList>
               </TeamColumn>
-            </TeamComparisonContainer>
+            </div>
           </SectionContainer>
         </Section>
-        
+
         {/* Player Matchups Section */}
         <Section>
           <SectionTitle>Key Player Matchups</SectionTitle>
           <SectionContainer>
-            <PlayerMatchupsSection 
+            <PlayerMatchupsSection
               title="Key Player Matchups"
               matchups={playerMatchups}
             />
           </SectionContainer>
         </Section>
-        
+
         <Section>
           <SectionTitle>Key Players to Watch</SectionTitle>
           <SectionContainer>
@@ -695,7 +662,7 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
                   </PlayerCard>
                 ))}
               </div>
-              
+
               <div>
                 <h3>{fixture.away_team?.name}</h3>
                 {content.keyPlayers.awayTeam.map((player, index) => (
@@ -712,7 +679,7 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
             </KeyPlayersContainer>
           </SectionContainer>
         </Section>
-        
+
         <Section>
           <SectionTitle>Betting Insights</SectionTitle>
           <SectionContainer>
@@ -733,7 +700,7 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
             </BettingInsightsContainer>
           </SectionContainer>
         </Section>
-        
+
         <Section>
           <SectionTitle>Asian Handicap Analysis</SectionTitle>
           <SectionContainer>
@@ -747,7 +714,36 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
             </HandicapContainer>
           </SectionContainer>
         </Section>
-        
+
+        <Section>
+          <SectionTitle>AI Match Prediction</SectionTitle>
+          <SectionContainer>
+            <PredictionSection>
+              <h3 style={{ color: '#8a2be2', marginBottom: '1rem' }}>AI Match Prediction</h3>
+              <ScoreBadge>
+                <span>{content.prediction.score.away}</span>
+                <span>-</span>
+                <span>{content.prediction.score.home}</span>
+              </ScoreBadge>
+              
+              <div style={{ margin: '1.5rem 0' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <span>Confidence Level:</span>
+                  <span style={{ color: '#8a2be2', fontWeight: '600' }}>{content.prediction.confidence}/10</span>
+                </div>
+                <ConfidenceMeter confidence={content.prediction.confidence}>
+                  <div />
+                </ConfidenceMeter>
+              </div>
+
+              <h4 style={{ color: '#8a2be2', margin: '1rem 0' }}>Key Reasoning</h4>
+              <ReasoningText>
+                {content.prediction.reasoning.replace(/(\d+\+)/g, '**$1**').replace(/(\[\d+\])/g, '<strong>$1</strong>')}
+              </ReasoningText>
+            </PredictionSection>
+          </SectionContainer>
+        </Section>
+
         <Section>
           <SectionTitle>Additional Analysis</SectionTitle>
           <SectionContainer>
@@ -761,7 +757,7 @@ const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, conte
             </AdditionalContentContainer>
           </SectionContainer>
         </Section>
-        
+
         <LastUpdated>
           Last updated: {formatLastUpdated(content.lastUpdated)}
         </LastUpdated>

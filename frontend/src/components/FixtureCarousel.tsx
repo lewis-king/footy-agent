@@ -80,7 +80,7 @@ const CarouselScroller = styled.div`
   }
 `;
 
-const FixtureCard = styled.div<{ isSelected: boolean; primaryColor: string; secondaryColor: string }>`
+const FixtureCard = styled.div<{ isSelected: boolean; primaryColor: string; secondaryColor: string; isPast: boolean }>`
   display: flex;
   flex-direction: column;
   min-width: 280px;
@@ -88,12 +88,24 @@ const FixtureCard = styled.div<{ isSelected: boolean; primaryColor: string; seco
   height: 300px;
   padding: 1.5rem;
   border-radius: var(--card-radius);
-  background: ${props => props.isSelected 
-    ? `linear-gradient(135deg, ${props.primaryColor}40, ${props.secondaryColor}40)` 
-    : 'var(--alt-card-background)'};
-  border: ${props => props.isSelected 
-    ? `2px solid ${props.primaryColor}` 
-    : '1px solid var(--border-color)'};
+  background: ${props => {
+    if (props.isSelected) {
+      return `linear-gradient(135deg, ${props.primaryColor}40, ${props.secondaryColor}40)`;
+    } else if (props.isPast) {
+      return `linear-gradient(135deg, rgba(0, 128, 0, 0.25), rgba(0, 100, 0, 0.15))`;
+    } else {
+      return 'var(--alt-card-background)';
+    }
+  }};
+  border: ${props => {
+    if (props.isSelected) {
+      return `2px solid ${props.primaryColor}`;
+    } else if (props.isPast) {
+      return '1px solid rgba(0, 128, 0, 0.3)';
+    } else {
+      return '1px solid var(--border-color)';
+    }
+  }};
   box-shadow: ${props => props.isSelected 
     ? '0 10px 25px rgba(138, 43, 226, 0.3)' 
     : '0 5px 15px var(--shadow-color)'};
@@ -124,6 +136,21 @@ const FixtureCard = styled.div<{ isSelected: boolean; primaryColor: string; seco
       opacity: 1;
     }
   }
+`;
+
+const CompletedIcon = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(0, 128, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
 `;
 
 const FixtureHeader = styled.div`
@@ -383,10 +410,44 @@ const FixtureCarousel: React.FC<FixtureCarouselProps> = ({
     }
   }, [selectedFixture]);
 
+  // Find the next upcoming fixture based on current time
+  const findNextUpcomingFixture = (fixtures: Fixture[]): Fixture | null => {
+    const now = new Date();
+    
+    // Sort fixtures by kickoff time
+    const sortedFixtures = [...fixtures].sort((a, b) => {
+      return new Date(a.kickoff).getTime() - new Date(b.kickoff).getTime();
+    });
+    
+    // Find the first fixture that hasn't started yet
+    const nextFixture = sortedFixtures.find(fixture => {
+      return new Date(fixture.kickoff) > now;
+    });
+    
+    return nextFixture || null;
+  };
+
+  // Auto-scroll to the next upcoming fixture when fixtures are loaded
+  useEffect(() => {
+    if (fixtures.length > 0 && scrollerRef.current && !selectedFixture) {
+      const nextUpcomingFixture = findNextUpcomingFixture(fixtures);
+      
+      if (nextUpcomingFixture) {
+        const nextUpcomingCard = scrollerRef.current.querySelector(`[data-fixture-id="${nextUpcomingFixture.id}"]`) as HTMLElement;
+        if (nextUpcomingCard) {
+          // Scroll to the next upcoming fixture with a slight delay to ensure DOM is ready
+          setTimeout(() => {
+            nextUpcomingCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }, 300);
+        }
+      }
+    }
+  }, [fixtures, selectedFixture]);
+
   if (fixtures.length === 0) {
     return (
       <EmptyState>
-        <p>No upcoming fixtures available</p>
+        <p>No fixtures available</p>
       </EmptyState>
     );
   }
@@ -396,16 +457,17 @@ const FixtureCarousel: React.FC<FixtureCarouselProps> = ({
 
   return (
     <CarouselContainer>
-      <CarouselTitle>Upcoming Fixtures</CarouselTitle>
+      <CarouselTitle>Fixtures</CarouselTitle>
       
       <div style={{ position: 'relative' }}>
         <CarouselScroller ref={scrollerRef}>
           {fixtures.map(fixture => {
             // Extract team colors for gradient
-            const homeColor = fixture.homeTeam.primaryColor || '#38003c';
-            const awayColor = fixture.awayTeam.secondaryColor || '#00ff85';
+            const homeColor = fixture.homeTeam.primaryColor || '#8a2be2';
+            const awayColor = fixture.awayTeam.secondaryColor || '#8a2be2';
             
             const isSelected = selectedFixture?.id === fixture.id;
+            const isPast = new Date(fixture.kickoff) < new Date();
             
             return (
               <FixtureCard 
@@ -414,8 +476,10 @@ const FixtureCarousel: React.FC<FixtureCarouselProps> = ({
                 isSelected={isSelected}
                 primaryColor={homeColor}
                 secondaryColor={awayColor}
+                isPast={isPast}
                 onClick={() => onSelectFixture(fixture)}
               >
+                {isPast && <CompletedIcon>✓</CompletedIcon>}
                 <FixtureHeader>
                   <Kickoff>{formatDate(fixture.kickoff)}</Kickoff>
                 </FixtureHeader>
@@ -448,10 +512,10 @@ const FixtureCarousel: React.FC<FixtureCarouselProps> = ({
           })}
         </CarouselScroller>
         
-        <ScrollButton direction="left" onClick={handleScrollLeft}>
+        <ScrollButton direction="left" onClick={handleScrollLeft} aria-label="Scroll to previous fixtures">
           {/* Arrow content handled in CSS */}
         </ScrollButton>
-        <ScrollButton direction="right" onClick={handleScrollRight}>
+        <ScrollButton direction="right" onClick={handleScrollRight} aria-label="Scroll to next fixtures">
           {/* Arrow content handled in CSS */}
         </ScrollButton>
         
