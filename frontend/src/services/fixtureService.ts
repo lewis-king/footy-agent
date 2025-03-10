@@ -242,9 +242,7 @@ export const fetchFixtureContent = async (fixtureId: string): Promise<FixtureCon
           insights.push({
             type: 'value',
             title: 'Asian Handicap',
-            description: typeof content.asian_handicap_analysis === 'string' 
-              ? content.asian_handicap_analysis 
-              : content.asian_handicap_analysis.analysis || content.asian_handicap_analysis.recommendation || '',
+            description: content.asian_handicap_analysis.analysis || content.asian_handicap_analysis.recommendation || '',
             confidence: 0.8
           });
         }
@@ -326,13 +324,9 @@ export const fetchFixtureContent = async (fixtureId: string): Promise<FixtureCon
         },
         bettingInsights: extractBettingInsights(),
         asianHandicap: {
-          recommendation: typeof content.asian_handicap_analysis === 'string' 
-            ? 'See analysis below' 
-            : content.asian_handicap_analysis.recommendation || 'See analysis below',
+          recommendation: content.asian_handicap_analysis.recommendation || 'See analysis below',
           homeAdvantage: -0.5,
-          explanation: typeof content.asian_handicap_analysis === 'string' 
-            ? content.asian_handicap_analysis 
-            : content.asian_handicap_analysis.analysis || ''
+          explanation: content.asian_handicap_analysis.analysis || ''
         },
         additionalContent: extractAdditionalContent()
       };
@@ -593,8 +587,8 @@ const getMockContent = (fixtureId: string): FixtureContent => {
 const getMockAnalysis = (fixtureId: string): Analysis => {
   return {
     fixture_id: fixtureId,
-    home_team: "Nottm Forest",
-    away_team: "Man City",
+    home_team: "Nottingham Forest",
+    away_team: "Manchester City",
     date: "2025-03-08",
     generated_at: "2025-03-07T20:56:04.305168",
     content: {
@@ -618,7 +612,14 @@ const getMockAnalysis = (fixtureId: string): Analysis => {
       
       key_player_matchups: "The New Zealand striker's 0.68 xG/90 (94th percentile) meets City's inexperienced Uzbek center-back making just his 5th PL start:\n- Wood wins 4.1 aerial duels/90 (82nd %ile)\n- Khusanov's 1.3 fouls/90 could yield dangerous set pieces\n\nCity's left winger completes 4.7 dribbles/90 (97th %ile) against Forest's attack-minded right-back:\n- Williams allows 1.3 crosses/90 from his flank\n- Doku creates 2.3 chances/90 but loses possession 12.4 times/90\n\nForest's creative hub (2.3 key passes/90) faces City's makeshift right-back:\n- Nunes' 38% tackle success rate vs wingers\n- Gibbs-White draws 2.1 fouls/90 in final third",
       
-      asian_handicap_analysis: "| Line      | Forest (+1.5) | City (-1.5) |\n|-----------|---------------|-------------|\n| Odds      | 1.85          | 1.95        |\n**Value Proposition:**\n1. **Historical Performance**\n- City failed to cover -1.5 in 9/10 away games vs top-7 teams\n- Forest covered +1.5 in 12/14 home matches (85.7%)\n2. **Tactical Alignment**\nForest's 4-4-2 defensive shape forces opponents wide (43% of attacks come through wings vs league average 35%), neutralizing City's preferred central combinations. This increases likelihood of:\n- Low-xG crosses (City complete 18.2% of crosses, 15th in PL)\n- Counterattacks via Elanga (4.3 progressive carries/90) and Wood\n3. **Injury Multiplier**\nCity's missing defensive starters account for:\n- 63% of aerial duels won\n- 71% of progressive passes from backline\n**Recommendation:**\n- **Forest +1.5 Asian Handicap @ 1.85** (4u)\n- **City -1.5 Asian Handicap Avoid** (Negative EV at current price)",
+      asian_handicap_analysis: {
+        analysis: "City failed to cover -1.5 in 9/10 away games vs top-7 teams. Forest covered +1.5 in 12/14 home matches (85.7%). Forest's 4-4-2 defensive shape forces opponents wide, neutralizing City's preferred central combinations. This increases likelihood of low-xG crosses and counterattacks via Elanga and Wood. City's missing defensive starters account for 63% of aerial duels won.",
+        recommendation: "Forest +1.5 (1.85)",
+        table: {
+          headers: ["Line", "Forest (+1.5)", "City (-1.5)"],
+          rows: [["Odds", "1.85", "1.95"]]
+        }
+      },
       
       betting_insights: {
         raw: "**This pivotal Premier League clash between Nottingham Forest (4th, 53 pts) and Manchester City (5th, 52 pts) carries significant implications for Champions League qualification. Forest's defensive resilience at home (7W-4D-2L) collides with City's league-best 21 goals scored in 2025, creating a tactical chess match with multiple value opportunities in Asian Handicap and ancillary markets.**\n\nCity average 7.2 corners/90 vs low blocks (Forest concede 5.1/90 at home):\n- **City Over 6.5 Corners @ +112** (3u)\n- **Total Corners Over 10.5 @ -120** (Hits in 73% of City away games)\n- **Yes @ -188** (1.53)\n\nForest scored in 13/14 home games; City kept 1 clean sheet in last 7 away\n- **+300** vs xG value of +250\n\nFaces City's 3rd-choice CB pairing; scored in 4 of last 5 home starts\n- **Draw/City @ +550**\n\nCity score 61% of goals after halftime; Forest concede 0.6 xGA/90 in first halves",
@@ -632,12 +633,16 @@ const getMockAnalysis = (fixtureId: string): Analysis => {
       },
       
       prediction: {
-        raw: "**Score Projection:** Nottingham Forest 1-2 Manchester City\n**Rationale:**\nCity's superior individual quality should prevail through De Bruyne's set-piece delivery (3 assists in last 5 games) and Marmoush's movement between lines (1.7 key passes/90). However, Forest's +1.5 coverage remains probable given:\n- City's -0.25 xGA/90 deficit in away games\n- Wood's aerial dominance vs makeshift defense\n- Forest's 78% home cover rate against top-6 teams\n\n**Best Value Bets:**\n1. Nottingham Forest +1.5 Asian Handicap @ 1.85\n2. Manchester City Corners Over 6.5 @ +112\n3. Both Teams to Score Yes @ -188\n\nThis comprehensive approach balances statistical rigor with market mispricing, particularly in Asian Handicap and corners markets where bookmakers underweight Forest's defensive organization and City's set-piece reliance.",
+        raw: "**Score Projection:** Nottingham Forest 1-2 Manchester City\n**Rationale:**\nCity's superior individual quality should prevail through De Bruyne's set-piece delivery (3 assists in last 5 games) and Marmoush's movement between lines (1.7 key passes/90). However, Forest will make it difficult and likely score themselves given City's defensive issues without Rodri.\n\n**Best Value Bets:**\n1. Nottingham Forest +1.5 Asian Handicap @ 1.85\n2. Manchester City Corners Over 6.5 @ +112\n3. Both Teams to Score Yes @ -188\n\nThis comprehensive approach balances statistical rigor with market mispricing, particularly in Asian Handicap and corners markets where bookmakers underweight Forest's defensive organization and City's set-piece reliance.",
         score: {
           home: 1,
           away: 2,
           found: true
         }
+      },
+      
+      my_say: {
+        content: "This is a much more competitive fixture than the table positions suggest. Forest's home form has been excellent, and City have shown vulnerability away from home without Rodri anchoring their midfield. The Asian Handicap of Forest +1.5 offers significant value given the tactical matchup and City's struggles to win by multiple goals against defensively organized teams."
       }
     }
   };
