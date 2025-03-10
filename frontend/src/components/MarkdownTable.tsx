@@ -60,7 +60,6 @@ const MarkdownTable: React.FC<MarkdownTableProps> = ({ markdown }) => {
     
     // Extract headers and rows
     const headerLine = lines[0];
-    const separatorLine = lines[1];
     const dataLines = lines.slice(2);
     
     // Parse headers

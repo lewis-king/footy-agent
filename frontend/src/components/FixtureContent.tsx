@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  ContentContainer,
   ContentBody,
-  Headline,
-  Section,
-  SectionTitle,
-  SectionContainer
+  SectionContainer,
+  SectionTitle
 } from './AnalysisContent';
 import TeamNewsSection from './TeamNewsSection';
 import PlayerMatchupsSection from './PlayerMatchupsSection';
@@ -107,10 +104,22 @@ interface BettingInsight {
   lossProbability: number;
 }
 
-interface ContentContainerProps {
-  $team1Color: string;
-  $team2Color: string;
-}
+// Define ContentContainer with team color props
+const ContentContainer = styled.div<{ $team1Color: string; $team2Color: string }>`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: var(--alt-card-background);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  /* Subtle gradient border using team colors */
+  border-top: 3px solid;
+  border-image: linear-gradient(to right, ${props => props.$team1Color}, ${props => props.$team2Color}) 1;
+`;
 
 const TeamColumn = styled.div<{ $teamColor: string }>`
   background-color: ${props => `${props.$teamColor}08`};
@@ -419,18 +428,22 @@ const ScoreBadge = styled.div`
   margin: 1rem 0;
 `;
 
-const ConfidenceMeter = styled.div`
-  height: 8px;
-  background: rgba(138, 43, 226, 0.2);
-  border-radius: 4px;
-  margin: 1rem 0;
-  overflow: hidden;
+interface ConfidenceMeterProps {
+  confidence: number;
+}
 
-  div {
+const ConfidenceMeter = styled.div<ConfidenceMeterProps>`
+  width: 100%;
+  height: 8px;
+  background-color: rgba(138, 43, 226, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  
+  > div {
     height: 100%;
-    background: #8a2be2;
-    width: ${({ confidence }) => (confidence / 10) * 100}%;
-    transition: width 0.3s ease;
+    width: ${props => Math.min(Math.max(props.confidence * 10, 0), 100)}%;
+    background-color: #8a2be2;
+    border-radius: 4px;
   }
 `;
 
@@ -445,6 +458,18 @@ const ReasoningText = styled.p`
     color: #8a2be2;
     font-weight: 600;
   }
+`;
+
+// Define the Section component locally since it's not exported from AnalysisContent
+const Section = styled.section`
+  margin-bottom: 2rem;
+`;
+
+const Headline = styled.h2`
+  color: var(--light-text);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
 `;
 
 const FixtureContentComponent: React.FC<FixtureContentProps> = ({ fixture, content }) => {

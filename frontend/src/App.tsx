@@ -6,7 +6,7 @@ import GameweekCarousel from './components/GameweekCarousel';
 import FplContent from './components/FplContent';
 import Header from './components/Header';
 import { Fixture, Analysis, Gameweek, FplAnalysis } from './types/fixtures';
-import { fetchFixtures, fetchFixtureContent, fetchFixtureAnalysis } from './services/fixtureService';
+import { fetchFixtures, fetchFixtureAnalysis } from './services/fixtureService';
 import { fetchGameweeks, fetchGameweekContent, generateGameweekContent } from './services/fplService';
 
 const AppContainer = styled.div`
@@ -84,7 +84,6 @@ const App: React.FC = () => {
   // Preview tab state
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [selectedFixture, setSelectedFixture] = useState<Fixture | null>(null);
-  const [fixtureContent, setFixtureContent] = useState<any>(null);
   const [fixtureAnalysis, setFixtureAnalysis] = useState<Analysis | null>(null);
   
   // FPL tab state
@@ -157,9 +156,6 @@ const App: React.FC = () => {
       
       setLoading(true);
       try {
-        const content = await fetchFixtureContent(selectedFixture.id);
-        setFixtureContent(content);
-        
         // Also fetch analysis data
         try {
           const analysis = await fetchFixtureAnalysis(selectedFixture.id);
@@ -170,7 +166,6 @@ const App: React.FC = () => {
         }
       } catch (error) {
         console.error('Error loading fixture content:', error);
-        setFixtureContent(null);
       } finally {
         setLoading(false);
       }
@@ -257,10 +252,8 @@ const App: React.FC = () => {
                 <LoadingText>Loading football insights...</LoadingText>
               </LoadingContainer>
             ) : (
-              fixtureContent && fixtureAnalysis && selectedFixture && (
+              selectedFixture && fixtureAnalysis && (
                 <AnalysisContent
-                  fixture={selectedFixture}
-                  content={fixtureContent}
                   analysis={fixtureAnalysis}
                 />
               )

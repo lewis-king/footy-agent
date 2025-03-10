@@ -40,25 +40,6 @@ const CarouselContainer = styled.div`
   padding: 1.5rem 0;
 `;
 
-const CarouselTitle = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--primary-color);
-  position: relative;
-  display: inline-block;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    border-radius: 2px;
-  }
-`;
-
 const CarouselScroller = styled.div`
   display: flex;
   overflow-x: auto;

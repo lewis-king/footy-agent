@@ -234,7 +234,7 @@ export const fetchFixtureContent = async (fixtureId: string): Promise<FixtureCon
       };
       
       // Extract betting insights from the structured data
-      const extractBettingInsights = () => {
+      const extractBettingInsights = (content: any) => {
         const insights = [];
         
         // Add Asian Handicap insight
@@ -253,7 +253,7 @@ export const fetchFixtureContent = async (fixtureId: string): Promise<FixtureCon
             type: 'trending',
             title: 'Key Matchups',
             description: Array.isArray(content.key_player_matchups) 
-              ? content.key_player_matchups.map(m => m.title + ': ' + m.content).join('\n\n')
+              ? content.key_player_matchups.map((m: { title: string; content: string }) => m.title + ': ' + m.content).join('\n\n')
               : content.key_player_matchups,
             confidence: 0.75
           });
@@ -269,6 +269,48 @@ export const fetchFixtureContent = async (fixtureId: string): Promise<FixtureCon
           });
         }
         
+        // Add betting insights from content.betting_insights
+        if (content.betting_insights) {
+          if (typeof content.betting_insights === 'object' && !Array.isArray(content.betting_insights)) {
+            // Handle the case where betting_insights is an object with raw and insights properties
+            if (content.betting_insights.insights && Array.isArray(content.betting_insights.insights)) {
+              content.betting_insights.insights.forEach((insight: string) => {
+                const parts = insight.split('@');
+                insights.push({
+                  type: 'value',
+                  title: parts[0].trim(),
+                  description: parts.length > 1 ? `Odds: ${parts[1].trim()}` : '',
+                  confidence: 0.7
+                });
+              });
+            } else if (content.betting_insights.raw) {
+              // Try to extract insights from raw text
+              const lines = content.betting_insights.raw.split('\n');
+              lines.forEach((line: string) => {
+                if (line.includes('@')) {
+                  const parts = line.split('@');
+                  insights.push({
+                    type: 'value',
+                    title: parts[0].trim().replace(/\*\*/g, ''),
+                    description: parts.length > 1 ? `Odds: ${parts[1].trim()}` : '',
+                    confidence: 0.7
+                  });
+                }
+              });
+            }
+          } else if (Array.isArray(content.betting_insights)) {
+            // Handle the case where betting_insights is an array of objects
+            content.betting_insights.forEach((insight: any) => {
+              insights.push({
+                type: 'value',
+                title: insight.market || insight.title || 'Betting Insight',
+                description: insight.insight || insight.description || '',
+                confidence: 0.7
+              });
+            });
+          }
+        }
+        
         return insights;
       };
       
@@ -277,12 +319,12 @@ export const fetchFixtureContent = async (fixtureId: string): Promise<FixtureCon
         if (!content.betting_insights) return [];
         
         if (Array.isArray(content.betting_insights)) {
-          return content.betting_insights.map(insight => ({
+          return content.betting_insights.map((insight: { market?: string; recommendation?: string; insight?: string }) => ({
             title: insight.market || 'Betting Insight',
             content: insight.recommendation || insight.insight || ''
           }));
         } else if (typeof content.betting_insights === 'string') {
-          return content.betting_insights.split('\n').map(line => ({
+          return content.betting_insights.split('\n').map((line: string) => ({
             title: 'Betting Insight',
             content: line
           }));
@@ -322,7 +364,7 @@ export const fetchFixtureContent = async (fixtureId: string): Promise<FixtureCon
           homeTeam: extractKeyPlayers(true),
           awayTeam: extractKeyPlayers(false)
         },
-        bettingInsights: extractBettingInsights(),
+        bettingInsights: extractBettingInsights(content),
         asianHandicap: {
           recommendation: content.asian_handicap_analysis.recommendation || 'See analysis below',
           homeAdvantage: -0.5,
@@ -584,6 +626,8 @@ const getMockContent = (fixtureId: string): FixtureContent => {
  * Provides mock analysis for a fixture for development
  * This will be removed when backend is fully implemented
  */
+// Commented out unused function to fix TypeScript warning
+/*
 const getMockAnalysis = (fixtureId: string): Analysis => {
   return {
     fixture_id: fixtureId,
@@ -647,3 +691,4 @@ const getMockAnalysis = (fixtureId: string): Analysis => {
     }
   };
 };
+*/

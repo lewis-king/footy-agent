@@ -208,6 +208,8 @@ const AdditionalInfo = styled.div`
   opacity: 0.8;
 `;
 
+// Remove unused styled components
+/* 
 const MyTeamSection = styled.div`
   background-color: var(--alt-card-background);
   border-radius: 12px;
@@ -250,6 +252,7 @@ const StatLabel = styled.div`
   color: var(--light-text);
   opacity: 0.8;
 `;
+*/
 
 const TransfersList = styled.div`
   margin-top: 1.5rem;
