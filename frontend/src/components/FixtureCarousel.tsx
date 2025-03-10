@@ -325,9 +325,9 @@ const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
   return new Intl.DateTimeFormat('en-GB', {
     weekday: 'short',
-    day: '2-digit',
+    day: 'numeric',
     month: 'short',
-    hour: '2-digit',
+    hour: 'numeric',
     minute: '2-digit',
     hour12: true
   }).format(date);

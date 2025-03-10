@@ -1,6 +1,10 @@
 # FootyAgent
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d963e9a9-77c3-4cf8-9c0c-3f3d918aec77/deploy-status)](https://app.netlify.com/sites/unrivaled-sunflower-c87ded/deploys)
+
 A responsive web application providing intelligent, data-driven insights for Premier League betting enthusiasts.
+
+Hosted at [footyagent.ai](https://www.footyagent.ai)
 
 ![Spurs vs Bournemouth](images/spurs_vs_bournemouth.png)
 

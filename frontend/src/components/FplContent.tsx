@@ -382,8 +382,9 @@ const FplContent: React.FC<FplContentProps> = ({ gameweek, analysis }) => {
         day: 'numeric',
         month: 'short',
         year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
       });
     } catch (error) {
       console.error('Error formatting date:', error);

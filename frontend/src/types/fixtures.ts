@@ -128,7 +128,7 @@ export interface AnalysisContent {
       found: boolean;
     };
     confidence?: string;
-    rationale?: string;
+    reasoning?: string;
     raw?: string;
   };
   my_say: {
