@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { Gameweek, FplAnalysis } from '../types/fixtures';
-
-// Base API URL
-const API_BASE_URL = 'http://localhost:5050/api';
+import { API_BASE_URL } from '../config/api';
 
 /**
  * Fetch gameweeks from the API

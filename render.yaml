@@ -1,0 +1,37 @@
+services:
+  # Backend API service
+  - type: web
+    name: footyagent-api
+    env: python
+    region: oregon  # Choose your preferred region
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.7
+      - key: PORT
+        value: 10000
+      - key: FLASK_ENV
+        value: production
+      # Add your API keys and other environment variables here
+      # - key: OPENAI_API_KEY
+      #   sync: false  # This will prompt you to enter the value during deployment
+    autoDeploy: true
+    healthCheckPath: /api/health
+    
+  # Frontend service
+  - type: web
+    name: footyagent-frontend
+    env: static
+    region: oregon  # Choose your preferred region
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: VITE_API_URL
+        value: https://api.footyagent.ai  # Update this with your actual API URL
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
