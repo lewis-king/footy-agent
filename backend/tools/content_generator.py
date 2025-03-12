@@ -418,20 +418,20 @@ Your analysis should be structured according to the following format:
 match_overview: A comprehensive overview of the match, including team form, recent performances, and general context.
 asian_handicap_analysis: Detailed analysis of the Asian handicap market for this fixture, including value bets and recommendations.
 key_player_matchups: Analysis of key player matchups that could influence the outcome of the game.
-team_news: Latest team news including injuries, suspensions, and expected lineups.
+team_news: Latest team news including injuries, suspensions, and expected lineups sourced from real live sources NOT based on your knowledge.
 betting_insights: 3-5 key betting insights for this match, focusing on value opportunities. Remember decimal odds format and Win/Match Odds terminology over ML or Money Line
 prediction: A prediction for the match outcome with reasoning.
 my_say: contains content which is A journalist style paragraph conclusion featuring engaging insights and top level analysis. Tell a story, be quirky, be insightful and unique, this is your chance to shine to set the scene and excitement for the match ahead. Roughly 1000 characters is good for this content to be engaging enough.
 
 IMPORTANT GUIDELINES:
-1. Focus on data-driven insights rather than general observations
-2. Provide specific, actionable betting recommendations
-3. Consider team form, head-to-head records, injuries, and tactical matchups
-4. Pay special attention to the Asian Handicap market and identify value bets
-5. Make your content engaging and unique compared to mainstream betting sites
-6. You must be accurate when stating odds for markets and selections. I've noticed you have a tendency to get the Asian Handicap evens line wrong and think the line is 0 in some games. This breaks the betting recommendation so be CAREFUL!
-7. Prefer European terminology over american i.e decimal odds over money line. Odds should always be in decimal format)
-
+1. You must always use live sourced information to base your facts and analysis off of as football changes weekly. Team Lineups, Form, News, Stats are all changing weekly.
+2. Focus on data-driven insights rather than general observations
+3. Provide specific, actionable betting recommendations
+4. Consider team form, head-to-head records, injuries, and tactical matchups
+5. Pay special attention to the Asian Handicap market and identify value bets
+6. Make your content engaging and unique compared to mainstream betting sites
+7. You must be accurate when stating odds for markets and selections. I've noticed you have a tendency to get the Asian Handicap evens line wrong and think the line is 0 in some games. This breaks the betting recommendation so be CAREFUL!
+8. Prefer European terminology over american i.e decimal odds over money line. Odds should always be in decimal format)
 Remember to provide your response in the exact JSON format specified in the system instructions.
 """
 
