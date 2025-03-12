@@ -5,6 +5,7 @@ import AnalysisContent from './components/AnalysisContent';
 import GameweekCarousel from './components/GameweekCarousel';
 import FplContent from './components/FplContent';
 import Header from './components/Header';
+import CompetitionSelector, { Competition } from './components/CompetitionSelector';
 import { Fixture, Analysis, Gameweek, FplAnalysis } from './types/fixtures';
 import { fetchFixtures, fetchFixtureAnalysis } from './services/fixtureService';
 import { fetchGameweeks, fetchGameweekContent, generateGameweekContent } from './services/fplService';
@@ -81,6 +82,21 @@ const App: React.FC = () => {
   // Tab state
   const [activeTab, setActiveTab] = useState<'preview' | 'fpl'>('preview');
 
+  // Competition state
+  const [competitions] = useState<Competition[]>([
+    {
+      id: 'premier-league',
+      name: 'Premier League',
+      logo: 'https://resources.premierleague.com/premierleague/competitions/competition_1_small.png'
+    },
+    {
+      id: 'champions-league',
+      name: 'Champions League',
+      logo: 'https://img.uefa.com/imgml/uefacom/ucl/2021/logos/logo_dark.svg'
+    }
+  ]);
+  const [selectedCompetition, setSelectedCompetition] = useState<string>('premier-league');
+
   // Preview tab state
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [selectedFixture, setSelectedFixture] = useState<Fixture | null>(null);
@@ -102,12 +118,13 @@ const App: React.FC = () => {
     } else {
       loadGameweeks();
     }
-  }, [activeTab]);
+  }, [activeTab, selectedCompetition]);
 
   const loadFixtures = async () => {
     setLoading(true);
+    setErrorMessage(null);
     try {
-      const upcomingFixtures = await fetchFixtures();
+      const upcomingFixtures = await fetchFixtures(selectedCompetition);
       setFixtures(upcomingFixtures);
       
       // Find the next upcoming fixture based on current time
@@ -121,6 +138,9 @@ const App: React.FC = () => {
         setSelectedFixture(nextFixture);
       } else if (upcomingFixtures.length > 0) {
         setSelectedFixture(upcomingFixtures[0]);
+      } else {
+        setSelectedFixture(null);
+        setFixtureAnalysis(null);
       }
     } catch (error) {
       console.error('Error loading fixtures:', error);
@@ -232,6 +252,14 @@ const App: React.FC = () => {
   const handleTabChange = (tab: string) => {
     setActiveTab(tab as 'preview' | 'fpl');
   };
+  
+  const handleCompetitionSelect = (competitionId: string) => {
+    if (competitionId !== selectedCompetition) {
+      setSelectedCompetition(competitionId);
+      setSelectedFixture(null);
+      setFixtureAnalysis(null);
+    }
+  };
 
   return (
     <AppContainer>
@@ -240,6 +268,12 @@ const App: React.FC = () => {
         {activeTab === 'preview' ? (
           // Preview Tab Content
           <>
+            <CompetitionSelector 
+              competitions={competitions} 
+              selectedCompetition={selectedCompetition}
+              onSelectCompetition={handleCompetitionSelect}
+            />
+            
             <FixtureCarousel 
               fixtures={fixtures} 
               selectedFixture={selectedFixture}

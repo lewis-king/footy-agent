@@ -766,7 +766,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ analysis }) => {
             <TeamNewsCard>
               <TeamNewsTitle>
                 <TeamLogo 
-                  src={`https://resources.premierleague.com/premierleague/badges/t${getTeamIdByName(analysis.home_team)}.png`} 
+                  src={getTeamBadgeUrl(analysis.home_team)} 
                   alt={analysis.home_team} 
                 />
                 {analysis.home_team}
@@ -829,7 +829,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ analysis }) => {
             <TeamNewsCard>
               <TeamNewsTitle>
                 <TeamLogo 
-                  src={`https://resources.premierleague.com/premierleague/badges/t${getTeamIdByName(analysis.away_team)}.png`} 
+                  src={getTeamBadgeUrl(analysis.away_team)} 
                   alt={analysis.away_team} 
                 />
                 {analysis.away_team}
@@ -938,74 +938,97 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ analysis }) => {
   };
 
   const getTeamBadgeUrl = (teamName: string) => {
-    // Convert team name to lowercase and replace spaces with hyphens for URL-friendly format
-    // Not using this formatted name directly but keeping for future reference
-    // const formattedName = teamName.toLowerCase().replace(/\s+/g, '-');
-    return `https://resources.premierleague.com/premierleague/badges/t${getTeamIdByName(teamName)}.png`;
+    // Check if this is a Champions League fixture
+    // We can determine this by checking if the fixture_id starts with 'cl-'
+    const isChampionsLeague = analysis.fixture_id.startsWith('cl-');
+    
+    if (isChampionsLeague) {
+      return getChampionsLeagueTeamLogo(teamName);
+    } else {
+      return getPremierLeagueTeamLogo(teamName);
+    }
   };
-  
-  const getTeamIdByName = (teamName: string) => {
-    // Normalize the team name to handle variations
-    const normalizedName = teamName.trim();
-    
+
+  /**
+   * Helper function to get Premier League team logo URLs
+   * @param teamName The name of the team
+   * @returns URL to the team's logo
+   */
+  const getPremierLeagueTeamLogo = (teamName: string): string => {
     // Map of team names to their Premier League badge IDs
-    // Using the exact names from fixtures.json as primary keys
-    const teamMap: {[key: string]: number} = {
-      // Primary names (as used in fixtures.json)
-      'Arsenal': 3,
-      'Aston Villa': 7,
-      'Bournemouth': 91,
-      'Brentford': 94,
-      'Brighton': 36,
-      'Chelsea': 8,
-      'Crystal Palace': 31,
-      'Everton': 11,
-      'Fulham': 54,
-      'Ipswich': 45,
-      'Leicester': 13,
-      'Liverpool': 14,
-      'Man City': 43,
-      'Man Utd': 1,
-      'Newcastle': 4,
-      'Nottm Forest': 17,
-      'Southampton': 20,
-      'Tottenham': 6,
-      'West Ham': 21,
-      'Wolves': 39,
-      
-      // Alternative names (for backward compatibility)
-      'Manchester City': 43,
-      'Manchester United': 1,
-      'Newcastle United': 4,
-      'Nottingham Forest': 17,
-      'Tottenham Hotspur': 6,
-      'West Ham United': 21,
-      'Wolverhampton Wanderers': 39
+    const teamLogoMap: Record<string, string> = {
+      'Arsenal': 't3',
+      'Aston Villa': 't7',
+      'Bournemouth': 't91',
+      'Brentford': 't94',
+      'Brighton': 't36',
+      'Burnley': 't90',
+      'Chelsea': 't8',
+      'Crystal Palace': 't31',
+      'Everton': 't11',
+      'Fulham': 't54',
+      'Ipswich': 't40',
+      'Liverpool': 't14',
+      'Luton': 't102',
+      'Man City': 't43',
+      'Man Utd': 't1',
+      'Newcastle': 't4',
+      'Nottingham Forest': 't17',
+      'Sheffield United': 't49',
+      'Tottenham': 't6',
+      'West Ham': 't21',
+      'Wolves': 't39',
+      'Southampton': 't20',
+      'Nottm Forest': 't17',
+      'Leicester': 't13'
     };
+
+    // Get the team ID from the map, or use a default
+    const teamId = teamLogoMap[teamName] || 't0';
     
-    // Try to find the team ID using the normalized name
-    if (teamMap[normalizedName] !== undefined) {
-      return teamMap[normalizedName];
-    }
+    // Return the Premier League badge URL
+    return `https://resources.premierleague.com/premierleague/badges/${teamId}.svg`;
+  };
+
+  /**
+   * Helper function to get Champions League team logo URLs
+   * @param teamName The name of the team
+   * @returns URL to the team's logo
+   */
+  const getChampionsLeagueTeamLogo = (teamName: string): string => {
+    // Map of team names to their Champions League team IDs
+    const teamLogoMap: Record<string, string> = {
+      'Real Madrid': '50051',
+      'Barcelona': '50080',
+      'Bayern Munich': '50037',
+      'Manchester City': '52919',
+      'Liverpool': '7889',
+      'Paris Saint-Germain': '52747',
+      'Atletico Madrid': '50124',
+      'Juventus': '50139',
+      'Borussia Dortmund': '50064',
+      'Inter Milan': '50138',
+      'Chelsea': '7889',
+      'Manchester United': '7889',
+      'Tottenham': '7889',
+      'Arsenal': '7889',
+      'Ajax': '50143',
+      'RB Leipzig': '2603790',
+      'Sevilla': '50142',
+      'Valencia': '50141',
+      'Zenit Saint Petersburg': '64388',
+      'Benfica': '50147',
+      'Porto': '50064',
+      'Napoli': '6195',
+      'AC Milan': '52816',
+      'Roma': '50137'
+    };
+
+    // Get the team ID from the map, or use a default
+    const teamId = teamLogoMap[teamName] || '50051';
     
-    // If not found, try to match with a case-insensitive search
-    const lowerCaseName = normalizedName.toLowerCase();
-    for (const [key, value] of Object.entries(teamMap)) {
-      if (key.toLowerCase() === lowerCaseName) {
-        return value;
-      }
-    }
-    
-    // If still not found, try to find a partial match
-    for (const [key, value] of Object.entries(teamMap)) {
-      if (key.toLowerCase().includes(lowerCaseName) || lowerCaseName.includes(key.toLowerCase())) {
-        return value;
-      }
-    }
-    
-    // Default to 0 if no match is found
-    console.warn(`Team badge not found for: ${teamName}`);
-    return 0;
+    // Return the Champions League badge URL
+    return `https://img.uefa.com/imgml/TP/teams/logos/100x100/${teamId}.png`;
   };
   
   const formatDate = (dateString: string) => {

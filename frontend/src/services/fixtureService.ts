@@ -4,13 +4,14 @@ import { API_BASE_URL } from '../config/api';
 
 /**
  * Fetches fixtures from the API
+ * @param competition The competition to fetch fixtures for ('premier-league' or 'champions-league')
  * @param includePast Whether to include past fixtures (default: true)
  * @returns Promise resolving to an array of Fixture objects
  */
-export const fetchFixtures = async (includePast: boolean = true): Promise<Fixture[]> => {
+export const fetchFixtures = async (competition: string = 'premier-league', includePast: boolean = true): Promise<Fixture[]> => {
   try {
-    console.log('Fetching fixtures from API...', `${API_BASE_URL}/fixtures/?include_past=${includePast}`);
-    const response = await axios.get(`${API_BASE_URL}/fixtures/`, {
+    console.log('Fetching fixtures from API...', `${API_BASE_URL}/fixtures/${competition}?include_past=${includePast}`);
+    const response = await axios.get(`${API_BASE_URL}/fixtures/${competition}`, {
       params: {
         include_past: includePast
       }
@@ -50,7 +51,7 @@ export const fetchFixtures = async (includePast: boolean = true): Promise<Fixtur
             id: `home-${backendFixture.id}`,
             name: backendFixture.home_team,
             shortName: backendFixture.home_team.split(' ')[0],
-            logo: getPremierLeagueTeamLogo(backendFixture.home_team),
+            logo: getTeamLogo(backendFixture.home_team, backendFixture.competition),
             primaryColor: homeColors.primary,
             secondaryColor: homeColors.secondary
           },
@@ -58,7 +59,7 @@ export const fetchFixtures = async (includePast: boolean = true): Promise<Fixtur
             id: `away-${backendFixture.id}`,
             name: backendFixture.away_team,
             shortName: backendFixture.away_team.split(' ')[0],
-            logo: getPremierLeagueTeamLogo(backendFixture.away_team),
+            logo: getTeamLogo(backendFixture.away_team, backendFixture.competition),
             primaryColor: awayColors.primary,
             secondaryColor: awayColors.secondary
           }
@@ -85,8 +86,25 @@ export const fetchFixtures = async (includePast: boolean = true): Promise<Fixtur
     
     // For initial development, return mock fixtures if API fails
     console.log('Returning mock fixtures due to API error');
-    return getMockFixtures();
+    return getMockFixtures(competition);
   }
+};
+
+/**
+ * Helper function to get team logo URLs based on competition
+ * @param teamName The name of the team
+ * @param competition The competition ('Premier League' or 'Champions League')
+ * @returns URL to the team's logo
+ */
+const getTeamLogo = (teamName: string, competition: string): string => {
+  if (competition === 'Premier League') {
+    return getPremierLeagueTeamLogo(teamName);
+  } else if (competition === 'Champions League') {
+    return getChampionsLeagueTeamLogo(teamName);
+  }
+  
+  // Default to Premier League if competition is not recognized
+  return getPremierLeagueTeamLogo(teamName);
 };
 
 /**
@@ -128,6 +146,47 @@ const getPremierLeagueTeamLogo = (teamName: string): string => {
   
   // Return the Premier League badge URL
   return `https://resources.premierleague.com/premierleague/badges/${teamId}.svg`;
+};
+
+/**
+ * Helper function to get Champions League team logo URLs
+ * @param teamName The name of the team
+ * @returns URL to the team's logo
+ */
+const getChampionsLeagueTeamLogo = (teamName: string): string => {
+  // Map of team names to their Champions League team IDs
+  const teamLogoMap: Record<string, string> = {
+    'Real Madrid': '50051',
+    'Barcelona': '50080',
+    'Bayern Munich': '50037',
+    'Manchester City': '52919',
+    'Liverpool': '7889',
+    'Paris Saint-Germain': '52747',
+    'Atletico Madrid': '50124',
+    'Juventus': '50139',
+    'Borussia Dortmund': '50064',
+    'Inter Milan': '50138',
+    'Chelsea': '7889',
+    'Manchester United': '7889',
+    'Tottenham': '7889',
+    'Arsenal': '7889',
+    'Ajax': '50143',
+    'RB Leipzig': '2603790',
+    'Sevilla': '50142',
+    'Valencia': '50141',
+    'Zenit Saint Petersburg': '64388',
+    'Benfica': '50147',
+    'Porto': '50064',
+    'Napoli': '6195',
+    'AC Milan': '52816',
+    'Roma': '50137'
+  };
+
+  // Get the team ID from the map, or use a default
+  const teamId = teamLogoMap[teamName] || '50051';
+  
+  // Return the Champions League badge URL
+  return `https://img.uefa.com/imgml/TP/teams/logos/100x100/${teamId}.png`;
 };
 
 /**
@@ -454,78 +513,116 @@ export const fetchFixtureAnalysis = async (fixtureId: string): Promise<Analysis 
  * Provides mock fixtures for development
  * This will be removed when backend is fully implemented
  */
-const getMockFixtures = (): Fixture[] => {
-  return [
-    {
-      id: 'fixture-1',
-      competition: 'Premier League',
-      kickoff: '2023-12-16T15:00:00Z',
-      homeTeam: {
-        id: 'team-1',
-        name: 'Liverpool',
-        shortName: 'LIV',
-        logo: 'https://resources.premierleague.com/premierleague/badges/t14.svg',
-        primaryColor: '#C8102E',
-        secondaryColor: '#00B2A9'
+const getMockFixtures = (competition: string = 'premier-league'): Fixture[] => {
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  
+  const nextWeek = new Date(now);
+  nextWeek.setDate(nextWeek.getDate() + 7);
+  
+  if (competition === 'premier-league') {
+    return [
+      {
+        id: 'pl-fixture-1',
+        competition: 'Premier League',
+        kickoff: tomorrow.toISOString(),
+        venue: 'Emirates Stadium',
+        status: 'upcoming',
+        homeTeam: {
+          id: 'team-arsenal',
+          name: 'Arsenal',
+          shortName: 'Arsenal',
+          logo: 'https://resources.premierleague.com/premierleague/badges/t3.svg',
+          primaryColor: '#EF0107',
+          secondaryColor: '#063672'
+        },
+        awayTeam: {
+          id: 'team-chelsea',
+          name: 'Chelsea',
+          shortName: 'Chelsea',
+          logo: 'https://resources.premierleague.com/premierleague/badges/t8.svg',
+          primaryColor: '#034694',
+          secondaryColor: '#EE242C'
+        }
       },
-      awayTeam: {
-        id: 'team-2',
-        name: 'Manchester United',
-        shortName: 'MUN',
-        logo: 'https://resources.premierleague.com/premierleague/badges/t1.svg',
-        primaryColor: '#DA291C',
-        secondaryColor: '#FBE122'
+      {
+        id: 'pl-fixture-2',
+        competition: 'Premier League',
+        kickoff: nextWeek.toISOString(),
+        venue: 'Anfield',
+        status: 'upcoming',
+        homeTeam: {
+          id: 'team-liverpool',
+          name: 'Liverpool',
+          shortName: 'Liverpool',
+          logo: 'https://resources.premierleague.com/premierleague/badges/t14.svg',
+          primaryColor: '#C8102E',
+          secondaryColor: '#00B2A9'
+        },
+        awayTeam: {
+          id: 'team-mancity',
+          name: 'Man City',
+          shortName: 'Man City',
+          logo: 'https://resources.premierleague.com/premierleague/badges/t43.svg',
+          primaryColor: '#6CABDD',
+          secondaryColor: '#1C2C5B'
+        }
+      }
+    ];
+  } else if (competition === 'champions-league') {
+    return [
+      {
+        id: 'cl-fixture-1',
+        competition: 'Champions League',
+        kickoff: tomorrow.toISOString(),
+        venue: 'Santiago Bernabéu',
+        status: 'upcoming',
+        homeTeam: {
+          id: 'team-real-madrid',
+          name: 'Real Madrid',
+          shortName: 'Real Madrid',
+          logo: 'https://img.uefa.com/imgml/TP/teams/logos/100x100/50051.png',
+          primaryColor: '#FFFFFF',
+          secondaryColor: '#00529F'
+        },
+        awayTeam: {
+          id: 'team-bayern',
+          name: 'Bayern Munich',
+          shortName: 'Bayern',
+          logo: 'https://img.uefa.com/imgml/TP/teams/logos/100x100/50037.png',
+          primaryColor: '#DC052D',
+          secondaryColor: '#0066B2'
+        }
       },
-      venue: 'Anfield',
-      status: 'upcoming'
-    },
-    {
-      id: 'fixture-2',
-      competition: 'Premier League',
-      kickoff: '2023-12-16T17:30:00Z',
-      homeTeam: {
-        id: 'team-3',
-        name: 'Arsenal',
-        shortName: 'ARS',
-        logo: 'https://resources.premierleague.com/premierleague/badges/t3.svg',
-        primaryColor: '#EF0107',
-        secondaryColor: '#063672'
-      },
-      awayTeam: {
-        id: 'team-4',
-        name: 'Chelsea',
-        shortName: 'CHE',
-        logo: 'https://resources.premierleague.com/premierleague/badges/t8.svg',
-        primaryColor: '#034694',
-        secondaryColor: '#EE242C'
-      },
-      venue: 'Emirates Stadium',
-      status: 'upcoming'
-    },
-    {
-      id: 'fixture-3',
-      competition: 'Premier League',
-      kickoff: '2023-12-17T14:00:00Z',
-      homeTeam: {
-        id: 'team-5',
-        name: 'Manchester City',
-        shortName: 'MCI',
-        logo: 'https://resources.premierleague.com/premierleague/badges/t43.svg',
-        primaryColor: '#6CABDD',
-        secondaryColor: '#1C2C5B'
-      },
-      awayTeam: {
-        id: 'team-6',
-        name: 'Tottenham',
-        shortName: 'TOT',
-        logo: 'https://resources.premierleague.com/premierleague/badges/t6.svg',
-        primaryColor: '#132257',
-        secondaryColor: '#FFFFFF'
-      },
-      venue: 'Etihad Stadium',
-      status: 'upcoming'
-    }
-  ];
+      {
+        id: 'cl-fixture-2',
+        competition: 'Champions League',
+        kickoff: nextWeek.toISOString(),
+        venue: 'Camp Nou',
+        status: 'upcoming',
+        homeTeam: {
+          id: 'team-barcelona',
+          name: 'Barcelona',
+          shortName: 'Barcelona',
+          logo: 'https://img.uefa.com/imgml/TP/teams/logos/100x100/50080.png',
+          primaryColor: '#A50044',
+          secondaryColor: '#004D98'
+        },
+        awayTeam: {
+          id: 'team-juventus',
+          name: 'Juventus',
+          shortName: 'Juventus',
+          logo: 'https://img.uefa.com/imgml/TP/teams/logos/100x100/50139.png',
+          primaryColor: '#000000',
+          secondaryColor: '#FFFFFF'
+        }
+      }
+    ];
+  }
+  
+  // Default to Premier League if competition is not recognized
+  return getMockFixtures('premier-league');
 };
 
 /**

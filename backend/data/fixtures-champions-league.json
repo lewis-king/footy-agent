@@ -1,0 +1,23 @@
+[
+  {
+    "id": "cl-atletico-madrid-real-madrid-20250312",
+    "competition": "Champions League",
+    "home_team": "Atletico Madrid",
+    "away_team": "Real Madrid",
+    "date": "2025-03-12",
+    "time": "20:00",
+    "venue": "Riyadh Air Metropolitano",
+    "home_form": "WDWLL",
+    "away_form": "WWLWW",
+    "odds": {
+      "home_win": 2.7,
+      "draw": 3.6,
+      "away_win": 2.7,
+      "asian_handicap": {
+        "line": "+0.0",
+        "home": 1.97,
+        "away": 2.00
+      }
+    }
+  }
+]

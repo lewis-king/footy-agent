@@ -8,33 +8,62 @@ import glob
 BASE_DIR = pathlib.Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / "data"
 FIXTURES_FILE = DATA_DIR / "fixtures.json"
+FIXTURES_PREMIER_LEAGUE_FILE = DATA_DIR / "fixtures-premier-league.json"
+FIXTURES_CHAMPIONS_LEAGUE_FILE = DATA_DIR / "fixtures-champions-league.json"
 ANALYSIS_DIR = DATA_DIR / "analysis"
 
 # Ensure directories exist
 DATA_DIR.mkdir(exist_ok=True)
 ANALYSIS_DIR.mkdir(exist_ok=True)
 
-def load_fixtures():
-    """Load fixtures from JSON file"""
-    if not FIXTURES_FILE.exists():
+def load_fixtures(competition=None):
+    """
+    Load fixtures from JSON file
+    
+    Args:
+        competition: Optional competition name ('premier-league' or 'champions-league')
+                    If None, returns fixtures from the legacy file
+    """
+    if competition == 'premier-league':
+        fixtures_file = FIXTURES_PREMIER_LEAGUE_FILE
+    elif competition == 'champions-league':
+        fixtures_file = FIXTURES_CHAMPIONS_LEAGUE_FILE
+    else:
+        fixtures_file = FIXTURES_FILE
+    
+    if not fixtures_file.exists():
         # Return empty list if file doesn't exist
         return []
     
     try:
-        with open(FIXTURES_FILE, 'r') as f:
+        with open(fixtures_file, 'r') as f:
             return json.load(f)
     except Exception as e:
-        print(f"Error loading fixtures: {str(e)}")
+        print(f"Error loading fixtures for {competition}: {str(e)}")
         return []
 
-def save_fixtures(fixtures):
-    """Save fixtures to JSON file"""
+def save_fixtures(fixtures, competition=None):
+    """
+    Save fixtures to JSON file
+    
+    Args:
+        fixtures: List of fixture data to save
+        competition: Optional competition name ('premier-league' or 'champions-league')
+                     If None, saves to the legacy file
+    """
+    if competition == 'premier-league':
+        fixtures_file = FIXTURES_PREMIER_LEAGUE_FILE
+    elif competition == 'champions-league':
+        fixtures_file = FIXTURES_CHAMPIONS_LEAGUE_FILE
+    else:
+        fixtures_file = FIXTURES_FILE
+        
     try:
-        with open(FIXTURES_FILE, 'w') as f:
+        with open(fixtures_file, 'w') as f:
             json.dump(fixtures, f, indent=2)
         return True
     except Exception as e:
-        print(f"Error saving fixtures: {str(e)}")
+        print(f"Error saving fixtures for {competition}: {str(e)}")
         return False
 
 def load_analysis(fixture_id):

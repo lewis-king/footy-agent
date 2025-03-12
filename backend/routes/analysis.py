@@ -14,6 +14,24 @@ from backend.tools.fpl_content_generator import FPLContentGenerator
 
 analysis_bp = Blueprint('analysis', __name__)
 
+def determine_competition_from_fixture_id(fixture_id):
+    """
+    Determine which competition a fixture belongs to based on its ID
+    
+    Args:
+        fixture_id: ID of the fixture
+        
+    Returns:
+        Competition name ('premier-league' or 'champions-league')
+    """
+    if fixture_id.startswith('pl-'):
+        return 'premier-league'
+    elif fixture_id.startswith('cl-'):
+        return 'champions-league'
+    else:
+        # Default to premier-league for backward compatibility
+        return 'premier-league'
+
 @analysis_bp.route('/generate/<fixture_id>', methods=['POST'])
 def generate_analysis(fixture_id):
     """
@@ -29,9 +47,22 @@ def generate_analysis(fixture_id):
                 "cached": True
             })
         
+        # Determine which competition to load based on fixture_id prefix
+        competition = determine_competition_from_fixture_id(fixture_id)
+        
         # Get fixture data
-        fixtures = load_fixtures()
+        fixtures = load_fixtures(competition)
         fixture = next((f for f in fixtures if f['id'] == fixture_id), None)
+        
+        # If not found in the specified competition, try all competitions
+        if not fixture:
+            for comp in ['premier-league', 'champions-league']:
+                if comp != competition:  # Skip the one we already checked
+                    comp_fixtures = load_fixtures(comp)
+                    fixture = next((f for f in comp_fixtures if f['id'] == fixture_id), None)
+                    if fixture:
+                        competition = comp
+                        break
         
         if not fixture:
             return jsonify({"error": "Fixture not found"}), 404
@@ -62,9 +93,21 @@ def get_analysis(fixture_id):
         
         if not analysis:
             # Analysis doesn't exist, so generate it
+            # Determine which competition to load based on fixture_id prefix
+            competition = determine_competition_from_fixture_id(fixture_id)
+            
             # Get fixture data
-            fixtures = load_fixtures()
+            fixtures = load_fixtures(competition)
             fixture = next((f for f in fixtures if f['id'] == fixture_id), None)
+            
+            # If not found in the specified competition, try all competitions
+            if not fixture:
+                for comp in ['premier-league', 'champions-league']:
+                    if comp != competition:  # Skip the one we already checked
+                        comp_fixtures = load_fixtures(comp)
+                        fixture = next((f for f in comp_fixtures if f['id'] == fixture_id), None)
+                        if fixture:
+                            break
             
             if not fixture:
                 return jsonify({"error": "Fixture not found"}), 404
@@ -96,8 +139,18 @@ def batch_generate_analysis():
         if not isinstance(fixture_ids, list):
             return jsonify({"error": "fixture_ids must be a list"}), 400
         
-        # Get fixtures
-        fixtures = load_fixtures()
+        # Group fixture IDs by competition for more efficient loading
+        fixture_ids_by_competition = {}
+        for fixture_id in fixture_ids:
+            competition = determine_competition_from_fixture_id(fixture_id)
+            if competition not in fixture_ids_by_competition:
+                fixture_ids_by_competition[competition] = []
+            fixture_ids_by_competition[competition].append(fixture_id)
+        
+        # Load fixtures for each competition
+        fixtures_by_competition = {}
+        for competition, ids in fixture_ids_by_competition.items():
+            fixtures_by_competition[competition] = load_fixtures(competition)
         
         results = []
         for fixture_id in fixture_ids:
@@ -111,8 +164,19 @@ def batch_generate_analysis():
                 })
                 continue
             
-            # Find fixture
-            fixture = next((f for f in fixtures if f['id'] == fixture_id), None)
+            # Determine which competition this fixture belongs to
+            competition = determine_competition_from_fixture_id(fixture_id)
+            
+            # Find fixture in its competition
+            fixture = next((f for f in fixtures_by_competition[competition] if f['id'] == fixture_id), None)
+            
+            # If not found, try other competitions
+            if not fixture:
+                for comp, fixtures in fixtures_by_competition.items():
+                    if comp != competition:
+                        fixture = next((f for f in fixtures if f['id'] == fixture_id), None)
+                        if fixture:
+                            break
             
             if not fixture:
                 results.append({

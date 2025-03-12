@@ -90,6 +90,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
         
         # Create a prompt for Perplexity
         prompt = create_perplexity_prompt(
+            competition=fixture.get("competition"),
             home_team=home_team,
             away_team=away_team,
             date=fixture.get("date"),
@@ -117,7 +118,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
             messages = [
                 {
                     "role": "system",
-                    "content": """You are a professional football betting analyst specializing in Premier League matches. 
+                    "content": """You are a professional football betting analyst specializing in Premier League and Champions League matches. 
                     Provide detailed, data-driven betting analysis in a structured JSON format that follows this exact schema:
                     
                     {
@@ -381,7 +382,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
         mock_analysis["generated_at"] = datetime.now().isoformat()
         return mock_analysis
 
-def create_perplexity_prompt(home_team, away_team, date, venue, home_form, away_form, 
+def create_perplexity_prompt(competition, home_team, away_team, date, venue, home_form, away_form, 
                             asian_handicap_line, asian_handicap_home, asian_handicap_away):
     """
     Create a detailed prompt for the Perplexity API
@@ -392,9 +393,9 @@ def create_perplexity_prompt(home_team, away_team, date, venue, home_form, away_
     Returns:
         Formatted prompt string
     """
-    return f"""Provide a detailed betting analysis for the Premier League match between {home_team} and {away_team}.
+    return f"""Provide a detailed betting analysis for the {competition} match between {home_team} and {away_team}.
 
-You are an english professional football betting analyst specializing in Premier League matches. Your task is to provide comprehensive, data-driven betting analysis for an upcoming fixture.
+You are an english professional football betting analyst specializing in {competition} matches. Your task is to provide comprehensive, data-driven betting analysis for an upcoming fixture.
 You are a data led enthusiast using xG and more advanced data insights in your research. But you understand these data points need to be articulated in a accessible way to the masses. Your ability to explain and provide punchy insights is second to none.
 You understand how Asian Handicap works when it comes to evens lines and supremacy. I.e you know when odds are near evens you must consider the line to understand the supremacy a team has over the other.
 YOU MUST USE UP TO DATE FACTS THAT YOU SOURCE - YOU CANNOT RELY ON YOUR BASE KNOWLEDGE WHEN STATING FACTS - I.E IF YOU DIDN'T SOURCE THE INFORMATION DON'T USE IT
@@ -939,7 +940,7 @@ Source [5]: https://www.transfermarkt.com/ - Player values and injury informatio
 # {home_team} vs {away_team} Analysis
 
 ## Match Overview
-This Premier League fixture between {home_team} and {away_team} promises to be an exciting encounter. {home_team} have been in good form recently [1][3], while {away_team} have struggled away from home [2].
+This {competition} fixture between {home_team} and {away_team} promises to be an exciting encounter. {home_team} have been in good form recently [1][3], while {away_team} have struggled away from home [2].
 
 ## Team News
 {home_team} will be without their star striker due to injury [1], but their midfield looks strong with all key players available [3]. {away_team} have several injury concerns in defense [2][5], which could impact their ability to keep a clean sheet.

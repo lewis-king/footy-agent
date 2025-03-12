@@ -20,19 +20,35 @@ fixtures_bp = Blueprint('fixtures', __name__)
 @fixtures_bp.route('/', methods=['GET'])
 def get_fixtures():
     """
-    Get all Premier League fixtures
+    Get all fixtures (legacy endpoint)
+    Optional query params:
+    - limit (int) - Limit the number of fixtures returned
+    - include_past (bool) - Include past fixtures (default: false)
+    """
+    # Default to Premier League for backward compatibility
+    return get_competition_fixtures('premier-league')
+
+@fixtures_bp.route('/<competition>', methods=['GET'])
+def get_competition_fixtures(competition):
+    """
+    Get fixtures for a specific competition
+    Supported competitions: 'premier-league', 'champions-league'
     Optional query params:
     - limit (int) - Limit the number of fixtures returned
     - include_past (bool) - Include past fixtures (default: false)
     """
     try:
-        fixtures = load_fixtures()
+        # Validate competition
+        if competition not in ['premier-league', 'champions-league']:
+            return jsonify({"error": f"Unsupported competition: {competition}"}), 400
+            
+        fixtures = load_fixtures(competition)
         
         # If fixtures are empty or outdated, refresh them
         if not fixtures or is_fixtures_outdated(fixtures):
-            print("Refreshing fixtures...")
-            #fixtures = refresh_fixtures_data()
-            #save_fixtures(fixtures)
+            print(f"Refreshing {competition} fixtures...")
+            #fixtures = refresh_fixtures_data(competition)
+            #save_fixtures(fixtures, competition)
         
         # Check if we should include past fixtures
         include_past = request.args.get('include_past', 'false').lower() == 'true'
@@ -65,15 +81,31 @@ def get_fixtures():
         
         return jsonify(filtered_fixtures)
     except Exception as e:
-        print(f"Error in get_fixtures: {str(e)}")
+        print(f"Error in get_competition_fixtures: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@fixtures_bp.route('/<fixture_id>', methods=['GET'])
+@fixtures_bp.route('/fixture/<fixture_id>', methods=['GET'])
 def get_fixture(fixture_id):
     """Get a specific fixture by ID"""
     try:
-        fixtures = load_fixtures()
+        # Determine which competition to load based on fixture_id prefix
+        competition = None
+        if fixture_id.startswith('pl-'):
+            competition = 'premier-league'
+        elif fixture_id.startswith('cl-'):
+            competition = 'champions-league'
+            
+        fixtures = load_fixtures(competition)
         fixture = next((f for f in fixtures if f['id'] == fixture_id), None)
+        
+        if not fixture:
+            # If not found in the specified competition, try all competitions
+            for comp in ['premier-league', 'champions-league']:
+                if competition != comp:  # Skip the one we already checked
+                    comp_fixtures = load_fixtures(comp)
+                    fixture = next((f for f in comp_fixtures if f['id'] == fixture_id), None)
+                    if fixture:
+                        break
         
         if not fixture:
             return jsonify({"error": "Fixture not found"}), 404
@@ -87,14 +119,18 @@ def get_fixture(fixture_id):
         print(f"Error in get_fixture: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@fixtures_bp.route('/refresh', methods=['POST'])
-def refresh_fixtures():
+@fixtures_bp.route('/refresh/<competition>', methods=['POST'])
+def refresh_competition_fixtures(competition):
     """
-    Endpoint to refresh fixtures data from external sources
+    Endpoint to refresh fixtures data for a specific competition
     """
     try:
-        fixtures = refresh_fixtures_data()
-        save_fixtures(fixtures)
+        # Validate competition
+        if competition not in ['premier-league', 'champions-league']:
+            return jsonify({"error": f"Unsupported competition: {competition}"}), 400
+            
+        fixtures = refresh_fixtures_data(competition)
+        save_fixtures(fixtures, competition)
         
         # Check if analysis exists for each fixture
         for fixture in fixtures:
@@ -103,12 +139,12 @@ def refresh_fixtures():
             fixture['has_analysis'] = bool(analysis)
             
         return jsonify({
-            "message": "Fixtures refreshed successfully", 
+            "message": f"{competition} fixtures refreshed successfully", 
             "count": len(fixtures),
             "fixtures": fixtures
         })
     except Exception as e:
-        print(f"Error in refresh_fixtures: {str(e)}")
+        print(f"Error in refresh_competition_fixtures: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 def is_fixtures_outdated(fixtures):
@@ -127,12 +163,16 @@ def is_fixtures_outdated(fixtures):
     
     return False
 
-def refresh_fixtures_data():
-    """Fetch latest Premier League fixtures from Flashscore.co.uk"""
+def refresh_fixtures_data(competition):
+    """Fetch latest fixtures from Flashscore.co.uk"""
     try:
-        print("Fetching fixtures from Flashscore.co.uk...")
+        print(f"Fetching {competition} fixtures from Flashscore.co.uk...")
         
-        url = "https://www.flashscore.co.uk/football/england/premier-league/fixtures/"
+        if competition == 'premier-league':
+            url = "https://www.flashscore.co.uk/football/england/premier-league/fixtures/"
+        elif competition == 'champions-league':
+            url = "https://www.flashscore.co.uk/football/europe/champions-league/fixtures/"
+        
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
@@ -141,7 +181,7 @@ def refresh_fixtures_data():
         
         if response.status_code != 200:
             print(f"Failed to fetch fixtures: HTTP {response.status_code}")
-            return generate_fallback_fixtures()
+            return generate_fallback_fixtures(competition)
         
         soup = BeautifulSoup(response.text, 'html.parser')
         fixtures = []
@@ -151,7 +191,7 @@ def refresh_fixtures_data():
         
         if not fixture_elements:
             print("No fixture elements found on the page")
-            return generate_fallback_fixtures()
+            return generate_fallback_fixtures(competition)
         
         print(f"Found {len(fixture_elements)} fixture elements")
         
@@ -232,7 +272,10 @@ def refresh_fixtures_data():
                     )
                 
                 # Create a unique ID for the fixture
-                fixture_id = f"pl-{home_team.lower().replace(' ', '-')}-{away_team.lower().replace(' ', '-')}-{fixture_datetime.strftime('%Y%m%d')}"
+                if competition == 'premier-league':
+                    fixture_id = f"pl-{home_team.lower().replace(' ', '-')}-{away_team.lower().replace(' ', '-')}-{fixture_datetime.strftime('%Y%m%d')}"
+                elif competition == 'champions-league':
+                    fixture_id = f"cl-{home_team.lower().replace(' ', '-')}-{away_team.lower().replace(' ', '-')}-{fixture_datetime.strftime('%Y%m%d')}"
                 
                 # Get venue (not available on this page, use home team's stadium)
                 venue = get_stadium_for_team(home_team)
@@ -240,7 +283,7 @@ def refresh_fixtures_data():
                 # Create the fixture object
                 fixture = {
                     "id": fixture_id,
-                    "competition": "Premier League",
+                    "competition": competition,
                     "home_team": home_team,
                     "away_team": away_team,
                     "date": fixture_datetime.strftime('%Y-%m-%d'),
@@ -266,11 +309,11 @@ def refresh_fixtures_data():
             return fixtures
         else:
             print("No fixtures could be parsed")
-            return generate_fallback_fixtures()
+            return generate_fallback_fixtures(competition)
             
     except Exception as e:
         print(f"Error scraping fixtures: {str(e)}")
-        return generate_fallback_fixtures()
+        return generate_fallback_fixtures(competition)
 
 def get_stadium_for_team(team_name):
     """Get the stadium name for a given team"""
@@ -314,18 +357,27 @@ def get_stadium_for_team(team_name):
     # Default to a generic stadium name
     return f"{team_name} Stadium"
 
-def generate_fallback_fixtures():
+def generate_fallback_fixtures(competition):
     """Generate fallback fixtures if scraping fails"""
     print("Generating fallback fixtures...")
     
-    # Premier League teams
-    teams = [
-        "Arsenal", "Aston Villa", "Bournemouth", "Brentford", 
-        "Brighton", "Chelsea", "Crystal Palace", "Everton", 
-        "Fulham", "Liverpool", "Manchester City", "Manchester United", 
-        "Newcastle", "Nottingham Forest", "Southampton", "Tottenham", 
-        "West Ham", "Wolverhampton"
-    ]
+    if competition == 'premier-league':
+        # Premier League teams
+        teams = [
+            "Arsenal", "Aston Villa", "Bournemouth", "Brentford", 
+            "Brighton", "Chelsea", "Crystal Palace", "Everton", 
+            "Fulham", "Liverpool", "Manchester City", "Manchester United", 
+            "Newcastle", "Nottingham Forest", "Southampton", "Tottenham", 
+            "West Ham", "Wolverhampton"
+        ]
+    elif competition == 'champions-league':
+        # Champions League teams
+        teams = [
+            "Bayern Munich", "Barcelona", "Real Madrid", "Juventus", 
+            "Manchester City", "Liverpool", "Chelsea", "Paris Saint-Germain", 
+            "Ajax", "Atletico Madrid", "Borussia Dortmund", "Inter Milan", 
+            "RB Leipzig", "Sevilla", "Tottenham", "Valencia", "Zenit Saint Petersburg"
+        ]
     
     # Venues
     venues = {
@@ -346,7 +398,27 @@ def generate_fallback_fixtures():
         "Southampton": "St Mary's Stadium",
         "Tottenham": "Tottenham Hotspur Stadium",
         "West Ham": "London Stadium",
-        "Wolverhampton": "Molineux Stadium"
+        "Wolverhampton": "Molineux Stadium",
+        "Leicester": "King Power Stadium",
+        "Ipswich": "Portman Road",
+        "Wolves": "Molineux Stadium",
+        "Leeds": "Elland Road",
+        "Sheffield United": "Bramall Lane",
+        "Burnley": "Turf Moor",
+        "Luton": "Kenilworth Road",
+        "Bayern Munich": "Allianz Arena",
+        "Barcelona": "Camp Nou",
+        "Real Madrid": "Santiago Bernabeu",
+        "Juventus": "Allianz Stadium",
+        "Paris Saint-Germain": "Parc des Princes",
+        "Ajax": "Johan Cruyff Arena",
+        "Atletico Madrid": "Wanda Metropolitano",
+        "Borussia Dortmund": "Signal Iduna Park",
+        "Inter Milan": "San Siro",
+        "RB Leipzig": "Red Bull Arena",
+        "Sevilla": "Ramón Sánchez Pizjuán",
+        "Valencia": "Mestalla",
+        "Zenit Saint Petersburg": "Gazprom Arena"
     }
     
     # Create fixtures for the next 3 weeks
@@ -367,12 +439,15 @@ def generate_fallback_fixtures():
         fixture_date = start_date + timedelta(days=i % 7 + (i // 7) * 7)
         
         # Create a unique ID for the fixture
-        fixture_id = f"pl-{str(uuid.uuid4())[:8]}"
+        if competition == 'premier-league':
+            fixture_id = f"pl-{str(uuid.uuid4())[:8]}"
+        elif competition == 'champions-league':
+            fixture_id = f"cl-{str(uuid.uuid4())[:8]}"
         
         # Create the fixture object
         fixture = {
             "id": fixture_id,
-            "competition": "Premier League",
+            "competition": competition,
             "home_team": home_team,
             "away_team": away_team,
             "date": fixture_date.strftime('%Y-%m-%d'),
