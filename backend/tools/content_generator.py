@@ -66,6 +66,7 @@ IMPORTANT GUIDELINES:
 6. Make your content engaging and unique compared to mainstream betting sites
 7. You must be accurate when stating odds for markets and selections. I've noticed you have a tendency to get the Asian Handicap evens line wrong and think the line is 0 in some games. This breaks the betting recommendation so be CAREFUL!
 8. Prefer European terminology over american i.e decimal odds over money line. Odds should always be in decimal format)
+9. MOST IMPORTANTLY - IF YOU IGNORE LIVE SOURCED INFORMATION AND USE YOUR OWN KNOWLEDGE AND IT IS INCORRECT/OUTDATED - SOMEONE WILL DIE!
 """
 
 def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
