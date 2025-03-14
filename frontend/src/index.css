@@ -42,6 +42,10 @@ body {
     radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 20%),
     radial-gradient(circle at 80% 70%, rgba(147, 112, 219, 0.1) 0%, transparent 20%);
   background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -70,9 +74,11 @@ button {
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  box-sizing: border-box;
 }
 
 /* Card styling */
@@ -188,6 +194,7 @@ button {
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
+    width: 100%;
   }
   
   h1 {
@@ -196,5 +203,23 @@ button {
   
   h2 {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  body {
+    font-size: 0.95rem;
   }
 }

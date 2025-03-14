@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { Fixture } from '../types/fixtures';
 
 interface FixtureCarouselProps {
@@ -20,15 +20,6 @@ const glow = keyframes`
   100% { box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2); }
 `;
 
-const highlightShine = keyframes`
-  0% {
-    background-position: -100px;
-  }
-  40%, 100% {
-    background-position: 300px;
-  }
-`;
-
 const rotateAnim = keyframes`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -38,26 +29,44 @@ const CarouselContainer = styled.div`
   margin-bottom: 2.5rem;
   position: relative;
   padding: 1.5rem 0;
+  width: 100%;
+  overflow-x: hidden;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+    padding: 1rem 0;
+  }
 `;
 
 const CarouselScroller = styled.div`
   display: flex;
   overflow-x: auto;
   padding: 1.5rem 0.5rem;
-  scroll-behavior: smooth;
+  width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--card-background);
   -webkit-overflow-scrolling: touch;
   
-  /* Hide scrollbar but allow scrolling */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
   &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    height: 8px;
   }
   
-  /* Snap scrolling for better UX */
-  scroll-snap-type: x mandatory;
-  > * {
-    scroll-snap-align: start;
+  &::-webkit-scrollbar-track {
+    background: var(--card-background);
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1rem 0.25rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem 0.1rem;
   }
 `;
 
@@ -67,55 +76,41 @@ const FixtureCard = styled.div<{ isSelected: boolean; primaryColor: string; seco
   min-width: 280px;
   max-width: 320px;
   height: 300px;
-  padding: 1.5rem;
+  background-color: var(--alt-card-background);
   border-radius: var(--card-radius);
-  background: ${props => {
-    if (props.isSelected) {
-      return `linear-gradient(135deg, ${props.primaryColor}40, ${props.secondaryColor}40)`;
-    } else if (props.isPast) {
-      return `linear-gradient(135deg, rgba(138, 43, 226, 0.25), rgba(138, 43, 226, 0.15))`;
-    } else {
-      return 'var(--alt-card-background)';
-    }
-  }};
-  border: ${props => {
-    if (props.isSelected) {
-      return `2px solid ${props.primaryColor}`;
-    } else if (props.isPast) {
-      return '1px solid rgba(138, 43, 226, 0.3)';
-    } else {
-      return '1px solid var(--border-color)';
-    }
-  }};
-  box-shadow: ${props => props.isSelected 
-    ? '0 10px 25px rgba(138, 43, 226, 0.3)' 
-    : '0 5px 15px var(--shadow-color)'};
+  padding: 1.2rem;
+  margin: 0 0.5rem;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.3s ease;
+  border: 2px solid ${props => props.isSelected ? props.primaryColor : 'transparent'};
   position: relative;
   overflow: hidden;
-  animation: ${props => props.isSelected ? glow : 'none'} 3s infinite;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
-    background-size: 200px 100%;
-    animation: ${highlightShine} 3s infinite linear;
-    opacity: ${props => props.isSelected ? 1 : 0};
-  }
+  box-shadow: ${props => props.isSelected ? '0 10px 25px rgba(138, 43, 226, 0.3)' : '0 5px 15px rgba(0, 0, 0, 0.2)'};
+  opacity: ${props => props.isPast ? 0.7 : 1};
   
   &:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    
-    &:before {
-      opacity: 1;
-    }
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.25);
+  }
+  
+  ${props => props.isSelected && css`
+    animation: ${glow} 2s infinite ease-in-out;
+  `}
+  
+  @media (max-width: 768px) {
+    min-width: 250px;
+    max-width: 280px;
+    height: 280px;
+    padding: 1rem;
+    margin: 0 0.4rem;
+  }
+  
+  @media (max-width: 480px) {
+    min-width: 220px;
+    max-width: 250px;
+    height: 260px;
+    padding: 0.8rem;
+    margin: 0 0.3rem;
   }
 `;
 
@@ -138,6 +133,10 @@ const FixtureHeader = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+  
+  @media (max-width: 480px) {
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const Kickoff = styled.span`
@@ -151,6 +150,11 @@ const Kickoff = styled.span`
   font-weight: 500;
   letter-spacing: 0.5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
+  }
 `;
 
 const TeamsContainer = styled.div`
@@ -159,6 +163,10 @@ const TeamsContainer = styled.div`
   justify-content: space-between;
   margin: 1rem 0;
   position: relative;
+  
+  @media (max-width: 480px) {
+    margin: 0.75rem 0;
+  }
 `;
 
 const Team = styled.div`
@@ -182,6 +190,18 @@ const TeamLogo = styled.img`
   ${Team}:hover & {
     transform: scale(1.15) translateY(-5px);
   }
+  
+  @media (max-width: 768px) {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 0.6rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const TeamName = styled.span`
@@ -199,7 +219,14 @@ const TeamName = styled.span`
   
   ${Team}:hover & {
     color: var(--primary-color);
-    text-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
   }
 `;
 
@@ -223,7 +250,9 @@ const Versus = styled.div`
     background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
     opacity: 0.2;
     z-index: 0;
-    animation: ${pulse} 2s infinite;
+    ${css`
+      animation: ${pulse} 2s infinite;
+    `}
   }
   
   &:after {
@@ -234,7 +263,9 @@ const Versus = styled.div`
     border: 2px dashed var(--accent-color);
     border-radius: 50%;
     opacity: 0.3;
-    animation: ${rotateAnim} 10s linear infinite;
+    ${css`
+      animation: ${rotateAnim} 10s linear infinite;
+    `}
   }
   
   span {

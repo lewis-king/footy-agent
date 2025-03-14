@@ -14,6 +14,14 @@ const ContentContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
+  
+  @media (max-width: 768px) {
+    padding: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+  }
 `;
 
 const ContentBody = styled.div`
@@ -22,10 +30,29 @@ const ContentBody = styled.div`
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+  }
 `;
 
 const SectionContainer = styled.div`
   margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 1.25rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -33,6 +60,16 @@ const SectionTitle = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 1rem;
   font-weight: 600;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const StyledTable = styled.table`
@@ -55,6 +92,22 @@ const StyledTable = styled.table`
   tr:nth-child(even) {
     background-color: rgba(138, 43, 226, 0.05);
   }
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    
+    th, td {
+      padding: 0.6rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    
+    th, td {
+      padding: 0.5rem 0.4rem;
+    }
+  }
 `;
 
 const TableHeader = styled.th`
@@ -63,6 +116,15 @@ const TableHeader = styled.th`
   font-weight: 600;
   padding: 0.75rem;
   text-align: left;
+  
+  @media (max-width: 768px) {
+    padding: 0.6rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.8rem;
+  }
 `;
 
 const TableRow = styled.tr`
@@ -75,6 +137,15 @@ const TableCell = styled.td`
   padding: 0.75rem;
   border: 1px solid rgba(138, 43, 226, 0.3);
   color: var(--light-text);
+  
+  @media (max-width: 768px) {
+    padding: 0.6rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.8rem;
+  }
 `;
 
 const RecommendationCard = styled.div`
@@ -83,6 +154,11 @@ const RecommendationCard = styled.div`
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 4px;
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+  }
 `;
 
 const RecommendationTitle = styled.h4`
@@ -90,12 +166,21 @@ const RecommendationTitle = styled.h4`
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 1rem;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
 `;
 
 const RecommendationContent = styled.p`
   color: var(--light-text);
   margin: 0;
   font-weight: 500;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const RawContentContainer = styled.div`
@@ -104,6 +189,17 @@ const RawContentContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   font-size: 1rem;
+  
+  @media (max-width: 768px) {
+    margin-top: 1.25rem;
+    padding: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
 `;
 
 const MarkdownContent = styled.div`
@@ -127,6 +223,35 @@ const MarkdownContent = styled.div`
   strong {
     color: #8a2be2;
   }
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    
+    p, ul, ol {
+      margin-bottom: 0.75rem;
+    }
+    
+    li {
+      margin-bottom: 0.4rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    
+    p, ul, ol {
+      margin-bottom: 0.6rem;
+    }
+    
+    ul, ol {
+      padding-left: 1.25rem;
+    }
+    
+    li {
+      margin-bottom: 0.3rem;
+    }
+  }
 `;
 
 const TeamHeader = styled.div`
@@ -137,6 +262,20 @@ const TeamHeader = styled.div`
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 1.25rem;
+    padding: 0.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
+    overflow-x: auto;
+  }
 `;
 
 const TeamInfo = styled.div`
@@ -144,6 +283,10 @@ const TeamInfo = styled.div`
   flex-direction: column;
   align-items: center;
   flex: 1;
+  
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const TeamBadge = styled.img`
@@ -151,12 +294,30 @@ const TeamBadge = styled.img`
   height: 80px;
   object-fit: contain;
   margin-bottom: 0.5rem;
+  
+  @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 const TeamName = styled.h3`
   color: var(--light-text);
   font-size: 1.2rem;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const VersusContainer = styled.div`
@@ -164,18 +325,40 @@ const VersusContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 1rem;
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+  }
 `;
 
 const VersusText = styled.span`
   color: var(--primary-color);
   font-weight: bold;
   font-size: 1.4rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const MatchDate = styled.span`
   color: var(--light-text);
   font-size: 1rem;
   margin-top: 0.5rem;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+  }
 `;
 
 const PredictionSection = styled.div`
@@ -183,11 +366,28 @@ const PredictionSection = styled.div`
   background-color: var(--alt-card-background);
   border-radius: 8px;
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 1.25rem;
+    border-radius: 6px;
+  }
 `;
 
 const ScorePredictionContent = styled.div`
   padding: 1.5rem;
   color: var(--light-text);
+  
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 const PredictionHeader = styled.h2`
@@ -199,6 +399,18 @@ const PredictionHeader = styled.h2`
   gap: 1rem;
   font-family: inherit;
   font-weight: 600;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+    gap: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+  }
 `;
 
 const ScoreBadge = styled.div`

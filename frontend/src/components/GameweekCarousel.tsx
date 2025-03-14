@@ -39,7 +39,7 @@ const CarouselContainer = styled.div`
   margin-bottom: 2.5rem;
   position: relative;
   padding: 1.5rem 0;
-  animation: ${slideIn} 0.6s ease-out;
+  ${css`animation: ${slideIn} 0.6s ease-out;`}
 `;
 
 const CarouselTitle = styled.h2`
@@ -171,7 +171,7 @@ const GameweekCard = styled.div<GameweekCardProps>`
   align-items: center;
   text-align: center;
   overflow: hidden;
-  animation: ${props => props.isSelected ? glow : 'none'} 3s infinite;
+  ${props => props.isSelected ? css`animation: ${glow} 3s infinite;` : ''}
   
   &:before {
     content: '';
@@ -182,7 +182,7 @@ const GameweekCard = styled.div<GameweekCardProps>`
     height: 100%;
     background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
     background-size: 200px 100%;
-    animation: ${shimmer} 3s infinite linear;
+    ${css`animation: ${shimmer} 3s infinite linear;`}
     opacity: ${props => props.isSelected ? 1 : 0};
   }
   
@@ -214,7 +214,7 @@ const GameweekCircle = styled.div`
     height: 80px;
     border: 1px dashed var(--primary-color);
     border-radius: 50%;
-    animation: ${rotate} 20s linear infinite;
+    ${css`animation: ${rotate} 20s linear infinite;`}
   }
 `;
 
@@ -308,7 +308,7 @@ const EmptyState = styled.div`
     display: block;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    animation: ${pulse} 2s infinite ease-in-out;
+    ${css`animation: ${pulse} 2s infinite ease-in-out;`}
   }
 `;
 

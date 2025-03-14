@@ -208,5 +208,26 @@
         "away": 1.9
       }
     }
+  },
+  {
+    "id": "pl-west-ham-newcastle-20250315",
+    "competition": "Premier League",
+    "home_team": "Everton",
+    "away_team": "West Ham",
+    "date": "2025-03-15",
+    "time": "15:00",
+    "venue": "Goodison Park",
+    "home_form": "DDDWD",
+    "away_form": "LWWLL",
+    "odds": {
+      "home_win": 2.1,
+      "draw": 3.3,
+      "away_win": 4.0,
+      "asian_handicap": {
+        "line": "-0.5",
+        "home": 2.1,
+        "away": 1.8
+      }
+    }
   }
 ]

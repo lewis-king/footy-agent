@@ -10,6 +10,7 @@ const HeaderContainer = styled.header`
   top: 0;
   z-index: 100;
   border-bottom: 2px solid rgba(138, 43, 226, 0.2);
+  width: 100%;
   
   &::after {
     content: '';
@@ -26,6 +27,14 @@ const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  @media (max-width: 768px) {
+    padding: 0 0.75rem;
+  }
 `;
 
 const Logo = styled.div`
@@ -53,6 +62,10 @@ const Logo = styled.div`
     color: var(--primary-color);
     margin-left: 2px;
   }
+  
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const NavLinks = styled.nav`
@@ -61,6 +74,28 @@ const NavLinks = styled.nav`
 
   @media (max-width: 768px) {
     display: none;
+  }
+`;
+
+const MobileNavLinks = styled.nav<{ isOpen: boolean }>`
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #0f0f1b, #1a1a2e);
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: ${props => props.isOpen ? 'translateY(0)' : 'translateY(-100%)'};
+    opacity: ${props => props.isOpen ? '1' : '0'};
+    visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 99;
+    border-bottom: 2px solid rgba(138, 43, 226, 0.2);
   }
 `;
 
@@ -98,6 +133,29 @@ const NavLink = styled.a<{ $active?: boolean }>`
   }
 `;
 
+const MobileNavLink = styled(NavLink)`
+  @media (max-width: 768px) {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    text-align: center;
+    border-radius: 0;
+    
+    &:after {
+      bottom: auto;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      transform: scaleY(${props => props.$active ? '1' : '0'});
+    }
+    
+    &:hover:after {
+      transform: scaleY(1);
+      width: 4px;
+    }
+  }
+`;
+
 const MobileMenuButton = styled.button`
   display: none;
   background: none;
@@ -105,9 +163,13 @@ const MobileMenuButton = styled.button`
   color: var(--light-text);
   font-size: 1.5rem;
   cursor: pointer;
+  padding: 0.5rem;
+  z-index: 101;
   
   @media (max-width: 768px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -121,6 +183,11 @@ const BetaTag = styled.span`
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 0 10px rgba(255, 40, 130, 0.5);
+  
+  @media (max-width: 480px) {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.4rem;
+  }
 `;
 
 interface HeaderProps {
@@ -130,6 +197,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ activeTab = 'preview', onTabChange }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -149,6 +217,11 @@ const Header: React.FC<HeaderProps> = ({ activeTab = 'preview', onTabChange }) =
     if (onTabChange) {
       onTabChange(tab);
     }
+    setMobileMenuOpen(false);
+  };
+  
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
@@ -179,10 +252,27 @@ const Header: React.FC<HeaderProps> = ({ activeTab = 'preview', onTabChange }) =
           </NavLink>
         </NavLinks>
         
-        <MobileMenuButton>
-          ☰
+        <MobileMenuButton onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
+          {mobileMenuOpen ? '✕' : '☰'}
         </MobileMenuButton>
       </HeaderContent>
+      
+      <MobileNavLinks isOpen={mobileMenuOpen}>
+        <MobileNavLink 
+          href="#" 
+          $active={activeTab === 'preview'} 
+          onClick={handleTabClick('preview')}
+        >
+          Match Previews
+        </MobileNavLink>
+        <MobileNavLink 
+          href="#" 
+          $active={activeTab === 'fpl'} 
+          onClick={handleTabClick('fpl')}
+        >
+          FPL Zone
+        </MobileNavLink>
+      </MobileNavLinks>
     </HeaderContainer>
   );
 };

@@ -47,6 +47,14 @@ const CompetitionsWrapper = styled.div`
   display: flex;
   gap: 1rem;
   padding: 0.25rem;
+  
+  @media (max-width: 768px) {
+    gap: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
 `;
 
 const CompetitionButton = styled.button<{ isSelected: boolean }>`
@@ -96,6 +104,19 @@ const CompetitionButton = styled.button<{ isSelected: boolean }>`
     );
     pointer-events: none;
   }
+  
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+    padding: 0.75rem 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 80px;
+    height: 80px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+  }
 `;
 
 const CompetitionLogo = styled.img`
@@ -109,6 +130,18 @@ const CompetitionLogo = styled.img`
   ${CompetitionButton}:hover & {
     transform: scale(1.1);
   }
+  
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.4rem;
+  }
 `;
 
 const CompetitionName = styled.span`
@@ -120,6 +153,14 @@ const CompetitionName = styled.span`
   
   ${CompetitionButton}:hover & {
     color: #fff;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
   }
 `;
 

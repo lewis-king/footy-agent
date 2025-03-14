@@ -14,12 +14,23 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(to bottom, var(--background-color) 0%, #ffffff 100%);
+  width: 100%;
+  background-color: var(--background-color);
+  overflow-x: hidden;
 `;
 
 const MainContent = styled.main`
   flex: 1;
+  width: 100%;
   padding: 2rem 0;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem 0;
+  }
 `;
 
 const LoadingContainer = styled.div`
