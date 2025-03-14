@@ -37,7 +37,7 @@ const SelectorContainer = styled.div`
   }
   
   @media (max-width: 768px) {
-    justify-content: flex-start;
+    justify-content: center;
     padding-bottom: 0.75rem;
     margin-bottom: 0.75rem;
   }
