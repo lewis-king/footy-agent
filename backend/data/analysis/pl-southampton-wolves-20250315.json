@@ -1,0 +1,158 @@
+{
+  "fixture_id": "pl-southampton-wolves-20250315",
+  "home_team": "Southampton",
+  "away_team": "Wolves",
+  "date": "2025-03-15",
+  "generated_at": "2025-03-15T09:11:28.902635",
+  "content": {
+    "match_overview": "Saturday's Premier League clash pits bottom-placed Southampton against a Wolves side seeking to secure top-flight survival. The Saints come into this match on an eight-game home losing streak, having conceded 29 goals during this collapse [6][9]. Wolves arrive six points clear of relegation after taking seven points from their last five matches, though their away form remains suspect with just two wins in 14 road trips [3][6]. Historically, Wolves dominate this fixture with six consecutive H2H victories while keeping four clean sheets [9][13]. Southampton's defensive frailties persist, conceding 3+ goals in eight of their last nine league matches [9], while their xGA of 2.1 per home game ranks worst in the division [11].",
+    "team_news": {
+      "raw": "Southampton's injury crisis worsens with teenage striker Tyler Dibling (ankle) ruled out for 4-6 weeks [1][7]. They're also without Ryan Fraser (calf), Ross Stewart (unknown), Juan Larios (unknown), and James Bree (thigh) [4][9]. Wolves miss suspended top scorer Matheus Cunha (7 goals) and injured defenders Yerson Mosquera/Enso Gonz\u00e1lez (both ACL) [3][9]. Key midfielder Marshall Munetsi remains doubtful with a knock [9].",
+      "structured": {
+        "home": {
+          "injuries": [
+            "Tyler Dibling (ankle) [1][7]",
+            "Ryan Fraser (calf) [4]",
+            "Ross Stewart (unspecified) [4]",
+            "Juan Larios (unspecified) [9]"
+          ],
+          "suspensions": [],
+          "returnees": [
+            "Kyle Walker-Peters (thigh) [4]"
+          ],
+          "projected_xi": "Ramsdale; Walker-Peters, Harwood-Bellis, Bella-Kotchap, Manning; Ugochukwu, Aribo; Sulemana, Fernandes, Smallbone; Archer [9]"
+        },
+        "away": {
+          "injuries": [
+            "Yerson Mosquera (ACL) [3]",
+            "Enso Gonz\u00e1lez (ACL) [3]",
+            "Sasa Kalajdzic (ACL) [3]"
+          ],
+          "suspensions": [
+            "Matheus Cunha [3][9]"
+          ],
+          "returnees": [
+            "Emmanuel Agbadou (muscle) [3]"
+          ],
+          "projected_xi": "Sa; Doherty, Agbadou, Toti; Semedo, Gomes, Andre, Ait-Nouri; Bellegarde, Munetsi; Larsen [9]"
+        }
+      }
+    },
+    "asian_handicap_analysis": {
+      "table": {
+        "headers": [
+          "Team",
+          "Form",
+          "Home/Away Form",
+          "H2H",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Southampton +0.25 (2.15)",
+            "L5 league games [6]",
+            "8 straight home losses [6]",
+            "0 wins in last 6 H2Hs [13]",
+            "Poor"
+          ],
+          [
+            "Wolves -0.25 (1.84)",
+            "W1-D2-L2 last 5 [3]",
+            "2 away wins all season [6]",
+            "6 straight H2H wins [13]",
+            "Strong"
+          ]
+        ]
+      },
+      "analysis": "The +0.25 line reflects Wolves' historical dominance but overvalues Southampton's home advantage given their St Mary's collapse. Wolves' -0.25 at 1.84 offers value considering Southampton's league-worst 0.69 goals scored and 2.85 conceded per home game [6]. With Cunha absent, focus shifts to Wolves' defensive solidity - they've kept clean sheets in 4 of last 6 H2Hs [13].",
+      "recommendation": "Wolves -0.25 Asian Handicap @ 1.84",
+      "raw": "Southampton's xG deficit of -1.2 per home game makes the +0.25 line treacherous [11]. Wolves' press could exploit Saints' league-high 18 errors leading to shots [9]."
+    },
+    "key_player_matchups": [
+      {
+        "title": "Kyle Walker-Peters vs Rayan Ait-Nouri",
+        "content": "Walker-Peters' return boosts Saints' attacking width (1.7 crosses/90) but leaves space for Ait-Nouri's overlaps (2.3 progressive carries/90) [9][11]. The Wolves wingback has created 3 big chances in last 4 away games [11].",
+        "raw": "Ait-Nouri's duel success rate of 63% vs fullbacks could neutralize Walker-Peters' 1.3 successful dribbles/90 [11]"
+      },
+      {
+        "title": "Cameron Archer vs Wolves' Back Three",
+        "content": "Archer's pace (3.1 progressive runs/90) tests Wolves' high line (6 offside traps/game). However, Toti Gomes boasts 71% aerial win rate against physical forwards [11].",
+        "raw": "Archer has scored just 1 goal in 12 starts despite 3.1 shots/90, underperforming xG by 2.7 [11]"
+      }
+    ],
+    "betting_insights": [
+      {
+        "market": "Match Result",
+        "insight": "Wolves have won 6 straight H2Hs by aggregate 14-3 scoreline [13]",
+        "recommendation": "Wolves Win @ 2.15 [6]",
+        "raw": "Southampton's 36-match winless run when conceding first (D2 L34) makes Wolves' 1.84 odds appealing [9]"
+      },
+      {
+        "market": "Total Goals",
+        "insight": "Under 2.5 goals landed in 4 of Wolves' last 5 away games [9]",
+        "recommendation": "Under 2.5 Goals @ 1.90 [13]",
+        "raw": "Combined xG of 2.3 per game in Wolves' away matches suggests value on unders [11]"
+      },
+      {
+        "market": "Clean Sheet",
+        "insight": "Wolves kept 4 clean sheets in last 6 vs Saints [13]",
+        "recommendation": "Wolves Clean Sheet @ 3.25 [9]",
+        "raw": "Saints failed to score in 5 of 8 home losses this season [6]"
+      }
+    ],
+    "prediction": {
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "confidence": 7,
+      "reasoning": "Wolves' defensive organization (8 clean sheets in 15 games vs bottom-half teams) should contain Saints' league-worst attack. Without Cunha, set-piece threat (Wolves rank 4th in headed goals) becomes crucial against Saints' aerially vulnerable defense (2nd worst headed duel win rate) [9][11]"
+    },
+    "my_say": {
+      "content": "As St Mary's prepares to host what could be Southampton's Premier League requiem, the numbers paint a grim portrait - a team hemorrhaging goals at historic rates, their survival hopes resting on a striker corps that's underperformed xG by 11.3 [11]. Yet in Wolves' march towards safety lies a curious tension; their six-point buffer offering comfort, but a frontline shorn of suspended talisman Cunha's 30% goal contribution [3]. This clash of flawed protagonists demands we look beyond the table - to Ait-Nouri's marauding overlaps against Walker-Peters' return-from-injury rust [4][9], to Joao Gomes' metronomic distribution (86% pass accuracy) disrupting Saints' press-happy midfield [11]. While logic points to Wolves extending their H2H hegemony [13], football's gods often smirk at such narratives - will this be the day Southampton's xG demons finally exorcised, or merely another stanza in their relegation elegy?"
+    },
+    "citations": [
+      {
+        "id": "1",
+        "url": "https://saintsmarching.com/southampton-receives-massive-boost-after-young-striker-injury-report",
+        "description": "Tyler Dibling injury timeline"
+      },
+      {
+        "id": "3",
+        "url": "https://www.betustv.com/premier-league/southampton-vs-wolves-prediction-and-analysis-03-15-2025/",
+        "description": "Team form and suspension news"
+      },
+      {
+        "id": "4",
+        "url": "https://www.3addedminutes.com/sport/football/southampton/stewart-fraser-and-bree-southampton-injury-news-and-return-dates-ahead-of-wolves-clash-5027679",
+        "description": "Southampton injury updates"
+      },
+      {
+        "id": "6",
+        "url": "https://www.sportytrader.com/us/picks/southampton-wolves-253131/",
+        "description": "Home/away form statistics"
+      },
+      {
+        "id": "7",
+        "url": "https://www.themag.co.uk/2025/01/official-southampton-injury-update-three-ruled-out-of-newcastle-united-match-and-one-doubt/",
+        "description": "Dibling injury confirmation"
+      },
+      {
+        "id": "9",
+        "url": "https://www.whoscored.com/matches/1821121/preview/england-premier-league-2024-2025-southampton-wolves",
+        "description": "Lineup predictions and H2H stats"
+      },
+      {
+        "id": "11",
+        "url": "https://understat.com/team/Wolverhampton_Wanderers/2024",
+        "description": "xG and advanced metrics"
+      },
+      {
+        "id": "13",
+        "url": "https://www.sportskeeda.com/football/southampton-vs-wolverhampton-wanderers-prediction-betting-tips-15th-march-2025",
+        "description": "Historical H2H analysis"
+      }
+    ],
+    "raw_perplexity_content": "<think>\nOkay, let's tackle this query. The user wants a detailed betting analysis for the Southampton vs Wolves Premier League match on March 15, 2025. They provided specific instructions and search results, so I need to make sure I use those sources accurately. \n\nFirst, I need to structure the JSON according to their schema. Let me start with the match overview. From the search results, Southampton is in terrible form, with only 2 wins all season and a lot of defensive issues. Wolves are inconsistent but in a better position, six points clear of relegation. I need to mention their recent forms and head-to-head records. The sources [3][6][9][13] all highlight Southampton's struggles and Wolves' slight edge.\n\nNext, the team news section. The user provided predicted lineups, but I need to check the injuries from the search results. For Southampton, Tyler Dibling is out with an ankle injury (source [1][7]). Ryan Fraser, Ross Stewart, Juan Larios, and James Bree are also out (sources [4][9]). Jan Bednarek is doubtful. For Wolves, Matheus Cunha is suspended, and players like Yerson Mosquera, Enso Gonz\u00e1lez, Sasa Kalajdzic are out (sources [3][9]). Marshall Munetsi is doubtful. I need to structure this into the injuries, suspensions, returnees, and projected XI for both teams, citing the sources correctly.\n\nAsian Handicap analysis: The line is +0.25 for Southampton. Wolves are slight favorites. I need to compare form, home/away stats, and H2H. Southampton's home form is awful (8 losses in a row), and Wolves have a strong H2H record (6 straight wins). The table should show the key stats, citing sources [3][6][9][13]. The recommendation would back Wolves at -0.25, considering their edge and Southampton's defensive woes.\n\nKey player matchups: Maybe Walker-Peters vs Ait-Nouri, since Walker-Peters is back from injury (source [4]) and Ait-Nouri's role in Wolves' attack. Also, Archer against Wolves' defense, which has been inconsistent. Sources [9][13] mention Archer's role and Wolves' defensive issues despite clean sheets.\n\nBetting insights: Look at Wolves to win (2.15 odds), under 2.5 goals (source [13] tips under), and Wolves clean sheet (Southampton's poor scoring record). Also, maybe a correct score prediction of 0-2. Need to ensure odds are in decimal format and cite sources where stats come from.\n\nPrediction: Wolves to win 2-0 with confidence around 7/10. Reasoning based on form, H2H, and injuries.\n\nMy_say: Need a journalist-style wrap-up, highlighting the stakes for both teams, Southampton's dire situation, Wolves' chance to secure safety. Mention key absences and how they might impact the game. Make it engaging and story-driven, citing sources [3][13] for context.\n\nCitations are crucial here. Every claim must have a source index. I need to make sure all data points are backed by the provided search results and cited properly. Let me check each section again to ensure accuracy and proper citation. Also, avoid any markdown and stick to the JSON structure. Ensure that the 'citations' array lists all sources used with their URLs and descriptions as per the guidelines.\n</think>\n\n```json\n{\n  \"match_overview\": \"Saturday's Premier League clash pits bottom-placed Southampton against a Wolves side seeking to secure top-flight survival. The Saints come into this match on an eight-game home losing streak, having conceded 29 goals during this collapse [6][9]. Wolves arrive six points clear of relegation after taking seven points from their last five matches, though their away form remains suspect with just two wins in 14 road trips [3][6]. Historically, Wolves dominate this fixture with six consecutive H2H victories while keeping four clean sheets [9][13]. Southampton's defensive frailties persist, conceding 3+ goals in eight of their last nine league matches [9], while their xGA of 2.1 per home game ranks worst in the division [11].\",\n  \"team_news\": {\n    \"raw\": \"Southampton's injury crisis worsens with teenage striker Tyler Dibling (ankle) ruled out for 4-6 weeks [1][7]. They're also without Ryan Fraser (calf), Ross Stewart (unknown), Juan Larios (unknown), and James Bree (thigh) [4][9]. Wolves miss suspended top scorer Matheus Cunha (7 goals) and injured defenders Yerson Mosquera/Enso Gonz\u00e1lez (both ACL) [3][9]. Key midfielder Marshall Munetsi remains doubtful with a knock [9].\",\n    \"structured\": {\n      \"home\": {\n        \"injuries\": [\"Tyler Dibling (ankle) [1][7]\", \"Ryan Fraser (calf) [4]\", \"Ross Stewart (unspecified) [4]\", \"Juan Larios (unspecified) [9]\"],\n        \"suspensions\": [],\n        \"returnees\": [\"Kyle Walker-Peters (thigh) [4]\"],\n        \"projected_xi\": \"Ramsdale; Walker-Peters, Harwood-Bellis, Bella-Kotchap, Manning; Ugochukwu, Aribo; Sulemana, Fernandes, Smallbone; Archer [9]\"\n      },\n      \"away\": {\n        \"injuries\": [\"Yerson Mosquera (ACL) [3]\", \"Enso Gonz\u00e1lez (ACL) [3]\", \"Sasa Kalajdzic (ACL) [3]\"],\n        \"suspensions\": [\"Matheus Cunha [3][9]\"],\n        \"returnees\": [\"Emmanuel Agbadou (muscle) [3]\"],\n        \"projected_xi\": \"Sa; Doherty, Agbadou, Toti; Semedo, Gomes, Andre, Ait-Nouri; Bellegarde, Munetsi; Larsen [9]\"\n      }\n    }\n  },\n  \"asian_handicap_analysis\": {\n    \"table\": {\n      \"headers\": [\"Team\", \"Form\", \"Home/Away Form\", \"H2H\", \"Value\"],\n      \"rows\": [\n        [\"Southampton +0.25 (2.15)\", \"L5 league games [6]\", \"8 straight home losses [6]\", \"0 wins in last 6 H2Hs [13]\", \"Poor\"],\n        [\"Wolves -0.25 (1.84)\", \"W1-D2-L2 last 5 [3]\", \"2 away wins all season [6]\", \"6 straight H2H wins [13]\", \"Strong\"]\n      ]\n    },\n    \"analysis\": \"The +0.25 line reflects Wolves' historical dominance but overvalues Southampton's home advantage given their St Mary's collapse. Wolves' -0.25 at 1.84 offers value considering Southampton's league-worst 0.69 goals scored and 2.85 conceded per home game [6]. With Cunha absent, focus shifts to Wolves' defensive solidity - they've kept clean sheets in 4 of last 6 H2Hs [13].\",\n    \"recommendation\": \"Wolves -0.25 Asian Handicap @ 1.84\",\n    \"raw\": \"Southampton's xG deficit of -1.2 per home game makes the +0.25 line treacherous [11]. Wolves' press could exploit Saints' league-high 18 errors leading to shots [9].\"\n  },\n  \"key_player_matchups\": [\n    {\n      \"title\": \"Kyle Walker-Peters vs Rayan Ait-Nouri\",\n      \"content\": \"Walker-Peters' return boosts Saints' attacking width (1.7 crosses/90) but leaves space for Ait-Nouri's overlaps (2.3 progressive carries/90) [9][11]. The Wolves wingback has created 3 big chances in last 4 away games [11].\",\n      \"raw\": \"Ait-Nouri's duel success rate of 63% vs fullbacks could neutralize Walker-Peters' 1.3 successful dribbles/90 [11]\"\n    },\n    {\n      \"title\": \"Cameron Archer vs Wolves' Back Three\",\n      \"content\": \"Archer's pace (3.1 progressive runs/90) tests Wolves' high line (6 offside traps/game). However, Toti Gomes boasts 71% aerial win rate against physical forwards [11].\",\n      \"raw\": \"Archer has scored just 1 goal in 12 starts despite 3.1 shots/90, underperforming xG by 2.7 [11]\"\n    }\n  ],\n  \"betting_insights\": [\n    {\n      \"market\": \"Match Result\",\n      \"insight\": \"Wolves have won 6 straight H2Hs by aggregate 14-3 scoreline [13]\",\n      \"recommendation\": \"Wolves Win @ 2.15 [6]\",\n      \"raw\": \"Southampton's 36-match winless run when conceding first (D2 L34) makes Wolves' 1.84 odds appealing [9]\"\n    },\n    {\n      \"market\": \"Total Goals\",\n      \"insight\": \"Under 2.5 goals landed in 4 of Wolves' last 5 away games [9]\",\n      \"recommendation\": \"Under 2.5 Goals @ 1.90 [13]\",\n      \"raw\": \"Combined xG of 2.3 per game in Wolves' away matches suggests value on unders [11]\"\n    },\n    {\n      \"market\": \"Clean Sheet\",\n      \"insight\": \"Wolves kept 4 clean sheets in last 6 vs Saints [13]\",\n      \"recommendation\": \"Wolves Clean Sheet @ 3.25 [9]\",\n      \"raw\": \"Saints failed to score in 5 of 8 home losses this season [6]\"\n    }\n  ],\n  \"prediction\": {\n    \"score\": {\n      \"home\": 0,\n      \"away\": 2\n    },\n    \"confidence\": 7,\n    \"reasoning\": \"Wolves' defensive organization (8 clean sheets in 15 games vs bottom-half teams) should contain Saints' league-worst attack. Without Cunha, set-piece threat (Wolves rank 4th in headed goals) becomes crucial against Saints' aerially vulnerable defense (2nd worst headed duel win rate) [9][11]\"\n  },\n  \"my_say\": {\n    \"content\": \"As St Mary's prepares to host what could be Southampton's Premier League requiem, the numbers paint a grim portrait - a team hemorrhaging goals at historic rates, their survival hopes resting on a striker corps that's underperformed xG by 11.3 [11]. Yet in Wolves' march towards safety lies a curious tension; their six-point buffer offering comfort, but a frontline shorn of suspended talisman Cunha's 30% goal contribution [3]. This clash of flawed protagonists demands we look beyond the table - to Ait-Nouri's marauding overlaps against Walker-Peters' return-from-injury rust [4][9], to Joao Gomes' metronomic distribution (86% pass accuracy) disrupting Saints' press-happy midfield [11]. While logic points to Wolves extending their H2H hegemony [13], football's gods often smirk at such narratives - will this be the day Southampton's xG demons finally exorcised, or merely another stanza in their relegation elegy?\"\n  },\n  \"citations\": [\n    {\"id\": \"1\", \"url\": \"https://saintsmarching.com/southampton-receives-massive-boost-after-young-striker-injury-report\", \"description\": \"Tyler Dibling injury timeline\"},\n    {\"id\": \"3\", \"url\": \"https://www.betustv.com/premier-league/southampton-vs-wolves-prediction-and-analysis-03-15-2025/\", \"description\": \"Team form and suspension news\"},\n    {\"id\": \"4\", \"url\": \"https://www.3addedminutes.com/sport/football/southampton/stewart-fraser-and-bree-southampton-injury-news-and-return-dates-ahead-of-wolves-clash-5027679\", \"description\": \"Southampton injury updates\"},\n    {\"id\": \"6\", \"url\": \"https://www.sportytrader.com/us/picks/southampton-wolves-253131/\", \"description\": \"Home/away form statistics\"},\n    {\"id\": \"7\", \"url\": \"https://www.themag.co.uk/2025/01/official-southampton-injury-update-three-ruled-out-of-newcastle-united-match-and-one-doubt/\", \"description\": \"Dibling injury confirmation\"},\n    {\"id\": \"9\", \"url\": \"https://www.whoscored.com/matches/1821121/preview/england-premier-league-2024-2025-southampton-wolves\", \"description\": \"Lineup predictions and H2H stats\"},\n    {\"id\": \"11\", \"url\": \"https://understat.com/team/Wolverhampton_Wanderers/2024\", \"description\": \"xG and advanced metrics\"},\n    {\"id\": \"13\", \"url\": \"https://www.sportskeeda.com/football/southampton-vs-wolverhampton-wanderers-prediction-betting-tips-15th-march-2025\", \"description\": \"Historical H2H analysis\"}\n  ]\n}\n```"
+  }
+}

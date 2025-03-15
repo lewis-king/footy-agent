@@ -27,48 +27,6 @@ response_schemas = [
     {"name": "prediction", "description": "A prediction for the match outcome with reasoning."}
 ]
 
-# Define prompt template for fixture analysis
-fixture_analysis_template = """
-You are an english professional football betting analyst specializing in Premier League matches. Your task is to provide comprehensive, data-driven betting analysis for an upcoming fixture.
-You are a data led enthusiast using xG and more advanced data insights in your research. But you understand these data points need to be articulated in a accessible way to the masses. Your ability to explain and provide punchy insights is second to none.
-You understand how Asian Handicap works when it comes to evens lines and supremacy. I.e you know when odds are near evens you must consider the line to understand the supremacy a team has over the other.
-YOU MUST USE UP TO DATE FACTS THAT YOU SOURCE - YOU CANNOT RELY ON YOUR BASE KNOWLEDGE WHEN STATING FACTS - I.E IF YOU DIDN'T SOURCE THE INFORMATION DON'T USE IT
-
-FIXTURE INFORMATION:
-- Home Team: {home_team}
-- Away Team: {away_team}
-- Date: {date}
-- Venue: {venue}
-- Home Team Form: {home_form}
-- Away Team Form: {away_form}
-- Asian Handicap Line: {asian_handicap_line}
-- Asian Handicap Home Odds: {asian_handicap_home}
-- Asian Handicap Away Odds: {asian_handicap_away}
-
-TASK:
-Provide detailed betting analysis for this fixture, focusing on value opportunities in the betting markets.
-Your analysis should be structured according to the following format:
-
-match_overview: A comprehensive overview of the match, including team form, recent performances, and general context.
-asian_handicap_analysis: Detailed analysis of the Asian handicap market for this fixture, including value bets and recommendations.
-key_player_matchups: Analysis of key player matchups that could influence the outcome of the game.
-team_news: Latest team news including injuries, suspensions, and expected lineups sourced from real live sources NOT based on your knowledge
-betting_insights: 3-5 key betting insights for this match, focusing on value opportunities. Remember decimal odds format and Win/Match Odds terminology over ML or Money Line
-prediction: A prediction for the match outcome with reasoning.
-my_say: contains content which is A journalist style paragraph conclusion featuring engaging insights and top level analysis. Tell a story, be quirky, be insightful and unique, this is your chance to shine to set the scene and excitement for the match ahead. Roughly 1000 characters is good for this content to be engaging enough.
-
-IMPORTANT GUIDELINES:
-1. You must always use live sourced information to base your facts off of as football matches are an ever changing landscape.
-2. Focus on data-driven insights rather than general observations
-3. Provide specific, actionable betting recommendations
-4. Consider team form, head-to-head records, injuries, and tactical matchups
-5. Pay special attention to the Asian Handicap market and identify value bets
-6. Make your content engaging and unique compared to mainstream betting sites
-7. You must be accurate when stating odds for markets and selections. I've noticed you have a tendency to get the Asian Handicap evens line wrong and think the line is 0 in some games. This breaks the betting recommendation so be CAREFUL!
-8. Prefer European terminology over american i.e decimal odds over money line. Odds should always be in decimal format)
-9. MOST IMPORTANTLY - IF YOU IGNORE LIVE SOURCED INFORMATION AND USE YOUR OWN KNOWLEDGE AND IT IS INCORRECT/OUTDATED - SOMEONE WILL DIE!
-"""
-
 def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
     """
     Generate betting analysis for a fixture using Perplexity API
@@ -96,11 +54,11 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
             away_team=away_team,
             date=fixture.get("date"),
             venue=fixture.get("venue"),
-            home_form=fixture.get("home_form"),
-            away_form=fixture.get("away_form"),
-            asian_handicap_line=fixture.get("odds.asian_handicap.line"),
-            asian_handicap_home=fixture.get("odds.asian_handicap.home"),
-            asian_handicap_away=fixture.get("odds.asian_handicap.away")
+            home_lineup=fixture.get("lineups", {}).get("home", []),
+            away_lineup=fixture.get("lineups", {}).get("away", []),
+            asian_handicap_line=fixture.get("odds", {}).get("asian_handicap", {}).get("line"),
+            asian_handicap_home=fixture.get("odds", {}).get("asian_handicap", {}).get("home"),
+            asian_handicap_away=fixture.get("odds", {}).get("asian_handicap", {}).get("away")
         )
         
         # Get Perplexity API key from environment variables
@@ -137,7 +95,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         }
                       ],
                       "team_news": {
-                        "raw": "Detailed team news including injuries, suspensions, and returnees - this must always be up-to-date sourced info",
+                        "raw": "Detailed team news including injuries, suspensions, and returnees - this must always be up-to-date sourced info. Use the given lineups in the prompt",
                         "structured": {
                           "home": {
                             "injuries": ["Player 1 (reason) [2]", "Player 2 (reason) [3]"],
@@ -245,9 +203,6 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                 
                 # Extract the response content
                 raw_content = response.choices[0].message.content
-                
-                # Print a sample of the raw content for debugging
-                print(f"\nSample of raw Perplexity response (first 300 chars):\n{raw_content[:300]}...\n")
                 
                 # Parse the JSON response
                 try:
@@ -383,7 +338,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
         mock_analysis["generated_at"] = datetime.now().isoformat()
         return mock_analysis
 
-def create_perplexity_prompt(competition, home_team, away_team, date, venue, home_form, away_form, 
+def create_perplexity_prompt(competition, home_team, away_team, date, venue, home_lineup, away_lineup,
                             asian_handicap_line, asian_handicap_home, asian_handicap_away):
     """
     Create a detailed prompt for the Perplexity API
@@ -394,6 +349,10 @@ def create_perplexity_prompt(competition, home_team, away_team, date, venue, hom
     Returns:
         Formatted prompt string
     """
+    # Format lineups as comma-delimited strings of "position: name" (taking only first 11 players as starters)
+    formatted_home_lineup = ", ".join([f"{player['position']}: {player['name']}" for player in (home_lineup or [])[:11]])
+    formatted_away_lineup = ", ".join([f"{player['position']}: {player['name']}" for player in (away_lineup or [])[:11]])
+    
     return f"""Provide a detailed betting analysis for the {competition} match between {home_team} and {away_team}.
 
 You are an english professional football betting analyst specializing in {competition} matches. Your task is to provide comprehensive, data-driven betting analysis for an upcoming fixture.
@@ -406,11 +365,11 @@ FIXTURE INFORMATION:
 - Away Team: {away_team}
 - Date: {date}
 - Venue: {venue}
-- Home Team Form: {home_form}
-- Away Team Form: {away_form}
 - Asian Handicap Line: {asian_handicap_line}
 - Asian Handicap Home Odds: {asian_handicap_home}
 - Asian Handicap Away Odds: {asian_handicap_away}
+- Predicted Home Team Lineup: {formatted_home_lineup}
+- Predicted Away Team Lineup: {formatted_away_lineup}
 
 TASK:
 Provide detailed betting analysis for this fixture, focusing on value opportunities in the betting markets.
@@ -419,7 +378,7 @@ Your analysis should be structured according to the following format:
 match_overview: A comprehensive overview of the match, including team form, recent performances, and general context.
 asian_handicap_analysis: Detailed analysis of the Asian handicap market for this fixture, including value bets and recommendations.
 key_player_matchups: Analysis of key player matchups that could influence the outcome of the game.
-team_news: Latest team news including injuries, suspensions, and expected lineups sourced from real live sources NOT based on your knowledge.
+team_news: Latest team news including injuries, suspensions, and expected lineups sourced from real live sources NOT based on your knowledge - use the prompt predicted lineups given here.
 betting_insights: 3-5 key betting insights for this match, focusing on value opportunities. Remember decimal odds format and Win/Match Odds terminology over ML or Money Line
 prediction: A prediction for the match outcome with reasoning.
 my_say: contains content which is A journalist style paragraph conclusion featuring engaging insights and top level analysis. Tell a story, be quirky, be insightful and unique, this is your chance to shine to set the scene and excitement for the match ahead. Roughly 1000 characters is good for this content to be engaging enough.

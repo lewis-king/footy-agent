@@ -1,10 +1,10 @@
 {
-  "gameweek": 28,
+  "gameweek": 29,
   "team": {
     "goalkeepers": [
       {
-        "name": "Robert Sanchez",
-        "team": "Chelsea"
+        "name": "Dean Henderson",
+        "team": "Crystal Palace"
       },
       {
         "name": "Aaron Ramsdale",
@@ -21,8 +21,8 @@
         "team": "Man Utd"
       },
       {
-        "name": "Ola Aina",
-        "team": "Nottingham Forest"
+        "name": "Daniel Munoz",
+        "team": "Crystal Palace"
       },
       {
         "name": "Antonee Robinson",
@@ -70,13 +70,13 @@
       }
     ]
   },
-  "freeTransfers": 5,
-  "budget": 3.7,
+  "freeTransfers": 4,
+  "budget": 3.9,
   "chips": {
     "assistantManager": true,
     "freeHit": true,
     "wildcard": true,
-    "benchBoost": false,
-    "tripleCaptain": false
+    "benchBoost": true,
+    "tripleCaptain": true
   }
 }

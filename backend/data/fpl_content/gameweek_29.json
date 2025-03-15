@@ -1,0 +1,10 @@
+{
+  "gameweekId": "gw-29",
+  "lastUpdated": "2025-03-15T09:24:17.242605",
+  "overview": "Gameweek 29 presents a unique challenge with Liverpool, Newcastle, Aston Villa, and Crystal Palace blanking. Key fixtures include Manchester City vs Brighton (Haaland hunting form), Bournemouth vs Brentford (high xG clash), and Spurs vs Fulham (rotational risks post-Europe). With 5 free transfers and Free Hit/Wildcard available, we recommend prioritizing: 1) Replacing blanking assets 2) Targeting Bournemouth/Nottingham Forest attacking value 3) Banking on Man City's home dominance.\",\n  \"top_picks\": [\n    {\n      \"position\": \"GK\",\n      \"players\": [\n        {\n          \"name\": \"Mark Flekken\",\n          \"team\": \"Brentford\",\n          \"reason\": \"Faces Bournemouth who concede most big chances (17 in last 6 GWs) with save potential\",\n          \"price\": 5.8,\n          \"ownership\": 8.2\n        },\n        {\n          \"name\": \"Ederson\",\n          \"team\": \"Man City\",\n          \"reason\": \"Highest clean sheet probability (48%) against Brighton's struggling attack\",\n          \"price\": 6.5,\n          \"ownership\": 22.1\n        }\n      ]\n    },\n    {\n      \"position\": \"DEF\",\n      \"players\": [\n        {\n          \"name\": \"Marc Cucurella\",\n          \"team\": \"Chelsea\",\n          \"reason\": \"Only defender with 8+ expected goal involvement in last 6 GWs (8.0 xGI)\",\n          \"price\": 5.8,\n          \"ownership\": 18.4\n        },\n        {\n          \"name\": \"Ola Aina\",\n          \"team\": \"Nott'm Forest\",\n          \"reason\": \"7.3 ppg in home matches with favorable Ipswich fixture (3rd worst xGC)\",\n          \"price\": 5.3,\n          \"ownership\": 12.7\n        }\n      ]\n    },\n    {\n      \"position\": \"MID\",\n      \"players\": [\n        {\n          \"name\": \"Cole Palmer\",\n          \"team\": \"Chelsea\",\n          \"reason",
+  "topPicks": [],
+  "differentials": [],
+  "captainPicks": [],
+  "keyFixtures": [],
+  "chipAdvice": "No advice available"
+}

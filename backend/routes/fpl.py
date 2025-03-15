@@ -27,7 +27,7 @@ os.makedirs(FPL_CONTENT_DIR, exist_ok=True)
 def get_gameweeks() -> List[Dict[str, Any]]:
     """Get all gameweeks with their status"""
     # This is a simplified implementation - in a real app, you'd fetch this from an API or database
-    current_gameweek = 28  # Example: current gameweek is 28 (as of March 2025)
+    current_gameweek = 29  # Example: current gameweek is 28 (as of March 2025)
     
     gameweeks = []
     for i in range(1, 39):  # Premier League has 38 gameweeks

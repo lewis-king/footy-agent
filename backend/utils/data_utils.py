@@ -44,7 +44,9 @@ def load_fixtures(competition=None):
 
 def save_fixtures(fixtures, competition=None):
     """
-    Save fixtures to JSON file
+    Save fixtures to JSON file with upsert behavior
+    - Updates existing fixtures if they have the same ID
+    - Adds new fixtures that don't exist yet
     
     Args:
         fixtures: List of fixture data to save
@@ -59,8 +61,39 @@ def save_fixtures(fixtures, competition=None):
         fixtures_file = FIXTURES_FILE
         
     try:
+        # Load existing fixtures
+        existing_fixtures = []
+        if os.path.exists(fixtures_file):
+            try:
+                with open(fixtures_file, 'r') as f:
+                    existing_fixtures = json.load(f)
+            except:
+                # If file exists but can't be loaded, start with empty list
+                existing_fixtures = []
+        
+        # Create a dictionary of existing fixtures by ID for easy lookup
+        existing_fixtures_dict = {f['id']: f for f in existing_fixtures if 'id' in f}
+        
+        # Create a dictionary for the new fixtures
+        new_fixtures_dict = {f['id']: f for f in fixtures if 'id' in f}
+        
+        # Merge the dictionaries, with new fixtures taking precedence
+        merged_fixtures_dict = {**existing_fixtures_dict, **new_fixtures_dict}
+        
+        # Convert back to a list
+        merged_fixtures = list(merged_fixtures_dict.values())
+        
+        # Sort by date (ascending)
+        merged_fixtures.sort(key=lambda x: x.get('date', '9999-99-99'))
+        
+        # Save the merged fixtures
         with open(fixtures_file, 'w') as f:
-            json.dump(fixtures, f, indent=2)
+            json.dump(merged_fixtures, f, indent=2)
+            
+        print(f"Saved {len(merged_fixtures)} fixtures to {fixtures_file}")
+        print(f"- {len(new_fixtures_dict)} new/updated fixtures")
+        print(f"- {len(existing_fixtures_dict) - len(new_fixtures_dict.keys() & existing_fixtures_dict.keys())} unchanged fixtures")
+        
         return True
     except Exception as e:
         print(f"Error saving fixtures for {competition}: {str(e)}")
