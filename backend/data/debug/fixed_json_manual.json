@@ -1,0 +1,155 @@
+{
+  "overview"": "Gameweek 29 presents a unique challenge with four teams blanking, requiring strategic transfers to field a competitive XI. Key fixtures include Nottingham Forest vs Ipswich (target clean sheets), Bournemouth vs Brentford (high goalscoring potential), and Manchester United vs Leicester (attacking returns potential). Prioritize defenders from Forest/Arsenal and attack-minded players from Bournemouth/Man United while leveraging your 5 free transfers to replace Liverpool/Newcastle assets."",
+  "top_picks"": [
+    {
+      "position"": "GK"",
+      "players"": [
+        {
+          "name"": "Matz Sels"",
+          "team"": "Nottingham Forest"",
+          "reason"": "Forest have kept back-to-back clean sheets vs Arsenal/Man City and face league's worst attack (Ipswich). Highest CS odds (36%) [2"]"",
+          "price"": 5.0",
+          "ownership"": 8.2
+        "},
+        {
+          "name"": "David Raya"",
+          "team"": "Arsenal"",
+          "reason"": "Best defensive metrics in league face Chelsea who struggle vs big teams. 42% CS chance [7"]"",
+          "price"": 5.8",
+          "ownership"": 32.5
+        }
+      "]
+    "},
+    {
+      "position"": "DEF"",
+      "players"": [
+        {
+          "name"": "Gabriel"",
+          "team"": "Arsenal"",
+          "reason"": "Nailed in league's best defense with set-piece threat. 5 goals this season [2"]"",
+          "price"": 6.3",
+          "ownership"": 28.4
+        "},
+        {
+          "name"": "Matthijs de Ligt"",
+          "team"": "Man United"",
+          "reason"": "Leicester have failed to score in 5 games. United have 3rd best CS odds (28%) [2"]"",
+          "price"": 4.8",
+          "ownership"": 12.7
+        }
+      "]
+    "},
+    {
+      "position"": "MID"",
+      "players"": [
+        {
+          "name"": "Bruno Fernandes"",
+          "team"": "Man United"",
+          "reason"": "4 goals in last 3 games across competitions. Leicester concede most chances to AMs [1],\\[3"]"",
+          "price"": 9.8",
+          "ownership"": 18.9
+        "},
+        {
+          "name"": "Bryan Mbeumo"",
+          "team"": "Brentford"",
+          "reason"": "3rd best xGI among mids last 6 GWs. Bournemouth concede 2nd most shots [1],\\[5"]"",
+          "price"": 7.5",
+          "ownership"": 22.1
+        }
+      "]
+    "},
+    {
+      "position"": "FWD"",
+      "players"": [
+        {
+          "name"": "Erling Haaland"",
+          "team"": "Man City"",
+          "reason"": "League leader in xG (3.68 last 6 games) vs Brighton's high line. Safe captaincy [1],\\[3"]"",
+          "price"": 14.5",
+          "ownership"": 68.4
+        "},
+        {
+          "name"": "Chris Wood"",
+          "team"": "Nottingham Forest"",
+          "reason"": "45% captain poll leader. 75% big chance conversion vs leaky Ipswich [1],\\[2"]"",
+          "price"": 6.8",
+          "ownership"": 31.7
+        }
+      "]
+    "}
+  "]",
+  "differentials"": [
+    {
+      "name"": "Nikola Milenkovic"",
+      "team"": "Nottingham Forest"",
+      "position"": "DEF"",
+      "reason"": "8.7% owned. 3 goals + set piece threat vs worst attack. 58% CS chance [5"]"",
+      "ownership"": 8.7
+    "},
+    {
+      "name"": "Marcus Tavernier"",
+      "team"": "Bournemouth"",
+      "position"": "MID"",
+      "reason"": "0.4% owned. 2G/2A last 6 GWs vs Brentford's vulnerable defense [5"]"",
+      "ownership"": 0.4
+    "},
+    {
+      "name"": "Raul Jimenez"",
+      "team"": "Fulham"",
+      "position"": "FWD"",
+      "reason"": "7.7% owned. 28 SIT vs Spurs' weak defense. Penalty taker [5"]"",
+      "ownership"": 7.7
+    "}
+  "]",
+  "captain_picks"": [
+    {
+      "name"": "Erling Haaland"",
+      "team"": "Man City"",
+      "reason"": "Highest xG + big chance volume. Safe floor against Brighton"",
+      "fixtures"": "BHA (H)"
+    "},
+    {
+      "name"": "Chris Wood"",
+      "team"": "Nottingham Forest"",
+      "reason"": "Premium fixture vs Ipswich. 45% captains poll leader [1"]"",
+      "fixtures"": "IPS (A)"
+    "},
+    {
+      "name"": "Bruno Fernandes"",
+      "team"": "Man United"",
+      "reason"": "In-form differential (10% ownership) vs Leicester's weak midfield"",
+      "fixtures"": "LEI (A)"
+    "}
+  "]",
+  "key_fixtures"": [
+    {
+      "home_team"": "Nottingham Forest"",
+      "away_team"": "Ipswich"",
+      "analysis"": "Forest have league-high 12 clean sheets. Ipswich score 0.9 GPG. Target CS + Wood attacking returns [2],\\[5"]"
+    "},
+    {
+      "home_team"": "Bournemouth"",
+      "away_team"": "Brentford"",
+      "analysis"": "Game of the week for attackers. Both in top 5 for xG conceded. Target Mbeumo/Semenyo [5],\\[7"]"
+    "},
+    {
+      "home_team"": "Man United"",
+      "away_team"": "Leicester"",
+      "analysis"": "Leicester concede most chances down middle. Fernandes/Dalot prime targets [1],\\[7"]"
+    "}
+  "]",
+  "team_insights"": {
+    "current_team_analysis"": "Critical issues": Trent (blank) + Isak (blank) occupying valuable spots. Goalkeepers face tough fixtures (ARS vs CHE). Lack Forest/United defensive coverage. Forward line missing Wood."",
+    "suggested_transfers"": [
+      {
+        "player_out"": "Trent Alexander-Arnold"",
+        "player_in"": "Nikola Milenkovic"",
+        "reason"": "Replace blanking defender with Forest's CS candidate (+goal threat)"
+      "},
+      {
+        "player_out"": "Alexander Isak"",
+        "player_in"": "Chris Wood"",
+        "reason"": "Swap blanking forward for GW29's top captaincy option"
+      "}
+    "]",
+    "suggested_starting_xi"": "**Formation":** 4-4-2\n}}

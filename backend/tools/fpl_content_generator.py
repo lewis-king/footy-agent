@@ -123,7 +123,7 @@ class FPLContentGenerator:
         Your response should be a valid JSON object with the following structure:
         
         {{
-          "overview": "Markdown formatted overview of the gameweek, including key fixtures and general strategy",
+          "overview": "Overview of the gameweek, including key fixtures and general strategy",
           "top_picks": [
             {{
               "position": "GK",
@@ -161,7 +161,7 @@ class FPLContentGenerator:
             "suggested_transfers": [
               {{ "player_out": "Player Name", "player_in": "Player Name", "reason": "Reason for the transfer" }}
             ],
-            "suggested_starting_xi": "Markdown formatted suggested starting XI",
+            "suggested_starting_xi": "Suggested starting XI",
             "captain_suggestion": "Suggested captain from the current team",
             "chip_advice": "Advice on which chips to consider using this gameweek, if any"
           }}
@@ -172,12 +172,12 @@ class FPLContentGenerator:
         """
 
     def _call_perplexity(self, prompt: str) -> Dict[str, Any]:
-        from openai import OpenAI
-        import re
-
-        logger.info("Making API call to Perplexity")
-        
+        """Call the Perplexity API with the given prompt and return the parsed response"""
         try:
+            logger.info("Calling Perplexity API")
+            
+            # Prepare the API request
+            from openai import OpenAI
             client = OpenAI(
                 api_key=self.perplexity_api_key,
                 base_url="https://api.perplexity.ai"
@@ -195,109 +195,173 @@ class FPLContentGenerator:
                     "content": prompt
                 }],
                 temperature=0.7,
-                max_tokens=2000
+                max_tokens=6000
             )
             
             logger.info("Received response from Perplexity API")
-            logger.debug(f"Response object type: {type(response)}")
             
-            try:
-                # Try to parse the response as JSON
-                content = response.choices[0].message.content
-                logger.debug(f"Response content (first 100 chars): {content[:100]}...")
-                logger.debug(f"Response content length: {len(content)} chars")
-                
-                # Save the raw response for debugging
-                debug_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'debug')
-                os.makedirs(debug_dir, exist_ok=True)
-                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                with open(os.path.join(debug_dir, f'perplexity_response_{timestamp}.txt'), 'w') as f:
-                    f.write(content)
-                logger.info(f"Raw response saved to debug directory for inspection")
-                
-                # First attempt: direct JSON parsing
-                try:
-                    parsed_json = json.loads(content)
-                    logger.info("Successfully parsed response as JSON")
-                    logger.debug(f"Parsed JSON keys: {parsed_json.keys()}")
-                    return parsed_json
-                except json.JSONDecodeError as json_err:
-                    logger.warning(f"Direct JSON parsing failed: {str(json_err)}")
-                
-                # Second attempt: Extract JSON using regex pattern matching
-                logger.info("Attempting to extract JSON using regex pattern matching")
-                json_pattern = r'\{(?:[^{}]|(?R))*\}'
-                json_matches = re.findall(r'(\{[\s\S]*\})', content)
-                
-                if json_matches:
-                    for json_str in json_matches:
-                        try:
-                            # Try to parse each potential JSON string
-                            parsed_json = json.loads(json_str)
-                            logger.info("Successfully extracted and parsed JSON using regex")
-                            return parsed_json
-                        except json.JSONDecodeError:
-                            continue
-                
-                # Third attempt: Look for JSON-like content between curly braces
-                logger.info("Attempting to extract JSON between curly braces")
-                start_idx = content.find('{')
-                end_idx = content.rfind('}') + 1
-                
-                if start_idx >= 0 and end_idx > start_idx:
-                    json_str = content[start_idx:end_idx]
-                    logger.debug(f"Extracted JSON-like content: {json_str[:100]}...")
-                    
-                    # Try to fix common JSON formatting issues
-                    # 1. Fix trailing commas before closing braces/brackets
-                    json_str = re.sub(r',\s*}', '}', json_str)
-                    json_str = re.sub(r',\s*]', ']', json_str)
-                    
-                    # 2. Fix missing quotes around keys
-                    json_str = re.sub(r'([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:', r'\1"\2":', json_str)
-                    
-                    # 3. Fix single quotes used instead of double quotes
-                    # This is tricky and might cause issues, so we're careful
-                    # Only replace single quotes that are likely to be around keys or string values
-                    json_str = re.sub(r'\'([a-zA-Z0-9_\s]+)\'', r'"\1"', json_str)
-                    
-                    try:
-                        parsed_json = json.loads(json_str)
-                        logger.info("Successfully parsed fixed JSON")
-                        return parsed_json
-                    except json.JSONDecodeError as e:
-                        logger.warning(f"Fixed JSON still has errors: {str(e)}")
-                
-                # Fourth attempt: Try to construct a valid JSON from the content
-                logger.info("Attempting to construct valid JSON from content")
-                
-                # Extract key sections that we expect in the response
-                overview_match = re.search(r'"overview"\s*:\s*"([^"]*(?:"[^"]*"[^"]*)*)"', content)
-                overview = overview_match.group(1) if overview_match else "No overview available"
-                
-                # Construct a minimal valid JSON with the extracted sections
-                constructed_json = {
-                    "overview": overview,
-                    "top_picks": [],
-                    "differentials": [],
-                    "captain_picks": [],
-                    "key_fixtures": [],
-                    "chip_advice": "No advice available"
-                }
-                
-                logger.info("Using constructed JSON as fallback")
-                return constructed_json
-                
-            except Exception as parse_err:
-                logger.error(f"All JSON parsing attempts failed: {str(parse_err)}")
-                logger.error(f"Traceback: ", exc_info=True)
-                return self._create_fallback_response(content)
+            # Extract content from response
+            content = response.choices[0].message.content
+            logger.debug(f"Response content (first 100 chars): {content[:100]}...")
+            logger.debug(f"Response content length: {len(content)} chars")
+            
+            # Save the raw response for debugging
+            debug_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'debug')
+            os.makedirs(debug_dir, exist_ok=True)
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            with open(os.path.join(debug_dir, f'perplexity_response_{timestamp}.txt'), 'w') as f:
+                f.write(content)
+            logger.info(f"Raw response saved to debug directory for inspection")
+            
+            # Parse the response
+            return self._parse_perplexity_response(content)
                 
         except Exception as api_err:
             logger.error(f"Error calling Perplexity API: {str(api_err)}")
             logger.error(f"Exception details: {type(api_err).__name__}")
             logger.error(f"Traceback: ", exc_info=True)
             raise
+    
+    def _parse_perplexity_response(self, content: str) -> Dict[str, Any]:
+        """Parse the response from Perplexity API, handling various formats and errors"""
+        import re
+        
+        try:
+            # First try to extract JSON from code blocks if present
+            # Look for JSON inside ```json ... ``` blocks or just ``` ... ``` blocks
+            json_match = re.search(r'```(?:json)?\s*([\s\S]*?)\s*```', content)
+            
+            if json_match:
+                # Extract the JSON content from the code block
+                json_content = json_match.group(1).strip()
+                logger.info("Found JSON content in code block")
+                logger.info(f"Extracted JSON content: {json_content}...")
+                
+                # Try to extract valid JSON from the content
+                try:
+                    # First try direct parsing
+                    parsed_json = json.loads(json_content)
+                    logger.info("Successfully parsed JSON from code block")
+                    return parsed_json
+                except json.JSONDecodeError as e:
+                    logger.warning(f"JSON parsing failed: {str(e)}")
+                    
+                    # Try to create a minimal valid JSON with the required fields
+                    logger.info("Attempting to create a minimal valid JSON with required fields")
+                    clean_json = self._create_minimal_json(json_content)
+                    
+                    try:
+                        parsed_json = json.loads(clean_json)
+                        logger.info("Successfully parsed minimal JSON")
+                        return parsed_json
+                    except json.JSONDecodeError as e2:
+                        logger.warning(f"Minimal JSON parsing failed: {str(e2)}")
+                        # Continue to try other methods
+            
+            # If no code block with JSON was found or parsing failed, try the entire content
+            try:
+                # Try direct parsing of the entire content
+                parsed_json = json.loads(content)
+                logger.info("Successfully parsed entire content as JSON")
+                return parsed_json
+            except json.JSONDecodeError:
+                # Create a fallback response
+                logger.error("All JSON parsing attempts failed")
+                return self._create_fallback_response(content)
+                
+        except Exception as e:
+            logger.error(f"Error parsing Perplexity response: {str(e)}")
+            logger.error(f"Exception details: {type(e).__name__}")
+            logger.error(f"Traceback: ", exc_info=True)
+            return self._create_fallback_response(content)
+    
+    def _create_minimal_json(self, json_content: str) -> str:
+        """Create a minimal valid JSON with the required fields extracted from the content"""
+        import re
+        
+        # Initialize the minimal JSON structure
+        minimal_json = {
+            "overview": "",
+            "top_picks": [],
+            "differentials": [],
+            "captain_picks": [],
+            "key_fixtures": [],
+            "team_insights": {
+                "current_team_analysis": "",
+                "suggested_transfers": [],
+                "suggested_starting_xi": "",
+                "captain_suggestion": "",
+                "chip_advice": ""
+            }
+        }
+        
+        # Try to extract overview
+        overview_match = re.search(r'"overview"\s*:\s*"([^"]*)"', json_content)
+        if overview_match:
+            minimal_json["overview"] = overview_match.group(1)
+        
+        # Try to extract chip_advice
+        chip_advice_match = re.search(r'"chip_advice"\s*:\s*"([^"]*)"', json_content)
+        if chip_advice_match:
+            minimal_json["chip_advice"] = chip_advice_match.group(1)
+        
+        # Try to extract team insights
+        team_insights_match = re.search(r'"team_insights"\s*:\s*\{([^}]*)', json_content)
+        if team_insights_match:
+            team_insights_content = team_insights_match.group(1)
+            
+            # Extract current_team_analysis
+            current_team_analysis_match = re.search(r'"current_team_analysis"\s*:\s*"([^"]*)"', team_insights_content)
+            if current_team_analysis_match:
+                minimal_json["team_insights"]["current_team_analysis"] = current_team_analysis_match.group(1)
+            
+            # Extract captain_suggestion
+            captain_suggestion_match = re.search(r'"captain_suggestion"\s*:\s*"([^"]*)"', team_insights_content)
+            if captain_suggestion_match:
+                minimal_json["team_insights"]["captain_suggestion"] = captain_suggestion_match.group(1)
+            
+            # Extract chip_advice from team_insights
+            ti_chip_advice_match = re.search(r'"chip_advice"\s*:\s*"([^"]*)"', team_insights_content)
+            if ti_chip_advice_match:
+                minimal_json["team_insights"]["chip_advice"] = ti_chip_advice_match.group(1)
+        
+        # Convert the minimal JSON to a string
+        return json.dumps(minimal_json)
+
+    def _fix_json_content(self, json_content: str) -> str:
+        """Fix common JSON formatting issues that might cause parsing errors"""
+        logger.info("Attempting to fix malformed JSON content")
+        
+        # Import re at the module level to avoid UnboundLocalError
+        import re
+        
+        # Check if the content starts with <think> or other non-JSON content
+        # and try to find the actual JSON content
+        if json_content.startswith("<think>") or not json_content.strip().startswith("{"):
+            # Try to find JSON-like content (starting with { and ending with })
+            json_match = re.search(r'(\{[\s\S]*\})', json_content)
+            if json_match:
+                json_content = json_match.group(1)
+                logger.info(f"Extracted JSON-like content from non-JSON text: {json_content[:50]}...")
+        
+        # Fix unterminated strings (common issue with AI-generated JSON)
+        # This regex finds strings that start with a quote but don't end with one before a comma or closing bracket
+        fixed_content = re.sub(r'"([^"]*?)(?=,|\]|\})', r'"\1"', json_content)
+        
+        # Replace any unescaped newlines in strings
+        fixed_content = fixed_content.replace('\n', '\\n')
+        
+        # Fix unescaped quotes in strings
+        fixed_content = re.sub(r'(?<!\\)"(?!,|\]|\}|:)', r'\\"', fixed_content)
+        
+        # Fix missing commas between objects in arrays
+        fixed_content = re.sub(r'(\})\s*(\{)', r'\1,\2', fixed_content)
+        
+        # Fix trailing commas in arrays and objects
+        fixed_content = re.sub(r',\s*(\]|\})', r'\1', fixed_content)
+        
+        logger.info("JSON content fixed, attempting to parse again")
+        return fixed_content
 
     def _create_fallback_response(self, content: str) -> Dict[str, Any]:
         """Create a fallback response when JSON parsing fails"""
@@ -308,25 +372,25 @@ class FPLContentGenerator:
                 {
                     "position": "GK",
                     "players": [
-                        {"name": "Alisson", "team": "Liverpool", "reason": "Reliable option with clean sheet potential"}
+                        {
+                            "name": "Alisson",
+                            "team": "Liverpool",
+                            "reason": "Consistent clean sheet potential",
+                            "price": 5.5,
+                            "ownership": 12.3
+                        }
                     ]
                 },
                 {
                     "position": "DEF",
                     "players": [
-                        {"name": "Alexander-Arnold", "team": "Liverpool", "reason": "Attacking returns and set pieces"}
-                    ]
-                },
-                {
-                    "position": "MID",
-                    "players": [
-                        {"name": "Salah", "team": "Liverpool", "reason": "Consistent performer and on penalties"}
-                    ]
-                },
-                {
-                    "position": "FWD",
-                    "players": [
-                        {"name": "Haaland", "team": "Man City", "reason": "High ceiling and goal threat"}
+                        {
+                            "name": "Alexander-Arnold",
+                            "team": "Liverpool",
+                            "reason": "Attacking returns and set pieces",
+                            "price": 8.5,
+                            "ownership": 25.4
+                        }
                     ]
                 }
             ],
@@ -334,18 +398,38 @@ class FPLContentGenerator:
                 {"name": "Mitoma", "team": "Brighton", "position": "MID", "reason": "Low ownership but high potential", "ownership": 5.2}
             ],
             "captain_picks": [
-                {"name": "Salah", "team": "Liverpool", "reason": "Consistent returns and penalty taker"}
+                {"name": "Salah", "team": "Liverpool", "reason": "Consistent returns and penalty taker", "fixtures": "NEW (H)"}
             ],
             "key_fixtures": [
                 {"home_team": "Liverpool", "away_team": "Man City", "analysis": "Key fixture with many FPL assets"}
             ],
-            "chip_advice": "Consider saving chips for double gameweeks"
+            "chip_advice": "Consider saving chips for double gameweeks",
+            "team_insights": {
+                "current_team_analysis": "Unable to analyze team due to data processing error",
+                "suggested_transfers": [
+                    {
+                        "player_out": "Player A",
+                        "player_in": "Player B",
+                        "reason": "Placeholder recommendation"
+                    }
+                ],
+                "suggested_starting_xi": "Unable to generate starting XI due to data processing error",
+                "captain_suggestion": "Unable to suggest captain due to data processing error",
+                "chip_advice": "Consider saving chips for double gameweeks"
+            }
         }
 
     def _structure_response(self, response: Dict[str, Any], gameweek: int, team_state: Dict = None) -> Dict[str, Any]:
         """Structure the response to match the expected frontend format"""
         logger.info(f"Structuring response for gameweek {gameweek}")
         try:
+            # Extract chip advice from team_insights if available, otherwise use the top-level field
+            chip_advice = "No chip advice available"
+            if "team_insights" in response and "chip_advice" in response["team_insights"]:
+                chip_advice = response["team_insights"]["chip_advice"]
+            elif "chip_advice" in response:
+                chip_advice = response["chip_advice"]
+            
             structured_response = {
                 "gameweekId": f"gw-{gameweek}",
                 "lastUpdated": datetime.now().isoformat(),
@@ -354,7 +438,7 @@ class FPLContentGenerator:
                 "differentials": self._format_differentials(response.get("differentials", [])),
                 "captainPicks": self._format_captain_picks(response.get("captain_picks", [])),
                 "keyFixtures": response.get("key_fixtures", []),
-                "chipAdvice": response.get("chip_advice", "No chip advice available")
+                "chipAdvice": chip_advice
             }
             
             # Add team insights if available

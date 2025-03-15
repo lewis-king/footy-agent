@@ -1,10 +1,174 @@
 {
   "gameweekId": "gw-29",
-  "lastUpdated": "2025-03-15T09:24:17.242605",
-  "overview": "Gameweek 29 presents a unique challenge with Liverpool, Newcastle, Aston Villa, and Crystal Palace blanking. Key fixtures include Manchester City vs Brighton (Haaland hunting form), Bournemouth vs Brentford (high xG clash), and Spurs vs Fulham (rotational risks post-Europe). With 5 free transfers and Free Hit/Wildcard available, we recommend prioritizing: 1) Replacing blanking assets 2) Targeting Bournemouth/Nottingham Forest attacking value 3) Banking on Man City's home dominance.\",\n  \"top_picks\": [\n    {\n      \"position\": \"GK\",\n      \"players\": [\n        {\n          \"name\": \"Mark Flekken\",\n          \"team\": \"Brentford\",\n          \"reason\": \"Faces Bournemouth who concede most big chances (17 in last 6 GWs) with save potential\",\n          \"price\": 5.8,\n          \"ownership\": 8.2\n        },\n        {\n          \"name\": \"Ederson\",\n          \"team\": \"Man City\",\n          \"reason\": \"Highest clean sheet probability (48%) against Brighton's struggling attack\",\n          \"price\": 6.5,\n          \"ownership\": 22.1\n        }\n      ]\n    },\n    {\n      \"position\": \"DEF\",\n      \"players\": [\n        {\n          \"name\": \"Marc Cucurella\",\n          \"team\": \"Chelsea\",\n          \"reason\": \"Only defender with 8+ expected goal involvement in last 6 GWs (8.0 xGI)\",\n          \"price\": 5.8,\n          \"ownership\": 18.4\n        },\n        {\n          \"name\": \"Ola Aina\",\n          \"team\": \"Nott'm Forest\",\n          \"reason\": \"7.3 ppg in home matches with favorable Ipswich fixture (3rd worst xGC)\",\n          \"price\": 5.3,\n          \"ownership\": 12.7\n        }\n      ]\n    },\n    {\n      \"position\": \"MID\",\n      \"players\": [\n        {\n          \"name\": \"Cole Palmer\",\n          \"team\": \"Chelsea\",\n          \"reason",
-  "topPicks": [],
-  "differentials": [],
-  "captainPicks": [],
-  "keyFixtures": [],
-  "chipAdvice": "No advice available"
+  "lastUpdated": "2025-03-15T12:54:51.043029",
+  "overview": "Gameweek 29 presents a unique challenge with 6 teams blanking, requiring managers to navigate limited options. Key strategies should focus on targeting Arsenal, Nottingham Forest, and Manchester United assets while leveraging chips wisely. With 5 free transfers and both Wildcard/Free Hit available, this is an ideal week for aggressive restructuring given multiple non-playing assets in your squad.",
+  "topPicks": [
+    {
+      "position": "GK",
+      "players": [
+        {
+          "name": "Dean Henderson",
+          "team": "Crystal Palace",
+          "reason": "Forest face Ipswich (3rd worst defense) with 35% clean sheet probability",
+          "price": 4.8,
+          "ownership": 8.2
+        },
+        {
+          "name": "David Raya",
+          "team": "Arsenal",
+          "reason": "Best xG prevented (7.8) among playing keepers vs Everton's weak attack",
+          "price": 5.2,
+          "ownership": 22.7
+        }
+      ]
+    },
+    {
+      "position": "DEF",
+      "players": [
+        {
+          "name": "Gabriel",
+          "team": "Arsenal",
+          "reason": "Highest xG/90 (0.27) among defenders + Everton have conceded 14 set piece goals",
+          "price": 6.3,
+          "ownership": 31.4
+        },
+        {
+          "name": "Neco Williams",
+          "team": "Nottingham Forest",
+          "reason": "0.18xA/90 against Championship-level Ipswich defense",
+          "price": 4.4,
+          "ownership": 6.8
+        },
+        {
+          "name": "Diogo Dalot",
+          "team": "Manchester United",
+          "reason": "Leicester have failed to score in 5 home games - clean sheet potential",
+          "price": 5.4,
+          "ownership": 5.9
+        }
+      ]
+    },
+    {
+      "position": "MID",
+      "players": [
+        {
+          "name": "Bruno Fernandes",
+          "team": "Manchester United",
+          "reason": "35% direct involvement in United's goals + Leicester's midfield vulnerabilities",
+          "price": 8.9,
+          "ownership": 18.3
+        },
+        {
+          "name": "Morgan Gibbs-White",
+          "team": "Nottingham Forest",
+          "reason": "Created 7 big chances in last 4 games vs Ipswich's high line",
+          "price": 7.1,
+          "ownership": 12.6
+        }
+      ]
+    },
+    {
+      "position": "FWD",
+      "players": [
+        {
+          "name": "Erling Haaland",
+          "team": "Man City",
+          "reason": "Only premium forward playing - 68% goal involvement when starting",
+          "price": 14.7,
+          "ownership": 42.8
+        },
+        {
+          "name": "Chris Wood",
+          "team": "Nottingham Forest",
+          "reason": "18 goals from 12xG shows clinical form vs Ipswich's leaky defense",
+          "price": 7.3,
+          "ownership": 14.2
+        }
+      ]
+    }
+  ],
+  "differentials": [
+    {
+      "name": "Jo\u00e3o Pedro",
+      "team": "Brighton",
+      "position": "FWD",
+      "reason": "4G+A in last 3 despite tough fixtures - differential vs City",
+      "ownership": 4.7
+    },
+    {
+      "name": "Lewis Dobbin",
+      "team": "Everton",
+      "position": "MID",
+      "reason": "Budget enabler with 1.7xA/90 in limited minutes",
+      "ownership": 2.1
+    },
+    {
+      "name": "Antonio Nusa",
+      "team": "Brentford",
+      "position": "MID",
+      "reason": "Direct replacement for Mbeumo - 3.4 dribbles/90",
+      "ownership": 1.8
+    }
+  ],
+  "captainPicks": [
+    {
+      "name": "Erling Haaland",
+      "team": "Man City",
+      "reason": "Highest ceiling against Brighton's high defensive line (3rd most big chances conceded)",
+      "fixtures": "BHA (H)"
+    },
+    {
+      "name": "Chris Wood",
+      "team": "Nottingham Forest",
+      "reason": "Ipswich concede 2.1 goals/game to aerial threats - Wood's 68% headed goal rate",
+      "fixtures": "IPS (A)"
+    },
+    {
+      "name": "Bruno Fernandes",
+      "team": "Manchester United",
+      "reason": "Leicester have lost 83% of games vs top-half teams - penalty threat",
+      "fixtures": "LEI (A)"
+    }
+  ],
+  "keyFixtures": [
+    {
+      "home_team": "Arsenal",
+      "away_team": "Everton",
+      "analysis": "Arsenal defense (16 clean sheets) vs Everton's league-worst xG (24.1) - clean sheet likely"
+    },
+    {
+      "home_team": "Nottingham Forest",
+      "away_team": "Ipswich",
+      "analysis": "Forest attackers targeting Ipswich's Championship-level defense (3rd most goals conceded)"
+    },
+    {
+      "home_team": "Man United",
+      "away_team": "Leicester",
+      "analysis": "United's set piece threat (12 goals) vs Leicester's zonal marking weaknesses"
+    }
+  ],
+  "chipAdvice": "Activate Free Hit: Allows triple-ups on ARS/MUN/FOR without compromising GW30 structure. Wildcard better saved for GW31 double preparation per fixture analysis[1][5]",
+  "teamInsights": {
+    "currentTeamAnalysis": "Critical issues: 4 non-playing attackers (Isak/Cunha), Trent's blank, and Chelsea rotation risks. Strengths: Good defensive coverage with Aina/Robinson. Midfield needs more double gameweek preparation.",
+    "suggestedTransfers": [
+      {
+        "playerOut": "Alexander Isak",
+        "playerIn": "Chris Wood",
+        "reason": "Immediate playing striker with superior fixture - saves \u00a32.1m"
+      },
+      {
+        "playerOut": "Trent Alexander-Arnold",
+        "playerIn": "Gabriel",
+        "reason": "Arsenal's defensive reliability vs non-playing Liverpool asset"
+      },
+      {
+        "playerOut": "Matheus Cunha",
+        "playerIn": "Erling Haaland",
+        "reason": "Must-have captaincy option despite budget stretch (use \u00a33.7m bank)"
+      }
+    ],
+    "suggestedStartingXI": "Ramsdale (GK); Aina, Wan-Bissaka, Gabriel (DEF); Fernandes, Gibbs-White, Mbeumo, Semenyo (MID); Haaland, Wood, Wissa (FWD)",
+    "captainSuggestion": "Erling Haaland",
+    "chipAdvice": "Activate Free Hit: Allows triple-ups on ARS/MUN/FOR without compromising GW30 structure. Wildcard better saved for GW31 double preparation per fixture analysis[1][5]"
+  }
 }
