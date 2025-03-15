@@ -814,6 +814,119 @@
     }
   },
   {
+    "id": "pl-bournemouth-brentford-20250315",
+    "competition": "Premier League",
+    "home_team": "Bournemouth",
+    "away_team": "Brentford",
+    "date": "2025-03-15",
+    "time": "17:30",
+    "venue": "Vitality Stadium",
+    "odds": {
+      "home_win": 1.8,
+      "draw": 4.3,
+      "away_win": 4.4,
+      "asian_handicap": {
+        "line": "-0.75",
+        "home": 2.03,
+        "away": 1.95
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "K. Arrizabalaga",
+          "position": "GK"
+        },
+        {
+          "name": "Milos Kerkez",
+          "position": "DL"
+        },
+        {
+          "name": "Dean Huijsen",
+          "position": "DC"
+        },
+        {
+          "name": "I. Zabarnyi",
+          "position": "DC"
+        },
+        {
+          "name": "Lewis Cook",
+          "position": "DR"
+        },
+        {
+          "name": "R. Christie",
+          "position": "DMC"
+        },
+        {
+          "name": "Tyler Adams",
+          "position": "DMC"
+        },
+        {
+          "name": "A. Semenyo",
+          "position": "AML"
+        },
+        {
+          "name": "J. Kluivert",
+          "position": "AMC"
+        },
+        {
+          "name": "M. Tavernier",
+          "position": "AMR"
+        },
+        {
+          "name": "Evanilson",
+          "position": "FW"
+        }
+      ],
+      "away": [
+        {
+          "name": "Mark Flekken",
+          "position": "GK"
+        },
+        {
+          "name": "K. Lewis-Potter",
+          "position": "DL"
+        },
+        {
+          "name": "N. Collins",
+          "position": "DC"
+        },
+        {
+          "name": "E. Pinnock",
+          "position": "DC"
+        },
+        {
+          "name": "K. Ajer",
+          "position": "DR"
+        },
+        {
+          "name": "C. Norgaard",
+          "position": "DMC"
+        },
+        {
+          "name": "V. Janelt",
+          "position": "DMC"
+        },
+        {
+          "name": "Kevin Schade",
+          "position": "AML"
+        },
+        {
+          "name": "M. Damsgaard",
+          "position": "AMC"
+        },
+        {
+          "name": "Bryan Mbeumo",
+          "position": "AMR"
+        },
+        {
+          "name": "Yoane Wissa",
+          "position": "FW"
+        }
+      ]
+    }
+  },
+  {
     "id": "pl-fulham-tottenham-20250316",
     "competition": "Premier League",
     "home_team": "Fulham",

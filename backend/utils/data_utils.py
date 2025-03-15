@@ -37,6 +37,7 @@ def load_fixtures(competition=None):
     
     try:
         with open(fixtures_file, 'r') as f:
+            print(f"Loading fixtures from {fixtures_file}")
             return json.load(f)
     except Exception as e:
         print(f"Error loading fixtures for {competition}: {str(e)}")

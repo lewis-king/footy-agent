@@ -49,7 +49,6 @@ def get_competition_fixtures(competition):
         if not fixtures or is_fixtures_outdated(fixtures):
             print(f"Refreshing {competition} fixtures...")
             fixtures = refresh_fixtures_data(competition)
-            print(fixtures)
             #save_fixtures(fixtures, competition)
         
         # Check if we should include past fixtures
@@ -534,8 +533,8 @@ def scrape_rotowire_fixtures():
                 if not home_team_div or not away_team_div:
                     continue
                 
-                home_team = home_team_div.get_text(strip=True).split()[0]  # Get first word to avoid extra text
-                away_team = away_team_div.get_text(strip=True).split()[0]  # Get first word to avoid extra text
+                home_team = home_team_div.get_text(strip=True)  # Get first word to avoid extra text
+                away_team = away_team_div.get_text(strip=True)  # Get first word to avoid extra text
                 
                 # Map team names to our standard format
                 home_team = standardize_team_name(home_team)
@@ -543,6 +542,7 @@ def scrape_rotowire_fixtures():
                 
                 # Skip non-Premier League teams
                 if not is_premier_league_team(home_team) or not is_premier_league_team(away_team):
+                    print(f"Skipping non-Premier League teams: {home_team} vs {away_team}")
                     continue
                 
                 # Extract date and time
@@ -700,7 +700,7 @@ def standardize_team_name(name):
     name_map = {
         "Arsenal": "Arsenal",
         "Aston": "Aston Villa",
-        "Bournemouth": "Bournemouth",
+        "AFC": "Bournemouth",
         "Brentford": "Brentford",
         "Brighton": "Brighton",
         "Chelsea": "Chelsea",
