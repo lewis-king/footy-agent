@@ -373,6 +373,8 @@ FIXTURE INFORMATION:
 
 TASK:
 Provide detailed betting analysis for this fixture, focusing on value opportunities in the betting markets.
+A a quick primer on odds value - value/edge/opportunity is when the implied probability of the odds from the bookmaker are lower than the statistical model's source implied probability. This means the bookmakers odds are higher than we think they should be.
+An example is home team is 1.5 to win giving 66.7% implied probability. Our sourced model/statical analysis suggests 71.4% probability == 1.4 odds. This is a value opportunity given the odds different of 0.1. The higher the difference the more the value opportunity.
 Your analysis should be structured according to the following format:
 
 match_overview: A comprehensive overview of the match, including team form, recent performances, and general context.
