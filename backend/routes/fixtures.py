@@ -44,15 +44,15 @@ def get_competition_fixtures(competition):
             
         fixtures = load_fixtures(competition)
         
-        # If fixtures are empty or outdated, refresh them
-        #if True:
-        if not fixtures or is_fixtures_outdated(fixtures):
-            print(f"Refreshing {competition} fixtures...")
-            fixtures = refresh_fixtures_data(competition)
-            #save_fixtures(fixtures, competition)
-        
         # Check if we should include past fixtures
         include_past = request.args.get('include_past', 'false').lower() == 'true'
+        
+        # If fixtures are empty or outdated, refresh them
+        #if True:
+        if not fixtures or is_fixtures_outdated(fixtures, include_past):
+            print(f"Refreshing {competition} fixtures...")
+            fixtures = refresh_fixtures_data(competition)
+            save_fixtures(fixtures, competition)
         
         today = datetime.now().date()
         
@@ -148,19 +148,25 @@ def refresh_competition_fixtures(competition):
         print(f"Error in refresh_competition_fixtures: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-def is_fixtures_outdated(fixtures):
+def is_fixtures_outdated(fixtures, include_past=False):
     """Check if fixtures data is outdated (older than 24 hours)"""
     if not fixtures:
         return True
     
     # Check the first fixture's date
     today = datetime.now().date()
-    earliest_fixture = min(fixtures, key=lambda x: x['date'])
-    earliest_date = datetime.strptime(earliest_fixture['date'], '%Y-%m-%d').date()
     
-    # If the earliest fixture is in the past, we need to refresh
-    if earliest_date < today:
-        return True
+    if not include_past:
+        # If we're only showing upcoming fixtures, check if we have any upcoming ones
+        upcoming_fixtures = [f for f in fixtures if datetime.strptime(f['date'], '%Y-%m-%d').date() >= today]
+        if not upcoming_fixtures:
+            return True
+    else:
+        # If we're including past fixtures, check if we have fixtures from the past 14 days
+        two_weeks_ago = today - timedelta(days=14)
+        recent_fixtures = [f for f in fixtures if datetime.strptime(f['date'], '%Y-%m-%d').date() >= two_weeks_ago]
+        if len(recent_fixtures) < 10:  # Assuming we should have at least 10 fixtures in a 2-week period
+            return True
     
     return False
 
@@ -341,7 +347,20 @@ def get_stadium_for_team(team_name):
         "Leeds": "Elland Road",
         "Sheffield United": "Bramall Lane",
         "Burnley": "Turf Moor",
-        "Luton": "Kenilworth Road"
+        "Luton": "Kenilworth Road",
+        "Bayern Munich": "Allianz Arena",
+        "Barcelona": "Camp Nou",
+        "Real Madrid": "Santiago Bernabeu",
+        "Juventus": "Allianz Stadium",
+        "Paris Saint-Germain": "Parc des Princes",
+        "Ajax": "Johan Cruyff Arena",
+        "Atletico Madrid": "Wanda Metropolitano",
+        "Borussia Dortmund": "Signal Iduna Park",
+        "Inter Milan": "San Siro",
+        "RB Leipzig": "Red Bull Arena",
+        "Sevilla": "Ramón Sánchez Pizjuán",
+        "Valencia": "Mestalla",
+        "Zenit Saint Petersburg": "Gazprom Arena"
     }
     
     # Try to find an exact match
