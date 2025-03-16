@@ -979,11 +979,11 @@
           "position": "MR"
         },
         {
-          "name": "Alex Iwobi",
+          "name": "E. Smith Rowe",
           "position": "AMC"
         },
         {
-          "name": "E. Smith Rowe",
+          "name": "Alex Iwobi",
           "position": "AMC"
         },
         {
@@ -1021,11 +1021,11 @@
           "position": "DL"
         },
         {
-          "name": "C. Romero",
+          "name": "M. van de Ven",
           "position": "DC"
         },
         {
-          "name": "M. van de Ven",
+          "name": "C. Romero",
           "position": "DC"
         },
         {
@@ -1084,12 +1084,12 @@
     "time": "13:30",
     "venue": "Emirates Stadium",
     "odds": {
-      "home_win": 1.88,
-      "draw": 3.75,
-      "away_win": 4.7,
+      "home_win": 1.89,
+      "draw": 3.7,
+      "away_win": 4.8,
       "asian_handicap": {
         "line": "-0.5",
-        "home": 1.88,
+        "home": 1.89,
         "away": 2.11
       }
     },
@@ -1116,15 +1116,15 @@
           "position": "DR"
         },
         {
+          "name": "Declan Rice",
+          "position": "MC"
+        },
+        {
           "name": "M. Odegaard",
           "position": "MC"
         },
         {
           "name": "T. Partey",
-          "position": "MC"
-        },
-        {
-          "name": "Declan Rice",
           "position": "MC"
         },
         {
@@ -1178,11 +1178,11 @@
           "position": "DR"
         },
         {
-          "name": "E. Fernandez",
+          "name": "M. Caicedo",
           "position": "DMC"
         },
         {
-          "name": "M. Caicedo",
+          "name": "E. Fernandez",
           "position": "DMC"
         },
         {
@@ -1241,13 +1241,13 @@
     "time": "19:00",
     "venue": "King Power Stadium",
     "odds": {
-      "home_win": 4.6,
-      "draw": 3.85,
+      "home_win": 4.5,
+      "draw": 3.8,
       "away_win": 1.9,
       "asian_handicap": {
         "line": "+0.5",
-        "home": 2.09,
-        "away": 1.9
+        "home": 2.06,
+        "away": 1.92
       }
     },
     "lineups": {
@@ -1323,11 +1323,11 @@
           "position": "ML"
         },
         {
-          "name": "M. Ugarte",
+          "name": "Bruno Fernandes",
           "position": "MC"
         },
         {
-          "name": "Bruno Fernandes",
+          "name": "M. Ugarte",
           "position": "MC"
         },
         {

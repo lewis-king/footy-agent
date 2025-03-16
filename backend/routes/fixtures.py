@@ -533,8 +533,8 @@ def scrape_rotowire_fixtures():
                 if not home_team_div or not away_team_div:
                     continue
                 
-                home_team = home_team_div.get_text(strip=True)  # Get first word to avoid extra text
-                away_team = away_team_div.get_text(strip=True)  # Get first word to avoid extra text
+                home_team = home_team_div.get_text(strip=True) 
+                away_team = away_team_div.get_text(strip=True)
                 
                 # Map team names to our standard format
                 home_team = standardize_team_name(home_team)
@@ -699,31 +699,31 @@ def standardize_team_name(name):
     """Standardize team names to match our format"""
     name_map = {
         "Arsenal": "Arsenal",
-        "Aston": "Aston Villa",
-        "AFC": "Bournemouth",
+        "Aston Villa": "Aston Villa",
+        "AFC Bournemouth": "Bournemouth",
         "Brentford": "Brentford",
-        "Brighton": "Brighton",
+        "Brighton &": "Brighton",
         "Chelsea": "Chelsea",
-        "Crystal": "Crystal Palace",
+        "Crystal Palace": "Crystal Palace",
         "Everton": "Everton",
         "Fulham": "Fulham",
-        "Ipswich": "Ipswich",
-        "Leicester": "Leicester",
+        "Ipswich Town": "Ipswich",
+        "Leicester City": "Leicester",
         "Liverpool": "Liverpool",
-        "Manchester": "Man City",
-        "Man": "Man Utd",
+        "Manchester City": "Man City",
+        "Manchester United": "Man Utd",
         "Newcastle": "Newcastle",
-        "Nottingham": "Nottm Forest",
+        "Nottingham Forest": "Nottm Forest",
         "Southampton": "Southampton",
-        "Tottenham": "Tottenham",
-        "West": "West Ham",
+        "Tottenham Hotspur": "Tottenham",
+        "West Ham": "West Ham",
         "Wolverhampton": "Wolves"
     }
     
     # Try to match the first word of the team name
-    first_word = name.split()[0]
-    if first_word in name_map:
-        return name_map[first_word]
+    name = (name.split()[0] + " " + name.split()[1]) if len(name.split()) > 1 else name.split()[0]
+    if name in name_map:
+        return name_map[name]
     
     # Special cases
     if "United" in name:
