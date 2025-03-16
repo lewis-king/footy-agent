@@ -48,8 +48,8 @@ def get_competition_fixtures(competition):
         include_past = request.args.get('include_past', 'false').lower() == 'true'
         
         # If fixtures are empty or outdated, refresh them
-        #if True:
-        if not fixtures or is_fixtures_outdated(fixtures, include_past):
+        if False:
+        #if not fixtures or is_fixtures_outdated(fixtures, include_past):
             print(f"Refreshing {competition} fixtures...")
             fixtures = refresh_fixtures_data(competition)
             #save_fixtures(fixtures, competition)
