@@ -52,7 +52,7 @@ def get_competition_fixtures(competition):
         if not fixtures or is_fixtures_outdated(fixtures, include_past):
             print(f"Refreshing {competition} fixtures...")
             fixtures = refresh_fixtures_data(competition)
-            save_fixtures(fixtures, competition)
+            #save_fixtures(fixtures, competition)
         
         today = datetime.now().date()
         
