@@ -183,7 +183,7 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         model="sonar-deep-research",  # Perplexity model
                         messages=messages,
                         temperature=0.7,
-                        max_tokens=12000
+                        max_tokens=16000
                     )
                 except TypeError as e:
                     print(f"Error with OpenAI client initialization: {e}")
@@ -198,12 +198,15 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                         model="sonar-deep-research",  # Perplexity model
                         messages=messages,
                         temperature=0.7,
-                        max_tokens=12000
+                        max_tokens=16000
                     )
                 
                 # Extract the response content
                 raw_content = response.choices[0].message.content
-                
+                # Save raw perplexity output to file with raw_ in name
+                with open(f"/Users/lewis-king/Workspace/footyagent/backend/data/analysis/raw_{home_team}_{away_team}.json", "w") as f:
+                    json.dump(raw_content, f)
+
                 # Parse the JSON response
                 try:
                     # Clean the response to handle potential markdown code blocks

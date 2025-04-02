@@ -1,0 +1,42 @@
+{
+  "fixture_id": "pl-southampton-crystal-palace-20250402",
+  "home_team": "Southampton",
+  "away_team": "Crystal Palace",
+  "date": "2025-04-02",
+  "generated_at": "2025-04-02T17:53:05.319486",
+  "content": {
+    "match_overview": "Analysis for Southampton vs Crystal Palace",
+    "raw_perplexity_content": "<think>\nOkay, let's tackle this betting analysis query. First, I need to check the search results provided to gather all the necessary information.\n\nStarting with the match overview. Southampton is at the bottom of the league with only 2 wins, and their recent form is terrible\u20140-5 in the last five games. Crystal Palace, on the other hand, has a decent record and is coming off a 3-0 FA Cup win. The search results mention their xG stats, with Palace having a better xG and xGA compared to Southampton. I should highlight their recent forms and expected goals data here.\n\nFor the Asian Handicap analysis, the line is +0.0 with both teams at 1.9 odds. The sources indicate Southampton's defense is weak, conceding a lot, while Palace has been strong defensively and in attack. The value seems to be on Palace, especially since they're in better form. The ActionNetwork and Ladbrokes sources both support Palace's superiority here.\n\nKey player matchups: Eze is in good form for Palace, and Southampton's midfield is struggling. Mateta's return from injury is a boost. The sources mention Palace's attack and Southampton's defensive vulnerabilities, so focusing on Eze against Southampton's midfield and Mateta vs their defense makes sense.\n\nTeam news: Southampton has multiple injuries, including Smallbone and Bednarek's possible return. Palace has some injuries but Mateta is back. The predicted lineups are provided, so I need to list those with the injury info from the search results, especially from sources 3 and 8.\n\nBetting insights should cover match result, over/under, and BTTS. The data shows Southampton's games go over 2.5 goals often (90% in last 10), and Palace has 50%. The prediction models (source 4) suggest over 2.5 is likely. BTTS is less likely for Palace, but Southampton's defense is poor. Odds from the search results mention Palace at -175 moneyline, which converts to around 1.57 decimal. The Asian Handicap value is on Palace based on form and stats.\n\nPrediction should be a Palace win, maybe 3-1 as per Ladbrokes' prediction. Confidence level based on their recent form and Southampton's struggles.\n\nMy_say needs to be engaging, maybe contrasting the two teams' situations, highlighting Palace's momentum and Southampton's dire state. Use some vivid language to set the scene.\n\nCitations are crucial. Each fact needs to be backed by the sources provided. For example, Southampton's form is from source 1 and 4, xG stats from 2 and 7, injuries from 3 and 8",
+    "citations": [],
+    "team_news": {
+      "raw": "",
+      "structured": {
+        "home": {
+          "injuries": [],
+          "suspensions": [],
+          "returnees": []
+        },
+        "away": {
+          "injuries": [],
+          "suspensions": [],
+          "returnees": []
+        }
+      }
+    },
+    "betting_insights": {
+      "raw": "",
+      "insights": []
+    },
+    "prediction": {
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "confidence": 0,
+      "reasoning": ""
+    },
+    "my_say": {
+      "content": ""
+    }
+  }
+}

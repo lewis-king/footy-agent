@@ -1,0 +1,161 @@
+{
+  "fixture_id": "pl-bournemouth-ipswich-20250402",
+  "home_team": "Bournemouth",
+  "away_team": "Ipswich",
+  "date": "2025-04-02",
+  "generated_at": "2025-04-02T18:45:07.062130",
+  "content": {
+    "match_overview": "Bournemouth (10th) host relegation-threatened Ipswich (18th) in a clash of contrasting Premier League fortunes. The Cherries have won just 2 of their last 5 league matches but boast superior xG numbers (1.75 per game) and home form (36% clean sheet rate) [1][6]. Ipswich arrive winless in 10 league games, conceding 2.6 goals per away match - the worst defensive record in the division [3][5]. Historical H2H shows Bournemouth unbeaten in last 5 meetings (1W-4D) [2].",
+    "asian_handicap_analysis": {
+      "table": {
+        "headers": [
+          "Team",
+          "Form",
+          "Home/Away Form",
+          "H2H",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Bournemouth -1.25",
+            "2W-3L last 5 [2]",
+            "1.71 GF/home [6]",
+            "Unbeaten in 5 vs Ipswich [2]",
+            "1.92 odds (52.1% implied vs 65.2% model probability) [1][8]"
+          ],
+          [
+            "Ipswich +1.25",
+            "0W-4L-1D last 5 [2]",
+            "2.6 GA/away [5]",
+            "4 draws in last 5 H2H [2]",
+            "1.94 odds (48.9% implied vs 34.8% model probability) [1][8]"
+          ]
+        ]
+      },
+      "analysis": "Bournemouth's -1.25 handicap at 1.92 offers value given their 65.2% modeled win probability [1]. Ipswich have failed to cover +1.5 handicap in 7/10 away games [5]. However, 4 of last 5 H2Hs were decided by \u22641 goal [2], creating potential value in Ipswich +1.25.",
+      "recommendation": "Recommended: Bournemouth -1.25 Asian Handicap @ 1.92 (Value differential: +13.1% vs model)",
+      "raw": "Ipswich's goalkeeping crisis sees them start 4th-choice Alex Palmer (-1.1 PSxG/GA in 5 games) [3], while Bournemouth average 16 shots/game (3rd highest in PL) [3]"
+    },
+    "key_player_matchups": [
+      {
+        "title": "Justin Kluivert vs Ipswich's Right Flank",
+        "content": "Kluivert (6G 4A) faces O'Shea and Morsy who combine for 3.2 tackles/game [5]. Ipswich concede 63% of goals down right channel [2]",
+        "raw": "Kluivert creates 2.1 chances/90 vs Ipswich's 2.3 xGA/away [6]"
+      },
+      {
+        "title": "Liam Delap vs Bournemouth's High Line",
+        "content": "Delap (3G) must exploit Bournemouth's 1.36 xGA/home [6] with his pace. Cherries keep just 36% clean sheets at home [2]",
+        "raw": "Delap averages 0.8 shots on target/90 vs Bournemouth's 1.7 xGA from through balls [6]"
+      }
+    ],
+    "team_news": {
+      "raw": "Bournemouth welcome back Huijsen and Kerkez [7], while missing Sinisterra/Tavernier [5]. Ipswich remain without Szmodics/Ogbene [7], relying on Delap/Philogene partnership [5]",
+      "structured": {
+        "home": {
+          "injuries": [
+            "Luis Sinisterra (hamstring) [7]",
+            "Marcus Tavernier (knee) [5]"
+          ],
+          "suspensions": [],
+          "returnees": [
+            "Dean Huijsen [7]",
+            "Milos Kerkez [7]"
+          ],
+          "projected_xi": "Kepa; Cook, Zabarnyi, Huijsen, Kerkez; Christie, Adams; Semenyo, Kluivert, Brooks; Evanilson"
+        },
+        "away": {
+          "injuries": [
+            "Wes Burns (thigh) [7]",
+            "Sammie Szmodics (ankle) [7]",
+            "Chiedozie Ogbene (hamstring) [7]"
+          ],
+          "suspensions": [],
+          "returnees": [
+            "Leif Davis [5]"
+          ],
+          "projected_xi": "Palmer; O'Shea, Woolfenden, Burgess, Davis; Cajuste, Morsy; Philogene, Hutchinson, Enciso; Delap"
+        }
+      }
+    },
+    "betting_insights": [
+      {
+        "market": "Asian Handicap",
+        "insight": "Bournemouth -1.25 @ 1.92 vs 65.2% model probability (value edge +13.1%)",
+        "recommendation": "Back Bournemouth -1.25 @ 1.92",
+        "raw": "Ipswich failed to cover +1.5 in 70% of away games [5]"
+      },
+      {
+        "market": "Total Goals",
+        "insight": "Over 2.5 @ 1.75 vs 57% model probability [8]. Last 5 H2Hs averaged 3.0 goals [2]",
+        "recommendation": "Over 2.5 Goals @ 1.75",
+        "raw": "Ipswich games average 3.8 total goals/away [2]"
+      },
+      {
+        "market": "Both Teams to Score",
+        "insight": "Yes @ 1.70 vs 51.4% model probability [8]. Bournemouth kept 1 clean sheet in last 5 [6]",
+        "recommendation": "BTTS Yes @ 1.70",
+        "raw": "71% of Ipswich away games saw BTTS [3]"
+      },
+      {
+        "market": "Correct Score",
+        "insight": "2-1 Bournemouth @ 9.00 (3rd most probable score at 9.9% [8])",
+        "recommendation": "Correct Score 2-1 @ 9.00",
+        "raw": "Bournemouth won reverse fixture 2-1 [4]"
+      }
+    ],
+    "prediction": {
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "confidence": 7,
+      "reasoning": "Bournemouth's attacking quality (3rd highest xG) should overcome defensive frailty against Ipswich's league-worst away defense [3][6]. Value in -1.25 line given 65% win probability [1], but likely narrow margin from set pieces [2]"
+    },
+    "my_say": {
+      "content": "Under the Vitality Stadium lights, this clash pits European hopefuls against Championship-bound strugglers in a match dripping with narrative tension. Bournemouth's fluid attacking trio of Kluivert, Semenyo and Evanilson (12G combined) face Ipswich's creaking defense that's seen 4 different goalkeepers concede 34 goals in 14 away games - a Premier League record in the making [3][5]. Yet the Tractor Boys' recent H2H resilience (4 draws in 5 meetings) suggests they might yet plow one final surprise [2]. With both teams scoring in 71% of Ipswich away days [3] and Bournemouth's xG overperformance [6], this could be a rare thriller in the relegation dogfight. Watch for set-piece fireworks - 43% of Bournemouth's goals come from dead balls [2], while Ipswich have conceded 11 headed goals away [5]. In a game where xG meets xGA in explosive fashion, the smart money says goals... but the romantic hopes for one last Ipswich stand."
+    },
+    "citations": [
+      {
+        "id": "1",
+        "url": "https://www.dimers.com/bet-hub/epl/schedule/2024_30_afc_ips",
+        "description": "Dimers prediction model"
+      },
+      {
+        "id": "2",
+        "url": "https://footystats.org/england/afc-bournemouth-vs-ipswich-town-fc-h2h-stats",
+        "description": "H2H stats and trends"
+      },
+      {
+        "id": "3",
+        "url": "https://www.bettingexpert.com/football/bournemouth-vs-ipswich",
+        "description": "Ipswich defensive analysis"
+      },
+      {
+        "id": "4",
+        "url": "https://tips.gg/article/bournemouth-vs-ipswich-02-04-2025/",
+        "description": "Fixture preview"
+      },
+      {
+        "id": "5",
+        "url": "https://www.sportsgambler.com/betting-tips/football/bournemouth-vs-ipswich-prediction-lineups-odds-2025-04-02/",
+        "description": "Team form analysis"
+      },
+      {
+        "id": "6",
+        "url": "https://footystats.org/clubs/afc-bournemouth-148",
+        "description": "Bournemouth xG stats"
+      },
+      {
+        "id": "7",
+        "url": "https://www.90min.com/bournemouth-vs-ipswich-preview-predictions-lineups-2-4-25",
+        "description": "Team news update"
+      },
+      {
+        "id": "8",
+        "url": "https://amp.dimers.com/bournemouth-vs-ipswich-town-prediction-epl-ac-4-2-25",
+        "description": "Score probabilities"
+      }
+    ],
+    "raw_perplexity_content": "<think>\nOkay, let's tackle this detailed betting analysis for the Bournemouth vs. Ipswich match. First, I need to look through all the provided search results to gather the necessary data. \n\nStarting with the match overview. Bournemouth is 10th in the league, while Ipswich is 18th and struggling. The form from the last five games shows Bournemouth has 2 wins and 3 losses, and Ipswich hasn't won any, with 4 losses and a draw. The head-to-head record from the last five meetings shows Bournemouth has 1 win and 4 draws, so they have the edge but not dominant. The most likely score is 2-0 to Bournemouth according to simulations from source [1][8]. But Ipswich's defense is really poor, conceding a lot of goals, especially away. Their goalkeeping issues are highlighted in source [3], with multiple keepers underperforming. \n\nFor the Asian Handicap analysis, the line is -1.25 for Bournemouth at 1.92 odds. The model from source [1] gives Bournemouth a 65.2% chance to win, which translates to implied odds around 1.53. The bookmaker's 1.92 offers value here. Comparing Bournemouth's home form vs. Ipswich's away form: Bournemouth scores 1.71 goals at home, Ipswich concedes 2.6 goals per game away. The handicap seems justified. However, Bournemouth's recent form is mixed, with four winless games, which might affect their ability to cover the -1.25 line. But Ipswich's defense is so leaky, so maybe Bournemouth can cover it.\n\nKey player matchups: Justin Kluivert from Bournemouth has 6 goals and 4 assists. He'll be up against Ipswich's defense, which has been shaky. On the other side, Liam Delap for Ipswich has 3 goals, but Bournemouth's defense is better at home. The midfield battle between Tyler Adams and Sam Morsy could be crucial. Adams' defensive skills might disrupt Ipswich's play.\n\nTeam news from sources [5][7]: Bournemouth has Huijsen and Kerkez returning, which strengthens their defense. They're missing Sinisterra and Tavernier. Ipswich has multiple forward injuries, including Burns and Szmodics. Their lineup relies on Delap and Philogene. \n\nBetting insights: \n1. Asian Handicap Bournemouth -1.25 at 1.92 is good value based on their higher expected goals and Ipswich's defensive issues. \n2. Over 2.5 goals is at 1.75 odds. Both teams' matches tend to have goals. Ipswich's games average over 3 goals conceded. \n3. Both Teams to Score (Yes) at 1.70. Ipswich scores in 71% of away games, and Bournemouth's defense isn't rock solid. \n4. Correct Score 2-1 Bournemouth at 9.00 odds. It's the third most likely score but offers good value. \n\nPrediction: Bournemouth to win 2-1. They have the attacking edge, but Ipswich might sneak a goal. Confidence level 7/10 because of Bournemouth's recent form but Ipswich's dire defense.\n\nFor \"my_say\", need to craft an engaging narrative. Highlight the clash between Bournemouth's European hopes and Ipswich's relegation battle. Mention the goalkeeping crisis at Ipswich and Bournemouth's key players returning. Use some stats from the sources to add depth. Make it lively and insightful, not just dry facts.\n\nCitations are crucial. Every stat needs to reference the sources. For example, when mentioning Ipswich's defensive record, cite [3][5]. For Bournemouth's xG, cite [6]. Head-to-head stats from [2]. Make sure all key points have proper citations.\n</think>\n\n```json\n{\n  \"match_overview\": \"Bournemouth (10th) host relegation-threatened Ipswich (18th) in a clash of contrasting Premier League fortunes. The Cherries have won just 2 of their last 5 league matches but boast superior xG numbers (1.75 per game) and home form (36% clean sheet rate) [1][6]. Ipswich arrive winless in 10 league games, conceding 2.6 goals per away match - the worst defensive record in the division [3][5]. Historical H2H shows Bournemouth unbeaten in last 5 meetings (1W-4D) [2].\",\n  \"asian_handicap_analysis\": {\n    \"table\": {\n      \"headers\": [\"Team\", \"Form\", \"Home/Away Form\", \"H2H\", \"Value\"],\n      \"rows\": [\n        [\"Bournemouth -1.25\", \"2W-3L last 5 [2]\", \"1.71 GF/home [6]\", \"Unbeaten in 5 vs Ipswich [2]\", \"1.92 odds (52.1% implied vs 65.2% model probability) [1][8]\"],\n        [\"Ipswich +1.25\", \"0W-4L-1D last 5 [2]\", \"2.6 GA/away [5]\", \"4 draws in last 5 H2H [2]\", \"1.94 odds (48.9% implied vs 34.8% model probability) [1][8]\"]\n      ]\n    },\n    \"analysis\": \"Bournemouth's -1.25 handicap at 1.92 offers value given their 65.2% modeled win probability [1]. Ipswich have failed to cover +1.5 handicap in 7/10 away games [5]. However, 4 of last 5 H2Hs were decided by \u22641 goal [2], creating potential value in Ipswich +1.25.\",\n    \"recommendation\": \"Recommended: Bournemouth -1.25 Asian Handicap @ 1.92 (Value differential: +13.1% vs model)\",\n    \"raw\": \"Ipswich's goalkeeping crisis sees them start 4th-choice Alex Palmer (-1.1 PSxG/GA in 5 games) [3], while Bournemouth average 16 shots/game (3rd highest in PL) [3]\"\n  },\n  \"key_player_matchups\": [\n    {\n      \"title\": \"Justin Kluivert vs Ipswich's Right Flank\",\n      \"content\": \"Kluivert (6G 4A) faces O'Shea and Morsy who combine for 3.2 tackles/game [5]. Ipswich concede 63% of goals down right channel [2]\",\n      \"raw\": \"Kluivert creates 2.1 chances/90 vs Ipswich's 2.3 xGA/away [6]\"\n    },\n    {\n      \"title\": \"Liam Delap vs Bournemouth's High Line\",\n      \"content\": \"Delap (3G) must exploit Bournemouth's 1.36 xGA/home [6] with his pace. Cherries keep just 36% clean sheets at home [2]\",\n      \"raw\": \"Delap averages 0.8 shots on target/90 vs Bournemouth's 1.7 xGA from through balls [6]\"\n    }\n  ],\n  \"team_news\": {\n    \"raw\": \"Bournemouth welcome back Huijsen and Kerkez [7], while missing Sinisterra/Tavernier [5]. Ipswich remain without Szmodics/Ogbene [7], relying on Delap/Philogene partnership [5]\",\n    \"structured\": {\n      \"home\": {\n        \"injuries\": [\"Luis Sinisterra (hamstring) [7]\", \"Marcus Tavernier (knee) [5]\"],\n        \"suspensions\": [],\n        \"returnees\": [\"Dean Huijsen [7]\", \"Milos Kerkez [7]\"],\n        \"projected_xi\": \"Kepa; Cook, Zabarnyi, Huijsen, Kerkez; Christie, Adams; Semenyo, Kluivert, Brooks; Evanilson\"\n      },\n      \"away\": {\n        \"injuries\": [\"Wes Burns (thigh) [7]\", \"Sammie Szmodics (ankle) [7]\", \"Chiedozie Ogbene (hamstring) [7]\"],\n        \"suspensions\": [],\n        \"returnees\": [\"Leif Davis [5]\"],\n        \"projected_xi\": \"Palmer; O'Shea, Woolfenden, Burgess, Davis; Cajuste, Morsy; Philogene, Hutchinson, Enciso; Delap\"\n      }\n    }\n  },\n  \"betting_insights\": [\n    {\n      \"market\": \"Asian Handicap\",\n      \"insight\": \"Bournemouth -1.25 @ 1.92 vs 65.2% model probability (value edge +13.1%)\",\n      \"recommendation\": \"Back Bournemouth -1.25 @ 1.92\",\n      \"raw\": \"Ipswich failed to cover +1.5 in 70% of away games [5]\"\n    },\n    {\n      \"market\": \"Total Goals\",\n      \"insight\": \"Over 2.5 @ 1.75 vs 57% model probability [8]. Last 5 H2Hs averaged 3.0 goals [2]\",\n      \"recommendation\": \"Over 2.5 Goals @ 1.75\",\n      \"raw\": \"Ipswich games average 3.8 total goals/away [2]\"\n    },\n    {\n      \"market\": \"Both Teams to Score\",\n      \"insight\": \"Yes @ 1.70 vs 51.4% model probability [8]. Bournemouth kept 1 clean sheet in last 5 [6]\",\n      \"recommendation\": \"BTTS Yes @ 1.70\",\n      \"raw\": \"71% of Ipswich away games saw BTTS [3]\"\n    },\n    {\n      \"market\": \"Correct Score\",\n      \"insight\": \"2-1 Bournemouth @ 9.00 (3rd most probable score at 9.9% [8])\",\n      \"recommendation\": \"Correct Score 2-1 @ 9.00\",\n      \"raw\": \"Bournemouth won reverse fixture 2-1 [4]\"\n    }\n  ],\n  \"prediction\": {\n    \"score\": {\n      \"home\": 2,\n      \"away\": 1\n    },\n    \"confidence\": 7,\n    \"reasoning\": \"Bournemouth's attacking quality (3rd highest xG) should overcome defensive frailty against Ipswich's league-worst away defense [3][6]. Value in -1.25 line given 65% win probability [1], but likely narrow margin from set pieces [2]\"\n  },\n  \"my_say\": {\n    \"content\": \"Under the Vitality Stadium lights, this clash pits European hopefuls against Championship-bound strugglers in a match dripping with narrative tension. Bournemouth's fluid attacking trio of Kluivert, Semenyo and Evanilson (12G combined) face Ipswich's creaking defense that's seen 4 different goalkeepers concede 34 goals in 14 away games - a Premier League record in the making [3][5]. Yet the Tractor Boys' recent H2H resilience (4 draws in 5 meetings) suggests they might yet plow one final surprise [2]. With both teams scoring in 71% of Ipswich away days [3] and Bournemouth's xG overperformance [6], this could be a rare thriller in the relegation dogfight. Watch for set-piece fireworks - 43% of Bournemouth's goals come from dead balls [2], while Ipswich have conceded 11 headed goals away [5]. In a game where xG meets xGA in explosive fashion, the smart money says goals... but the romantic hopes for one last Ipswich stand.\"\n  },\n  \"citations\": [\n    {\"id\": \"1\", \"url\": \"https://www.dimers.com/bet-hub/epl/schedule/2024_30_afc_ips\", \"description\": \"Dimers prediction model\"},\n    {\"id\": \"2\", \"url\": \"https://footystats.org/england/afc-bournemouth-vs-ipswich-town-fc-h2h-stats\", \"description\": \"H2H stats and trends\"},\n    {\"id\": \"3\", \"url\": \"https://www.bettingexpert.com/football/bournemouth-vs-ipswich\", \"description\": \"Ipswich defensive analysis\"},\n    {\"id\": \"4\", \"url\": \"https://tips.gg/article/bournemouth-vs-ipswich-02-04-2025/\", \"description\": \"Fixture preview\"},\n    {\"id\": \"5\", \"url\": \"https://www.sportsgambler.com/betting-tips/football/bournemouth-vs-ipswich-prediction-lineups-odds-2025-04-02/\", \"description\": \"Team form analysis\"},\n    {\"id\": \"6\", \"url\": \"https://footystats.org/clubs/afc-bournemouth-148\", \"description\": \"Bournemouth xG stats\"},\n    {\"id\": \"7\", \"url\": \"https://www.90min.com/bournemouth-vs-ipswich-preview-predictions-lineups-2-4-25\", \"description\": \"Team news update\"},\n    {\"id\": \"8\", \"url\": \"https://amp.dimers.com/bournemouth-vs-ipswich-town-prediction-epl-ac-4-2-25\", \"description\": \"Score probabilities\"}\n  ]\n}\n```"
+  }
+}
