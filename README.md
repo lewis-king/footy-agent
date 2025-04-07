@@ -27,8 +27,8 @@ footyagent/
 
 ```bash
 cd frontend
-npm install
-npm start
+pnpm install
+pnpm start
 ```
 
 ### Backend Setup

@@ -3872,5 +3872,146 @@
         }
       ]
     }
+  },
+  {
+    "id": "pl-leicester-newcastle-20250407",
+    "competition": "Premier League",
+    "home_team": "Leicester",
+    "away_team": "Newcastle",
+    "date": "2025-04-07",
+    "time": "20:00",
+    "venue": "King Power Stadium",
+    "odds": {
+      "home_win": 7.5,
+      "draw": 4.6,
+      "away_win": 1.43,
+      "asian_handicap": {
+        "line": "+1.25",
+        "home": 1.82,
+        "away": 2.05
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "M. Hermansen",
+          "position": "GK"
+        },
+        {
+          "name": "Luke Thomas",
+          "position": "DC"
+        },
+        {
+          "name": "Wout Faes",
+          "position": "DC"
+        },
+        {
+          "name": "Conor Coady",
+          "position": "DC"
+        },
+        {
+          "name": "V. Kristiansen",
+          "position": "ML"
+        },
+        {
+          "name": "W. Ndidi",
+          "position": "MC"
+        },
+        {
+          "name": "B. Soumare",
+          "position": "MC"
+        },
+        {
+          "name": "James Justin",
+          "position": "MR"
+        },
+        {
+          "name": "Patson Daka",
+          "position": "AMC"
+        },
+        {
+          "name": "B. El Khannouss",
+          "position": "AMC"
+        },
+        {
+          "name": "Jamie Vardy",
+          "position": "FW"
+        },
+        {
+          "name": "Abdul Fatawu",
+          "position": "F"
+        }
+      ],
+      "away": [
+        {
+          "name": "Nick Pope",
+          "position": "GK"
+        },
+        {
+          "name": "V. Livramento",
+          "position": "DL"
+        },
+        {
+          "name": "Dan Burn",
+          "position": "DC"
+        },
+        {
+          "name": "Fabian Schar",
+          "position": "DC"
+        },
+        {
+          "name": "K. Trippier",
+          "position": "DR"
+        },
+        {
+          "name": "Joelinton",
+          "position": "MC"
+        },
+        {
+          "name": "Bruno Guimaraes",
+          "position": "MC"
+        },
+        {
+          "name": "S. Tonali",
+          "position": "MC"
+        },
+        {
+          "name": "H. Barnes",
+          "position": "FWL"
+        },
+        {
+          "name": "Jacob Murphy",
+          "position": "FWR"
+        },
+        {
+          "name": "A. Isak",
+          "position": "FW"
+        },
+        {
+          "name": "A. Gordon",
+          "position": "F/M"
+        },
+        {
+          "name": "A. Isak",
+          "position": "F"
+        },
+        {
+          "name": "K. Trippier",
+          "position": "D"
+        },
+        {
+          "name": "Sven Botman",
+          "position": "D"
+        },
+        {
+          "name": "Lewis Hall",
+          "position": "D"
+        },
+        {
+          "name": "J. Lascelles",
+          "position": "D"
+        }
+      ]
+    }
   }
 ]

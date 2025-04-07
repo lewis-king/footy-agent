@@ -383,7 +383,7 @@ def generate_fallback_fixtures(competition):
         # Premier League teams
         teams = [
             "Arsenal", "Aston Villa", "Bournemouth", "Brentford", 
-            "Brighton", "Chelsea", "Crystal Palace", "Everton", 
+            "Brighton", "Chelsea", "Crystal Palace", "Everton", "Leicester"
             "Fulham", "Liverpool", "Manchester City", "Manchester United", 
             "Newcastle", "Nottingham Forest", "Southampton", "Tottenham", 
             "West Ham", "Wolverhampton"
@@ -731,7 +731,7 @@ def standardize_team_name(name):
         "Liverpool": "Liverpool",
         "Manchester City": "Man City",
         "Manchester United": "Man Utd",
-        "Newcastle": "Newcastle",
+        "Newcastle United": "Newcastle",
         "Nottingham Forest": "Nottm Forest",
         "Southampton": "Southampton",
         "Tottenham Hotspur": "Tottenham",
