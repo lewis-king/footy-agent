@@ -19,5 +19,231 @@
         "away": 2.00
       }
     }
+  },
+  {
+    "id": "cl-arsenal-real-madrid-20250408",
+    "competition": "Champions League",
+    "home_team": "Arsenal",
+    "away_team": "Real Madrid",
+    "date": "2025-04-08",
+    "time": "20:00",
+    "venue": "Emirates Stadium",
+    "odds": {
+      "home_win": 2.14,
+      "draw": 3.3,
+      "away_win": 3.6,
+      "asian_handicap": {
+        "line": "-0.25",
+        "home": 1.85,
+        "away": 2.08
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "David Raya",
+          "position": "GK"
+        },
+        {
+          "name": "M. Lewis-Skelly",
+          "position": "DL"
+        },
+        {
+          "name": "Jakub Kiwior",
+          "position": "DC"
+        },
+        {
+          "name": " W. Saliba",
+          "position": "DC"
+        },
+        {
+          "name": "J. Timber",
+          "position": "DR"
+        },
+        {
+          "name": "Declan Rice",
+          "position": "MC"
+        },
+        {
+          "name": "M. Odegaard",
+          "position": "MC"
+        },
+        {
+          "name": "T. Partey",
+          "position": "MR"
+        },
+        {
+          "name": "G. Martinelli",
+          "position": "FWL"
+        },
+        {
+          "name": "Bukayo Saka",
+          "position": "FWR"
+        },
+        {
+          "name": "Mikel Merino",
+          "position": "FW"
+        }
+      ],
+      "away": [
+        {
+          "name": "T. Courtois",
+          "position": "GK"
+        },
+        {
+          "name": "Fran Garcia",
+          "position": "DL"
+        },
+        {
+          "name": "A. Rudiger",
+          "position": "DC"
+        },
+        {
+          "name": "Raul Asencio",
+          "position": "DC"
+        },
+        {
+          "name": "L. Vazquez",
+          "position": "DR"
+        },
+        {
+          "name": "J. Bellingham",
+          "position": "ML"
+        },
+        {
+          "name": "F. Valverde",
+          "position": "MC"
+        },
+        {
+          "name": "Luka Modric",
+          "position": "MC"
+        },
+        {
+          "name": "Rodrygo",
+          "position": "MR"
+        },
+        {
+          "name": "Vinicius Junior",
+          "position": "FW"
+        },
+        {
+          "name": "K. Mbappe",
+          "position": "FW"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cl-bayern-munich-inter-milan-20250408",
+    "competition": "Champions League",
+    "home_team": "Bayern Munich",
+    "away_team": "Inter Milan",
+    "date": "2025-04-08",
+    "time": "20:00",
+    "venue": "Allianz Arena",
+    "odds": {
+      "home_win": 1.95,
+      "draw": 3.55,
+      "away_win": 4.1,
+      "asian_handicap": {
+        "line": "-0.5",
+        "home": 1.95,
+        "away": 1.95
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "Jonas Urbig",
+          "position": "GK"
+        },
+        {
+          "name": "R. Guerreiro",
+          "position": "DL"
+        },
+        {
+          "name": "Eric Dier",
+          "position": "DC"
+        },
+        {
+          "name": "Kim Min-Jae",
+          "position": "DC"
+        },
+        {
+          "name": "K. Laimer",
+          "position": "DR"
+        },
+        {
+          "name": "J. Kimmich",
+          "position": "DMC"
+        },
+        {
+          "name": "L. Goretzka",
+          "position": "DMC"
+        },
+        {
+          "name": "Leroy Sane",
+          "position": "AML"
+        },
+        {
+          "name": "T. Muller",
+          "position": "AMC"
+        },
+        {
+          "name": "M. Olise",
+          "position": "AMR"
+        },
+        {
+          "name": "Harry Kane",
+          "position": "FW"
+        }
+      ],
+      "away": [
+        {
+          "name": "Yann Sommer",
+          "position": "GK"
+        },
+        {
+          "name": "S. de Vrij",
+          "position": "DC"
+        },
+        {
+          "name": "F. Acerbi",
+          "position": "DC"
+        },
+        {
+          "name": "A. Bastoni",
+          "position": "DC"
+        },
+        {
+          "name": "F. Dimarco",
+          "position": "ML"
+        },
+        {
+          "name": "H. Calhanoglu",
+          "position": "MC"
+        },
+        {
+          "name": "H. Mkhitaryan",
+          "position": "MC"
+        },
+        {
+          "name": "N. Barella",
+          "position": "MC"
+        },
+        {
+          "name": "M. Darmian",
+          "position": "MR"
+        },
+        {
+          "name": "M. Thuram",
+          "position": "FW"
+        },
+        {
+          "name": "L. Martinez",
+          "position": "FW"
+        }
+      ]
+    }
   }
 ]

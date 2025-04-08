@@ -169,7 +169,7 @@ const getChampionsLeagueTeamLogo = (teamName: string): string => {
     'Chelsea': '7889',
     'Manchester United': '7889',
     'Tottenham': '7889',
-    'Arsenal': '7889',
+    'Arsenal': '52280',
     'Ajax': '50143',
     'RB Leipzig': '2603790',
     'Sevilla': '50142',
