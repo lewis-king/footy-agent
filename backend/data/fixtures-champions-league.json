@@ -245,5 +245,231 @@
         }
       ]
     }
+  },
+  {
+    "id": "cl-barcelona-borussia-dortmund-20250409",
+    "competition": "Champions League",
+    "home_team": "Barcelona",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-04-09",
+    "time": "20:00",
+    "venue": "Camp Nou",
+    "odds": {
+      "home_win": 1.3,
+      "draw": 6.2,
+      "away_win": 9.0,
+      "asian_handicap": {
+        "line": "-1.75",
+        "home": 1.97,
+        "away": 1.9
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "W. Szczesny",
+          "position": "GK"
+        },
+        {
+          "name": "Alex Balde",
+          "position": "DL"
+        },
+        {
+          "name": "Pau Cubarsi",
+          "position": "DC"
+        },
+        {
+          "name": "I. Martinez",
+          "position": "DC"
+        },
+        {
+          "name": "Jules Kounde",
+          "position": "DR"
+        },
+        {
+          "name": "F. de Jong",
+          "position": "MC"
+        },
+        {
+          "name": "Pedri",
+          "position": "MC"
+        },
+        {
+          "name": "Gavi",
+          "position": "MC"
+        },
+        {
+          "name": "Raphinha",
+          "position": "FWL"
+        },
+        {
+          "name": "Lamine Yamal",
+          "position": "FWR"
+        },
+        {
+          "name": "R. Lewandowski",
+          "position": "FW"
+        }
+      ],
+      "away": [
+        {
+          "name": "Gregor Kobel",
+          "position": "GK"
+        },
+        {
+          "name": "R. Bensebaini",
+          "position": "DL"
+        },
+        {
+          "name": "W. Anton",
+          "position": "DC"
+        },
+        {
+          "name": "Emre Can",
+          "position": "DC"
+        },
+        {
+          "name": "J. Ryerson",
+          "position": "DR"
+        },
+        {
+          "name": "Felix Nmecha",
+          "position": "DMC"
+        },
+        {
+          "name": "Salih Ozcan",
+          "position": "DMC"
+        },
+        {
+          "name": "M. Beier",
+          "position": "AML"
+        },
+        {
+          "name": "J. Brandt",
+          "position": "AMC"
+        },
+        {
+          "name": "K. Adeyemi",
+          "position": "AMR"
+        },
+        {
+          "name": "S. Guirassy",
+          "position": "FW"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cl-paris-saint-germain-aston-villa-20250409",
+    "competition": "Champions League",
+    "home_team": "Paris Saint-Germain",
+    "away_team": "Aston Villa",
+    "date": "2025-04-09",
+    "time": "20:00",
+    "venue": "Parc des Princes",
+    "odds": {
+      "home_win": 1.44,
+      "draw": 4.9,
+      "away_win": 7.2,
+      "asian_handicap": {
+        "line": "-1.25",
+        "home": 1.98,
+        "away": 1.91
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "G. Donnarumma",
+          "position": "GK"
+        },
+        {
+          "name": "Nuno Mendes",
+          "position": "DL"
+        },
+        {
+          "name": "Willian Pacho",
+          "position": "DC"
+        },
+        {
+          "name": "L. Beraldo",
+          "position": "DC"
+        },
+        {
+          "name": "A. Hakimi",
+          "position": "DR"
+        },
+        {
+          "name": "Vitinha",
+          "position": "MC"
+        },
+        {
+          "name": "Fabian Ruiz",
+          "position": "MC"
+        },
+        {
+          "name": "Joao Neves",
+          "position": "MC"
+        },
+        {
+          "name": "K. Kvaratskhelia",
+          "position": "FWL"
+        },
+        {
+          "name": "B. Barcola",
+          "position": "FWR"
+        },
+        {
+          "name": "O. Dembele",
+          "position": "FW"
+        }
+      ],
+      "away": [
+        {
+          "name": "E. Martinez",
+          "position": "GK"
+        },
+        {
+          "name": "Lucas Digne",
+          "position": "DL"
+        },
+        {
+          "name": "Pau Torres",
+          "position": "DC"
+        },
+        {
+          "name": "Ezri Konsa",
+          "position": "DC"
+        },
+        {
+          "name": "Matty Cash",
+          "position": "DR"
+        },
+        {
+          "name": "Y. Tielemans",
+          "position": "DMC"
+        },
+        {
+          "name": "B. Kamara",
+          "position": "DMC"
+        },
+        {
+          "name": "M. Rashford",
+          "position": "AML"
+        },
+        {
+          "name": "John McGinn",
+          "position": "AMC"
+        },
+        {
+          "name": "M. Rogers",
+          "position": "AMR"
+        },
+        {
+          "name": "O. Watkins",
+          "position": "FW"
+        }
+      ]
+    }
   }
 ]

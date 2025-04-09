@@ -1210,6 +1210,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ analysis }) => {
   const getChampionsLeagueTeamLogo = (teamName: string): string => {
     // Map of team names to their Champions League team IDs
     const teamLogoMap: Record<string, string> = {
+      'Aston Villa': '52683',
       'Real Madrid': '50051',
       'Barcelona': '50080',
       'Bayern Munich': '50037',
@@ -1218,7 +1219,7 @@ const AnalysisContent: React.FC<AnalysisContentProps> = ({ analysis }) => {
       'Paris Saint-Germain': '52747',
       'Atletico Madrid': '50124',
       'Juventus': '50139',
-      'Borussia Dortmund': '50064',
+      'Borussia Dortmund': '52758',
       'Inter Milan': '50138',
       'Chelsea': '7889',
       'Manchester United': '7889',
