@@ -204,8 +204,8 @@ def generate_fixture_analysis(fixture: Dict[str, Any]) -> Dict[str, Any]:
                 # Extract the response content
                 raw_content = response.choices[0].message.content
                 # Save raw perplexity output to file with raw_ in name
-                with open(f"/Users/lewis-king/Workspace/footyagent/backend/data/analysis/raw_{home_team}_{away_team}.json", "w") as f:
-                    json.dump(raw_content, f)
+                #with open(f"/Users/lewis-king/Workspace/footyagent/backend/data/analysis/raw_{home_team}_{away_team}.json", "w") as f:
+                #    json.dump(raw_content, f)
 
                 # Parse the JSON response
                 try:

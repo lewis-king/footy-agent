@@ -671,7 +671,7 @@ def scrape_rotowire_fixtures():
                 
                 # Create fixture object
                 fixture = {
-                    "id": fixture_id,
+                    "id": f"pl-{home_team.lower().replace(' ', '-')}-{away_team.lower().replace(' ', '-')}-{date_str.replace('-', '')}",
                     "competition": "Premier League",
                     "home_team": home_team,
                     "away_team": away_team,
