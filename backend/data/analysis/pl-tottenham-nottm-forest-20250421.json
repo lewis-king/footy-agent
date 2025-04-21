@@ -3,34 +3,60 @@
   "home_team": "Tottenham",
   "away_team": "Nottm Forest",
   "date": "2025-04-21",
-  "generated_at": "2025-04-19T07:45:59.753460",
+  "generated_at": "2025-04-21T17:10:15.035038",
   "content": {
-    "match_overview": "Tottenham host Nottingham Forest in a Premier League clash with contrasting motivations - Spurs languishing in 15th while Forest push for European qualification[2][5]. Spurs have lost 4 of their last 6 league matches, failing to score in 3 of those defeats[6], while Forest boast a 13-1-1 record against bottom-half teams this season[2]. The reverse fixture saw Forest win 1-0 through disciplined defending and clinical counter-attacking[7]. Tottenham's defensive injuries (missing 4 first-choice defenders[8]) clash with Forest's league-best 62.5% road cover rate against the spread[2].",
+    "match_overview": "Tottenham host Nottingham Forest in a Premier League clash with contrasting motivations. Spurs (16th) prioritize Europa League success after Thursday's quarter-final win, having won just 2 of their last 8 league matches [7][8]. Forest (6th) seek Champions League qualification, despite recent defensive lapses costing them 6 points in April [7][8]. Historically, Spurs dominate this fixture with 5 wins in 7 meetings [1], but Forest's 1-0 victory in December shows their growing capability [2]. Both teams average 2.72 goals per combined match this season, with 75% of Tottenham's home games seeing Over 2.5 goals [1][4].",
+    "citations": [
+      {
+        "id": "1",
+        "url": "https://footystats.org/england/tottenham-hotspur-fc-vs-nottingham-forest-fc-h2h-stats",
+        "description": "H2H statistics and goal trends"
+      },
+      {
+        "id": "2",
+        "url": "https://www.whoscored.com/articles/mLrbx_aY8UGdazu9VYdGWQ/show/tottenham-vs-nottingham-forest-premier-league-prediction-team-news-predicted-lineups-where-to-watch",
+        "description": "Team news and recent form analysis"
+      },
+      {
+        "id": "4",
+        "url": "https://tips.gg/article/tottenham-vs-nottingham-forest-21-04-2025/",
+        "description": "Betting market insights"
+      },
+      {
+        "id": "7",
+        "url": "https://onefootball.com/en/news/how-to-watch-tottenham-vs-nottingham-forest-team-news-pre-match-quotes-predicted-lineups-and-more-41005213",
+        "description": "Tactical preview and manager quotes"
+      },
+      {
+        "id": "8",
+        "url": "https://www.footballwebpages.co.uk/premier-league/fixtures-results",
+        "description": "Recent match results and form guide"
+      }
+    ],
     "team_news": {
-      "raw": "Tottenham face significant defensive absences with Guglielmo Vicario (foot), Cristian Romero (thigh), Micky van de Ven (hamstring), and Ben Davies (calf) all sidelined[8]. Forest welcome back Ryan Yates from suspension but lose Ibrahim Sangar\u00e9 to a hamstring injury[14]. Both teams field strong attacking lineups with Solanke (15 goals) and Wood (18 goals) leading their respective attacks[12][14].",
+      "raw": "Tottenham make 5-6 changes from Europa League lineup [7], with Dragusin injured and Maddison/Son doubtful [2]. Forest miss Aina (thigh) but start Elanga after midweek rest [7]. Projected XIs show Spurs' rotated defense vs Forest's pacey wingers.",
       "structured": {
         "home": {
           "injuries": [
-            "Guglielmo Vicario (foot) [8]",
-            "Cristian Romero (thigh) [8]",
-            "Micky van de Ven (hamstring) [8]",
-            "Ben Davies (calf) [8]"
+            "R. Dragusin (knee) [2]",
+            "S. Heung-Min (muscle fatigue) [2]"
           ],
           "suspensions": [],
           "returnees": [
-            "Destiny Udogie (fitness) [8]"
+            "B. Johnson (returns from knock) [7]"
           ],
-          "projected_xi": "G. Vicario; Djed Spence, C. Romero, Ben Davies, Pedro Porro; J. Maddison, Y. Bissouma, Pape Sarr; Mathys Tel, B. Johnson, D. Solanke"
+          "projected_xi": "Vicario; Spence, Davies, Romero, Porro; Maddison, Bissouma, Sarr; Tel, Solanke, Johnson"
         },
         "away": {
           "injuries": [
-            "Ibrahim Sangar\u00e9 (hamstring) [14]"
+            "O. Aina (thigh) [2]",
+            "T. Awoniyi (hamstring) [2]"
           ],
           "suspensions": [],
           "returnees": [
-            "Ryan Yates (suspension) [14]"
+            "A. Elanga (rested) [7]"
           ],
-          "projected_xi": "Matz Sels; Alex Moreno, N. Milenkovic, Murillo, N. Williams; Ryan Yates, E. Anderson; C. Hudson-Odoi, M. Gibbs-White, A. Elanga; Chris Wood"
+          "projected_xi": "Sels; Williams, Milenkovic, Murillo, Moreno; Yates, Anderson; Elanga, Gibbs-White, Hudson-Odoi; Wood"
         }
       }
     },
@@ -46,54 +72,54 @@
         "rows": [
           [
             "Tottenham",
-            "LWWLLL (1.83 PPG) [2][6]",
-            "4W-2D-4L (Home) [12]",
-            "5-2 H2H Advantage [7]",
-            "1.85 (44.2% implied)"
+            "2.4/5 (W2-D1-L2) [8]",
+            "3.2/5 home record [1]",
+            "71% H2H win rate [1]",
+            "1.98 (Fair)"
           ],
           [
             "Nottm Forest",
-            "WWLLWL (2.0 PPG) [2][6]",
-            "8W-2D-6L (Away) [12]",
-            "+0.5 xG Differential [3][12]",
-            "2.09 (32.6% implied)"
+            "3.4/5 (W3-L2) [8]",
+            "2.8/5 away record [1]",
+            "29% H2H win rate [1]",
+            "1.92 (Value)"
           ]
         ]
       },
-      "analysis": "Forest's +0.0 Asian line at 2.09 offers value given their 62.5% road cover rate and Spurs' defensive vulnerabilities[2][8]. Models show Forest's true probability closer to 38% (implied 2.63), creating 25% value margin[15]. The line neutralizes Forest's rest advantage and Spurs' Europa League fatigue[5].",
-      "recommendation": "Nottingham Forest +0.0 Asian Handicap @ 2.09",
-      "raw": "Forest have covered 68.8% of away spreads this season compared to Spurs' 37.5% home cover rate[2]. xG models show Forest outperforming expectations by 0.22 xG/90 on road[12] while Spurs underperform by 0.11 xG/90 at home[11]."
+      "analysis": "Forest's +0.0 Asian Handicap at 1.92 offers value given Spurs' defensive frailty (49 GA) and rotation needs [4][7]. Forest cover 0.25 in 4/5 away games vs bottom-half teams [8]. Tottenham's 13% home clean sheet rate [1] undermines their handicap credibility.",
+      "recommendation": "Nottingham Forest +0.0 Asian Handicap @1.92",
+      "raw": "Forest's xG of 1.44 vs Spurs' 1.45 suggests parity [6], yet market prices Spurs as slight favorites. The 0-line neutralizes venue advantage, making Forest's price 4% above true probability based on recent xPTS [6]."
     },
     "key_player_matchups": [
       {
-        "title": "Dominic Solanke vs Nikola Milenkovic",
-        "content": "Solanke's 15 goals face Milenkovic's league-best 4.3 aerials won/game[14]. Forest's CB duo have combined for 87 tackles in box this season[14].",
-        "raw": "Milenkovic allows just 0.68 dribbles past/90 vs Solanke's 2.3 successful take-ons/90[12][14]"
+        "title": "Brennan Johnson vs Alex Moreno",
+        "content": "Johnson's 0.48 xG/90 [6] tests Moreno's 1.7 tackles/game [2]. Their duel could decide flank dominance, with Johnson scoring in 2 of last 3 home games [8].",
+        "raw": "Johnson's pace (9.3 sprints/90) vs Moreno's positioning (2.1 interceptions/90) creates counterattacking opportunities [2][6]."
       },
       {
-        "title": "Chris Wood vs Emergency Spurs CB Pairing",
-        "content": "Wood's 18 goals (3.76 xG overperformance) test Spurs' makeshift defense missing 4 starters[8][14].",
-        "raw": "Spurs' emergency CBs concede 1.8 goals/game vs top-6 attacks compared to 1.2 with first-choice[11]"
+        "title": "Morgan Gibbs-White vs Yves Bissouma",
+        "content": "Gibbs-White's 3.5 key passes/90 [6] meets Bissouma's 2.3 tackles/90 [2]. This midfield battle dictates tempo - Forest win 58% of games when Gibbs-White completes 80+ passes [8].",
+        "raw": "Bissouma's 12% tackle success drop vs creative 10s [2] could be exploited by Gibbs-White's 6.3 progressive carries/90 [6]."
       }
     ],
     "betting_insights": [
       {
         "market": "Both Teams to Score",
-        "insight": "BTTS Yes hits in 75% of Spurs home games vs 50% Forest away[7]. Combined 3.57 xG/game[3][12].",
-        "recommendation": "Yes @ 1.75",
-        "raw": "Spurs concede 1.53 goals/game at home vs Forest's 1.69 away[12]. xG models predict 63% BTTS probability[15]"
-      },
-      {
-        "market": "Asian Handicap Forest +0.0",
-        "insight": "25% value margin vs bookmaker odds with 68.8% away cover rate[2][15]",
-        "recommendation": "2.09",
-        "raw": "Forest won 3 of last 5 as away underdogs (+7.3 units)[2]"
+        "insight": "75% of Spurs' home games see BTTS [1] vs Forest's 50% away [1]",
+        "recommendation": "Yes @1.54 [5]",
+        "raw": "Combined 2.88 xG per match [6] and Spurs' 13% clean sheet rate [1] make this 12% value vs market odds"
       },
       {
         "market": "Over 2.5 Goals",
-        "insight": "72% hit rate in H2H meetings with combined 3.1 goals/game[7]",
-        "recommendation": "1.80",
-        "raw": "Spurs' home games average 3.57 total goals vs Forest's 3.38 away[12]"
+        "insight": "72% historical average in H2H [1] vs 57.85% implied probability [5]",
+        "recommendation": "Over 2.5 @1.71 [5]",
+        "raw": "4.3 average total goals in Spurs' last 5 home games [8] justifies +13% edge"
+      },
+      {
+        "market": "Nottingham Forest Double Chance",
+        "insight": "28.01% win probability [5] vs 25% implied by 2.65 odds",
+        "recommendation": "Draw or Forest @2.65 [5]",
+        "raw": "Forest's xPTS of 1.44 vs Spurs' 1.45 [6] suggests closer contest than table positions indicate"
       }
     ],
     "prediction": {
@@ -102,63 +128,9 @@
         "away": 2
       },
       "confidence": 7,
-      "reasoning": "Forest's clinical finishing (18 goals from 16.7 xG[12]) exploits Spurs' defensive crisis. Counter-attacking quality through Elanga (2.3 dribbles/90[14]) targets Spurs' high line missing Van de Ven's recovery pace[8]."
+      "reasoning": "Forest's superior defensive organization (31% away clean sheets [1]) counters Spurs' rotated attack. Wood's aerial threat (62% duel wins [6]) exploits Spurs' 0.94 1H conceded average [1]. Value on Forest's set-piece efficiency (15 corners last 3 away [8])"
     },
-    "my_say": {
-      "content": "Under the Monday night lights, two clubs separated by 20 points but united by attacking intent collide. Spurs' kamikaze high line - missing its premium shock absorbers - faces Forest's turbocharged counters led by Elanga's jet heels. While Postecoglou's philosophy remains uncompromising, Nuno's shrewd pragmatism has Forest punching above their xG. This tactical dichotomy sets the stage for Wood's physicality against emergency center-backs, and Maddison's creative spark versus Yates' midfield enforcer role. With European dreams flickering for Forest and Spurs clinging to pride, expect fireworks between two sides where 'defense optional' isn't just a meme - it's a way of life."
-    },
-    "citations": [
-      {
-        "id": "2",
-        "url": "https://sports.betmgm.com/en/blog/premier-league/tottenham-vs-nottingham-forest-prediction-odds-preview-epl-bm16/",
-        "description": "Forest's record vs bottom-half teams"
-      },
-      {
-        "id": "3",
-        "url": "https://xgscore.io/epl/tottenham-nottingham-forest/xg-statistics",
-        "description": "xG statistics for H2H"
-      },
-      {
-        "id": "5",
-        "url": "https://www.nbcsports.com/soccer/news/how-to-watch-tottenham-hotspur-vs-nottingham-forest-live-stream-link-tv-channel-team-news-prediction",
-        "description": "Europa League fatigue impact"
-      },
-      {
-        "id": "6",
-        "url": "https://blog.betway.com/football/premier-league/premier-league-tips-a-91-bet-builder-for-spurs-v-nottingham-forest/",
-        "description": "Recent form analysis"
-      },
-      {
-        "id": "7",
-        "url": "https://footystats.org/england/tottenham-hotspur-fc-vs-nottingham-forest-fc-h2h-stats",
-        "description": "H2H statistics"
-      },
-      {
-        "id": "8",
-        "url": "https://www.sportingnews.com/us/soccer/news/nottingham-forest-tottenham-lineups-starting-11-team-news-injuries/479236e7cabaf2a65b6bc835",
-        "description": "Injury updates"
-      },
-      {
-        "id": "11",
-        "url": "https://footystats.org/clubs/tottenham-hotspur-fc-92",
-        "description": "Tottenham xG data"
-      },
-      {
-        "id": "12",
-        "url": "https://footystats.org/clubs/nottingham-forest-fc-211",
-        "description": "Forest stats and xG"
-      },
-      {
-        "id": "14",
-        "url": "https://en.wikipedia.org/wiki/2024%E2%80%9325_Nottingham_Forest_F.C._season",
-        "description": "Forest squad details"
-      },
-      {
-        "id": "15",
-        "url": "https://www.dimers.com/bet-hub/epl/schedule/2024_33_tot_nof",
-        "description": "Prediction model outputs"
-      }
-    ],
-    "raw_perplexity_content": "<think>\nOkay, let me start by understanding the user's query. They want a detailed betting analysis for the Tottenham vs. Nottingham Forest match, focusing on value opportunities, especially in the Asian Handicap market. The user provided specific lineup predictions and some search results. \n\nFirst, I need to structure the analysis according to the JSON schema they provided. The key sections are match_overview, asian_handicap_analysis, key_player_matchups, team_news, betting_insights, prediction, and my_say. \n\nLooking at the search results, there's info on team form, injuries, previous encounters, and statistical data like xG. For example, search result [1] mentions Spurs' defensive injuries and Forest's defensive vulnerabilities. Result [2] highlights Forest's strong record against lower-half teams and their rest advantage. Result [6] suggests Forest might avoid defeat. \n\nIn team_news, the user provided predicted lineups, but I should check the search results for any injuries or suspensions. Result [8] mentions Spurs' injuries like Vicario, Romero, van de Ven, and Richarlison. Forest's lineup seems mostly intact except for Ibrahim Sangare. \n\nFor the Asian Handicap analysis, the line is +0.0 with Spurs at 1.85 and Forest at 2.09. The user emphasized correct interpretation here. From the data, Spurs are 15th, Forest 4th. Forest's away form is good (8 wins, 2 draws, 6 losses). Spurs have lost 4 of last 6. This might indicate value on Forest +0.0. \n\nKey player matchups: Solanke vs. Milenkovic/Murillo. Spurs' defense is weakened, so Chris Wood could exploit that. Maddison vs. Yates/Anderson in midfield. \n\nBetting insights: Both Teams to Score, Forest +0.0 Asian Handicap, and Over 2.5 Goals. xG stats from [3] and [12] show both teams have decent xG, supporting BTTS and Over. \n\nPrediction: Considering form and injuries, Forest might edge it 2-1. \n\nMy_say needs to be engaging, highlighting the clash of Spurs' struggles vs. Forest's European push. Mention key players and tactical points. \n\nCitations are crucial. Each fact needs to reference the search results. For example, injuries from [8], form from [2], xG from [3][12], etc. \n\nI need to ensure all data points are sourced correctly and the JSON structure is followed exactly. Also, avoid lists and use the specified formatting. Check that odds are in decimal and terminology is European. \n\nFinally, verify that the analysis is data-driven, uses the provided sources, and adheres to the user's guidelines. Make sure the Asian Handicap analysis is accurate, considering the line and team strengths.\n</think>\n\n```json\n{\n  \"match_overview\": \"Tottenham host Nottingham Forest in a Premier League clash with contrasting motivations - Spurs languishing in 15th while Forest push for European qualification[2][5]. Spurs have lost 4 of their last 6 league matches, failing to score in 3 of those defeats[6], while Forest boast a 13-1-1 record against bottom-half teams this season[2]. The reverse fixture saw Forest win 1-0 through disciplined defending and clinical counter-attacking[7]. Tottenham's defensive injuries (missing 4 first-choice defenders[8]) clash with Forest's league-best 62.5% road cover rate against the spread[2].\",\n  \"team_news\": {\n    \"raw\": \"Tottenham face significant defensive absences with Guglielmo Vicario (foot), Cristian Romero (thigh), Micky van de Ven (hamstring), and Ben Davies (calf) all sidelined[8]. Forest welcome back Ryan Yates from suspension but lose Ibrahim Sangar\u00e9 to a hamstring injury[14]. Both teams field strong attacking lineups with Solanke (15 goals) and Wood (18 goals) leading their respective attacks[12][14].\",\n    \"structured\": {\n      \"home\": {\n        \"injuries\": [\"Guglielmo Vicario (foot) [8]\", \"Cristian Romero (thigh) [8]\", \"Micky van de Ven (hamstring) [8]\", \"Ben Davies (calf) [8]\"],\n        \"suspensions\": [],\n        \"returnees\": [\"Destiny Udogie (fitness) [8]\"],\n        \"projected_xi\": \"G. Vicario; Djed Spence, C. Romero, Ben Davies, Pedro Porro; J. Maddison, Y. Bissouma, Pape Sarr; Mathys Tel, B. Johnson, D. Solanke\"\n      },\n      \"away\": {\n        \"injuries\": [\"Ibrahim Sangar\u00e9 (hamstring) [14]\"],\n        \"suspensions\": [],\n        \"returnees\": [\"Ryan Yates (suspension) [14]\"],\n        \"projected_xi\": \"Matz Sels; Alex Moreno, N. Milenkovic, Murillo, N. Williams; Ryan Yates, E. Anderson; C. Hudson-Odoi, M. Gibbs-White, A. Elanga; Chris Wood\"\n      }\n    }\n  },\n  \"asian_handicap_analysis\": {\n    \"table\": {\n      \"headers\": [\"Team\", \"Form\", \"Home/Away Form\", \"H2H\", \"Value\"],\n      \"rows\": [\n        [\"Tottenham\", \"LWWLLL (1.83 PPG) [2][6]\", \"4W-2D-4L (Home) [12]\", \"5-2 H2H Advantage [7]\", \"1.85 (44.2% implied)\"],\n        [\"Nottm Forest\", \"WWLLWL (2.0 PPG) [2][6]\", \"8W-2D-6L (Away) [12]\", \"+0.5 xG Differential [3][12]\", \"2.09 (32.6% implied)\"]\n      ]\n    },\n    \"analysis\": \"Forest's +0.0 Asian line at 2.09 offers value given their 62.5% road cover rate and Spurs' defensive vulnerabilities[2][8]. Models show Forest's true probability closer to 38% (implied 2.63), creating 25% value margin[15]. The line neutralizes Forest's rest advantage and Spurs' Europa League fatigue[5].\",\n    \"recommendation\": \"Nottingham Forest +0.0 Asian Handicap @ 2.09\",\n    \"raw\": \"Forest have covered 68.8% of away spreads this season compared to Spurs' 37.5% home cover rate[2]. xG models show Forest outperforming expectations by 0.22 xG/90 on road[12] while Spurs underperform by 0.11 xG/90 at home[11].\"\n  },\n  \"key_player_matchups\": [\n    {\n      \"title\": \"Dominic Solanke vs Nikola Milenkovic\",\n      \"content\": \"Solanke's 15 goals face Milenkovic's league-best 4.3 aerials won/game[14]. Forest's CB duo have combined for 87 tackles in box this season[14].\",\n      \"raw\": \"Milenkovic allows just 0.68 dribbles past/90 vs Solanke's 2.3 successful take-ons/90[12][14]\"\n    },\n    {\n      \"title\": \"Chris Wood vs Emergency Spurs CB Pairing\",\n      \"content\": \"Wood's 18 goals (3.76 xG overperformance) test Spurs' makeshift defense missing 4 starters[8][14].\",\n      \"raw\": \"Spurs' emergency CBs concede 1.8 goals/game vs top-6 attacks compared to 1.2 with first-choice[11]\"\n    }\n  ],\n  \"betting_insights\": [\n    {\n      \"market\": \"Both Teams to Score\",\n      \"insight\": \"BTTS Yes hits in 75% of Spurs home games vs 50% Forest away[7]. Combined 3.57 xG/game[3][12].\",\n      \"recommendation\": \"Yes @ 1.75\",\n      \"raw\": \"Spurs concede 1.53 goals/game at home vs Forest's 1.69 away[12]. xG models predict 63% BTTS probability[15]\"\n    },\n    {\n      \"market\": \"Asian Handicap Forest +0.0\",\n      \"insight\": \"25% value margin vs bookmaker odds with 68.8% away cover rate[2][15]\",\n      \"recommendation\": \"2.09\",\n      \"raw\": \"Forest won 3 of last 5 as away underdogs (+7.3 units)[2]\"\n    },\n    {\n      \"market\": \"Over 2.5 Goals\",\n      \"insight\": \"72% hit rate in H2H meetings with combined 3.1 goals/game[7]\",\n      \"recommendation\": \"1.80\",\n      \"raw\": \"Spurs' home games average 3.57 total goals vs Forest's 3.38 away[12]\"\n    }\n  ],\n  \"prediction\": {\n    \"score\": {\n      \"home\": 1,\n      \"away\": 2\n    },\n    \"confidence\": 7,\n    \"reasoning\": \"Forest's clinical finishing (18 goals from 16.7 xG[12]) exploits Spurs' defensive crisis. Counter-attacking quality through Elanga (2.3 dribbles/90[14]) targets Spurs' high line missing Van de Ven's recovery pace[8].\"\n  },\n  \"my_say\": {\n    \"content\": \"Under the Monday night lights, two clubs separated by 20 points but united by attacking intent collide. Spurs' kamikaze high line - missing its premium shock absorbers - faces Forest's turbocharged counters led by Elanga's jet heels. While Postecoglou's philosophy remains uncompromising, Nuno's shrewd pragmatism has Forest punching above their xG. This tactical dichotomy sets the stage for Wood's physicality against emergency center-backs, and Maddison's creative spark versus Yates' midfield enforcer role. With European dreams flickering for Forest and Spurs clinging to pride, expect fireworks between two sides where 'defense optional' isn't just a meme - it's a way of life.\"\n  },\n  \"citations\": [\n    {\"id\": \"2\", \"url\": \"https://sports.betmgm.com/en/blog/premier-league/tottenham-vs-nottingham-forest-prediction-odds-preview-epl-bm16/\", \"description\": \"Forest's record vs bottom-half teams\"},\n    {\"id\": \"3\", \"url\": \"https://xgscore.io/epl/tottenham-nottingham-forest/xg-statistics\", \"description\": \"xG statistics for H2H\"},\n    {\"id\": \"5\", \"url\": \"https://www.nbcsports.com/soccer/news/how-to-watch-tottenham-hotspur-vs-nottingham-forest-live-stream-link-tv-channel-team-news-prediction\", \"description\": \"Europa League fatigue impact\"},\n    {\"id\": \"6\", \"url\": \"https://blog.betway.com/football/premier-league/premier-league-tips-a-91-bet-builder-for-spurs-v-nottingham-forest/\", \"description\": \"Recent form analysis\"},\n    {\"id\": \"7\", \"url\": \"https://footystats.org/england/tottenham-hotspur-fc-vs-nottingham-forest-fc-h2h-stats\", \"description\": \"H2H statistics\"},\n    {\"id\": \"8\", \"url\": \"https://www.sportingnews.com/us/soccer/news/nottingham-forest-tottenham-lineups-starting-11-team-news-injuries/479236e7cabaf2a65b6bc835\", \"description\": \"Injury updates\"},\n    {\"id\": \"11\", \"url\": \"https://footystats.org/clubs/tottenham-hotspur-fc-92\", \"description\": \"Tottenham xG data\"},\n    {\"id\": \"12\", \"url\": \"https://footystats.org/clubs/nottingham-forest-fc-211\", \"description\": \"Forest stats and xG\"},\n    {\"id\": \"14\", \"url\": \"https://en.wikipedia.org/wiki/2024%E2%80%9325_Nottingham_Forest_F.C._season\", \"description\": \"Forest squad details\"},\n    {\"id\": \"15\", \"url\": \"https://www.dimers.com/bet-hub/epl/schedule/2024_33_tot_nof\", \"description\": \"Prediction model outputs\"}\n  ]\n}\n```"
+    "my_say": "Tonight's clash pits Ange Postecoglou's Europa League dreamers against Nuno's top-six hunters in a tactical paradox. While Spurs' continental heroics echo through the stadium, their league form whispers of defensive disarray - a 4-2 loss to Wolves exposing Romero's recklessness and Vicario's vulnerability to crosses. Forest arrive armed with Elanga's jet-heeled counters and Wood's barn-door presence, smelling blood in a backline featuring out-of-position Djed Spence. Yet in Tel and Johnson, Spurs retain two of England's most exhilarating young forwards - their 0.58 combined xG/90 [6] threatening to turn this into a basketball match. The real battle lies in midfield, where Bissouma's steel meets Gibbs-White's guile in a duel that could define both teams' seasons. With Champions League windfalls and managerial reputations at stake, expect fireworks between these two clubs hurtling in opposite directions.",
+    "raw_perplexity_content": "<think>\nOkay, I need to tackle this betting analysis for the Tottenham vs. Nottingham Forest match. Let me start by going through all the provided search results to gather the necessary information.\n\nFirst, the match overview. From source [2], Tottenham is 16th in the league, coming off a 4-2 loss to Wolves. Nottingham Forest is 6th, lost their last game 1-0 to Everton. Their head-to-head from [1] shows Tottenham has won 5 of the last 7 meetings. Recent form from [7] mentions Spurs' Europa League commitments and their defensive issues in the league. Also, Forest's defensive mix-up in the Everton game might be a point to note.\n\nFor team news, source [2] says Tottenham is missing Dragusin, and Heung-Min and Maddison are doubtful. The predicted lineups are given in the query, so I should use those. Source [7] mentions Spurs making 5-6 changes after Europa League, which might affect their lineup. Forest has Aina injured and Awoniyi doubtful, but Elanga is expected to start.\n\nAsian Handicap analysis: The line is +0.0 with Spurs at 1.98 and Forest at 1.92. From [4], the recommendation was Forest +0.25, but our line is different. Need to compare form. Spurs' home form from [1] shows they score a lot but concede. Forest's away form has them scoring 75% in second halves. The Asian Handicap table in the JSON needs to reflect form, H2H, etc. Using stats from [1], Spurs have 5 wins in 7 H2H, but current form is poor. Value might be on Forest here given Spurs' defensive issues.\n\nKey player matchups: Johnson vs. Moreno. Johnson's pace against Moreno's defensive skills. From [7], Johnson scored twice in a previous match. Gibbs-White vs. Bissouma in midfield. Gibbs-White's creativity against Bissouma's defensive work. Also, Solanke against Milenkovic and Murillo. Solanke's physicality vs. their aerial ability.\n\nBetting insights: BTTS Yes from [4] and [5] with odds around 1.54. Over 2.5 goals from [1] and [4], odds 1.71. Forest Double Chance at 2.65 from [5]. Also, looking at corners, Spurs have more, maybe over 9.5 as per [4].\n\nPrediction: Considering Spurs' defensive issues and Forest's form, a 2-1 win for Forest. Confidence 7/10 because of Spurs' inconsistency but Forest's better league position.\n\nMy Say: Need to highlight the clash between Spurs' European focus and Forest's top-six push. Mention the tactical battle, key players, and the stakes for both teams.\n\nCitations: Make sure to cite sources properly. For example, H2H stats from [1], team news from [2] and [7], form from [8], etc. Each fact needs a citation from the provided sources.\n</think>\n\n```json\n{\n  \"match_overview\": \"Tottenham host Nottingham Forest in a Premier League clash with contrasting motivations. Spurs (16th) prioritize Europa League success after Thursday's quarter-final win, having won just 2 of their last 8 league matches [7][8]. Forest (6th) seek Champions League qualification, despite recent defensive lapses costing them 6 points in April [7][8]. Historically, Spurs dominate this fixture with 5 wins in 7 meetings [1], but Forest's 1-0 victory in December shows their growing capability [2]. Both teams average 2.72 goals per combined match this season, with 75% of Tottenham's home games seeing Over 2.5 goals [1][4].\",\n  \"citations\": [\n    {\"id\": \"1\", \"url\": \"https://footystats.org/england/tottenham-hotspur-fc-vs-nottingham-forest-fc-h2h-stats\", \"description\": \"H2H statistics and goal trends\"},\n    {\"id\": \"2\", \"url\": \"https://www.whoscored.com/articles/mLrbx_aY8UGdazu9VYdGWQ/show/tottenham-vs-nottingham-forest-premier-league-prediction-team-news-predicted-lineups-where-to-watch\", \"description\": \"Team news and recent form analysis\"},\n    {\"id\": \"4\", \"url\": \"https://tips.gg/article/tottenham-vs-nottingham-forest-21-04-2025/\", \"description\": \"Betting market insights\"},\n    {\"id\": \"7\", \"url\": \"https://onefootball.com/en/news/how-to-watch-tottenham-vs-nottingham-forest-team-news-pre-match-quotes-predicted-lineups-and-more-41005213\", \"description\": \"Tactical preview and manager quotes\"},\n    {\"id\": \"8\", \"url\": \"https://www.footballwebpages.co.uk/premier-league/fixtures-results\", \"description\": \"Recent match results and form guide\"}\n  ],\n  \"team_news\": {\n    \"raw\": \"Tottenham make 5-6 changes from Europa League lineup [7], with Dragusin injured and Maddison/Son doubtful [2]. Forest miss Aina (thigh) but start Elanga after midweek rest [7]. Projected XIs show Spurs' rotated defense vs Forest's pacey wingers.\",\n    \"structured\": {\n      \"home\": {\n        \"injuries\": [\"R. Dragusin (knee) [2]\", \"S. Heung-Min (muscle fatigue) [2]\"],\n        \"suspensions\": [],\n        \"returnees\": [\"B. Johnson (returns from knock) [7]\"],\n        \"projected_xi\": \"Vicario; Spence, Davies, Romero, Porro; Maddison, Bissouma, Sarr; Tel, Solanke, Johnson\"\n      },\n      \"away\": {\n        \"injuries\": [\"O. Aina (thigh) [2]\", \"T. Awoniyi (hamstring) [2]\"],\n        \"suspensions\": [],\n        \"returnees\": [\"A. Elanga (rested) [7]\"],\n        \"projected_xi\": \"Sels; Williams, Milenkovic, Murillo, Moreno; Yates, Anderson; Elanga, Gibbs-White, Hudson-Odoi; Wood\"\n      }\n    }\n  },\n  \"asian_handicap_analysis\": {\n    \"table\": {\n      \"headers\": [\"Team\", \"Form\", \"Home/Away Form\", \"H2H\", \"Value\"],\n      \"rows\": [\n        [\"Tottenham\", \"2.4/5 (W2-D1-L2) [8]\", \"3.2/5 home record [1]\", \"71% H2H win rate [1]\", \"1.98 (Fair)\"],\n        [\"Nottm Forest\", \"3.4/5 (W3-L2) [8]\", \"2.8/5 away record [1]\", \"29% H2H win rate [1]\", \"1.92 (Value)\"]\n      ]\n    },\n    \"analysis\": \"Forest's +0.0 Asian Handicap at 1.92 offers value given Spurs' defensive frailty (49 GA) and rotation needs [4][7]. Forest cover 0.25 in 4/5 away games vs bottom-half teams [8]. Tottenham's 13% home clean sheet rate [1] undermines their handicap credibility.\",\n    \"recommendation\": \"Nottingham Forest +0.0 Asian Handicap @1.92\",\n    \"raw\": \"Forest's xG of 1.44 vs Spurs' 1.45 suggests parity [6], yet market prices Spurs as slight favorites. The 0-line neutralizes venue advantage, making Forest's price 4% above true probability based on recent xPTS [6].\"\n  },\n  \"key_player_matchups\": [\n    {\n      \"title\": \"Brennan Johnson vs Alex Moreno\",\n      \"content\": \"Johnson's 0.48 xG/90 [6] tests Moreno's 1.7 tackles/game [2]. Their duel could decide flank dominance, with Johnson scoring in 2 of last 3 home games [8].\",\n      \"raw\": \"Johnson's pace (9.3 sprints/90) vs Moreno's positioning (2.1 interceptions/90) creates counterattacking opportunities [2][6].\"\n    },\n    {\n      \"title\": \"Morgan Gibbs-White vs Yves Bissouma\",\n      \"content\": \"Gibbs-White's 3.5 key passes/90 [6] meets Bissouma's 2.3 tackles/90 [2]. This midfield battle dictates tempo - Forest win 58% of games when Gibbs-White completes 80+ passes [8].\",\n      \"raw\": \"Bissouma's 12% tackle success drop vs creative 10s [2] could be exploited by Gibbs-White's 6.3 progressive carries/90 [6].\"\n    }\n  ],\n  \"betting_insights\": [\n    {\n      \"market\": \"Both Teams to Score\",\n      \"insight\": \"75% of Spurs' home games see BTTS [1] vs Forest's 50% away [1]\",\n      \"recommendation\": \"Yes @1.54 [5]\",\n      \"raw\": \"Combined 2.88 xG per match [6] and Spurs' 13% clean sheet rate [1] make this 12% value vs market odds\"\n    },\n    {\n      \"market\": \"Over 2.5 Goals\",\n      \"insight\": \"72% historical average in H2H [1] vs 57.85% implied probability [5]\",\n      \"recommendation\": \"Over 2.5 @1.71 [5]\",\n      \"raw\": \"4.3 average total goals in Spurs' last 5 home games [8] justifies +13% edge\"\n    },\n    {\n      \"market\": \"Nottingham Forest Double Chance\",\n      \"insight\": \"28.01% win probability [5] vs 25% implied by 2.65 odds\",\n      \"recommendation\": \"Draw or Forest @2.65 [5]\",\n      \"raw\": \"Forest's xPTS of 1.44 vs Spurs' 1.45 [6] suggests closer contest than table positions indicate\"\n    }\n  ],\n  \"prediction\": {\n    \"score\": {\n      \"home\": 1,\n      \"away\": 2\n    },\n    \"confidence\": 7,\n    \"reasoning\": \"Forest's superior defensive organization (31% away clean sheets [1]) counters Spurs' rotated attack. Wood's aerial threat (62% duel wins [6]) exploits Spurs' 0.94 1H conceded average [1]. Value on Forest's set-piece efficiency (15 corners last 3 away [8])\"\n  },\n  \"my_say\": \"Tonight's clash pits Ange Postecoglou's Europa League dreamers against Nuno's top-six hunters in a tactical paradox. While Spurs' continental heroics echo through the stadium, their league form whispers of defensive disarray - a 4-2 loss to Wolves exposing Romero's recklessness and Vicario's vulnerability to crosses. Forest arrive armed with Elanga's jet-heeled counters and Wood's barn-door presence, smelling blood in a backline featuring out-of-position Djed Spence. Yet in Tel and Johnson, Spurs retain two of England's most exhilarating young forwards - their 0.58 combined xG/90 [6] threatening to turn this into a basketball match. The real battle lies in midfield, where Bissouma's steel meets Gibbs-White's guile in a duel that could define both teams' seasons. With Champions League windfalls and managerial reputations at stake, expect fireworks between these two clubs hurtling in opposite directions.\"\n}\n```"
   }
 }
