@@ -7408,5 +7408,1072 @@
         }
       ]
     }
+  },
+  {
+    "id": "pl-chelsea-everton-20250426",
+    "competition": "Premier League",
+    "home_team": "Chelsea",
+    "away_team": "Everton",
+    "date": "2025-04-26",
+    "time": "12:30",
+    "venue": "Stamford Bridge",
+    "odds": {
+      "home_win": 1.61,
+      "draw": 3.95,
+      "away_win": 5.75,
+      "asian_handicap": {
+        "line": "-1.0",
+        "home": 2.5,
+        "away": 1.85
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "R. Sanchez",
+          "position": "GK"
+        },
+        {
+          "name": "M. Cucurella",
+          "position": "DL"
+        },
+        {
+          "name": "T. Chalobah",
+          "position": "DC"
+        },
+        {
+          "name": "Levi Colwill",
+          "position": "DC"
+        },
+        {
+          "name": "Reece James",
+          "position": "DR"
+        },
+        {
+          "name": "M. Caicedo",
+          "position": "DMC"
+        },
+        {
+          "name": "E. Fernandez",
+          "position": "DMC"
+        },
+        {
+          "name": "Pedro Neto",
+          "position": "AML"
+        },
+        {
+          "name": "Cole Palmer",
+          "position": "AMC"
+        },
+        {
+          "name": "Jadon Sancho",
+          "position": "AMR"
+        },
+        {
+          "name": "N. Jackson",
+          "position": "FW"
+        },
+        {
+          "name": "Marc Guiu",
+          "position": "F"
+        },
+        {
+          "name": "Malo Gusto",
+          "position": "D"
+        },
+        {
+          "name": "G. Slonina",
+          "position": "G"
+        },
+        {
+          "name": "M. Mudryk",
+          "position": "F/M"
+        },
+        {
+          "name": "David Fofana",
+          "position": "F"
+        },
+        {
+          "name": "W. Fofana",
+          "position": "D"
+        },
+        {
+          "name": "O. Kellyman",
+          "position": "F"
+        }
+      ],
+      "away": [
+        {
+          "name": "J. Pickford",
+          "position": "GK"
+        },
+        {
+          "name": "V. Mykolenko",
+          "position": "DL"
+        },
+        {
+          "name": "J. Branthwaite",
+          "position": "DC"
+        },
+        {
+          "name": "Jake O'Brien",
+          "position": "DC"
+        },
+        {
+          "name": "N. Patterson",
+          "position": "DR"
+        },
+        {
+          "name": "James Garner",
+          "position": "DMC"
+        },
+        {
+          "name": "I. Gueye",
+          "position": "DMC"
+        },
+        {
+          "name": "I. Ndiaye",
+          "position": "AML"
+        },
+        {
+          "name": "A. Doucoure",
+          "position": "AMC"
+        },
+        {
+          "name": "J. Harrison",
+          "position": "AMR"
+        },
+        {
+          "name": "Beto",
+          "position": "FW"
+        },
+        {
+          "name": "J. Tarkowski",
+          "position": "D"
+        },
+        {
+          "name": "A. Broja",
+          "position": "F"
+        },
+        {
+          "name": "D. Calvert-Lewin",
+          "position": "F"
+        },
+        {
+          "name": "J. Lindstrom",
+          "position": "F/M"
+        },
+        {
+          "name": "Orel Mangala",
+          "position": "M"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pl-wolves-leicester-20250426",
+    "competition": "Premier League",
+    "home_team": "Wolves",
+    "away_team": "Leicester",
+    "date": "2025-04-26",
+    "time": "15:00",
+    "venue": "Molineux Stadium",
+    "odds": {
+      "home_win": 1.54,
+      "draw": 4.3,
+      "away_win": 6.0,
+      "asian_handicap": {
+        "line": "-1.0",
+        "home": 1.94,
+        "away": 1.98
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "Jose Sa",
+          "position": "GK"
+        },
+        {
+          "name": "Santi Bueno",
+          "position": "DC"
+        },
+        {
+          "name": "Toti Gomes",
+          "position": "DC"
+        },
+        {
+          "name": "E. Agbadou",
+          "position": "DC"
+        },
+        {
+          "name": "R. Ait-Nouri",
+          "position": "ML"
+        },
+        {
+          "name": "Joao Gomes",
+          "position": "MC"
+        },
+        {
+          "name": "Andre",
+          "position": "MC"
+        },
+        {
+          "name": "N. Semedo",
+          "position": "MR"
+        },
+        {
+          "name": "M. Munetsi",
+          "position": "AMC"
+        },
+        {
+          "name": "Matheus Cunha",
+          "position": "AMC"
+        },
+        {
+          "name": "J. Strand Larsen",
+          "position": "FW"
+        },
+        {
+          "name": "J. Bellegarde",
+          "position": "F/M"
+        },
+        {
+          "name": "H. Hwang",
+          "position": "F"
+        },
+        {
+          "name": "S. Johnstone",
+          "position": "G"
+        },
+        {
+          "name": "S. Kalajdzic",
+          "position": "F"
+        },
+        {
+          "name": "Pedro Lima",
+          "position": "M/D"
+        },
+        {
+          "name": "Jose Sa",
+          "position": "G"
+        },
+        {
+          "name": "Leon Chiwome",
+          "position": "F"
+        },
+        {
+          "name": "E. Gonzalez Medina",
+          "position": "F/M"
+        },
+        {
+          "name": "Y. Mosquera",
+          "position": "D"
+        }
+      ],
+      "away": [
+        {
+          "name": "M. Hermansen",
+          "position": "GK"
+        },
+        {
+          "name": "Luke Thomas",
+          "position": "DL"
+        },
+        {
+          "name": "Wout Faes",
+          "position": "DC"
+        },
+        {
+          "name": "Conor Coady",
+          "position": "DC"
+        },
+        {
+          "name": "R. Pereira",
+          "position": "DR"
+        },
+        {
+          "name": "W. Ndidi",
+          "position": "DMC"
+        },
+        {
+          "name": "B. Soumare",
+          "position": "DMC"
+        },
+        {
+          "name": "Patson Daka",
+          "position": "AML"
+        },
+        {
+          "name": "B. El Khannouss",
+          "position": "AMC"
+        },
+        {
+          "name": "F. Buonanotte",
+          "position": "AMR"
+        },
+        {
+          "name": "Jamie Vardy",
+          "position": "FW"
+        },
+        {
+          "name": "K. McAteer",
+          "position": "M"
+        },
+        {
+          "name": "Abdul Fatawu",
+          "position": "F"
+        },
+        {
+          "name": "S. Mavididi",
+          "position": "F/M"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pl-southampton-fulham-20250426",
+    "competition": "Premier League",
+    "home_team": "Southampton",
+    "away_team": "Fulham",
+    "date": "2025-04-26",
+    "time": "15:00",
+    "venue": "St Mary's Stadium",
+    "odds": {
+      "home_win": 5.0,
+      "draw": 4.1,
+      "away_win": 1.67,
+      "asian_handicap": {
+        "line": "+0.75",
+        "home": 2.06,
+        "away": 1.88
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "A. Ramsdale",
+          "position": "GK"
+        },
+        {
+          "name": "Jan Bednarek",
+          "position": "DC"
+        },
+        {
+          "name": "J. Stephens",
+          "position": "DC"
+        },
+        {
+          "name": "T. Harwood-Bellis",
+          "position": "DC"
+        },
+        {
+          "name": "Ryan Manning",
+          "position": "ML"
+        },
+        {
+          "name": "Lesley Ugochukwu",
+          "position": "MC"
+        },
+        {
+          "name": "Flynn Downes",
+          "position": "MC"
+        },
+        {
+          "name": "K. Walker-Peters",
+          "position": "MR"
+        },
+        {
+          "name": "K. Sulemana",
+          "position": "FWL"
+        },
+        {
+          "name": "Mateus Fernandes",
+          "position": "FWR"
+        },
+        {
+          "name": "Paul Onuachu",
+          "position": "FW"
+        },
+        {
+          "name": "Ryan Fraser",
+          "position": "F/M"
+        },
+        {
+          "name": "A. Gronbaek",
+          "position": "M"
+        },
+        {
+          "name": "C. Taylor",
+          "position": "D"
+        }
+      ],
+      "away": [
+        {
+          "name": "Bernd Leno",
+          "position": "GK"
+        },
+        {
+          "name": "A. Robinson",
+          "position": "DL"
+        },
+        {
+          "name": "J. Andersen",
+          "position": "DC"
+        },
+        {
+          "name": "C. Bassey",
+          "position": "DC"
+        },
+        {
+          "name": "Kenny Tete",
+          "position": "DR"
+        },
+        {
+          "name": "Sasa Lukic",
+          "position": "DMC"
+        },
+        {
+          "name": "Sander Berge",
+          "position": "DMC"
+        },
+        {
+          "name": "Alex Iwobi",
+          "position": "AML"
+        },
+        {
+          "name": "A. Pereira",
+          "position": "AMC"
+        },
+        {
+          "name": "R. Sessegnon",
+          "position": "AMR"
+        },
+        {
+          "name": "Raul Jimenez",
+          "position": "FW"
+        },
+        {
+          "name": "E. Smith Rowe",
+          "position": "M"
+        },
+        {
+          "name": "R. Muniz Carvalho",
+          "position": "F"
+        },
+        {
+          "name": "Reiss Nelson",
+          "position": "F/M"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pl-newcastle-ipswich-20250426",
+    "competition": "Premier League",
+    "home_team": "Newcastle",
+    "away_team": "Ipswich",
+    "date": "2025-04-26",
+    "time": "15:00",
+    "venue": "St James' Park",
+    "odds": {
+      "home_win": 1.22,
+      "draw": 7.0,
+      "away_win": 12.0,
+      "asian_handicap": {
+        "line": "-2.0",
+        "home": 1.93,
+        "away": 1.98
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "Nick Pope",
+          "position": "GK"
+        },
+        {
+          "name": "V. Livramento",
+          "position": "DL"
+        },
+        {
+          "name": "Dan Burn",
+          "position": "DC"
+        },
+        {
+          "name": "Fabian Schar",
+          "position": "DC"
+        },
+        {
+          "name": "K. Trippier",
+          "position": "DR"
+        },
+        {
+          "name": "Joelinton",
+          "position": "MC"
+        },
+        {
+          "name": "Bruno Guimaraes",
+          "position": "MC"
+        },
+        {
+          "name": "S. Tonali",
+          "position": "MC"
+        },
+        {
+          "name": "H. Barnes",
+          "position": "FWL"
+        },
+        {
+          "name": "Jacob Murphy",
+          "position": "FWR"
+        },
+        {
+          "name": "A. Isak",
+          "position": "FW"
+        },
+        {
+          "name": "Sven Botman",
+          "position": "D"
+        },
+        {
+          "name": "Fabian Schar",
+          "position": "D"
+        },
+        {
+          "name": "Lewis Hall",
+          "position": "D"
+        },
+        {
+          "name": "J. Lascelles",
+          "position": "D"
+        }
+      ],
+      "away": [
+        {
+          "name": "Alex Palmer",
+          "position": "GK"
+        },
+        {
+          "name": "C. Townsend",
+          "position": "DL"
+        },
+        {
+          "name": "Dara O'Shea",
+          "position": "DC"
+        },
+        {
+          "name": "J. Greaves",
+          "position": "DC"
+        },
+        {
+          "name": "A. Tuanzebe",
+          "position": "DR"
+        },
+        {
+          "name": "Sam Morsy",
+          "position": "DMC"
+        },
+        {
+          "name": "Jens Cajuste",
+          "position": "DMC"
+        },
+        {
+          "name": "Jack Clarke",
+          "position": "AML"
+        },
+        {
+          "name": "Julio Enciso",
+          "position": "AMC"
+        },
+        {
+          "name": "Ben Johnson",
+          "position": "AMR"
+        },
+        {
+          "name": "George Hirst",
+          "position": "FW"
+        },
+        {
+          "name": "O. Hutchinson",
+          "position": "F/M"
+        },
+        {
+          "name": "Leif Davis",
+          "position": "D"
+        },
+        {
+          "name": "Wes Burns",
+          "position": "F/M"
+        },
+        {
+          "name": "A. Muric",
+          "position": "G"
+        },
+        {
+          "name": "C. Ogbene",
+          "position": "F/M"
+        },
+        {
+          "name": "K. Phillips",
+          "position": "M"
+        },
+        {
+          "name": "J. Philogene",
+          "position": "F/M"
+        },
+        {
+          "name": "S. Szmodics",
+          "position": "F/M"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pl-brighton-west-ham-20250426",
+    "competition": "Premier League",
+    "home_team": "Brighton",
+    "away_team": "West Ham",
+    "date": "2025-04-26",
+    "time": "15:00",
+    "venue": "Amex Stadium",
+    "odds": {
+      "home_win": 1.67,
+      "draw": 4.1,
+      "away_win": 4.8,
+      "asian_handicap": {
+        "line": "-0.75",
+        "home": 1.89,
+        "away": 2.04
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "B. Verbruggen",
+          "position": "GK"
+        },
+        {
+          "name": "P. Estupinan",
+          "position": "DL"
+        },
+        {
+          "name": "Lewis Dunk",
+          "position": "DC"
+        },
+        {
+          "name": "J. van Hecke",
+          "position": "DC"
+        },
+        {
+          "name": "J. Hinshelwood",
+          "position": "DR"
+        },
+        {
+          "name": "Yasin Ayari",
+          "position": "DMC"
+        },
+        {
+          "name": "Carlos Baleba",
+          "position": "DMC"
+        },
+        {
+          "name": "Kaoru Mitoma",
+          "position": "AML"
+        },
+        {
+          "name": "Matt O'Riley",
+          "position": "AMC"
+        },
+        {
+          "name": "Y. Minteh",
+          "position": "AMR"
+        },
+        {
+          "name": "D. Welbeck",
+          "position": "FW"
+        },
+        {
+          "name": "Igor",
+          "position": "D"
+        },
+        {
+          "name": "T. Lamptey",
+          "position": "M/D"
+        },
+        {
+          "name": "Jason Steele",
+          "position": "G"
+        },
+        {
+          "name": "J. van Hecke",
+          "position": "D"
+        },
+        {
+          "name": "Joel Veltman",
+          "position": "D"
+        },
+        {
+          "name": "Adam Webster",
+          "position": "D"
+        },
+        {
+          "name": "Joao Pedro",
+          "position": "F/M"
+        },
+        {
+          "name": "F. Kadioglu",
+          "position": "M/D"
+        },
+        {
+          "name": "James Milner",
+          "position": "M/D"
+        },
+        {
+          "name": "G. Rutter",
+          "position": "F"
+        }
+      ],
+      "away": [
+        {
+          "name": "A. Areola",
+          "position": "GK"
+        },
+        {
+          "name": "O. Scarles",
+          "position": "DL"
+        },
+        {
+          "name": "J. Todibo",
+          "position": "DC"
+        },
+        {
+          "name": "Max Kilman",
+          "position": "DC"
+        },
+        {
+          "name": "A. Wan-Bissaka",
+          "position": "DR"
+        },
+        {
+          "name": "Carlos Soler",
+          "position": "DMC"
+        },
+        {
+          "name": "J. Ward-Prowse",
+          "position": "DMC"
+        },
+        {
+          "name": "L. Paqueta",
+          "position": "AML"
+        },
+        {
+          "name": "M. Kudus",
+          "position": "AMC"
+        },
+        {
+          "name": "Jarrod Bowen",
+          "position": "AMR"
+        },
+        {
+          "name": "N. Fullkrug",
+          "position": "FW"
+        },
+        {
+          "name": "A. Wan-Bissaka",
+          "position": "D"
+        },
+        {
+          "name": "E. Alvarez",
+          "position": "M"
+        },
+        {
+          "name": "M. Antonio",
+          "position": "F"
+        },
+        {
+          "name": "E. Ferguson",
+          "position": "F"
+        },
+        {
+          "name": "C. Summerville",
+          "position": "F/M"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pl-bournemouth-man-utd-20250427",
+    "competition": "Premier League",
+    "home_team": "Bournemouth",
+    "away_team": "Man Utd",
+    "date": "2025-04-27",
+    "time": "14:00",
+    "venue": "Vitality Stadium",
+    "odds": {
+      "home_win": 1.69,
+      "draw": 4.0,
+      "away_win": 4.7,
+      "asian_handicap": {
+        "line": "-0.75",
+        "home": 1.91,
+        "away": 2.02
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "K. Arrizabalaga",
+          "position": "GK"
+        },
+        {
+          "name": "Milos Kerkez",
+          "position": "DL"
+        },
+        {
+          "name": "I. Zabarnyi",
+          "position": "DC"
+        },
+        {
+          "name": "Dean Huijsen",
+          "position": "DC"
+        },
+        {
+          "name": "Adam Smith",
+          "position": "DR"
+        },
+        {
+          "name": "Lewis Cook",
+          "position": "DMC"
+        },
+        {
+          "name": "Tyler Adams",
+          "position": "DMC"
+        },
+        {
+          "name": "M. Tavernier",
+          "position": "AML"
+        },
+        {
+          "name": "J. Kluivert",
+          "position": "AMC"
+        },
+        {
+          "name": "A. Semenyo",
+          "position": "AMR"
+        },
+        {
+          "name": "Evanilson",
+          "position": "FW"
+        },
+        {
+          "name": "L. Sinisterra Lucumi",
+          "position": "F/M"
+        },
+        {
+          "name": "R. Christie",
+          "position": "M"
+        },
+        {
+          "name": "Enes Unal",
+          "position": "F"
+        }
+      ],
+      "away": [
+        {
+          "name": "Andre Onana",
+          "position": "GK"
+        },
+        {
+          "name": "N. Mazraoui",
+          "position": "DC"
+        },
+        {
+          "name": "H. Maguire",
+          "position": "DC"
+        },
+        {
+          "name": "Leny Yoro",
+          "position": "DC"
+        },
+        {
+          "name": "P. Dorgu",
+          "position": "ML"
+        },
+        {
+          "name": "M. Ugarte",
+          "position": "MC"
+        },
+        {
+          "name": "Casemiro",
+          "position": "MC"
+        },
+        {
+          "name": "Diogo Dalot",
+          "position": "MR"
+        },
+        {
+          "name": "Bruno Fernandes",
+          "position": "AMC"
+        },
+        {
+          "name": "A. Garnacho",
+          "position": "AMC"
+        },
+        {
+          "name": "R. Hojlund",
+          "position": "FW"
+        },
+        {
+          "name": "M. De Ligt",
+          "position": "D"
+        },
+        {
+          "name": "Ayden Heaven",
+          "position": "D"
+        },
+        {
+          "name": "Toby Collyer",
+          "position": "M"
+        },
+        {
+          "name": "Amad Diallo",
+          "position": "F/M"
+        },
+        {
+          "name": "L. Martinez",
+          "position": "D"
+        },
+        {
+          "name": "J. Zirkzee",
+          "position": "F"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pl-liverpool-tottenham-20250427",
+    "competition": "Premier League",
+    "home_team": "Liverpool",
+    "away_team": "Tottenham",
+    "date": "2025-04-27",
+    "time": "16:30",
+    "venue": "Anfield",
+    "odds": {
+      "home_win": 1.26,
+      "draw": 6.5,
+      "away_win": 8.5,
+      "asian_handicap": {
+        "line": "-1.75",
+        "home": 1.85,
+        "away": 2.06
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "Alisson",
+          "position": "GK"
+        },
+        {
+          "name": "A. Robertson",
+          "position": "DL"
+        },
+        {
+          "name": "V. van Dijk",
+          "position": "DC"
+        },
+        {
+          "name": "I. Konate",
+          "position": "DC"
+        },
+        {
+          "name": "T. Alexander-Arnold",
+          "position": "DR"
+        },
+        {
+          "name": "R. Gravenberch",
+          "position": "DMC"
+        },
+        {
+          "name": "A. Mac Allister",
+          "position": "DMC"
+        },
+        {
+          "name": "Cody Gakpo",
+          "position": "AML"
+        },
+        {
+          "name": "D. Szoboszlai",
+          "position": "AMC"
+        },
+        {
+          "name": "M. Salah",
+          "position": "AMR"
+        },
+        {
+          "name": "Luis Diaz",
+          "position": "FW"
+        },
+        {
+          "name": "Joe Gomez",
+          "position": "D"
+        }
+      ],
+      "away": [
+        {
+          "name": "G. Vicario",
+          "position": "GK"
+        },
+        {
+          "name": "Djed Spence",
+          "position": "DL"
+        },
+        {
+          "name": "C. Romero",
+          "position": "DC"
+        },
+        {
+          "name": "M. van de Ven",
+          "position": "DC"
+        },
+        {
+          "name": "Pedro Porro",
+          "position": "DR"
+        },
+        {
+          "name": "R. Bentancur",
+          "position": "MC"
+        },
+        {
+          "name": "J. Maddison",
+          "position": "MC"
+        },
+        {
+          "name": "L. Bergvall",
+          "position": "MC"
+        },
+        {
+          "name": "Mathys Tel",
+          "position": "FWL"
+        },
+        {
+          "name": "B. Johnson",
+          "position": "FWR"
+        },
+        {
+          "name": "D. Solanke",
+          "position": "FW"
+        },
+        {
+          "name": "H. Son",
+          "position": "F/M"
+        },
+        {
+          "name": "R. Dragusin",
+          "position": "D"
+        }
+      ]
+    }
   }
 ]
