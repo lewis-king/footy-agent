@@ -697,5 +697,118 @@
         }
       ]
     }
+  },
+  {
+    "id": "cl-arsenal-paris-saint-germain-20250429",
+    "competition": "Champions League",
+    "home_team": "Arsenal",
+    "away_team": "Paris Saint-Germain",
+    "date": "2025-04-29",
+    "time": "20:00",
+    "venue": "Emirates Stadium",
+    "odds": {
+      "home_win": 2.18,
+      "draw": 3.4,
+      "away_win": 3.6,
+      "asian_handicap": {
+        "line": "-0.25",
+        "home": 1.87,
+        "away": 2.05
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "David Raya",
+          "position": "GK"
+        },
+        {
+          "name": "M. Lewis-Skelly",
+          "position": "DL"
+        },
+        {
+          "name": "Jakub Kiwior",
+          "position": "DC"
+        },
+        {
+          "name": "W. Saliba",
+          "position": "DC"
+        },
+        {
+          "name": "J. Timber",
+          "position": "DR"
+        },
+        {
+          "name": "Declan Rice",
+          "position": "MC"
+        },
+        {
+          "name": "M. Odegaard",
+          "position": "MC"
+        },
+        {
+          "name": "Mikel Merino",
+          "position": "MC"
+        },
+        {
+          "name": "G. Martinelli",
+          "position": "FWL"
+        },
+        {
+          "name": "Bukayo Saka",
+          "position": "FWR"
+        },
+        {
+          "name": "L. Trossard",
+          "position": "FW"
+        }
+      ],
+      "away": [
+        {
+          "name": "G. Donnarumma",
+          "position": "GK"
+        },
+        {
+          "name": "Nuno Mendes",
+          "position": "DL"
+        },
+        {
+          "name": "Marquinhos",
+          "position": "DC"
+        },
+        {
+          "name": "Willian Pacho",
+          "position": "DC"
+        },
+        {
+          "name": "A. Hakimi",
+          "position": "DR"
+        },
+        {
+          "name": "Fabian Ruiz",
+          "position": "MC"
+        },
+        {
+          "name": "Vitinha",
+          "position": "MC"
+        },
+        {
+          "name": "Joao Neves",
+          "position": "MC"
+        },
+        {
+          "name": "K. Kvaratskhelia",
+          "position": "FWL"
+        },
+        {
+          "name": "Desire Doue",
+          "position": "FWR"
+        },
+        {
+          "name": "O. Dembele",
+          "position": "FW"
+        }
+      ]
+    }
   }
 ]
