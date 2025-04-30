@@ -810,5 +810,118 @@
         }
       ]
     }
+  },
+  {
+    "id": "cl-barcelona-inter-milan-20250430",
+    "competition": "Champions League",
+    "home_team": "Barcelona",
+    "away_team": "Inter Milan",
+    "date": "2025-04-30",
+    "time": "20:00",
+    "venue": "Camp Nou",
+    "odds": {
+      "home_win": 1.68,
+      "draw": 4.2,
+      "away_win": 5.0,
+      "asian_handicap": {
+        "line": "-0.75",
+        "home": 1.85,
+        "away": 2.09
+      }
+    },
+    "lineups": {
+      "home": [
+        {
+          "name": "W. Szczesny",
+          "position": "GK"
+        },
+        {
+          "name": "G. Martin",
+          "position": "DL"
+        },
+        {
+          "name": "Pau Cubarsi",
+          "position": "DC"
+        },
+        {
+          "name": "I. Martinez",
+          "position": "DC"
+        },
+        {
+          "name": "Jules Kounde",
+          "position": "DR"
+        },
+        {
+          "name": "F. de Jong",
+          "position": "DMC"
+        },
+        {
+          "name": "Pedri",
+          "position": "DMC"
+        },
+        {
+          "name": "Raphinha",
+          "position": "AML"
+        },
+        {
+          "name": "Fermin",
+          "position": "AMC"
+        },
+        {
+          "name": "Lamine Yamal",
+          "position": "AMR"
+        },
+        {
+          "name": "F. Torres",
+          "position": "FW"
+        }
+      ],
+      "away": [
+        {
+          "name": "Yann Sommer",
+          "position": "GK"
+        },
+        {
+          "name": "A. Bastoni",
+          "position": "DC"
+        },
+        {
+          "name": "F. Acerbi",
+          "position": "DC"
+        },
+        {
+          "name": "Y. Bisseck",
+          "position": "DC"
+        },
+        {
+          "name": "F. Dimarco",
+          "position": "ML"
+        },
+        {
+          "name": "N. Barella",
+          "position": "MC"
+        },
+        {
+          "name": "H. Calhanoglu",
+          "position": "MC"
+        },
+        {
+          "name": "H. Mkhitaryan",
+          "position": "MC"
+        },
+        {
+          "name": "D. Dumfries",
+          "position": "MR"
+        },
+        {
+          "name": "M. Thuram",
+          "position": "FW"
+        },
+        {
+          "name": "L. Martinez",
+          "position": "FW"
+        }
+      ]
+    }
   }
 ]
