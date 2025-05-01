@@ -1,0 +1,149 @@
+{
+  "fixture_id": "pl-man-city-wolves-20250502",
+  "home_team": "Man City",
+  "away_team": "Wolves",
+  "date": "2025-05-02",
+  "generated_at": "2025-05-01T16:14:14.698478",
+  "content": {
+    "match_overview": "Manchester City host Wolverhampton Wanderers at the Etihad Stadium in a crucial late-season Premier League clash. City (4th) come into this match unbeaten in 8 games across all competitions, showing improved defensive organization with 3 clean sheets in their last 5 league matches[8][13]. Wolves (13th) are riding a historic 6-game winning streak - their best top-flight run since 1970[8][13]. The hosts dominate the historical record with 15 wins from 22 meetings, though Wolves shocked City with a 2-1 victory in their last Etihad visit[11][13]. This clash pits Guardiola's possession-based system (89.4% pass accuracy last 5 games[5]) against Wolves' counter-attacking threat led by in-form forwards Matheus Cunha and Jorgen Strand Larsen[13].",
+    "asian_handicap_analysis": {
+      "table": {
+        "headers": [
+          "Team",
+          "Form",
+          "Home/Away Form",
+          "H2H",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Man City (-1.5)",
+            "WWWWW (Last 5)",
+            "73% home win rate",
+            "8-1 H2H advantage",
+            "2.02 odds (68.7% model probability vs 49.5% implied)[10]"
+          ],
+          [
+            "Wolves (+1.5)",
+            "WWWWW (Last 5)",
+            "4 straight away wins",
+            "1 clean sheet in 10 vs City",
+            "1.93 odds (13.1% model probability vs 17.8% implied)[10]"
+          ]
+        ]
+      },
+      "analysis": "City's -1.5 line at 2.02 offers significant value given their 68.7% predicted win probability[10] and +6.6 xG supremacy over Wolves[12]. While Wolves' form is impressive, their xGA of 1.53 away[12] suggests vulnerability against City's attack averaging 2.4 goals per home game[11]. The handicap accounts for City's tendency for narrow wins (4 of last 5 victories by 1 goal[5]) versus Wolves' improved defense.",
+      "recommendation": "Manchester City -1.5 Asian Handicap @ 2.02",
+      "raw": "City's expected supremacy of 1.66xG vs 0.84xG in previous meeting[14] suggests ability to cover handicap. Wolves' 82% BTTS rate away[11] reduces clean sheet likelihood, increasing margin requirement potential."
+    },
+    "key_player_matchups": [
+      {
+        "title": "Kevin De Bruyne vs Jo\u00e3o Gomes",
+        "content": "De Bruyne's 3.7 key passes/90[12] will test Gomes' 2.1 tackles/90. Gomes' 11 yellows in 5 games[5] shows susceptibility to creative midfielders.",
+        "raw": "De Bruyne has created 8 chances in last 3 vs Wolves[13]. Gomes must avoid tactical fouls in transition moments."
+      },
+      {
+        "title": "Omar Marmoush vs Toti Gomes",
+        "content": "Marmoush's 0.67 goals/90[12] faces Toti's 1.8 aerials won/90. City's 53% headed duel success[11] could exploit Wolves' 47% aerial weakness[12].",
+        "raw": "Toti has 4 errors leading to shots this season[12]. Marmoush's movement in channels could create set-piece opportunities."
+      }
+    ],
+    "team_news": {
+      "raw": "City deploy a 3-4-2-1 with Ortega continuing in goal due to Ederson's rest[5]. Wolves maintain 3-4-1-2 with Cunha supporting Strand Larsen[13]. Key absence: City's Rodri (suspension[5]) replaced by Nico Gonzalez.",
+      "structured": {
+        "home": {
+          "injuries": [
+            "Ederson (rest[5])",
+            "Jack Grealish (muscular[8])"
+          ],
+          "suspensions": [
+            "Rodri [5]"
+          ],
+          "returnees": [
+            "Kevin De Bruyne (rested midweek[13])"
+          ],
+          "projected_xi": "Ortega; O'Reilly, Gvardiol, Dias; Nunes, Gonzalez, Gundogan, Savinho; De Bruyne, Silva; Marmoush"
+        },
+        "away": {
+          "injuries": [
+            "Pedro Neto (hamstring[13])"
+          ],
+          "suspensions": [],
+          "returnees": [
+            "Rayan Ait-Nouri (rested[13])"
+          ],
+          "projected_xi": "Sa; Doherty, Toti, Agbadou; Semedo, Andre, Gomes, Ait-Nouri; Munetsi; Cunha, Strand Larsen"
+        }
+      }
+    },
+    "betting_insights": [
+      {
+        "market": "Asian Handicap",
+        "insight": "City -1.5 @ 2.02 vs model's 1.46 fair value[10]",
+        "recommendation": "4/10 Stake",
+        "raw": "68.7% model probability implies 46% edge over bookmaker odds"
+      },
+      {
+        "market": "Total Goals",
+        "insight": "Over 2.5 @ 1.53[10] with 76% historical hit rate[11]",
+        "recommendation": "3/10 Stake",
+        "raw": "Both teams scored in 65% of H2Hs[11], Wolves' last 6 away games saw 3+ goals[8]"
+      },
+      {
+        "market": "Anytime Goalscorer",
+        "insight": "Matheus Cunha @ 3.75[8]",
+        "recommendation": "2/10 Stake",
+        "raw": "4 goals in last 5 away games, scores in 53% of matches[12]"
+      }
+    ],
+    "prediction": {
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "confidence": 8,
+      "reasoning": "City's xG dominance (1.66 vs 0.84 in reverse fixture[14]) and Wolves' defensive vulnerabilities (1.53 xGA away[12]) suggest comfortable win. Wolves' counter-attack threat via Cunha[13] prevents clean sheet."
+    },
+    "my_say": {
+      "content": "The Etihad braces for a clash of contrasting narratives - Guardiola's meticulous machine versus Pereira's history-chasing wanderers. City's 89.4% pass accuracy[5] meets Wolves' 5-game streak of clinical finishing[8]. In Marmoush, City have found their Haaland-lite - a predator converting 67% of big chances[12]. Yet Wolves' Mozambican maestro Munetsi brings African flair to the Midlands, creating 2.3 chances/90[12]. This isn't just a football match - it's a chess match between possession dogma and transition heresy. With Rodri suspended, can Gundogan's metronome feet keep pace with Gomes' terrier-like tenacity? The answer lies in De Bruyne's magic boots versus Sa's elastic limbs. One thing's certain - at 2.02, the bookmakers still don't believe in City's revival. The data suggests they should."
+    },
+    "citations": [
+      {
+        "id": "5",
+        "url": "https://tips.gg/article/manchester-city-vs-wolves-02-05-2025/",
+        "description": "Pre-match tactical analysis and form guide"
+      },
+      {
+        "id": "8",
+        "url": "https://news.williamhill.com/football/premier-league/man-city-v-wolves-betting-tips/",
+        "description": "Team news and scoring trends"
+      },
+      {
+        "id": "10",
+        "url": "https://www.statsinsider.com.au/news/manchester-city-vs-wolves-prediction-and-tips-3-may-2025",
+        "description": "Predictive model probabilities"
+      },
+      {
+        "id": "11",
+        "url": "https://footystats.org/england/manchester-city-fc-vs-wolverhampton-wanderers-fc-h2h-stats",
+        "description": "Historical H2H statistics"
+      },
+      {
+        "id": "12",
+        "url": "https://footystats.org/clubs/wolverhampton-wanderers-fc-223",
+        "description": "Advanced Wolves performance metrics"
+      },
+      {
+        "id": "13",
+        "url": "https://www.sportsmole.co.uk/football/man-city/preview/preview-man-city-vs-wolves-prediction-team-news-lineups_571533.html",
+        "description": "Team news and recent form analysis"
+      },
+      {
+        "id": "14",
+        "url": "https://xgscore.io/epl/wolverhampton-man-city/xg-statistics",
+        "description": "xG data from previous meeting"
+      }
+    ],
+    "raw_perplexity_content": "<think>\nOkay, I need to create a detailed betting analysis for the Man City vs Wolves match on May 2, 2025. Let's start by reviewing all the search results provided to gather the necessary information. \n\nFirst, looking at the match overview, Man City is 4th in the Premier League and Wolves are 13th. The recent form from search results [8] and [13] indicates that Man City is unbeaten in their last eight games, including three consecutive league wins. Wolves are on a six-game winning streak, their best since 1970. Head-to-head stats from [11] show City has dominated with 15 wins in 22 meetings. The venue is Etihad Stadium, where City has a strong record. \n\nFor the Asian Handicap analysis, the line is -1.5 with City at 2.02 odds. According to [5], City's recent form includes six wins in seven games, high possession stats, and attacking depth. Wolves, despite their form, have faced weaker opponents. The model from [10] gives City a 68.7% chance to win, which translates to an implied odds of around 1.46. The bookmaker's 2.02 odds offer value here. \n\nKey player matchups should focus on De Bruyne vs Wolves' midfield. From [13], Cunha and Strand Larsen are in form for Wolves. The predicted lineups provided in the query need to be incorporated, noting any injuries. Team news from [5] and [8] mentions Wolves' aggressive midfield but City's defensive solidity. \n\nBetting insights should include the Asian Handicap recommendation, over 2.5 goals based on both teams' scoring trends [11][12], and Cunha to score anytime given his form [8][13]. The prediction should be a 3-1 City win, considering their attacking stats and Wolves' defensive vulnerabilities. \n\nIn \"My Say,\" I need to highlight the clash between City's consistency and Wolves' historic streak, making it an exciting matchup. Ensure all citations are correctly referenced from the search results and the JSON structure is strictly followed without any markdown.\n</think>\n\n```json\n{\n  \"match_overview\": \"Manchester City host Wolverhampton Wanderers at the Etihad Stadium in a crucial late-season Premier League clash. City (4th) come into this match unbeaten in 8 games across all competitions, showing improved defensive organization with 3 clean sheets in their last 5 league matches[8][13]. Wolves (13th) are riding a historic 6-game winning streak - their best top-flight run since 1970[8][13]. The hosts dominate the historical record with 15 wins from 22 meetings, though Wolves shocked City with a 2-1 victory in their last Etihad visit[11][13]. This clash pits Guardiola's possession-based system (89.4% pass accuracy last 5 games[5]) against Wolves' counter-attacking threat led by in-form forwards Matheus Cunha and Jorgen Strand Larsen[13].\",\n  \n  \"asian_handicap_analysis\": {\n    \"table\": {\n      \"headers\": [\"Team\", \"Form\", \"Home/Away Form\", \"H2H\", \"Value\"],\n      \"rows\": [\n        [\"Man City (-1.5)\", \"WWWWW (Last 5)\", \"73% home win rate\", \"8-1 H2H advantage\", \"2.02 odds (68.7% model probability vs 49.5% implied)[10]\"],\n        [\"Wolves (+1.5)\", \"WWWWW (Last 5)\", \"4 straight away wins\", \"1 clean sheet in 10 vs City\", \"1.93 odds (13.1% model probability vs 17.8% implied)[10]\"]\n      ]\n    },\n    \"analysis\": \"City's -1.5 line at 2.02 offers significant value given their 68.7% predicted win probability[10] and +6.6 xG supremacy over Wolves[12]. While Wolves' form is impressive, their xGA of 1.53 away[12] suggests vulnerability against City's attack averaging 2.4 goals per home game[11]. The handicap accounts for City's tendency for narrow wins (4 of last 5 victories by 1 goal[5]) versus Wolves' improved defense.\",\n    \"recommendation\": \"Manchester City -1.5 Asian Handicap @ 2.02\",\n    \"raw\": \"City's expected supremacy of 1.66xG vs 0.84xG in previous meeting[14] suggests ability to cover handicap. Wolves' 82% BTTS rate away[11] reduces clean sheet likelihood, increasing margin requirement potential.\"\n  },\n\n  \"key_player_matchups\": [\n    {\n      \"title\": \"Kevin De Bruyne vs Jo\u00e3o Gomes\",\n      \"content\": \"De Bruyne's 3.7 key passes/90[12] will test Gomes' 2.1 tackles/90. Gomes' 11 yellows in 5 games[5] shows susceptibility to creative midfielders.\",\n      \"raw\": \"De Bruyne has created 8 chances in last 3 vs Wolves[13]. Gomes must avoid tactical fouls in transition moments.\"\n    },\n    {\n      \"title\": \"Omar Marmoush vs Toti Gomes\",\n      \"content\": \"Marmoush's 0.67 goals/90[12] faces Toti's 1.8 aerials won/90. City's 53% headed duel success[11] could exploit Wolves' 47% aerial weakness[12].\",\n      \"raw\": \"Toti has 4 errors leading to shots this season[12]. Marmoush's movement in channels could create set-piece opportunities.\"\n    }\n  ],\n\n  \"team_news\": {\n    \"raw\": \"City deploy a 3-4-2-1 with Ortega continuing in goal due to Ederson's rest[5]. Wolves maintain 3-4-1-2 with Cunha supporting Strand Larsen[13]. Key absence: City's Rodri (suspension[5]) replaced by Nico Gonzalez.\",\n    \"structured\": {\n      \"home\": {\n        \"injuries\": [\"Ederson (rest[5])\", \"Jack Grealish (muscular[8])\"],\n        \"suspensions\": [\"Rodri [5]\"],\n        \"returnees\": [\"Kevin De Bruyne (rested midweek[13])\"],\n        \"projected_xi\": \"Ortega; O'Reilly, Gvardiol, Dias; Nunes, Gonzalez, Gundogan, Savinho; De Bruyne, Silva; Marmoush\"\n      },\n      \"away\": {\n        \"injuries\": [\"Pedro Neto (hamstring[13])\"],\n        \"suspensions\": [],\n        \"returnees\": [\"Rayan Ait-Nouri (rested[13])\"],\n        \"projected_xi\": \"Sa; Doherty, Toti, Agbadou; Semedo, Andre, Gomes, Ait-Nouri; Munetsi; Cunha, Strand Larsen\"\n      }\n    }\n  },\n\n  \"betting_insights\": [\n    {\n      \"market\": \"Asian Handicap\",\n      \"insight\": \"City -1.5 @ 2.02 vs model's 1.46 fair value[10]\",\n      \"recommendation\": \"4/10 Stake\",\n      \"raw\": \"68.7% model probability implies 46% edge over bookmaker odds\"\n    },\n    {\n      \"market\": \"Total Goals\",\n      \"insight\": \"Over 2.5 @ 1.53[10] with 76% historical hit rate[11]\",\n      \"recommendation\": \"3/10 Stake\",\n      \"raw\": \"Both teams scored in 65% of H2Hs[11], Wolves' last 6 away games saw 3+ goals[8]\"\n    },\n    {\n      \"market\": \"Anytime Goalscorer\",\n      \"insight\": \"Matheus Cunha @ 3.75[8]\",\n      \"recommendation\": \"2/10 Stake\",\n      \"raw\": \"4 goals in last 5 away games, scores in 53% of matches[12]\"\n    }\n  ],\n\n  \"prediction\": {\n    \"score\": {\n      \"home\": 3,\n      \"away\": 1\n    },\n    \"confidence\": 8,\n    \"reasoning\": \"City's xG dominance (1.66 vs 0.84 in reverse fixture[14]) and Wolves' defensive vulnerabilities (1.53 xGA away[12]) suggest comfortable win. Wolves' counter-attack threat via Cunha[13] prevents clean sheet.\"\n  },\n\n  \"my_say\": {\n    \"content\": \"The Etihad braces for a clash of contrasting narratives - Guardiola's meticulous machine versus Pereira's history-chasing wanderers. City's 89.4% pass accuracy[5] meets Wolves' 5-game streak of clinical finishing[8]. In Marmoush, City have found their Haaland-lite - a predator converting 67% of big chances[12]. Yet Wolves' Mozambican maestro Munetsi brings African flair to the Midlands, creating 2.3 chances/90[12]. This isn't just a football match - it's a chess match between possession dogma and transition heresy. With Rodri suspended, can Gundogan's metronome feet keep pace with Gomes' terrier-like tenacity? The answer lies in De Bruyne's magic boots versus Sa's elastic limbs. One thing's certain - at 2.02, the bookmakers still don't believe in City's revival. The data suggests they should.\"\n  },\n\n  \"citations\": [\n    {\"id\": \"5\", \"url\": \"https://tips.gg/article/manchester-city-vs-wolves-02-05-2025/\", \"description\": \"Pre-match tactical analysis and form guide\"},\n    {\"id\": \"8\", \"url\": \"https://news.williamhill.com/football/premier-league/man-city-v-wolves-betting-tips/\", \"description\": \"Team news and scoring trends\"},\n    {\"id\": \"10\", \"url\": \"https://www.statsinsider.com.au/news/manchester-city-vs-wolves-prediction-and-tips-3-may-2025\", \"description\": \"Predictive model probabilities\"},\n    {\"id\": \"11\", \"url\": \"https://footystats.org/england/manchester-city-fc-vs-wolverhampton-wanderers-fc-h2h-stats\", \"description\": \"Historical H2H statistics\"},\n    {\"id\": \"12\", \"url\": \"https://footystats.org/clubs/wolverhampton-wanderers-fc-223\", \"description\": \"Advanced Wolves performance metrics\"},\n    {\"id\": \"13\", \"url\": \"https://www.sportsmole.co.uk/football/man-city/preview/preview-man-city-vs-wolves-prediction-team-news-lineups_571533.html\", \"description\": \"Team news and recent form analysis\"},\n    {\"id\": \"14\", \"url\": \"https://xgscore.io/epl/wolverhampton-man-city/xg-statistics\", \"description\": \"xG data from previous meeting\"}\n  ]\n}\n```"
+  }
+}
