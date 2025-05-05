@@ -1,0 +1,161 @@
+{
+  "fixture_id": "cl-inter-milan-barcelona-20250506",
+  "home_team": "Inter Milan",
+  "away_team": "Barcelona",
+  "date": "2025-05-06",
+  "generated_at": "2025-05-05T18:42:53.958084",
+  "content": {
+    "match_overview": "The Champions League semifinal second leg between Inter Milan and Barcelona at San Siro promises high stakes after a thrilling 3-3 first-leg draw. Inter\u2019s clinical finishing (4 high-value shots, 2 goals) contrasted Barcelona\u2019s territorial dominance (19 shots, 72% possession) in the opener[9][11]. Inter arrive with momentum from a 1-0 Serie A win over Verona, rotating 10 starters to prioritize this clash[7]. Barcelona, fresh off a 2-1 La Liga victory against Valladolid, face defensive concerns with Alejandro Balde and Jules Kound\u00e9 injured[16]. Historically, Barcelona have won just 21% of UCL away games in Italy[10], while Inter boast a 12-match unbeaten home streak in Europe[6].",
+    "asian_handicap_analysis": {
+      "table": {
+        "headers": [
+          "Team",
+          "Form",
+          "Home/Away Form",
+          "H2H",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Inter (+0.25 @1.88)",
+            "3W-2D-1L (UCL)",
+            "5W-1D (Home UCL)",
+            "2-1-3 vs Barca",
+            "Overperforms xG by 23% [9]"
+          ],
+          [
+            "Barcelona (-0.25 @2.06)",
+            "4W-1D-1L (UCL)",
+            "2W-3D-1L (Away)",
+            "3-3 first leg",
+            "xG 1.49 vs 1.00 in Leg 1[14]"
+          ]
+        ]
+      },
+      "analysis": "Inter\u2019s +0.25 line offers value given their 2.1 xT and 80% shot conversion in high-danger zones during the first leg[9]. Barcelona\u2019s -0.25 odds imply 48.5% probability, but Opta\u2019s model gives them 42.7% win chance[10] \u2013 slight overvaluation. The line protects against a draw, where Inter would progress via away goals.",
+      "recommendation": "Inter +0.25 Asian Handicap @1.88 (Implied 53.2% vs Model 57.3%[10])",
+      "raw": "Inter\u2019s UCL home xG of 2.3 per game exceeds Barcelona\u2019s away xGA of 1.8[15]. The hosts converted 38% of >0.1 xG chances vs Barca\u2019s 12% in Leg 1[9]."
+    },
+    "key_player_matchups": [
+      {
+        "title": "Lautaro Mart\u00ednez vs Pau Cubars\u00ed",
+        "content": "Mart\u00ednez\u2019s 0.67 xG/90 in UCL tests Cubars\u00ed\u2019s 1.3 tackles/game. The Inter striker scored in 3 straight UCL home games[6].",
+        "raw": "Mart\u00ednez created 2 big chances in first leg despite playing 62 mins[11]."
+      },
+      {
+        "title": "Raphinha vs Federico Dimarco",
+        "content": "Raphinha\u2019s 3.5 dribbles/90 vs Dimarco\u2019s 1.8 tackles/90. The Brazilian had 4 shots and 1 assist in Leg 1[11].",
+        "raw": "Dimarco\u2019s 83% duel success rate in UCL knockout stages[15]."
+      }
+    ],
+    "team_news": {
+      "raw": "Inter regain Lautaro Mart\u00ednez (thigh) and Benjamin Pavard (ankle)[7][16]. Barcelona miss Balde (thigh) and Kound\u00e9 (hamstring), forcing Inigo Mart\u00ednez to left-back[16].",
+      "structured": {
+        "home": {
+          "injuries": [
+            "Valent\u00edn Carboni (knee)[13]"
+          ],
+          "suspensions": [],
+          "returnees": [
+            "Lautaro Mart\u00ednez[7]",
+            "Benjamin Pavard[16]"
+          ],
+          "projected_xi": "Sommer; Pavard, Acerbi, Bastoni; Darmian, Barella, \u00c7alhano\u011flu, Mkhitaryan, Dimarco; Mart\u00ednez, Thuram"
+        },
+        "away": {
+          "injuries": [
+            "Alejandro Balde (thigh)[16]",
+            "Jules Kound\u00e9 (hamstring)[13]"
+          ],
+          "suspensions": [],
+          "returnees": [
+            "Robert Lewandowski[7]"
+          ],
+          "projected_xi": "Ter Stegen; E. Garc\u00eda, Araujo, Cubars\u00ed, I. Mart\u00ednez; G\u00fcndo\u011fan, Christensen, Pedri; Yamal, Lewandowski, Raphinha"
+        }
+      }
+    },
+    "betting_insights": [
+      {
+        "market": "Both Teams to Score",
+        "insight": "-250 odds (71.4% implied) vs 78% in UCL knockouts",
+        "recommendation": "Yes @-250 (4/5 UCL H2Hs saw BTTS[15])",
+        "raw": "Inter scored 2+ goals in 6 straight UCL matches[6]."
+      },
+      {
+        "market": "Over 2.5 Goals",
+        "insight": "-225 odds (69.2%) vs 67% UCL semifinal avg",
+        "recommendation": "Over 2.5 @-225 (3.6 xG combined in Leg 1[14])",
+        "raw": "Inter\u2019s UCL home games average 3.8 goals[15]."
+      },
+      {
+        "market": "Inter to Qualify",
+        "insight": "+110 (47.6%) vs Opta\u2019s 44% projection[10]",
+        "recommendation": "Value in Draw No Bet Inter @+125[4]",
+        "raw": "Inter progressed from 5/6 UCL ties when scoring away first leg[6]."
+      }
+    ],
+    "prediction": {
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "confidence": 7,
+      "reasoning": "Inter\u2019s set-piece prowess (0.39 xG from corners in Leg 1[9]) exploits Barcelona\u2019s makeshift defense. The hosts have converted 43% of high-value chances in UCL knockouts vs Barca\u2019s 28%[14]."
+    },
+    "my_say": "San Siro braces for a tactical duel between Simone Inzaghi\u2019s counter-punching specialists and Hansi Flick\u2019s possession purists. The numbers whisper intrigue: Inter\u2019s 2.1 xT from just 28% possession in Leg 1[9] versus Barcelona\u2019s 19 shots yielding 1.49 xG[14]. Watch for the Mart\u00ednez factor \u2013 Lautaro\u2019s return bolsters Inter\u2019s clinical edge, while Inigo Mart\u00ednez\u2019s emergency left-back role creates a chink in Barca\u2019s armor. With 11 goals across their last two meetings, this chess match threatens to explode into another goal fest. The subplot? Barcelona\u2019s quest to break their Italian hex \u2013 just five wins in 24 attempts[10] \u2013 against an Inter side rewriting their European identity. Strap in for 90 minutes where every counter-attack could rewrite the narrative, and every set-piece might tip the balance of continental power.",
+    "raw_perplexity_content": "<think>\nOkay, let's tackle this betting analysis for the Inter Milan vs Barcelona Champions League match. First, I need to gather all the relevant information from the provided search results and structure it according to the user's requirements.\n\nStarting with the match overview, I should highlight the context of the semifinal second leg after the 3-3 draw in the first leg. Both teams are in tight title races domestically, but they rotated players over the weekend, indicating their focus on the Champions League. Recent form: Inter's 1-0 win over Verona and Barcelona's 2-1 victory against Real Valladolid. Head-to-head stats from the first leg and historical performance in Italy for Barca are important here.\n\nNext, the Asian Handicap analysis. The line is +0.25 for Inter with odds 1.88, and -0.25 for Barcelona at 2.06. Need to compare this with the Opta supercomputer's prediction of a 42.7% chance for Barca to win, which translates to implied odds around 2.34. Since the bookmaker offers 2.06, there's a slight value on Barcelona. However, considering Inter's strong home record and Barca's historical struggles in Italy, maybe the value isn't as clear. Also, Inter's xG efficiency in the first leg despite fewer shots could indicate they can handle Barca's pressure.\n\nKey player matchups: Lautaro Mart\u00ednez vs Barcelona's defense, especially since he's returning from injury. Marcus Thuram's impact in the first leg. For Barcelona, Raphinha and Lamine Yamal's performance against Inter's wing-backs. Dumfries' set-piece threat against Barca's defense.\n\nTeam news is crucial. Inter's lineup from the prompt, but according to search results, Inter might have Pavard and Mart\u00ednez back, which wasn't in the predicted lineups. Barcelona's injuries: Balde out, Kound\u00e9 injured, so their defense is weakened. Need to adjust the projected lineups based on the latest info from the sources, like Inigo Martinez playing left-back.\n\nBetting insights should focus on value opportunities. For example, both teams to score (high in the first leg), over 2.5 goals given the attacking styles, and maybe Inter to score over 1.5 goals based on their home form. Also, considering the Asian Handicap line and where the value lies.\n\nPrediction: Given the defensive issues for Barca and Inter's home advantage, a 2-1 win for Inter seems plausible. But the aggregate might be tight. However, the first leg was 3-3, so this leg could go either way. Need to check the Opta supercomputer's 56% chance for Barca to progress, but the match itself might be a draw.\n\nMy Say: Highlight the drama of the first leg, the key players returning from injury, the tactical battle between Inzaghi and Flick, and the historical context of Barca's struggles in Italy. Make it engaging and build excitement for the clash.\n\nCitations: Need to reference the sources properly. For example, the Opta supercomputer stats from [10], Inter's xG efficiency from [9], team news from [16], and first leg details from [11] and [14].\n\nDouble-checking all facts against the search results to ensure accuracy, especially regarding injuries, lineups, and stats. Making sure not to include any unsourced information. Also, ensuring the Asian Handicap analysis correctly interprets the +0.25 line and the value assessment based on the provided odds and implied probabilities.\n</think>\n\n```json\n{\n  \"match_overview\": \"The Champions League semifinal second leg between Inter Milan and Barcelona at San Siro promises high stakes after a thrilling 3-3 first-leg draw. Inter\u2019s clinical finishing (4 high-value shots, 2 goals) contrasted Barcelona\u2019s territorial dominance (19 shots, 72% possession) in the opener[9][11]. Inter arrive with momentum from a 1-0 Serie A win over Verona, rotating 10 starters to prioritize this clash[7]. Barcelona, fresh off a 2-1 La Liga victory against Valladolid, face defensive concerns with Alejandro Balde and Jules Kound\u00e9 injured[16]. Historically, Barcelona have won just 21% of UCL away games in Italy[10], while Inter boast a 12-match unbeaten home streak in Europe[6].\",\n  \n  \"asian_handicap_analysis\": {\n    \"table\": {\n      \"headers\": [\"Team\", \"Form\", \"Home/Away Form\", \"H2H\", \"Value\"],\n      \"rows\": [\n        [\"Inter (+0.25 @1.88)\", \"3W-2D-1L (UCL)\", \"5W-1D (Home UCL)\", \"2-1-3 vs Barca\", \"Overperforms xG by 23% [9]\"],\n        [\"Barcelona (-0.25 @2.06)\", \"4W-1D-1L (UCL)\", \"2W-3D-1L (Away)\", \"3-3 first leg\", \"xG 1.49 vs 1.00 in Leg 1[14]\"]\n      ]\n    },\n    \"analysis\": \"Inter\u2019s +0.25 line offers value given their 2.1 xT and 80% shot conversion in high-danger zones during the first leg[9]. Barcelona\u2019s -0.25 odds imply 48.5% probability, but Opta\u2019s model gives them 42.7% win chance[10] \u2013 slight overvaluation. The line protects against a draw, where Inter would progress via away goals.\",\n    \"recommendation\": \"Inter +0.25 Asian Handicap @1.88 (Implied 53.2% vs Model 57.3%[10])\",\n    \"raw\": \"Inter\u2019s UCL home xG of 2.3 per game exceeds Barcelona\u2019s away xGA of 1.8[15]. The hosts converted 38% of >0.1 xG chances vs Barca\u2019s 12% in Leg 1[9].\"\n  },\n\n  \"key_player_matchups\": [\n    {\n      \"title\": \"Lautaro Mart\u00ednez vs Pau Cubars\u00ed\",\n      \"content\": \"Mart\u00ednez\u2019s 0.67 xG/90 in UCL tests Cubars\u00ed\u2019s 1.3 tackles/game. The Inter striker scored in 3 straight UCL home games[6].\",\n      \"raw\": \"Mart\u00ednez created 2 big chances in first leg despite playing 62 mins[11].\"\n    },\n    {\n      \"title\": \"Raphinha vs Federico Dimarco\",\n      \"content\": \"Raphinha\u2019s 3.5 dribbles/90 vs Dimarco\u2019s 1.8 tackles/90. The Brazilian had 4 shots and 1 assist in Leg 1[11].\",\n      \"raw\": \"Dimarco\u2019s 83% duel success rate in UCL knockout stages[15].\"\n    }\n  ],\n\n  \"team_news\": {\n    \"raw\": \"Inter regain Lautaro Mart\u00ednez (thigh) and Benjamin Pavard (ankle)[7][16]. Barcelona miss Balde (thigh) and Kound\u00e9 (hamstring), forcing Inigo Mart\u00ednez to left-back[16].\",\n    \"structured\": {\n      \"home\": {\n        \"injuries\": [\"Valent\u00edn Carboni (knee)[13]\"],\n        \"suspensions\": [],\n        \"returnees\": [\"Lautaro Mart\u00ednez[7]\", \"Benjamin Pavard[16]\"],\n        \"projected_xi\": \"Sommer; Pavard, Acerbi, Bastoni; Darmian, Barella, \u00c7alhano\u011flu, Mkhitaryan, Dimarco; Mart\u00ednez, Thuram\"\n      },\n      \"away\": {\n        \"injuries\": [\"Alejandro Balde (thigh)[16]\", \"Jules Kound\u00e9 (hamstring)[13]\"],\n        \"suspensions\": [],\n        \"returnees\": [\"Robert Lewandowski[7]\"],\n        \"projected_xi\": \"Ter Stegen; E. Garc\u00eda, Araujo, Cubars\u00ed, I. Mart\u00ednez; G\u00fcndo\u011fan, Christensen, Pedri; Yamal, Lewandowski, Raphinha\"\n      }\n    }\n  },\n\n  \"betting_insights\": [\n    {\n      \"market\": \"Both Teams to Score\",\n      \"insight\": \"-250 odds (71.4% implied) vs 78% in UCL knockouts\",\n      \"recommendation\": \"Yes @-250 (4/5 UCL H2Hs saw BTTS[15])\",\n      \"raw\": \"Inter scored 2+ goals in 6 straight UCL matches[6].\"\n    },\n    {\n      \"market\": \"Over 2.5 Goals\",\n      \"insight\": \"-225 odds (69.2%) vs 67% UCL semifinal avg\",\n      \"recommendation\": \"Over 2.5 @-225 (3.6 xG combined in Leg 1[14])\",\n      \"raw\": \"Inter\u2019s UCL home games average 3.8 goals[15].\"\n    },\n    {\n      \"market\": \"Inter to Qualify\",\n      \"insight\": \"+110 (47.6%) vs Opta\u2019s 44% projection[10]\",\n      \"recommendation\": \"Value in Draw No Bet Inter @+125[4]\",\n      \"raw\": \"Inter progressed from 5/6 UCL ties when scoring away first leg[6].\"\n    }\n  ],\n\n  \"prediction\": {\n    \"score\": {\n      \"home\": 2,\n      \"away\": 1\n    },\n    \"confidence\": 7,\n    \"reasoning\": \"Inter\u2019s set-piece prowess (0.39 xG from corners in Leg 1[9]) exploits Barcelona\u2019s makeshift defense. The hosts have converted 43% of high-value chances in UCL knockouts vs Barca\u2019s 28%[14].\"\n  },\n\n  \"my_say\": \"San Siro braces for a tactical duel between Simone Inzaghi\u2019s counter-punching specialists and Hansi Flick\u2019s possession purists. The numbers whisper intrigue: Inter\u2019s 2.1 xT from just 28% possession in Leg 1[9] versus Barcelona\u2019s 19 shots yielding 1.49 xG[14]. Watch for the Mart\u00ednez factor \u2013 Lautaro\u2019s return bolsters Inter\u2019s clinical edge, while Inigo Mart\u00ednez\u2019s emergency left-back role creates a chink in Barca\u2019s armor. With 11 goals across their last two meetings, this chess match threatens to explode into another goal fest. The subplot? Barcelona\u2019s quest to break their Italian hex \u2013 just five wins in 24 attempts[10] \u2013 against an Inter side rewriting their European identity. Strap in for 90 minutes where every counter-attack could rewrite the narrative, and every set-piece might tip the balance of continental power.\"\n}\n```",
+    "citations": [
+      {
+        "id": "4",
+        "url": "",
+        "description": "Source 4"
+      },
+      {
+        "id": "6",
+        "url": "",
+        "description": "Source 6"
+      },
+      {
+        "id": "7",
+        "url": "",
+        "description": "Source 7"
+      },
+      {
+        "id": "9",
+        "url": "",
+        "description": "Source 9"
+      },
+      {
+        "id": "10",
+        "url": "",
+        "description": "Source 10"
+      },
+      {
+        "id": "11",
+        "url": "",
+        "description": "Source 11"
+      },
+      {
+        "id": "13",
+        "url": "",
+        "description": "Source 13"
+      },
+      {
+        "id": "14",
+        "url": "",
+        "description": "Source 14"
+      },
+      {
+        "id": "15",
+        "url": "",
+        "description": "Source 15"
+      },
+      {
+        "id": "16",
+        "url": "",
+        "description": "Source 16"
+      }
+    ]
+  }
+}

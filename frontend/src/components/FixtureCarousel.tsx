@@ -436,7 +436,7 @@ const FixtureCarousel: React.FC<FixtureCarouselProps> = ({
       return new Date(fixture.kickoff) > now;
     });
     
-    return nextFixture || null;
+    return nextFixture || sortedFixtures[sortedFixtures.length - 1] || null;
   };
 
   // Auto-scroll to the next upcoming fixture when fixtures are loaded

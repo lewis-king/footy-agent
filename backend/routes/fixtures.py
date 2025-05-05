@@ -171,154 +171,154 @@ def is_fixtures_outdated(fixtures, include_past=False):
     return False
 
 def refresh_fixtures_data(competition):
-    """Fetch latest fixtures from Flashscore.co.uk"""
+    """Fetch latest fixtures from Rotowire or fallback"""
     try:
         print(f"Fetching {competition} fixtures...")
-        
-        if competition == 'premier-league':
-            # Use Rotowire for Premier League fixtures with lineups
-            return scrape_rotowire_fixtures()
-        elif competition == 'champions-league':
-            url = "https://www.flashscore.co.uk/football/europe/champions-league/fixtures/"
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-            }
-            
-            response = requests.get(url, headers=headers)
-            
-            if response.status_code != 200:
-                print(f"Failed to fetch fixtures: HTTP {response.status_code}")
-                return generate_fallback_fixtures(competition)
-            
-            soup = BeautifulSoup(response.text, 'html.parser')
-            fixtures = []
-            
-            # Find all fixture elements (each match row)
-            fixture_elements = soup.select('.sportName.soccer .event__match')
-            
-            if not fixture_elements:
-                print("No fixture elements found on the page")
-                return generate_fallback_fixtures(competition)
-            
-            print(f"Found {len(fixture_elements)} fixture elements")
-            
-            # Get current date to filter only upcoming fixtures
-            today = datetime.now().date()
-            
-            # Track the current date being processed
-            current_date = None
-            
-            # Find all date headers and match rows
-            all_elements = soup.select('.sportName.soccer .event__header, .sportName.soccer .event__match')
-            
-            for idx, element in enumerate(all_elements):
-                try:
-                    # Check if this is a date header
-                    if 'event__header' in element.get('class', []):
-                        date_text = element.select_one('.event__title').text.strip()
-                        try:
-                            # Parse date (format varies, but often like "01.04. 2025" or "Today")
-                            if date_text.lower() == 'today':
-                                current_date = today
-                            elif date_text.lower() == 'tomorrow':
-                                current_date = today + timedelta(days=1)
-                            else:
-                                # Try to parse the date format
-                                # Format is typically DD.MM.YYYY or DD.MM.
-                                if '.' in date_text:
-                                    parts = date_text.split('.')
-                                    if len(parts) >= 2:
-                                        day = int(parts[0].strip())
-                                        month = int(parts[1].strip())
-                                        year = datetime.now().year
-                                        if len(parts) > 2 and parts[2].strip():
-                                            year = int(parts[2].strip())
-                                        current_date = datetime(year, month, day).date()
-                        except Exception as e:
-                            print(f"Error parsing date: {date_text}, {str(e)}")
-                            current_date = None
-                        continue
-                    
-                    # Skip if we don't have a valid date
-                    if not current_date or current_date < today:
-                        continue
-                    
-                    # This is a match element
-                    home_team_elem = element.select_one('.event__participant--home')
-                    away_team_elem = element.select_one('.event__participant--away')
-                    
-                    if not home_team_elem or not away_team_elem:
-                        continue
-                    
-                    home_team = home_team_elem.text.strip()
-                    away_team = away_team_elem.text.strip()
-                    
-                    # Get time
-                    time_elem = element.select_one('.event__time')
-                    if not time_elem:
-                        continue
-                    
-                    time_text = time_elem.text.strip()
-                    
-                    # Parse time (format: HH:MM)
-                    try:
-                        hour, minute = time_text.split(':')
-                        fixture_time = f"{hour.zfill(2)}:{minute}"
-                        
-                        # Create datetime object for the fixture
-                        fixture_datetime = datetime.combine(
-                            current_date, 
-                            datetime.strptime(fixture_time, '%H:%M').time()
-                        )
-                    except Exception as e:
-                        print(f"Error parsing time: {time_text}, {str(e)}")
-                        fixture_time = "15:00"  # Default to 3 PM if time parsing fails
-                        fixture_datetime = datetime.combine(
-                            current_date,
-                            datetime.strptime(fixture_time, '%H:%M').time()
-                        )
-                    
-                    # Create a unique ID for the fixture
-                    if competition == 'premier-league':
-                        fixture_id = f"pl-{home_team.lower().replace(' ', '-')}-{away_team.lower().replace(' ', '-')}-{fixture_datetime.strftime('%Y%m%d')}"
-                    elif competition == 'champions-league':
-                        fixture_id = f"cl-{home_team.lower().replace(' ', '-')}-{away_team.lower().replace(' ', '-')}-{fixture_datetime.strftime('%Y%m%d')}"
-                    
-                    # Get venue (not available on this page, use home team's stadium)
-                    venue = get_stadium_for_team(home_team)
-                    
-                    # Create the fixture object
-                    fixture = {
-                        "id": fixture_id,
-                        "competition": competition,
-                        "home_team": home_team,
-                        "away_team": away_team,
-                        "date": fixture_datetime.strftime('%Y-%m-%d'),
-                        "time": fixture_time,
-                        "venue": venue,
-                        "odds": generate_random_odds()        # We don't have real odds data
-                    }
-                    
-                    fixtures.append(fixture)
-                    
-                    # Limit to 10 fixtures for now
-                    if len(fixtures) >= 10:
-                        break
-                        
-                except Exception as e:
-                    print(f"Error parsing fixture {idx}: {str(e)}")
-                    continue
-        
-        if fixtures:
-            print(f"Successfully scraped {len(fixtures)} fixtures")
-            return fixtures
-        else:
-            print("No fixtures could be parsed")
-            return generate_fallback_fixtures(competition)
-            
+        return scrape_rotowire_fixtures(competition)
     except Exception as e:
-        print(f"Error scraping fixtures: {str(e)}")
+        print(f"Error in refresh_fixtures_data: {str(e)}")
         return generate_fallback_fixtures(competition)
+
+def scrape_rotowire_fixtures(competition=None):
+    """
+    Scrape upcoming Premier League or Champions League fixtures and lineups from Rotowire
+    Returns a list of fixture objects compatible with the existing format
+    """
+    try:
+        # Determine URL based on competition
+        url = "https://www.rotowire.com/soccer/lineups.php"
+        if competition == 'champions-league':
+            url += "?league=UCL"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        
+        print(f"Fetching {competition or 'Premier League'} fixtures from Rotowire...")
+        response = requests.get(url, headers=headers)
+        
+        if response.status_code != 200:
+            print(f"Failed to fetch fixtures from Rotowire: HTTP {response.status_code}")
+            return generate_fallback_fixtures(competition or 'premier-league')
+        
+        soup = BeautifulSoup(response.text, 'html.parser')
+        fixtures = []
+        
+        # Load existing fixtures to preserve IDs and other data
+        existing_fixtures = load_fixtures(competition or 'premier-league')
+        existing_fixtures_dict = {f"{f['home_team']}-{f['away_team']}": f for f in existing_fixtures}
+        
+        # Find all fixture boxes
+        fixture_boxes = soup.select('.lineup__box')
+        
+        if not fixture_boxes:
+            print("No fixture boxes found on Rotowire")
+            return generate_fallback_fixtures(competition or 'premier-league')
+        
+        print(f"Found {len(fixture_boxes)} fixture boxes on Rotowire")
+        
+        for box in fixture_boxes:
+            try:
+                # Extract home and away team names
+                home_team_div = box.select_one('.lineup__mteam.is-home')
+                away_team_div = box.select_one('.lineup__mteam.is-visit')
+                
+                if not home_team_div or not away_team_div:
+                    continue
+                
+                home_team = home_team_div.get_text(strip=True) 
+                away_team = away_team_div.get_text(strip=True)
+                
+                # Map team names to our standard format
+                home_team = standardize_team_name(home_team)
+                away_team = standardize_team_name(away_team)
+                
+                # For Premier League, skip non-PL teams; for UCL, skip non-UCL teams (optional, can be expanded)
+                if competition == 'premier-league' or competition is None:
+                    if not is_premier_league_team(home_team) or not is_premier_league_team(away_team):
+                        print(f"Skipping non-Premier League teams: {home_team} vs {away_team}")
+                        continue
+                # For UCL, optionally add a check for UCL teams if you have a list
+                
+                # Extract date and time
+                fixture_date = datetime.now().date() + timedelta(days=7)
+                fixture_time = "15:00"  # Default time
+                
+                weather_div = box.select_one('.lineup__weather-text')
+                if weather_div:
+                    weather_text = weather_div.get_text(strip=True)
+                    time_match = re.search(r'(\d{1,2}):(\d{2})', weather_text)
+                    if time_match:
+                        hour, minute = time_match.groups()
+                        fixture_time = f"{hour.zfill(2)}:{minute}"
+                
+                # Format date as YYYY-MM-DD
+                date_str = fixture_date.strftime('%Y-%m-%d')
+                
+                # Generate fixture ID
+                prefix = 'pl' if competition == 'premier-league' or competition is None else 'cl'
+                fixture_id = f"{prefix}-{home_team.lower().replace(' ', '-')}-{away_team.lower().replace(' ', '-')}-{date_str.replace('-', '')}"
+                
+                # Extract lineups
+                home_lineup = []
+                away_lineup = []
+                
+                home_lineup_list = box.select_one('.lineup__list.is-home')
+                away_lineup_list = box.select_one('.lineup__list.is-visit')
+                
+                if home_lineup_list:
+                    for player in home_lineup_list.select('.lineup__player'):
+                        position_div = player.select_one('.lineup__pos')
+                        player_link = player.select_one('a')
+                        
+                        if position_div and player_link:
+                            position = position_div.get_text(strip=True)
+                            player_name = player_link.get_text(strip=True)
+                            
+                            # Skip injury section
+                            if "Injuries" in player_name:
+                                break
+                            home_lineup.append({
+                                "name": player_name,
+                                "position": position
+                            })
+                
+                if away_lineup_list:
+                    for player in away_lineup_list.select('.lineup__player'):
+                        position_div = player.select_one('.lineup__pos')
+                        player_link = player.select_one('a')
+                        
+                        if position_div and player_link:
+                            position = position_div.get_text(strip=True)
+                            player_name = player_link.get_text(strip=True)
+                            
+                            if "Injuries" in player_name:
+                                break
+                            away_lineup.append({
+                                "name": player_name,
+                                "position": position
+                            })
+                
+                # Build fixture object
+                fixture = {
+                    "id": fixture_id,
+                    "competition": competition or 'premier-league',
+                    "home_team": home_team,
+                    "away_team": away_team,
+                    "date": date_str,
+                    "time": fixture_time,
+                    "venue": None,
+                    "odds": generate_random_odds(),
+                    "home_lineup": home_lineup,
+                    "away_lineup": away_lineup
+                }
+                fixtures.append(fixture)
+            except Exception as e:
+                print(f"Error parsing fixture box: {str(e)}")
+                continue
+        return fixtures
+    except Exception as e:
+        print(f"Exception in scrape_rotowire_fixtures: {str(e)}")
+        return generate_fallback_fixtures(competition or 'premier-league')
 
 def get_stadium_for_team(team_name):
     """Get the stadium name for a given team"""
@@ -508,211 +508,6 @@ def generate_random_odds():
             "away": round(random.uniform(1.8, 2.1), 2)
         }
     }
-
-def scrape_rotowire_fixtures():
-    """
-    Scrape upcoming Premier League fixtures and lineups from Rotowire
-    Returns a list of fixture objects compatible with the existing format
-    """
-    try:
-        url = "https://www.rotowire.com/soccer/lineups.php"
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-        
-        print(f"Fetching Premier League fixtures from Rotowire...")
-        response = requests.get(url, headers=headers)
-        
-        if response.status_code != 200:
-            print(f"Failed to fetch fixtures from Rotowire: HTTP {response.status_code}")
-            return generate_fallback_fixtures('premier-league')
-        
-        soup = BeautifulSoup(response.text, 'html.parser')
-        fixtures = []
-        
-        # Load existing fixtures to preserve IDs and other data
-        existing_fixtures = load_fixtures('premier-league')
-        existing_fixtures_dict = {f"{f['home_team']}-{f['away_team']}": f for f in existing_fixtures}
-        
-        # Find all fixture boxes
-        fixture_boxes = soup.select('.lineup__box')
-        
-        if not fixture_boxes:
-            print("No fixture boxes found on Rotowire")
-            return generate_fallback_fixtures('premier-league')
-        
-        print(f"Found {len(fixture_boxes)} fixture boxes on Rotowire")
-        
-        for box in fixture_boxes:
-            try:
-                # Extract home and away team names
-                home_team_div = box.select_one('.lineup__mteam.is-home')
-                away_team_div = box.select_one('.lineup__mteam.is-visit')
-                
-                if not home_team_div or not away_team_div:
-                    continue
-                
-                home_team = home_team_div.get_text(strip=True) 
-                away_team = away_team_div.get_text(strip=True)
-                
-                # Map team names to our standard format
-                home_team = standardize_team_name(home_team)
-                away_team = standardize_team_name(away_team)
-                
-                # Skip non-Premier League teams
-                if not is_premier_league_team(home_team) or not is_premier_league_team(away_team):
-                    print(f"Skipping non-Premier League teams: {home_team} vs {away_team}")
-                    continue
-                
-                # Extract date and time
-                # Rotowire doesn't always show date/time clearly, so we'll use current date + 7 days if not found
-                fixture_date = datetime.now().date() + timedelta(days=7)
-                fixture_time = "15:00"  # Default time
-                
-                # Try to extract weather/time info
-                weather_div = box.select_one('.lineup__weather-text')
-                if weather_div:
-                    weather_text = weather_div.get_text(strip=True)
-                    # Extract time if available
-                    time_match = re.search(r'(\d{1,2}):(\d{2})', weather_text)
-                    if time_match:
-                        hour, minute = time_match.groups()
-                        fixture_time = f"{hour.zfill(2)}:{minute}"
-                
-                # Format date as YYYY-MM-DD
-                date_str = fixture_date.strftime('%Y-%m-%d')
-                
-                # Generate fixture ID
-                fixture_id = f"pl-{home_team.lower().replace(' ', '-')}-{away_team.lower().replace(' ', '-')}-{date_str.replace('-', '')}"
-                
-                # Extract lineups
-                home_lineup = []
-                away_lineup = []
-                
-                home_lineup_list = box.select_one('.lineup__list.is-home')
-                away_lineup_list = box.select_one('.lineup__list.is-visit')
-                
-                if home_lineup_list:
-                    for player in home_lineup_list.select('.lineup__player'):
-                        position_div = player.select_one('.lineup__pos')
-                        player_link = player.select_one('a')
-                        
-                        if position_div and player_link:
-                            position = position_div.get_text(strip=True)
-                            player_name = player_link.get_text(strip=True)
-                            
-                            # Skip injury section
-                            if "Injuries" in player_name:
-                                break
-                                
-                            home_lineup.append({
-                                "name": player_name,
-                                "position": position
-                            })
-                
-                if away_lineup_list:
-                    for player in away_lineup_list.select('.lineup__player'):
-                        position_div = player.select_one('.lineup__pos')
-                        player_link = player.select_one('a')
-                        
-                        if position_div and player_link:
-                            position = position_div.get_text(strip=True)
-                            player_name = player_link.get_text(strip=True)
-                            
-                            # Skip injury section
-                            if "Injuries" in player_name:
-                                break
-                                
-                            away_lineup.append({
-                                "name": player_name,
-                                "position": position
-                            })
-                
-                # Extract odds if available
-                odds = generate_random_odds()  # Default to random odds
-                odds_div = box.select_one('.lineup__odds')
-                if odds_div:
-                    home_odds_div = odds_div.select_one('.lineup__odds-item:nth-child(1)')
-                    draw_odds_div = odds_div.select_one('.lineup__odds-item:nth-child(2)')
-                    away_odds_div = odds_div.select_one('.lineup__odds-item:nth-child(3)')
-                    
-                    if home_odds_div and draw_odds_div and away_odds_div:
-                        # Extract odds values
-                        home_odds_span = home_odds_div.select_one('.draftkings')
-                        draw_odds_span = draw_odds_div.select_one('.draftkings')
-                        away_odds_span = away_odds_div.select_one('.draftkings')
-                        
-                        if home_odds_span and draw_odds_span and away_odds_span:
-                            home_odds_text = home_odds_span.get_text(strip=True)
-                            draw_odds_text = draw_odds_span.get_text(strip=True)
-                            away_odds_text = away_odds_span.get_text(strip=True)
-                            
-                            # Convert American odds to decimal
-                            try:
-                                home_win = american_to_decimal(home_odds_text)
-                                draw = american_to_decimal(draw_odds_text)
-                                away_win = american_to_decimal(away_odds_text)
-                                
-                                odds = {
-                                    "home_win": home_win,
-                                    "draw": draw,
-                                    "away_win": away_win,
-                                    "asian_handicap": {
-                                        "line": "+0.0",
-                                        "home": 1.9,
-                                        "away": 1.9
-                                    }
-                                }
-                            except:
-                                pass  # Keep default odds if conversion fails
-                
-                # Get venue
-                venue = get_stadium_for_team(home_team)
-                
-                # Create fixture object
-                fixture = {
-                    "id": f"pl-{home_team.lower().replace(' ', '-')}-{away_team.lower().replace(' ', '-')}-{date_str.replace('-', '')}",
-                    "competition": "Premier League",
-                    "home_team": home_team,
-                    "away_team": away_team,
-                    "date": date_str,
-                    "time": fixture_time,
-                    "venue": venue,
-                    "odds": odds,
-                    "lineups": {
-                        "home": home_lineup,
-                        "away": away_lineup
-                    }
-                }
-                
-                # If this fixture exists in our current data, preserve some fields
-                fixture_key = f"{home_team}-{away_team}"
-                if fixture_key in existing_fixtures_dict:
-                    existing = existing_fixtures_dict[fixture_key]
-                    # Preserve date, time, and ID if they exist
-                    if 'date' in existing:
-                        fixture['date'] = existing['date']
-                    if 'time' in existing:
-                        fixture['time'] = existing['time']
-                    if 'id' in existing:
-                        fixture['id'] = existing['id']
-                
-                fixtures.append(fixture)
-                
-            except Exception as e:
-                print(f"Error processing fixture box: {str(e)}")
-                continue
-        
-        if not fixtures:
-            print("No Premier League fixtures found on Rotowire")
-            return generate_fallback_fixtures('premier-league')
-        
-        print(f"Successfully scraped {len(fixtures)} Premier League fixtures from Rotowire")
-        return fixtures
-        
-    except Exception as e:
-        print(f"Error scraping Rotowire: {str(e)}")
-        return generate_fallback_fixtures('premier-league')
 
 def standardize_team_name(name):
     """Standardize team names to match our format"""

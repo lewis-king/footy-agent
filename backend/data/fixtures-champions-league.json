@@ -592,7 +592,7 @@
     "away_team": "Arsenal",
     "date": "2025-04-16",
     "time": "20:00",
-    "venue": "Bernabéu",
+    "venue": "Bernab\u00e9u",
     "odds": {
       "home_win": 1.8,
       "draw": 4,
@@ -923,5 +923,303 @@
         }
       ]
     }
+  },
+  {
+    "id": "cl-inter-milan-barcelona-20250506",
+    "competition": "Champions League",
+    "home_team": "Inter Milan",
+    "away_team": "Barcelona",
+    "date": "2025-05-06",
+    "time": "20:00",
+    "venue": "San Siro",
+    "odds": {
+      "home_win": 2.96,
+      "draw": 3.9,
+      "away_win": 2.3,
+      "asian_handicap": {
+        "line": "+0.25",
+        "home": 1.88,
+        "away": 2.06
+      }
+    },
+    "home_lineup": [
+      {
+        "name": "Yann Sommer",
+        "position": "GK"
+      },
+      {
+        "name": "A. Bastoni",
+        "position": "DC"
+      },
+      {
+        "name": "F. Acerbi",
+        "position": "DC"
+      },
+      {
+        "name": "Y. Bisseck",
+        "position": "DC"
+      },
+      {
+        "name": "F. Dimarco",
+        "position": "ML"
+      },
+      {
+        "name": "N. Barella",
+        "position": "MC"
+      },
+      {
+        "name": "H. Calhanoglu",
+        "position": "MC"
+      },
+      {
+        "name": "H. Mkhitaryan",
+        "position": "MC"
+      },
+      {
+        "name": "D. Dumfries",
+        "position": "MR"
+      },
+      {
+        "name": "Mehdi Taremi",
+        "position": "FW"
+      },
+      {
+        "name": "M. Thuram",
+        "position": "FW"
+      },
+      {
+        "name": "L. Martinez",
+        "position": "F"
+      },
+      {
+        "name": "B. Pavard",
+        "position": "D"
+      },
+      {
+        "name": "V. Carboni",
+        "position": "F/M"
+      }
+    ],
+    "away_lineup": [
+      {
+        "name": "W. Szczesny",
+        "position": "GK"
+      },
+      {
+        "name": "R. Araujo",
+        "position": "DL"
+      },
+      {
+        "name": "Pau Cubarsi",
+        "position": "DC"
+      },
+      {
+        "name": "I. Martinez",
+        "position": "DC"
+      },
+      {
+        "name": "Eric Garcia",
+        "position": "DR"
+      },
+      {
+        "name": "F. de Jong",
+        "position": "DMC"
+      },
+      {
+        "name": "Pedri",
+        "position": "DMC"
+      },
+      {
+        "name": "Raphinha",
+        "position": "AML"
+      },
+      {
+        "name": "Dani Olmo",
+        "position": "AMC"
+      },
+      {
+        "name": "Lamine Yamal",
+        "position": "AMR"
+      },
+      {
+        "name": "F. Torres",
+        "position": "FW"
+      },
+      {
+        "name": "R. Lewandowski",
+        "position": "F"
+      },
+      {
+        "name": "Gavi",
+        "position": "M"
+      },
+      {
+        "name": "Alex Balde",
+        "position": "D"
+      },
+      {
+        "name": "Marc Bernal",
+        "position": "M/D"
+      },
+      {
+        "name": "Marc Casado",
+        "position": "M"
+      },
+      {
+        "name": "Jules Kounde",
+        "position": "D"
+      },
+      {
+        "name": "D. Rodriguez Crespo",
+        "position": "F/M"
+      }
+    ]
+  },
+  {
+    "id": "cl-paris-saint-germain-arsenal-20250507",
+    "competition": "Champions League",
+    "home_team": "Paris Saint-Germain",
+    "away_team": "Arsenal",
+    "date": "2025-05-07",
+    "time": "20:00",
+    "venue": "Parc des Princes",
+    "odds": {
+      "home_win": 2.1,
+      "draw": 3.7,
+      "away_win": 3.45,
+      "asian_handicap": {
+        "line": "-0.25",
+        "home": 1.85,
+        "away": 2.08
+      }
+    },
+    "home_lineup": [
+      {
+        "name": "G. Donnarumma",
+        "position": "GK"
+      },
+      {
+        "name": "Nuno Mendes",
+        "position": "DL"
+      },
+      {
+        "name": "Willian Pacho",
+        "position": "DC"
+      },
+      {
+        "name": "Marquinhos",
+        "position": "DC"
+      },
+      {
+        "name": "A. Hakimi",
+        "position": "DR"
+      },
+      {
+        "name": "Fabian Ruiz",
+        "position": "MC"
+      },
+      {
+        "name": "Vitinha",
+        "position": "MC"
+      },
+      {
+        "name": "Joao Neves",
+        "position": "MC"
+      },
+      {
+        "name": "K. Kvaratskhelia",
+        "position": "FWL"
+      },
+      {
+        "name": "Desire Doue",
+        "position": "FWR"
+      },
+      {
+        "name": "Goncalo Ramos",
+        "position": "FW"
+      },
+      {
+        "name": "O. Dembele",
+        "position": "F"
+      },
+      {
+        "name": "Kang-In Lee",
+        "position": "F/M"
+      }
+    ],
+    "away_lineup": [
+      {
+        "name": "David Raya",
+        "position": "GK"
+      },
+      {
+        "name": "M. Lewis-Skelly",
+        "position": "DL"
+      },
+      {
+        "name": "Jakub Kiwior",
+        "position": "DC"
+      },
+      {
+        "name": "W. Saliba",
+        "position": "DC"
+      },
+      {
+        "name": "J. Timber",
+        "position": "DR"
+      },
+      {
+        "name": "Declan Rice",
+        "position": "MC"
+      },
+      {
+        "name": "M. Odegaard",
+        "position": "MC"
+      },
+      {
+        "name": "Mikel Merino",
+        "position": "MC"
+      },
+      {
+        "name": "G. Martinelli",
+        "position": "FWL"
+      },
+      {
+        "name": "Bukayo Saka",
+        "position": "FWR"
+      },
+      {
+        "name": "L. Trossard",
+        "position": "FW"
+      },
+      {
+        "name": "R. Calafiori",
+        "position": "D"
+      },
+      {
+        "name": "Jorginho",
+        "position": "M"
+      },
+      {
+        "name": "J. Timber",
+        "position": "D"
+      },
+      {
+        "name": "Gabriel",
+        "position": "D"
+      },
+      {
+        "name": "Kai Havertz",
+        "position": "F/M"
+      },
+      {
+        "name": "G. Jesus",
+        "position": "F"
+      },
+      {
+        "name": "T. Tomiyasu",
+        "position": "D"
+      }
+    ]
   }
 ]
